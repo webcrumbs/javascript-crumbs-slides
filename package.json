@@ -1,0 +1,17 @@
+{
+  "author": "cvdlab <cvdlab@email.com> (https://github.com/cvdlab/)",
+  "name": "javascript-crumbs-slides",
+  "description": "JavaScript crumbs for beginners",
+  "version": "0.0.1",
+  "homepage": "https://github.com/cvdlab/javascript-crumbs-slides.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cvdlab/javascript-crumbs-slides.git"
+  },
+  "main": "",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
