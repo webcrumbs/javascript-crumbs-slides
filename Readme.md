@@ -1,4 +1,4 @@
-# javascript-crumbs
+# javascript-crumbs-slides
 
 ## for beginners
 
