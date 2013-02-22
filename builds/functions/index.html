@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h1>Functions</h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Definition</h2>
+
+<div class="highlight"><pre lang="js">function name (comma_separated_params) {
+  // code block 
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Definition</h2>
+
+<div class="highlight"><pre lang="js">function sum (a, b) {
+  var result = a + b;
+  return result;
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Definition</h2>
+
+<div class="highlight"><pre lang="js">function greets (name) {
+  alert('Hello ' + name + '!');
+  // implicitly return undefined;
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">var square = function (x) {
+  return x*x;
+};
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Invocation</h2>
+
+<div class="highlight"><pre lang="js">var result = square(3);
+result; // ?
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Invocation</h2>
+
+<h3>Arguments and parameters</h3>
+
+<h4>Optional parameters</h4>
+
+<p>If arguments are fewer than declared parameters <br /><br />the additional parameters are set to <code>undefined</code></p>
+
+<div class="highlight"><pre lang="js">function sum (a, b) { return a + b; }
+
+sum(3);       // NaN
+sum('Hello '); // "Hello undefined"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Invocation</h2>
+
+<h3>Arguments and parameters</h3>
+
+<h4>Arguments list</h4>
+
+<p>If arguments are more than declared parameters <br /><br />you can access them by the <code>arguments</code> object</p>
+
+<div class="highlight"><pre lang="js">function args () {
+  return arguments;
+}
+
+args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Invocation</h2>
+
+<h3>Arguments list</h3>
+
+<div class="highlight"><pre lang="js">function sumAll () {
+  var result = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    result += arguments[i];
+  }
+  return result;
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">sumAll(1, 2, 3, 4, 5); //15
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Invocation</h2>
+
+<h3>Arguments list</h3>
+
+<div class="highlight"><pre lang="js">function max () {
+  var max = Number.NEGATIVE_INFINITY;
+  for (var i = 0; i < arguments.length; i++) {
+    max = arguments[i] max ? arguments[i] : max;
+  }
+  return max;
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">max(1, 10, 100, 42, Math.PI, 1.4142135); //100
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Function as values</h2>
+
+<h3>Functions are objects</h3>
+
+<p>JavaScript functions are a special kind of object with two important features:</p>
+
+<ul>
+<li>they contain code  </li>
+<li>they are executable (can be invoked)  </li>
+</ul>
+
+<p>and because they are objects:</p>
+
+<ul>
+<li>they can be assigned to variables or object properties</li>
+<li>they can be passed to functions  </li>
+<li>they can have properties</li>
+<li>they can be returned by functions</li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Function as values</h2>
+
+<h3>Assign function to variables</h3>
+
+<p>JavaScript function can be assigned to variables or object properties.</p>
+
+<div class="highlight"><pre lang="js">function f () { return 'Hello!'; };
+var greets = f;
+var person = { say: greets };
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Function as values</h2>
+
+<h3>Copy function to variables</h3>
+
+<p>JavaScript functions can be copied to different variables.</p>
+
+<div class="highlight"><pre lang="js">var sum = function (a, b) { return a + b; }
+var add = sum;
+</pre></div>
+
+<div class="highlight"><pre lang="js">var result = add(1, 2);
+result; //3
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Function as values</h2>
+
+<h3>Pass function to functions</h3>
+
+<p>JavaScript functions can be passed to other function.</p>
+
+<div class="highlight"><pre lang="js">function add (x,y) { return x + y; }
+function sub (x,y) { return x - y; }
+function mul (x,y) { return x * y; }
+function div (x,y) { return x / y; }
+
+function calc (operator, x, y) {
+  return operator(x, y);
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">// Calculate ((2+3) + (4*5))
+calc(add, calc(add, 2, 3), calc(mul, 4, 5));
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Function as values</h2>
+
+<h3>Assign properties to functions</h3>
+
+<div class="highlight"><pre lang="js">// Compute factorials and cache results as properties of the function itself.
+function factorial (n) {
+  if (!(n in factorial)) {
+    factorial[n] = n * factorial(n-1); 
+  }
+  return factorial[n];
+}
+
+factorial[1] = 1; // Initialize the cache to hold this base case.
+</pre></div>
+
+<div class="highlight"><pre lang="js">factorial(5); //120
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Function as values</h2>
+
+<h3>Return function</h3>
+
+<p>JavaScript functions can be returned by functions.</p>
+
+<div class="highlight"><pre lang="js">function greets () {
+  console.log('Hello!');
+  return function () {
+    console.log('Bye!');
+  };
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">var f = greets(); //"Hello!"
+f(); //"Bye!"
+f(); //"Bye!"
+//...
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Function as values</h2>
+
+<h3>Return function</h3>
+
+<p>JavaScript functions can be returned by functions.</p>
+
+<div class="highlight"><pre lang="js">function greets () {
+  console.log('Hello!');
+  return function () {
+    console.log('Bye!');
+  };
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js ">greets()();
+//"Hello!"
+//"Bye!"
+</pre></div>
+
+<div class="highlight"><pre lang="js">greets()()();
+//"Hello!"
+//"Bye!"
+// TypeError: object is not a function
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Functions</h1>
+
+<h2>Self-invoking functions</h2>
+
+<p>JavaScript functions can be called right after they were defined.</p>
+
+<div class="highlight"><pre lang="js">(function () { alert('boo'); }());
+</pre></div>
+
+<div class="highlight"><pre lang="js">var message = (function (name) { return 'Hello ' + name + '!'; }('dude'));
+message; //"Hello dude!"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Inner (private) functions</h2>
+
+<h3>Define functions inside functions</h3>
+
+<p>JavaScript functions can be defined inside another function.</p>
+
+<div class="highlight"><pre lang="js">function f1 (a) {
+  function f2 (b) {
+    return b * 2;
+  }
+  return f2(a);
+};
+</pre></div>
+
+<div class="highlight"><pre lang="js">f1(2); //4
+</pre></div>
+
+<div class="highlight"><pre lang="js">f2(2); //ReferenceError: f2 is not defined
+</pre></div>
+
+<h4>Note</h4>
+
+<p><code>f2</code> is defined inside <code>f1</code> and it is not visible outside <code>f1</code>;<br /><code>f1</code> internally call the local function <code>f2</code>.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Inner (private) functions</h2>
+
+<div class="highlight"><pre lang="js">function greets () {
+  console.log('Hello!');
+  greets = function () {
+    console.log('Bye!');
+    return greets;
+  };
+  return greets;
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js ">greets()();
+//"Hello!"
+//"Bye!"
+</pre></div>
+
+<div class="highlight"><pre lang="js">greets()()();
+//"Hello!"
+//"Bye!"
+//"Bye!"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<p>JavaScript uses <strong>function scope</strong>: <br /><br />variables are visible within the function in which they are defined <br /><br />and within any functions that are nested within that function.</p>
+
+<p>A variable defined in a function is not visible outside the function, <br />but a variable defined in a code block is visible outside the block.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h3>Function Scope</h3>
+
+<div class="highlight"><pre lang="js">var a = 1; 
+function f () { var b = 1; return a; }
+</pre></div>
+
+<div class="highlight"><pre lang="js">f();
+</pre></div>
+
+<div class="highlight"><pre lang="js">b; //b is not defined
+</pre></div>
+
+<ul>
+<li>variable <code>a</code> is in the global space  </li>
+<li>variable <code>b</code> is in the scope of the function <code>f()</code>  </li>
+<li>inside <code>f()</code>, both <code>a</code> and <code>b</code> are visible  </li>
+<li>outside <code>f()</code>, <code>a</code> is visible, but <code>b</code> is not</li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Local and Global Scope</h3>
+
+<p>A variable declared within a function has a <strong>local scope</strong>, <br /><br />it is defined only within the body of the function.  </p>
+
+<p>A variable not declared within a function has a <strong>global scope</strong>, <br /><br />it is defined everywhere in the code.</p>
+
+<p>A local variable, a variable declared within a function, <br /><br />takes precedence over a global variable with the same name.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Local and Global Scope</h3>
+
+<div class="highlight"><pre lang="js">var scope = 'global';
+
+function checkScope () {
+  var scope = 'local';
+  return scope;
+}
+
+checkScope(); //"local"
+scope;        //"global"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Local and Global Scope</h3>
+
+<h4>Attention!</h4>
+
+<p>You must always use <code>var</code> to declare local variables.</p>
+
+<div class="highlight"><pre lang="js">var scope = 'global';
+
+function checkScope () {
+  scope = 'local';        // if var is omitted, it refers to global variable
+  return scope;
+}
+
+checkScope(); //"local"
+scope;        //"local"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Local variables</h3>
+
+<p>Function parameters count as local variables <br /><br />and are defined only within the body of the function.</p>
+
+<div class="highlight"><pre lang="js">function checkParamScope (a) {
+  a += 1;
+  console.log(a);
+}
+
+console.log(a);     //"undefined"
+checkParamScope(1); //2
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Scope Chain</h3>
+
+<p>Each function has its own local scope. <br /><br />It is possible to have several nested layers of local scope.</p>
+
+<div class="highlight"><pre lang="js">var a = 1;
+// code here can see variable a and function f
+
+function f (){
+  var b = 1;
+  // code here can see variables a and b and function n
+
+  function n () {
+    var c = 3; 
+    // code here can see variables a, b and c
+  }
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Scope Chain</h3>
+
+<div class="highlight"><pre lang="js">var scope = 'global';
+
+function localScope () {
+  var scope = 'local';
+
+  function nestedScope () {
+    var scope = 'nested';
+    return scope;
+  }
+
+  return nestedScope();
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">localScope(); //"nested"
+scope;        //"global"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Variable hoisting</h3>
+
+<p>Since variables are visible within the function in which they are defined <br /><br />variables are even visible before they are declared. <br /><br />All variable declarations in a function (but not any associated assignments) <br /><br />are "hoisted" to the top of the function.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h3>Variable hoisting</h3>
+
+<div class="highlight"><pre lang="js">function test (o) {
+  var i = 0;                      //i is defined throughout function
+  if (typeof o == 'object') {
+    var j = 0;                    //j is defined everywhere, not just block
+    for (var k=0; k < 10; k++) {  //k is defined everywhere, not just loop
+      console.log(k);             //print numbers 0 through 9
+    }
+    console.log(k);               //k is still defined: prints 10
+  }
+  console.log(j);                 //j is defined, but may not be initialized
+}
+</pre></div>
+
+<p>The variables <code>i</code>, <code>j</code>, and <code>k</code> are declared in different spots, <br /><br />but all have the same scope, all three are defined throughout the body of the function.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Variable hoisting</h3>
+
+<div class="highlight"><pre lang="js">var scope = 'global';
+
+function f () {
+  console.log(scope);  //prints "undefined", not "local" nor "global"
+  var scope = 'local'; //variable scope initialized here, but defined everywhere in f
+  console.log(scope);  //prints "local"
+}
+</pre></div>
+
+<p>The function above is equivalent to the following:</p>
+
+<div class="highlight"><pre lang="js">function f () {
+  var scope;          // local variable is declared at the top of the function
+  console.log(scope); // local variable exists here, but still has "undefined" value
+  scope = 'local';    // local variable is initialized
+  console.log(scope); // local variable has the value we expect
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Function Scope</h2>
+
+<h3>Variable hoisting</h3>
+
+<h4>Tip</h4>
+
+<p>Declare all the variables defined within a function at the top of the function.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closures</h2>
+
+<h3>Example #0</h3>
+
+<div class="highlight"><pre lang="js">function f () {
+  var b = 'b';
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">b; //b is not defined
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #1</h3>
+
+<div class="highlight"><pre lang="js">function f () {
+  var b = 'b';
+  return b;
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">b; //b is not defined
+</pre></div>
+
+<div class="highlight"><pre lang="js">b = f();
+b; //"b"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #2</h3>
+
+<div class="highlight"><pre lang="js">function f () {
+  var b = 'b';
+  return function () {
+    return b;
+  };
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">getB = f();
+b = getB();
+b; //"b"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #3</h3>
+
+<div class="highlight"><pre lang="js">var getB;
+function f () {
+  var b = 'b';
+  getB = function () {
+    return b;
+  };
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">b = getB();
+b; //"b"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #4</h3>
+
+<div class="highlight"><pre lang="js">function f (arg) {
+  return function () {
+    return arg;
+  };
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">var getArg = f('Hello');
+getArg(); //"Hello"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #5</h3>
+
+<div class="highlight"><pre lang="js">function countdown (from) {
+  return function () {
+    if (from 0) {
+      return from--;
+    } 
+    return 'Finish!';
+  };
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">var c = countdown(3);
+c(); //3
+c(); //2
+c(); //1
+c(); //"Finish!"
+c(); //"Finish!"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #6</h3>
+
+<p>Let's loop three times, each time creating a new function that returns the loop sequence number. <br /><br />The new functions will be added to an array and we'll return the array at the end. </p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #6</h3>
+
+<p>```js<br />function f () {<br />  var a = [];<br />  var i;</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<p>for (i = 0; i &lt; 3; i++) {<br />    a[i] = function () {<br />      return i;<br />    }<br />  }</p>
+
+<p>return a; <br />}<br /><div class="highlight"><pre lang=""><br /></pre></div>js<br />var a = f();<br /><div class="highlight"><pre lang=""><br /></pre></div>js<br />a<a href="">0</a>; //3<br />a<a href="">1</a>; //3<br />a<a href="">2</a>; //3<br />```</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #6 (that works!)</h3>
+
+<p>```js<br />function f () {<br />  function getArg (x) {<br />    return function () {<br />      return x;<br />    } <br />  }</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<p>var a = [];<br />  var i;</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<p>for (i = 0; i &lt; 3; i++) {<br />   a[i] = getArg(i);<br />  }</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<p>return a; <br />}<br />```</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Function</h1>
+
+<h2>Closure</h2>
+
+<h3>Example #7</h3>
+
+<div class="highlight"><pre lang="js">var getValue, setValue;
+(function () {
+  var secret = 0;
+  getValue = function () {
+    return secret;
+  };
+  setValue = function (v) {
+    secret = v;
+  }; 
+})();
+</pre></div>
+
+<div class="highlight"><pre lang="js">getValue();    //0
+</pre></div>
+
+<div class="highlight"><pre lang="js">setValue(123);
+getValue();    //123
+</pre></div>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h1>Built-ins</h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Object methods</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Object methods</h2>
+
+<div class="highlight"><pre lang="js">var o = {};
+var o = new Object();
+</pre></div>
+
+<p>An empty object already contains some methods and properties:</p>
+
+<ul>
+<li><code>o.constructor</code></li>
+<li><code>o.toString()</code></li>
+<li><code>o.valueOf()</code></li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Function methods</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Function methods</h2>
+
+<h3><code>call(thisArg, param...)</code></h3>
+
+<p>It allows your objects to borrow methods from other objects and invoke them as their own.</p>
+
+<div class="highlight"><pre lang="js">var greets = function (breed, birth) {
+  return "Hi I'm " + this.firstName + " " + breed + 
+         ", I was born in " + birth + ".";
+}
+
+var mickey = {
+  firstName: 'Mickey'
+};
+
+var donald = {
+  firstName: 'Donald'
+};
+
+greets.call(mickey, 'Mouse', 1928); 
+//"Hi I'm Mickey Mouse, I was born in 1928."
+
+greets.call(donald, 'Duck', 1934); 
+//"Hi I'm Donald Duck, I was born in 1934."
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Function methods</h2>
+
+<h3><code>apply(thisArg, arrayArg)</code></h3>
+
+<p>It has the same behaviour of <code>call</code> but different signature.</p>
+
+<div class="highlight"><pre lang="js">var greets = function (breed, birth) {
+  return "Hi I'm " + this.firstName + " " + breed + 
+         ", I was born in " + birth + ".";
+}
+
+var mickey = {
+  firstName: 'Mickey'
+};
+
+var donald = {
+  firstName: 'Donald'
+};
+
+greets.apply(mickey, ['Mouse', 1928]); 
+//"Hi I'm Mickey Mouse, I was born in 1928."
+
+greets.call(donald, ['Duck', 1934]); 
+//"Hi I'm Donald Duck, I was born in 1934."
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Function methods</h2>
+
+<h3><code>thisArg</code> parameter</h3>
+
+<p>if <code>null</code> is passed defaults to the global object</p>
+
+<div class="highlight"><pre lang="js">var greets = function (breed, birth) {
+  return "Hi I'm " + this.firstName + " " + breed + 
+         ", I was born in " + birth + ".";
+}
+
+greets.apply(null, ['Mouse', 1928]);
+//"Hi I'm undefined Mouse, I was born in 1928."
+
+var firstName = 'Goofy';
+greets.apply(null, ['Goof', 1932]);
+//"Hi I'm Goofy Goof, I was born in 1932."
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Array</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array</h2>
+
+<h3>Definition</h3>
+
+<div class="highlight"><pre lang="js">var a = ['one', 'two', 'three'];
+var empty = [];
+var plain = [1+2,'four'];
+var matrix = [[1,2,3], [4,5,6], [7,8,9]];
+var sparseArray = [1,,,,5];
+</pre></div>
+
+<div class="highlight"><pre lang="js">var a = new Array(['one', 'two', 'three']);
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array</h2>
+
+<h3>Definition</h3>
+
+<p>Arrays are objects, but of a special type because:  </p>
+
+<ul>
+<li>the names of their properties are automatically assigned using numbers  </li>
+<li>they have a <code>length</code> property which contains the number of elements in the array  </li>
+</ul>
+
+<div class="highlight"><pre lang="js">var a = ['one', 'two', 'three'];
+a.length; //3
+typeof a; //"object"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array</h2>
+
+<h2>Access</h2>
+
+<p>Arrays can be accessed through square bracket notation.</p>
+
+<div class="highlight"><pre lang="js">var a = ['one', 'two', 'three'];
+a[1]; //"two"
+a['1']; //"two"
+a[1] = 2
+a[1]; //2
+var matrix = [[1,2,3], [4,5,6], [7,8,9]];
+matrix[0][1]; //2
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Array methods</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3>Overview</h3>
+
+<div class="highlight"><pre lang="js">push(item...)
+pop()
+shift()
+unshift(item...)
+reverse()
+sort(comparefn)
+join(separator)
+concat(item...)
+slice(start, end)
+splice(start, deleteCount, item...)
+indexOf(item, startPos)
+lastIndexOf(item, startPos)
+every(function(item, index, array) {...}, scope)
+some(function(item, index, array) {...}, scope)
+filter(function(item, index, array) {...}, scope)
+forEach(function(item, index, array) {...}, scope)
+map(function(item, index, array) {...}, scope)
+reduce(function(prev, cur, index, array) {...}, initVal)
+reduceRight(function(prev, cur, index, array) {...}, initVal)
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>push(item...)</code> method</h3>
+
+<p>It accepts any number of item to push in the array. <br /><br />It returns the array's new length.  </p>
+
+<pre><code>!js
+var colors = [];   // create an array
+var count = colors.push('red', 'green'); // push any number of items
+count;  // 2
+colors; // ["red", "green"]
+
+count = colors.push('black');   // push another item on
+count;  // 3
+colors; // ["red", "green", "black"]
+</code></pre>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>pop()</code> method</h3>
+
+<p>It acceps no parameter. <br /><br />It returns and removes the last element in the array. <br /><br />If the array is empty, return undefined.</p>
+
+<pre><code>!js
+var colors = new Array('red', 'green', 'black');
+
+var item = colors.pop(); // get the last item
+item; // "black"
+colors.length; // 2
+colors; // ["red", "green"]
+</code></pre>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3>sort(comparefn)</h3>
+
+<p>The default comparing function is the lexicographical order.</p>
+
+<div class="highlight"><pre lang="js">var values = [0, 1, 5, 10, 15];
+values.sort();
+values;   // 0,1,10,15,5
+</pre></div>
+
+<div class="highlight"><pre lang="js">var compare = function (value1, value2) {
+ return value2 - value1;
+};
+
+var values = [0, 1, 5, 10, 15];
+values.sort(compare);
+values;   // 0,1,5,10,15
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3>Iterative methods: <code>every</code>, <code>filter</code>, <code>forEach</code>, <code>map</code>, <code>some</code></h3>
+
+<p>Each of the iterative methods accepts two arguments:</p>
+
+<ul>
+<li>a function to run on each item</li>
+<li>an optional scope object in which to run the function (affecting the value of <code>this</code>)</li>
+</ul>
+
+<p>The function passed into one of these methods will receive three arguments:</p>
+
+<ol>
+<li>the array item value</li>
+<li>the position of the item in the array</li>
+<li>the array object itself</li>
+</ol>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>every(iterator, scope)</code></h3>
+
+<p>Runs the given function on every item in the array and returns <code>true</code> if the function returns <code>true</code> for every item.</p>
+
+<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+
+var everyResult = numbers.every(function(item, index, array) {
+ return (item > 2);
+});
+
+everyResult;   //false
+</pre></div>
+
+<div class="highlight"><pre lang="js">var numbers = [3,5,3,4,5,4,3,8,9];
+
+var everyResult = numbers.every(function(item) {
+ return (item > 2);
+});
+
+everyResult;   //true
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>some(iterator, scope)</code></h3>
+
+<p>Runs the given function on every item in the array and returns <code>true</code>if the function returns <code>true</code> for any one item.</p>
+
+<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+
+var someResult = numbers.some(function(item, index, array) {
+ return (item > 2);
+});
+
+someResult;   //true
+</pre></div>
+
+<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+
+var someResult = numbers.some(function(item, index, array) {
+ return (item > 5);
+});
+
+someResult;   //false
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>filter(iterator, scope)</code></h3>
+
+<p>Runs the given function on every item in the array and returns an array of all items for which the function returns <code>true</code>.</p>
+
+<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+
+var filterResult = numbers.filter(function(item, index, array){
+ return (item > 2);
+});
+
+filterResult;   //[3,4,5,4,3]
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>forEach(oterator, scope)</code></h3>
+
+<p>Runs the given function on every item in the array. This method has no return value.</p>
+
+<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+
+numbers.forEach(function(item, index, array){   
+   //do something here
+});
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>map(iterator, scope)</code></h3>
+
+<p>Runs the given function on every item in the array and returns the result of each function call in an array.</p>
+
+<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+
+var mapResult = numbers.map(function(item, index, array){
+   return item * 2;
+});
+
+mapResult;   // [2,4,6,8,10,8,6,4,2]
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3>Reduction methods: <code>reduce</code>, <code>reduceRight</code></h3>
+
+<p>Both methods accept two arguments:</p>
+
+<ul>
+<li>a function to call on each item</li>
+<li>an optional initial value upon which the reduction is based</li>
+</ul>
+
+<p>The passed function accepts four arguments: </p>
+
+<ol>
+<li>the previous value </li>
+<li>the current value </li>
+<li>the item's index </li>
+<li>the array object</li>
+</ol>
+
+<p>Any value returned from the function is automatically passed in as the first argument for the next item.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>reduce(iterator, initVal)</code></h3>
+
+<p>Perform reduction in left-to-right order.</p>
+
+<div class="highlight"><pre lang="js">var values = [1,2,3,4,5];
+
+var sum = values.reduce(function(prev, cur, index, array){
+ return prev + cur;
+});
+
+sum; // 15
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Array methods</h2>
+
+<h3><code>reduceRight(iterator, initVal)</code></h3>
+
+<p>Perform reduction in right-to-left order.</p>
+
+<div class="highlight"><pre lang="js">var values = [1,2,3,4,5,15];
+
+var diff = values.reduceRight(function(prev, cur, index, array){
+ return prev - cur;
+});
+
+diff; // 0
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-in object <code>Math</code></h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Built-in object <code>Math</code></h2>
+
+<h3>Properties overview</h3>
+
+<div class="highlight"><pre lang="js">Math.E        // the value of e, the base of the natural logarithms
+Math.LN10     // the natural logarithm of 10
+Math.LN2      // the natural logarithm of 2
+Math.LOG2E    // the base 2 logarithm of e
+Math.LOG10E   // the base 10 logarithm of e
+Math.PI       // the value of π
+Math.SQRT1_2  // the square root of 1⁄2
+Math.SQRT2    // the square root of 2
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Built-in object <code>Math</code></h2>
+
+<h3>Methods overview</h3>
+
+<div class="highlight"><pre lang="js">Math.min(n0,n1,...)  // Returns the minimum value
+Math.max(n0,n1,...)  // Returns the maximum value
+Math.ceil(num)       // Rounds number up to the nearest integer value
+Math.floor(num)      // Rounds number down to the nearest integer value
+Math.round(num)      // Rounds number
+Math.random()        // Returns a random number in [0,1)
+Math.exp(num)        // Returns Math.E raised to the power of num
+Math.log(num)        // Returns the natural logarithm of num
+Math.pow(num, power) // Returns num raised to the power of power
+Math.sqrt(num)       // Returns the square root of num
+Math.acos(x)         // Returns the arc cosine of x
+Math.asin(x)         // Returns the arc sine of x
+Math.atan(x)         // Returns the arc tangent of x
+Math.atan2(y, x)     // Returns the arc tangent of y/x
+Math.cos(x)          // Returns the cosine of x
+Math.sin(x)          // Returns the sine of x
+Math.tan(x)          // Returns the tangent of x
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>RegExp</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>RegExp</h2>
+
+<h3>Regex literals</h3>
+
+<div class="highlight"><pre lang="js">var expression = /pattern/flags;
+</pre></div>
+
+<p>Flags can be:</p>
+
+<ul>
+<li>g — global mode, meaning the pattern will be applied to all of the string instead of stopping after the first match is found</li>
+<li>i — case-insensitive mode, meaning the case of the pattern and the string are ignored when determining matches</li>
+<li>m — multiline mode, meaning the pattern will continue looking for matches after reaching the end of one line of text</li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>RegExp</h2>
+
+<h3>Methods overview</h3>
+
+<div class="highlight"><pre lang="js">exec(str)
+test(str)
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>String methods</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>String methods</h2>
+
+<h3>Overview</h3>
+
+<div class="highlight"><pre lang="js">charAt(pos)
+charCodeAt(pos)
+concat(str...)
+indexOf(searchString, position)
+lastIndexOf(searchString, position)
+match(regexp)
+search(regexp)
+slice(start, end)
+split(separator, limit)
+toLowerCase()
+toUpperCase()
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Date</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Date</h2>
+
+<h3>Definition</h3>
+
+<p>The Date type stores dates as the number of milliseconds that have passed since midnight on January 1, 1970 UTC (Universal Time Code)</p>
+
+<div class="highlight"><pre lang="js">var now = new Date();
+</pre></div>
+
+<div class="highlight"><pre lang="js">now.toDateString(); //"Thu Mar 08 2012"
+now.toString();     //"Thu Mar 08 2012 10:41:02 GMT+0100 (CET)"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Built-ins</h1>
+
+<h2>Date</h2>
+
+<h3>Definition</h3>
+
+<p>Date constructor accept many format</p>
+
+<div class="highlight"><pre lang="js">var someDate = new Date("May 25, 2004");
+var someDate = new Date("25/5/2004");
+var someDate = new Date('Tue May 25 2004 00:00:00 GMT-0700');
+var someDate = new Date('2004-05-25T00:00:00');
+</pre></div>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>

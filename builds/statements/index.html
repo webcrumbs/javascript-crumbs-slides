@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h2>Statements</h2>
+
+<h4>Code block statement</h4>
+
+<div class="highlight"><pre lang="js">{
+  //code block
+  {
+    //nested code block
+    //use indentation
+  }
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h4><code>if</code> statement</h4>
+
+<div class="highlight"><pre lang="js">if (condition) statement1 else statement2
+</pre></div>
+
+<div class="highlight"><pre lang="js">if (condition1) statement1 else if (condition2) statement2 else statement3
+</pre></div>
+
+<div class="highlight"><pre lang="js">if (condition1) {
+  statement1 
+} else if (condition2) {
+  statement2 
+} else {
+  statement3
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>switch</code> statement</h3>
+
+<div class="highlight"><pre lang="js">switch (expression) {
+  case value1: statement1; break;
+  case value2: statement2; break;
+  //...
+  case valueN: statementN; break;
+  default: statement
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>do-while</code> statement</h3>
+
+<div class="highlight"><pre lang="js">do {
+  statement
+} while (expression);
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>do-while</code> statement</h3>
+
+<h4>example</h4>
+
+<div class="highlight"><pre lang="js">var i = 0;
+do {
+  i += 1;
+} while (i < 10);
+
+console.log(i); //?
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>while</code> statement</h3>
+
+<div class="highlight"><pre lang="js">while (expression) statement
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>while</code> statement</h3>
+
+<h4>Example</h4>
+
+<div class="highlight"><pre lang="js">var i = 0;
+while (i < 10) {
+  i += 2;
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>for</code> statement</h3>
+
+<div class="highlight"><pre lang="js">for (initialization; expression; post-loop-expression) statement
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>for</code> statement</h3>
+
+<h4><code>while</code> using <code>for</code></h4>
+
+<div class="highlight"><pre lang="js">var count = 10;
+var i = 0;             //initialization
+for (; i < count; ) {  //expression
+  console.log(i);
+  i++;                 //post-loop-expression
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>for</code> statement</h3>
+
+<h4>infinite loop</h4>
+
+<div class="highlight"><pre lang="js">for (;;) { //don't try this at home!
+  doSomething();
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>for in</code> statement</h3>
+
+<div class="highlight"><pre lang="js">for (property in object) statement
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Statements</h2>
+
+<h3><code>for in</code> statement</h3>
+
+<h4>Example</h4>
+
+<div class="highlight"><pre lang="js">var obj = {a: 1, b: 2, c: 3};
+var s = '';
+for (var key in obj) {
+   s += key + ' ';
+}
+console.log(s); //?;
+</pre></div>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>

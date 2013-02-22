@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h1>Syntax</h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<p>JavaScript syntax borrows heavily from C <br /><br />and other C-like languages such as Java and Perl.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Case-sensitivity</h2>
+
+<p>In JavaScript, everything is case-sensitive: <br /><br /><em>variables</em>, <em>function names</em>, and <em>operators</em>.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Identifiers</h2>
+
+<p>An <em>identifier</em> is the name of a variable, function, property, or argument</p>
+
+<ul>
+<li>may be one or more characters</li>
+<li>starts with a letter or <code>_</code> or <code>$</code></li>
+<li>can contains letters, numbers, <code>_</code>, <code>$</code></li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Identifiers</h2>
+
+<h4>Examples</h4>
+
+<div class="highlight"><pre lang="js">var name1;    // OK
+var _name2;   // OK
+var $name3;   // OK
+var $;        // OK
+var _;        // OK
+var Åmstrong; // OK
+var π;        // OK
+var Name;     // OK
+var 1name;    // SyntaxError: Unexpected token ILLEGAL
+</pre></div>
+
+<h4>Note</h4>
+
+<p>Letters can be in extended ASCII or Unicode</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<hr />
+
+<h1>Syntax</h1>
+
+<h2>Identifiers</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h4>convention</h4>
+
+<p>JavaScript identifiers use camel case:</p>
+
+<ul>
+<li>the first letter is lowercase</li>
+<li>each additional word is offset by a capital letter</li>
+</ul>
+
+<div class="highlight"><pre lang="js">var firstSecond;
+var doSomethingImportant;
+var yetAnotherCamelCaseExample;
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Comments</h2>
+
+<h4>single-line comment</h4>
+
+<div class="highlight"><pre lang="js">//single line comment
+</pre></div>
+
+<h4>block comment</h4>
+
+<div class="highlight"><pre lang="js">/*
+ * This is a multi-line
+ * Comment
+ */
+</pre></div>
+
+<h4>Convention</h4>
+
+<p>for readability each line of block comment starts with <code>*</code></p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Statements</h2>
+
+<p>JavaScript statements are terminated by a semicolon <code>;</code></p>
+
+<div class="highlight"><pre lang="js">var sum = a + b   //valid even without a semicolon - not recommended
+var diff = a - b; //valid - preferred
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Statements</h2>
+
+<h3>Multiple statements</h3>
+
+<p>Multiple statements can be combined into a code block between curly braces <code>{</code> and <code>}</code></p>
+
+<div class="highlight"><pre lang="js">{
+  test = false;
+  alert('hello!');
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Keywords and Reserved Words</h2>
+
+<h3>Keywords</h3>
+
+<div class="highlight"><pre lang="js">break        for          try          
+case         function     typeof  
+catch        instanceof   var  
+continue     if           void  
+do           in           while  
+debugger     new          with
+default      return       
+delete       switch       
+else         this         
+finally      throws       
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Syntax</h1>
+
+<h2>Keywords and Reserved Words</h2>
+
+<h3>Reserved words</h3>
+
+<div class="highlight"><pre lang="js">abstract     extends     package      volatile
+boolean      final       private      
+byte         float       protected    
+char         goto        public       
+class        implements  short        
+const        import      static         
+debugger     int         super
+double       interface   synchronized
+enum         long        throws
+export       native      transient
+</pre></div>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>

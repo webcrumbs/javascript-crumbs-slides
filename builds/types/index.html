@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h1>Types</h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Variables</h2>
+
+<p>JavaScript variables are <strong>loosely typed</strong>: <br /><br />a variable is simply a named placeholder for a value of any type.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Variables</h2>
+
+<h4>definition</h4>
+
+<p>To define a variable, use the <code>var</code> operator followed by the variable name.</p>
+
+<div class="highlight"><pre lang="js">var variable_name;
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Variables</h2>
+
+<h4>initialization</h4>
+
+<p>Without initialization, a variable holds the special value <code>undefined</code>.  </p>
+
+<p>It’s possible to define the variable and set its value at the same time.</p>
+
+<div class="highlight"><pre lang="js">var message = 'hello!';
+</pre></div>
+
+<p>It's possible to change the value stored in the variable and also its type.</p>
+
+<div class="highlight"><pre lang="js">var response = 'bye!';
+response = 100;        //legal, but not recommended
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<p>There are five simple data types (or primitive types):</p>
+
+<ul>
+<li>Null  </li>
+<li>Undefined  </li>
+<li>Boolean  </li>
+<li>Number  </li>
+<li>String  </li>
+</ul>
+
+<p>and one complex data type:</p>
+
+<ul>
+<li>Object</li>
+</ul>
+
+<p>All values can be represented as one of these six data types.  </p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Null</h3>
+
+<p><code>null</code> is a special value that all variables are considered to have <br /><br />if they have been defined but have not been assigned a value. </p>
+
+<p><code>null</code> is a reserved word and cannot be used for anything, <br /><br />but to check that a variable does not have an assigned value.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Undefined</h3>
+
+<p>Javascript treats <code>undefined</code> as being equal to <code>null</code>.  </p>
+
+<p>The one difference between <code>null</code> and <code>undefined</code> is that <br /><br /><code>null</code> is a reserved word while <code>undefined</code> is not. </p>
+
+<div class="highlight"><pre lang="js">var undefined = 'hello'; // legal, but not reccomended
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Booleans</h3>
+
+<p>Boolean data type has only two values: <br /><br /><code>true</code> and <code>false</code>, used without quotes.</p>
+
+<div class="highlight"><pre lang="js">var t = true;
+var f = false;
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Integer</h4>
+
+<div class="highlight"><pre lang="js">var int1 = 1;
+var int2 = 2;
+var int3 = 3;
+// ...
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Octal numbers</h4>
+
+<p>starts with digit zero <code>0</code> <br /><br />followed by a sequence of octal digits (<code>0</code> through <code>7</code>).  </p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<div class="highlight"><pre lang="js">var octal1 = 070; //octal for 56
+var octal2 = 079; //invalid octal - interpreted as 79
+var octal3 = 008; //invalid octal - interpreted as 8
+</pre></div>
+
+<blockquote>
+  <h4>Note</h4>
+  
+  <p>If a number out of the range <code>0</code>-<code>7</code> is detected in the literal, <br /><br />then the leading zero is ignored and the number is treated as a decimal.</p>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Hexadecimal numbers</h4>
+
+<p>starts with two characters <code>0x</code> <br /><br />followed by a sequence of hexadecimal digits (<code>0</code> through <code>9</code>, <code>A</code> through <code>F</code>).  </p>
+
+<div class="highlight"><pre lang="js">var hex1 = 0x0;  //hexadecimal for 0
+var hex2 = 0xA;  //hexadecimal for 10
+var hex3 = 0X1F; //hexedecimal for 31
+</pre></div>
+
+<blockquote>
+  <h4>Note</h4>
+  
+  <p>Letters may be in uppercase or lowercase.</p>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Floating-Point Values</h4>
+
+<p>must include a decimal point <code>.</code> <br /><br />and at least one number after the decimal point.</p>
+
+<div class="highlight"><pre lang="js">var float1 = 0.1;
+var float2 = 1.2;
+var float3 = 3.14;
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Floating-Point Values</h4>
+
+<p>decimal or digits after decimal can be omitted.</p>
+
+<div class="highlight"><pre lang="js">var float4 = .07;  //missing decimal - interpreted as 0.07 preferred
+var float5 = 1.;   //missing digit after decimal - interpreted as integer 1
+var float6 = 10.0; //whole number - interpreted as integer 10
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>e-notation</h4>
+
+<p>starts with a number (integer or floating-point) <br /><br />followed by letter <code>e</code> (or <code>E</code>) <br /><br />followed by the power of 10 to multiply by.</p>
+
+<div class="highlight"><pre lang="js">1e1;    //10
+1e+1;   //10
+2e+3;   //2000
+2e-3;   //0.002
+123E-3; //0.123
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h3>Range of Values</h3>
+
+<p>the smallest representable number is <br /><br /><code>5e-324</code> stored in <code>Number.MIN_VALUE</code> </p>
+
+<p>the largest representable number is <br /><br /><code>1.7976931348623157e+308</code> stored in <code>Number.MAX_VALUE</code></p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Infinity</h4>
+
+<p>represents a number out of range of values <br /><br />(Number.MIN_VALUE through Number.MAX_VALUE)</p>
+
+<p>the positive infinity is <br /><br /><code>Infinity</code> stored in <code>Number.POSITIVE_INIFINITY</code></p>
+
+<p>the negative infinity is <br /><br /><code>–Infinity</code> stored in <code>Number.NEGATIVE_INFINITY</code></p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Infinity</h4>
+
+<p>If a calculation returns either positive or negative Infinity, <br /><br />that value cannot be used in any further calculations, <br /><br />because Infinity has no numeric representation with which to calculate.</p>
+
+<div class="highlight"><pre lang="js">Infinity - 1e307;    //Infinity 
+Infinity - Infinity; //NaN
+-Infinity * -1;      //Infinity
+Infinity * -1;       //-Infinity
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Testing if a value is not out of range</h4>
+
+<p>To determine if a value is finite there is the <code>isFinite()</code> function.</p>
+
+<div class="highlight"><pre lang="js">isFinite(Infinite);  //false
+isFinite(-Infinite); //false
+isFinite(Number.MAX_VALUE + Number.MAX_VALUE); //false
+isFinite(Number.POSITIVE_INFINITE); //false
+isFinite(Number.NEGATIVE_INFINITE); //false
+isFinite(0); //true
+isFinite(1.7e308); //true
+isFinite(1.8e308); //false
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>NaN</h4>
+
+<p>is the value that represent Not a Number,  </p>
+
+<p>The value <code>NaN</code> has a couple of unique properties:</p>
+
+<ul>
+<li><code>NaN</code> is contagious, any operation involving <code>NaN</code> always returns <code>NaN</code></li>
+<li><code>NaN</code> is not equal to any value, including <code>NaN</code></li>
+</ul>
+
+<div class="highlight"><pre lang="js">Nan + 1 * 2 / 3; //NaN
+NaN == NaN;      //false
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h3>Numbers</h3>
+
+<h4>Testing if a value is not a number</h4>
+
+<p>To determine if a value is "not a number" there is the <code>isNaN()</code> function.  </p>
+
+<div class="highlight"><pre lang="js">isNaN(NaN);    //true  - NaN is NaN :)
+isNaN(10);     //false - 10 is a number
+isNaN("10");   //false - can be converted to number 10
+isNaN("blue"); //true  - cannot be converted to a number
+isNaN(true);   //false - can be converted to number 1
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h2>Strings</h2>
+
+<p>A string is a sequence of character placed between single or double quotes.</p>
+
+<div class="highlight"><pre lang="js">"some characters";
+'some characters and numbers 123 5.87';
+'1';
+"";
+"'hello'";
+'"hello"';
+'hello"; //syntax error - quotes must match
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h2>Strings</h2>
+
+<h4>Character Literals</h4>
+
+<p>nonprintable or otherwise useful characters</p>
+
+<ul>
+<li><code>\n</code> new line</li>
+<li><code>\t</code> tab</li>
+<li><code>\b</code> backspace</li>
+<li><code>\r</code> carriage return</li>
+<li><code>\f</code> form feed</li>
+<li><code>\\</code> backslash (<code>\</code>)</li>
+<li><code>\'</code> single quote (<code>'</code>) — used when the string is delineated by single quotes.</li>
+<li><code>\"</code> double quote (<code>"</code>) — used when the string is delineated by double quotes.</li>
+<li>\xnn a character represented by hexadecimal code nn (where n is a hexadecimal digit 0-F).</li>
+<li>\unnnn a unicode character represented by the hexadecimal code nnnn (where n is a hexadecimal digit 0-F).</li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h2>Strings</h2>
+
+<h4>Character Literals</h4>
+
+<div class="highlight"><pre lang="js">'he said \'hello\''; //"he said 'hello'"
+"he said \"hello\""; //"he said "hello""
+'\u03a3';            //"Σ"
+'\x41';              //"A"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h2>Object</h2>
+
+<p>An object is an unordered collection of key/value pairs, <br /><br />separated by commas <code>,</code>, placed within curly braces <code>{</code> and <code>}</code>.</p>
+
+<p>The keys are strings, the values can be of any type (even Object).</p>
+
+<div class="highlight"><pre lang="js">{
+    s: 'string value'
+  , n: 123
+  , b: true
+  , o: {
+      k: 2
+    }
+}
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Types</h1>
+
+<h2>Data types</h2>
+
+<h2>Object</h2>
+
+<p>The keys can optionally be placed in quotation marks.  </p>
+
+<p>```js<br />var obj = {<br />    "s": 'string value'<br />  , 'key': 'another value'<br />  , "name with spaces": true<br />}; </p>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>

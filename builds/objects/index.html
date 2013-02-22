@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h1>Objects</h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<hr />
+
+<h1>Objects</h1>
+
+<h2>Using <code>this</code> value</h2>
+
+<p>Inside a method, there is a special way to access the object this method belongs to: <br /><br />by using the special value <code>this</code>.  </p>
+
+<blockquote>
+  <h4>Example</h4>
+  
+  <div class="highlight"><pre lang="js">>var hero = {
+   name: 'Rafaelo',
+   sayName: function() {
+     return this.name;
+   }
+  }
+  
+  hero.sayName();   // "Rafaelo"
+  </pre></div>
+  
+  <h4>Tip</h4>
+  
+  <p>when you say <code>this</code>, you are actually saying "this object" or "the current object".</p>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>Constructor functions</h2>
+
+<p>They are another way to create objects. <br /><br />In order to create an object using this kind of function, use the <code>new</code> operator.</p>
+
+<blockquote>
+  <h4>Exmaple</h4>
+  
+  <div class="highlight"><pre lang="js ">>function Hero() {
+   this.occupation = 'Ninja';
+  }
+  </pre></div>
+  
+  <div class="highlight"><pre lang="js">>var hero = new Hero();
+  hero.occupation; // "Ninja"
+  </pre></div>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>Constructor functions</h2>
+
+<p>Constructor functions accept parameters, which can be used when creating new objects.</p>
+
+<blockquote>
+  <h4>Example</h4>
+  
+  <div class="highlight"><pre lang="js">>function Hero(name) {
+   this.name = name;
+   this.occupation = 'Ninja';
+   this.whoAreYou = function() {
+     return "I'm " + this.name + " and I'm a " + this.occupation;
+   }
+  }
+  
+  var h1 = new Hero('Michelangelo');
+  var h2 = new Hero('Donatello');
+  h1.whoAreYou(); // "I'm Michelangelo and I'm a Ninja"
+  h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
+  </pre></div>
+  
+  <h4>Convention</h4>
+  
+  <p>capitalize the first letter of your constructor functions</p>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>Constructor functions</h2>
+
+<blockquote>
+  <h4>Warning</h4>
+  
+  <p>calling a function that is designed to be a constructor but<br />omitting the <code>new</code> operator may result in a behaviour you could not expect.</p>
+  
+  <div class="highlight"><pre lang="js">> var h = Hero('Leonardo');
+  typeof h   // "undefifined"
+  </pre></div>
+  
+  <h4>Note</h4>
+  
+  <p>In this case, <code>this</code> refer to global object.</p>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>The global object</h2>
+
+<p>The host environment provides a global object and all global variables are actually properties of the global object. <br /><br />If your host environment is the web browser, the global object is called <code>window</code>.  </p>
+
+<blockquote>
+  <h4>Exmaple</h4>
+  
+  <div class="highlight"><pre lang="js">>var a = 1;
+  a;   // 1
+  </pre></div>
+  
+  <p>a is global i.e. belongs to the global object</p>
+  
+  <div class="highlight"><pre lang="js">>window['a']   // 1
+  </pre></div>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>The global object</h2>
+
+<blockquote>
+  <h4>Exmaple</h4>
+  
+  <div class="highlight"><pre lang="js">>function Hero(name) { this.name = name; }
+  
+  var h = Hero('Leonardo');
+  typeof h   // "undefined"
+  typeof h.name   // TypeError: Cannot read property 'name' of undefined
+  </pre></div>
+  
+  <p><code>this</code> is binded to global object</p>
+  
+  <p>continue...</p>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>The global object</h2>
+
+<blockquote>
+  <p>...continue</p>
+  
+  <div class="highlight"><pre lang="js">>name   // "Leonardo"
+  window.name   // "Leonardo"
+  </pre></div>
+  
+  <p>using <code>new</code> operator instead</p>
+  
+  <div class="highlight"><pre lang="js">>var h2 = new Hero('Michelangelo');
+  typeof h2   // "object"
+  h2.name   // "Michelangelo"
+  </pre></div>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2><code>constructor</code> property</h2>
+
+<p>When an object is created, this special property is assigned to it behind the scenes. <br /><br />It contains a reference to the constructor function used to create this object.  </p>
+
+<blockquote>
+  <h4>Exmaple</h4>
+  
+  <div class="highlight"><pre lang="js">>function Hero(name) { this.name = name; }
+  var h = new Hero('Leonardo');
+  
+  h.constructor // Hero(name)
+  </pre></div>
+  
+  <p>following code means:<br />"I don't care how object <code>h</code> was created,<br />but I want another one just like it"</p>
+  
+  <div class="highlight"><pre lang="js">> var h2 = new h.constructor('Rafaello');
+  h2.name; // "Rafaello"
+  </pre></div>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2><code>constructor</code> property</h2>
+
+<p>If an object was created using the object literal notation, <br /><br />its constructor is the built-in <code>Object()</code> constructor function.</p>
+
+<blockquote>
+  <h4>Example</h4>
+  
+  <div class="highlight"><pre lang="js">>var o = {};
+  o.constructor; // Object();
+  typeof o.constructor; // "function"
+  </pre></div>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2><code>instanceof</code> operator</h2>
+
+<p>Using the instanceof operator, you can test if an object was created with a specific constructor function.</p>
+
+<blockquote>
+  <h4>Example￼</h4>
+  
+  <div class="highlight"><pre lang="js￼">>function Hero() {}
+  var h = new Hero();
+  var o = {};
+  h instanceof Hero;   //true
+  h instanceof Object; //true
+  o instanceof Object; //true
+  o instanceof Hero;   //false
+  </pre></div>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>Passing objects</h2>
+
+<p>When you copy an object or pass it to a function, you only pass a reference to that object. <br /><br />Consequently, if you make a change to the reference, you are actually modifying the original object.</p>
+
+<blockquote>
+  <h4>Example</h4>
+  
+  <div class="highlight"><pre lang="js">>var original = { howmany: 1 };
+  var copy = original;
+  copy.howmany; //￼1
+  copy.howmany = 100;
+  original.howmany; // 100
+  </pre></div>
+</blockquote>
+
+<p>The same thing applies when passing objects to functions:</p>
+
+<blockquote>
+  <h4>Example</h4>
+  
+  <div class="highlight"><pre lang="js">> var original = { howmany: 100 };
+  var nullify = function(o) { o.howmany = 0; }
+  nullify(original);
+  original.howmany; // 0
+  </pre></div>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Objects</h1>
+
+<h2>Comparing objects</h2>
+
+<p>When you compare objects, you'll get <code>true</code> only if you compare two references to the same object. <br /><br />Comparing two distinct objects that happen to have the exact same methods and properties will return <code>false</code>.</p>
+
+<blockquote>
+  <h4>Example</h4>
+  
+  <div class="highlight"><pre lang="js">> var fido  = {breed: 'dog'};
+  var benji = {breed: 'dog'};
+  </pre></div>
+  
+  <div class="highlight"><pre lang="js">> benji === fido // false
+  benji == fido  // false
+  </pre></div>
+  
+  <div class="highlight"><pre lang="js">> var mydog = benji;
+  mydog === benji // true
+  mydog === fido  // false
+  </pre></div>
+</blockquote>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>

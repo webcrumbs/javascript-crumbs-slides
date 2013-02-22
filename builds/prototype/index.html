@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h1>Prototype</h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Function's <code>prototype</code> property</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Function's <code>prototype</code> property</h2>
+
+<p>Every function has a property called <code>prototype</code></p>
+
+<p><code>prototype</code> is an object shared by every object instantiated by the function</p>
+
+<p><code>protottype</code> is initially an empty object</p>
+
+<div class="highlight"><pre lang="js">function foo(a, b) { return a * b; }
+typeof foo.prototype // "object"
+</pre></div>
+
+<h1>Prototype</h1>
+
+<h2>Function's <code>prototype</code> property</h2>
+
+<h3>Augmenting <code>prototype</code></h3>
+
+<p><code>prototype</code> object can be augmented with properties and methods  </p>
+
+<div class="highlight"><pre lang="js">function Circle (r) {
+  this.r = r;
+}
+</pre></div>
+
+<div class="highlight"><pre lang="js">Circle.prototype.name = 'circle';
+Circle.prototype.getArea = function () {
+  return Math.PI * this.r * this.r;
+};
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Function's <code>prototype</code> property</h2>
+
+<h3> </h3>
+
+<p>Methods and properties added to the <code>prototype</code> of the function <code>f</code> <br /><br />are available to every object created by function <code>f</code>  </p>
+
+<div class="highlight"><pre lang="js">var c = new Circle(4);
+c.r;          //4
+c.name;       // "circle"
+c.getArea();  //50.26548245743669
+</pre></div>
+
+<div class="highlight"><pre lang="js">var d = new Circle(2);
+d.r;          //2
+d.name;       //"circle"
+d.getArea();  //12.566370614359172
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Function's <code>prototype</code> property</h2>
+
+<h3>The prototype is "live"</h3>
+
+<p>Objects are passed by reference: <br /><br />the prototype is not copied with every new object instance  </p>
+
+<div class="highlight"><pre lang="js">Circle.prototype.getCircumference = function () {
+  return 2 * Math.PI * this.r;
+};
+</pre></div>
+
+<div class="highlight"><pre lang="js">var d = new Circle(5);
+
+c.getCircumference(); //25.132741228718345
+d.getCircumference(); //31.41592653589793
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>The prototype chain</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>The prototype chain</h2>
+
+<h3>Accessing a property of an object</h3>
+
+<p>When you access a property <code>p</code> of an object <code>o</code> JavaScript:</p>
+
+<ol>
+<li>looks for <code>p</code> in the properties of <code>o</code></li>
+<li>if it finds <code>p</code>, returns its value</li>
+<li>else it looks in the prototype of <code>o</code></li>
+<li>if it finds <code>p</code>, it returns its value</li>
+<li>else it look in the prototype of the prototype of <code>o</code></li>
+<li>...</li>
+</ol>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>The prototype chain</h2>
+
+<h3>Accessing a property of an object</h3>
+
+<div class="highlight"><pre lang="js">c.r; //4 - found in the properties of c
+c.name; //"circle" - found in the prototype of c
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>The prototype chain</h2>
+
+<h3>Understanding the chain</h3>
+
+<p>Every object <code>o</code> has a <code>constructor</code> property: <br /><br />the function which creates the object <code>o</code></p>
+
+<p>Every function <code>f</code> has a <code>prototype</code> property: <br /><br />the object shared by instances created by the function <code>f</code></p>
+
+<p>A constructor is a function, so it has a <code>prototype</code> <br /><br />A prototype is an object so it has a <code>constructor</code></p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>The prototype chain</h2>
+
+<h3>Understanding the chain</h3>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<div class="highlight"><pre lang="js">c = new Circle(4);
+</pre></div>
+
+<div class="highlight"><pre lang="js">typeof c; //"object"
+c.constructor; //function Circle(r) {...}
+c.constructor === Circle; //true
+</pre></div>
+
+<div class="highlight"><pre lang="js">typeof c.constructor; //"function"
+c.constructor.ptototype; //"object"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>The prototype chain</h2>
+
+<h3>Understanding the chain</h3>
+
+<p>The built-in <code>Object</code> object is the highest-level parent, <br /><br />the end of the so called <strong>prototype chain</strong>.  </p>
+
+<div class="highlight"><pre lang="js">c.toString();  // "[object Object]"
+</pre></div>
+
+<p><code>c</code> doesn't have an own <code>toString()</code> method <br /><br /><code>c.prototype</code> doesn't have an own <code>toString()</code> method <br /><br /><code>Object.prototype</code> has it!</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>The prototype chain</h2>
+
+<h3>Overwriting prototype's property with own property</h3>
+
+<p>The own property takes precedence over the prototype's.</p>
+
+<div class="highlight"><pre lang="js">function Circle (r) {
+  this.r = r;
+  this.color = 'red';
+}
+
+Circle.prototype.color = 'green';
+</pre></div>
+
+<div class="highlight"><pre lang="js">var c = new Circle(5);
+
+c.color; // "red"
+</pre></div>
+
+<div class="highlight"><pre lang="js">delete c.color;
+c.color; // "green"
+</pre></div>
+
+<div class="highlight"><pre lang="js">c.color = 'blue';
+c.color; // "blue"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Useful methods</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Useful methods</h2>
+
+<h3><code>hasOwnProperty(prop)</code></h3>
+
+<p>A <code>for-in</code> loop iterates over all properties including those of the prototype.</p>
+
+<div class="highlight"><pre lang="js">function Circle (r) {
+  this.r = r;
+}
+
+Circle.prototype.color = 'green';
+</pre></div>
+
+<div class="highlight"><pre lang="js">var c = new Circle(3);
+
+for (var p in c) {
+  console.log(p);
+}
+
+//r
+//color
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Useful methods</h2>
+
+<h3><code>hasOwnProperty(prop)</code></h3>
+
+<p>Use <code>hasOwnProperty()</code> to test if a property belongs to an object.</p>
+
+<div class="highlight"><pre lang="js">var c = new Circle(3);
+
+for (var p in c) {
+  if (c.hasOwnProperty(p)) {
+    console.log(p);
+  }
+}
+
+//r
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Useful methods</h2>
+
+<h3><code>isPrototypeOf(obj)</code></h3>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<p>This method tells whether that specific object is used as a prototype of another object.</p>
+
+<div class="highlight"><pre lang="js">function Circle (r) {
+  this.r = r;
+}
+
+Circle.prototype.color = 'green';
+</pre></div>
+
+<div class="highlight"><pre lang="js">var c = new Circle(4);
+Circle.prototype.isPrototypeOf(c); //true
+Object.prototype.isPrototypeOf(c); //true
+Array.prototype.isPrototypeOf(c);  //false
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h2>Some prototype gotchas</h2>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Some prototype gotchas</h2>
+
+<h3><code>prototype.constructor</code> is not reliable</h3>
+
+<p>It could be simply overwritten <br /><br />JavaScript access object's prototype through a secret link <br /><br />Some engines expose this link as a <code>__proto__</code> properties  </p>
+
+<blockquote>
+  <h4>Forbidden!</h4>
+  
+  <p>Even when exposed never use secret <code>__proto__</code> property. <br /><br />It's no standard: think it's there only for learning purpose.</p>
+</blockquote>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Some prototype gotchas</h2>
+
+<h3><code>prototype.constructor</code> is not reliable</h3>
+
+<div class="highlight"><pre lang="js">function Circle (r) {
+  this.r = r;
+}
+
+Circle.prototype.color = 'green';
+</pre></div>
+
+<div class="highlight"><pre lang="js">var c = new Circle(4);
+
+c.constructor = 'junk'
+
+typeof c.constructor.prototype // "undefined"
+// a string object hasn't a prototype property
+
+c.color; //"green"
+// JavaScript uses immutable __proto__ secret link
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+
+<h2>Some prototype gotchas</h2>
+
+<h3><code>prototype.constructor</code> is not reliable</h3>
+
+<p><code>__proto__</code> and <code>prototype</code> refer to the same object but:</p>
+
+<ul>
+<li><code>__proto__</code> is a property of the instances</li>
+<li><code>prototype</code> is a property of the constructor functions</li>
+</ul>
+
+<div class="highlight"><pre lang="js">typeof c.__proto__   // "object"
+typeof c.prototype   // "undefifined"
+</pre></div>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>

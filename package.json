@@ -12,6 +12,9 @@
   "engines": {
     "node": "*"
   },
-  "dependencies": {},
+  "dependencies": {
+    "github-flavored-markdown": "1.0.1",
+    "mustache": "0.7.2"
+  },
   "devDependencies": {}
 }

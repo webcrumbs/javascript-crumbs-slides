@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+body {
+  font-family: Helvetica Neue;
+  font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<article>
+<h1>Operators</h1>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>The <code>typeof</code> Operator</h2>
+
+<p><code>typeof value</code> returns:</p>
+
+<ul>
+<li><code>"undefined"</code> if the <code>value</code> is undefined</li>
+<li><code>"boolean"</code>   if the <code>value</code> is a boolean</li>
+<li><code>"string"</code>    if the <code>value</code> is a string</li>
+<li><code>"number"</code>    if the <code>value</code> is a number</li>
+<li><code>"object"</code>    if the <code>value</code> is an object or null</li>
+<li><code>"function"</code>  if the <code>value</code> is a function</li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>The <code>typeof</code> Operator</h2>
+
+<div class="highlight"><pre lang="js">typeof undefined;       // "undefined"
+typeof null;            // "object"
+typeof true;            // "boolean"
+typeof false;           // "boolean"
+typeof 'false';         // "string"
+typeof 'hello';         // "string"
+typeof 42;              // "number"
+typeof 1.4142135;       // "number"
+typeof {key: 'value' }; // "object"
+typeof Math.sin;        // "function"
+typeof function () {};  // "function"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>The <code>typeof</code> Operator</h2>
+
+<p><code>typeof null</code> returns <code>"object"</code> <br /><br />because <code>null</code> is considered an empty object reference  </p>
+
+<p><code>typeof</code> applied to a function returns <code>"function"</code> not <code>"object"</code> <br /><br />although functions are considered objects and don’t represent another data type <br /><br />they do have some special properties, which differentiate them from other objects </p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Unary Operators</h2>
+
+<h3>increment/decrement</h3>
+
+<h4>pre-increment</h4>
+
+<p><code>++value</code> increments <code>value</code> by <code>1</code> before the statement is evaluated</p>
+
+<div class="highlight"><pre lang="js">var a = 123;
+var b = ++a;
+a; //124
+b; //124
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Unary Operators</h2>
+
+<h3>increment/decrement</h3>
+
+<h4>post-increment</h4>
+
+<p><code>value++</code> increments <code>value</code> by <code>1</code> after the statement is evaluated</p>
+
+<div class="highlight"><pre lang="js">var a = 123;
+var b = a++;
+a; //124
+b; //123
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Unary Operators</h2>
+
+<h3>increment/decrement</h3>
+
+<h4>pre-decrement</h4>
+
+<p><code>--value</code> decremented <code>value</code> by <code>1</code> before the statement is evaluated</p>
+
+<div class="highlight"><pre lang="js">var a = 123;
+var b = ++a;
+b; //124
+a; //124
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Unary Operators</h2>
+
+<h3>increment/decrement</h3>
+
+<h4>post-decrement</h4>
+
+<p><code>value--</code> decremented <code>value</code> by <code>1</code> after the statement is evaluated</p>
+
+<div class="highlight"><pre lang="js">var a = 123;
+var b = a--;
+b; //123
+a; //122
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Unary Operators</h2>
+
+<h3>increment/decrement</h3>
+
+<p>if <code>value</code> is a nonnumeric value, it is converted to a number:</p>
+
+<ul>
+<li>a string that represent a number is converted to that number  </li>
+<li>a string that don't represent a number is converted to <code>NaN</code>  </li>
+<li>a boolean <code>false</code> is converted to number <code>0</code>  </li>
+<li>a boolean <code>true</code> is converted to number <code>1</code>  </li>
+<li>an object is converted to the value returned by its method <code>valueOf()</code></li>
+</ul>
+
+<div class="highlight"><pre lang="js">var s = "10";
+++s;            //11
+</pre></div>
+
+<div class="highlight"><pre lang="js">var x = ":(";
+++x;            //NaN
+</pre></div>
+
+<div class="highlight"><pre lang="js">var b = true;
+++b;            //2
+</pre></div>
+
+<div class="highlight"><pre lang="js">var f = 0.07;
+++f;            //1.07;
+</pre></div>
+
+<div class="highlight"><pre lang="js">var o = { valueOf: function () { return 100; } };
+++o;            //101
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Unary Operators</h2>
+
+<h3>Unary plus and minus</h3>
+
+<h4>Unary plus</h4>
+
+<p><code>+value</code> returns numeric value of <code>value</code>  </p>
+
+<div class="highlight"><pre lang="js">var n = 25;
+n = +n; //still 25
+</pre></div>
+
+<div class="highlight"><pre lang="js">var s = "01";
+s = +s; //value becomes numeric 1
+</pre></div>
+
+<div class="highlight"><pre lang="js">var s = "1.1";
+s = +s; //value becomes numeric 1.1
+</pre></div>
+
+<div class="highlight"><pre lang="js">var s = "z";
+s = +s; //value becomes NaN
+</pre></div>
+
+<div class="highlight"><pre lang="js">var b = false;
+b = +b; //value becomes numeric 0
+</pre></div>
+
+<div class="highlight"><pre lang="js">var f = 1.1;
+f = +f; //still 1.1
+</pre></div>
+
+<div class="highlight"><pre lang="js">var o = { valueOf: function () { return 1; } };
+o = +o; //value becomes numeric 1
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Unary Operators</h2>
+
+<h3>Unary plus and minus</h3>
+
+<h4>Unary minus</h4>
+
+<p><code>-value</code> returns the negation of the numeric value of <code>value</code></p>
+
+<div class="highlight"><pre lang="js">var n = 25;
+n = -n; //-25
+</pre></div>
+
+<div class="highlight"><pre lang="js">var s = "01";
+s = -s; //value becomes numeric -1
+</pre></div>
+
+<div class="highlight"><pre lang="js">var s = "1.1";
+s = -s; //value becomes numeric -1.1
+</pre></div>
+
+<div class="highlight"><pre lang="js">var s = "z";
+s = -s; //value becomes NaN
+</pre></div>
+
+<div class="highlight"><pre lang="js">var b = false;
+b = -b; //value becomes numeric 0
+</pre></div>
+
+<div class="highlight"><pre lang="js">var f = 1.1;
+f = -f; //value becomes -1.1
+</pre></div>
+
+<div class="highlight"><pre lang="js">var o = { valueOf: function () { return 1; } };
+o = -o; //value becomes numeric -1
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Bitwise operators</h2>
+
+<h3>Bitwise NOT</h3>
+
+<p><code>~value</code> returns the one's complement of the number <code>value</code>.</p>
+
+<div class="highlight"><pre lang="js">var a = 25;  //binary 0000 0000 0000 0000 0000 0000 0001 1001
+var b = ~a;  //binary 1111 1111 1111 1111 1111 1111 1110 0110
+b;           //-26
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Bitwise operators</h2>
+
+<h3>Bitwise AND</h3>
+
+<p><code>a &amp; b</code> performs an AND operation between the bits of <code>a</code> and <code>b</code></p>
+
+<div class="highlight"><pre lang="js">var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
+var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
+var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
+c;                 //9
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Bitwise operators</h2>
+
+<h3>Bitwise OR</h3>
+
+<p><code>a | b</code> performs an OR operation between the bits of <code>a</code> and <code>b</code></p>
+
+<div class="highlight"><pre lang="js">var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
+var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
+var c = a | b;     //binary 0000 0000 0000 0000 0000 0000 0001 1011
+c;                 //27
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Bitwise operators</h2>
+
+<h3>Bitwise XOR</h3>
+
+<p><code>a ^ b</code> performs a XOR operation between the bits of <code>a</code> and <code>b</code></p>
+
+<div class="highlight"><pre lang="js">var a = 25;        //0000 0000 0000 0000 0000 0000 0001 1001 
+var b = 3;         //0000 0000 0000 0000 0000 0000 0000 0011
+var c = a ^ b;     //0000 0000 0000 0000 0000 0000 0001 1010
+c;                 //26
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Logical Operators</h2>
+
+<h3>Logical NOT</h3>
+
+<p><code>!value</code> negate the boolean value.</p>
+
+<div class="highlight"><pre lang="js">!true;  //false
+!false; //true
+</pre></div>
+
+<p>if <code>value</code> is a non-boolean value, it is converted to a boolean: </p>
+
+<p>most values are converted to <code>true</code> <br /><br />following values are converted to <code>false</code></p>
+
+<ul>
+<li>the empty string <code>""</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li>the number <code>0</code></li>
+<li>the number <code>NaN</code></li>
+<li>the boolean <code>false</code></li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Logical Operators</h2>
+
+<h3>Logical NOT</h3>
+
+<h4>Tip</h4>
+
+<p>If you use the logical NOT twice, you get the original value. <br /><br />Use double negation to easily convert any value to its boolean equivalent.</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<div class="highlight"><pre lang="js">!!false;     //false
+!!"";        //false
+!!null;      //false
+!!undefined; //false
+!!0;         //false
+!!NaN;       //false
+!!true;      //true
+!!"0";       //true
+!!1;         //true
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Logical Operators</h2>
+
+<h3>Logical AND</h3>
+
+<p><code>a &amp;&amp; b</code> returns the logical AND of <code>a</code> and <code>b</code>.</p>
+
+<div class="highlight"><pre lang="js">true && true;   //true
+true && false;  //false
+false && true;  //false
+false && false; //false
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Logical Operators</h2>
+
+<h3>Logical OR</h3>
+
+<p><code>a || b</code> returns the logical OR of <code>a</code> and <code>b</code></p>
+
+<div class="highlight"><pre lang="js">true || true;   //true
+true || false;  //true
+false || true;  //true
+false || false; //false
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Logical Operators</h2>
+
+<h3>Operators precedence</h3>
+
+<p><code>!</code> is executed first, then comes <code>&amp;&amp;</code> and finally <code>||</code></p>
+
+<p>Use parentheses instead of relying on operator precedence, <br /><br />in order to make your code easier to read and understand.</p>
+
+<div class="highlight"><pre lang="js">false && false || true && true;     //true
+(false && false) || (true && true); //true
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Multiplicative operators</h2>
+
+<h3>Multiply</h3>
+
+<p><code>*</code> multiply two numbers</p>
+
+<div class="highlight"><pre lang="js">6 * 8;               //48
+1e308 * 2;           //Infinity
+NaN * 3;             //NaN
+Infinity * 0;        //NaN
+Infinity * 1;        //Infinity
+Infinity * -2;       //-Infinity
+Infinity * Infinity; //Infinity
+"3" * true;          //3
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Multiplicative operators</h2>
+
+<h3>Divide</h3>
+
+<p><code>/</code> divides the first operand by the second operand</p>
+
+<div class="highlight"><pre lang="js">25 * 2;              //12.5
+NaN / 3;             //NaN
+3 / NaN;             //NaN
+0 / 0;               //NaN
+1 / 0;               //Infinity
+Infinity / 0;        //Infinity
+Infinity / 1;        //Infinity
+Infinity / -2;       //-Infinity
+Infinity / Infinity; //NaN
+"3" / true;          //3
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Multiplicative operators</h2>
+
+<h3>Modulus</h3>
+
+<p><code>%</code> returns the remainder of the division</p>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Additive Operators</h2>
+
+<h3>Add</h3>
+
+<p><code>+</code> returns the sum of its operands</p>
+
+<div class="highlight"><pre lang="js">1 + NaN;               //NaN
+NaN + 1;               //NaN
+Infinity + Infinity;   //Infinity
+-Infinity + -Infinity; //-Infinity
+Infinity + -Infinity;  //NaN
+0 + 0;                 //0
+-0 + 0;                //0
+-0 + -0;               //-0
+1 / (-0 + -0);         //-Infinity
+5 + 7;                 //12
+"5" + 7;               //"57"
+5 + "7";               //"57"
+true + 5;              //6
+true + "5";            //"true5"
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Additive Operators</h2>
+
+<h3>Subtract</h3>
+
+<p><code>-</code> returns the difference of its operands</p>
+
+<div class="highlight"><pre lang="js">NaN - 1;               //NaN
+2 - NaN;               //NaN
+Infinity - Infinity;   //NaN
+-Infinity - -Infinity; //NaN
+Infinity - -Infinity;  //Infinity
+-Infinity - Infinity;  //-Infinity
++0 - +0;               //+0
++0 - -0;               //-0
+-0 - -0;               //+0
+3 - true;              //2 - because true is converted to 1
+NaN - 1;               //NaN
+5 - 3;                 //2
+5 - "";                //5 - because "" is converted to 0 
+5 - "2";               //3 - because "2" is converted to 2
+5 - null;              //5 - because null is converted to 0
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Relational Operators</h2>
+
+<ul>
+<li>less-than <code>&lt;</code></li>
+<li>greater-than <code>&gt;</code></li>
+<li>less-than-or-equal-to <code>&lt;=</code></li>
+<li>greater-than-or-equal-to <code>&gt;=</code> </li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Relational Operators</h2>
+
+<p>When using different data types:</p>
+
+<ul>
+<li>if the operands are numbers, perform a numeric comparison</li>
+<li>if the operands are strings, perform a lessicographic comparison</li>
+<li>if an operand is a number, convert the other operand to a number <br />
+and perform a numeric comparison</li>
+<li>if an operand is an object, call its <code>valueOf()</code> method <br />
+and use its result to perform the comparison,  </li>
+<li>if an operand is a boolean, convert it to a number and perform the comparison</li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Equality operators</h2>
+
+<h3>Equal and Not Equal</h3>
+
+<p><code>a == b</code> returns <code>true</code> if <code>a</code> is equals to <code>b</code>  </p>
+
+<p><code>a != b</code> returns <code>true</code> if <code>a</code> is not equals to <code>b</code>  </p>
+
+<h4>Attention!</h4>
+
+<p><code>==</code> and <code>!=</code> perform a type conversions</p>
+
+<div class="highlight"><pre lang="js">null == undefined; //true
+"NaN" == NaN;      //false
+5 == NaN;          //false
+NaN == NaN;        //false
+NaN != NaN;        //true
+false == 0;        //true
+true == 1;         //true
+true == 2;         //false
+undefined == 0;    //false
+null == 0;         //false
+"5" == 5;          //true
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Equality operators</h2>
+
+<h3>Strict Equal and Not Strict Equal</h3>
+
+<p><code>===</code> returns <code>true</code> only if the operands are equal (without conversion)</p>
+
+<p><code>!==</code> returns <code>true</code> only if the operands are not equal (without conversion)</p>
+
+<div class="highlight"><pre lang="js">"55" == 55;  //true  - equal because of conversion
+"55" === 55; //false - not equal because different data types
+</pre></div>
+
+<div class="highlight"><pre lang="js">"55" != 55;  //false - equal because of conversion
+"55" !== 55; //true  - not equal because different data types
+</pre></div>
+
+<div class="highlight"><pre lang="js">null == undefined;  //true  - because they are similar values  
+null === undefined; //false - because they are not the same type
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Equality operators</h2>
+
+<h3>Conditional Operator</h3>
+
+<div class="highlight"><pre lang="js">conditional_expression ? true_case : false_case;
+</pre></div>
+
+<p>if <code>conditional_expression</code> is <code>true</code> <br /><br />then returns <code>true_case</code> value <br /><br />else returns <code>false_case</code> value</p>
+
+<div class="highlight"><pre lang="js">var max = (a > b) ? a : b;
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Assignment Operators</h2>
+
+<h3>Simple assignment</h3>
+
+<p><code>=</code> assigns the value on the right to the variable on the left</p>
+
+<div class="highlight"><pre lang="js">var variable = value;
+</pre></div>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Assignment Operators</h2>
+
+<h3>Compound assignment</h3>
+
+<ul>
+<li>multiply/assign <code>*=</code></li>
+<li>divide/assign <code>/=</code></li>
+<li>modulus/assign <code>%=</code></li>
+<li>add/assign <code>+=</code></li>
+<li>subtract/assign <code>-=</code></li>
+<li>left shift/assign <code>&lt;&lt;=</code></li>
+<li>signed right shift/assign <code>&gt;&gt;=</code></li>
+<li>unsigned right shift/assign <code>&gt;&gt;&gt;=</code></li>
+</ul>
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Operators</h1>
+
+<h2>Comma Operator</h2>
+
+<p>allows execution of more than one operation in a single statement</p>
+
+<h4>Tip</h4>
+
+<p>Comma operator can be used in the declaration of variables</p>
+
+<div class="highlight"><pre lang="js">var a, b = 1, c = 2;
+a; //undefined
+b; //1
+c; //2
+</pre></div>
+
+<div class="highlight"><pre lang="js ">var n = (0, 1, 2, 3, 4, 5);
+n; //5
+</pre></div>
+</article>
+
+
+<script>
+var slides;
+var current = 0;
+var next;
+var max = Math.max;
+var min = Math.min;
+
+function init () {
+  slides = document.querySelectorAll('article');
+
+  //hide all
+  for (var i = 0; i < slides.length; i += 1) {
+    slides[i].style.display = 'none';
+  }
+
+  //show the first
+  slides[0].style.display = 'block';
+
+  //handle slide change
+  document.addEventListener('keydown', function (event) {
+    var code = event.keyCode;
+
+    if (code === 37 || code === 38) {
+      next = current - 1;
+      if (next >= 0) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 39 || code === 40) {
+      next = current + 1;
+      if (next < slides.length) {
+        slides[current].style.display = 'none';
+        slides[next].style.display = 'block';
+        current = next;
+      }
+    } else if (code === 8) {
+      slides[current].style.display = 'none';
+      current = 0;
+      slides[current].style.display = 'block';
+    }
+
+    console.log('current slide: ' + current);
+  });
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    init();
+  }
+}
+</script>
+</body>
+</html>
