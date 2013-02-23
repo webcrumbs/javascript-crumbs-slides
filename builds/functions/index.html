@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,6 +141,7 @@ body {
 
 <article>
 <h1>Functions</h1>
+
 </article>
 
 
@@ -25,13 +150,11 @@ body {
 
 <article>
 <h1>Functions</h1>
-
 <h2>Definition</h2>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">name</span> <span class="params">(comma_separated_params)</span> {</span>
+  <span class="comment">// code block </span>
+}</code></pre>
 
-<div class="highlight"><pre lang="js">function name (comma_separated_params) {
-  // code block 
-}
-</pre></div>
 </article>
 
 
@@ -40,14 +163,12 @@ body {
 
 <article>
 <h1>Functions</h1>
-
 <h2>Definition</h2>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> <span class="params">(a, b)</span> {</span>
+  <span class="keyword">var</span> result = a + b;
+  <span class="keyword">return</span> result;
+}</code></pre>
 
-<div class="highlight"><pre lang="js">function sum (a, b) {
-  var result = a + b;
-  return result;
-}
-</pre></div>
 </article>
 
 
@@ -56,19 +177,15 @@ body {
 
 <article>
 <h1>Functions</h1>
-
 <h2>Definition</h2>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">greets</span> <span class="params">(name)</span> {</span>
+  alert(<span class="string">'Hello '</span> + name + <span class="string">'!'</span>);
+  <span class="comment">// implicitly return undefined;</span>
+}</code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> square = <span class="function"><span class="keyword">function</span> <span class="params">(x)</span> {</span>
+  <span class="keyword">return</span> x*x;
+};</code></pre>
 
-<div class="highlight"><pre lang="js">function greets (name) {
-  alert('Hello ' + name + '!');
-  // implicitly return undefined;
-}
-</pre></div>
-
-<div class="highlight"><pre lang="js">var square = function (x) {
-  return x*x;
-};
-</pre></div>
 </article>
 
 
@@ -77,12 +194,10 @@ body {
 
 <article>
 <h1>Functions</h1>
-
 <h2>Invocation</h2>
+<pre><code class="language-js"><span class="keyword">var</span> result = square(<span class="number">3</span>);
+result; <span class="comment">// ?</span></code></pre>
 
-<div class="highlight"><pre lang="js">var result = square(3);
-result; // ?
-</pre></div>
 </article>
 
 
@@ -91,20 +206,15 @@ result; // ?
 
 <article>
 <h1>Functions</h1>
-
 <h2>Invocation</h2>
-
 <h3>Arguments and parameters</h3>
-
 <h4>Optional parameters</h4>
+<p>If arguments are fewer than declared parameters<br>the additional parameters are set to <code>undefined</code></p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> <span class="params">(a, b)</span> <span class="comment">{ return a + b; }</span>
 
-<p>If arguments are fewer than declared parameters <br /><br />the additional parameters are set to <code>undefined</code></p>
+<span class="title">sum</span><span class="params">(3)</span>;</span>       <span class="comment">// NaN</span>
+sum(<span class="string">'Hello '</span>); <span class="comment">// "Hello undefined"</span></code></pre>
 
-<div class="highlight"><pre lang="js">function sum (a, b) { return a + b; }
-
-sum(3);       // NaN
-sum('Hello '); // "Hello undefined"
-</pre></div>
 </article>
 
 
@@ -113,21 +223,16 @@ sum('Hello '); // "Hello undefined"
 
 <article>
 <h1>Functions</h1>
-
 <h2>Invocation</h2>
-
 <h3>Arguments and parameters</h3>
-
 <h4>Arguments list</h4>
-
-<p>If arguments are more than declared parameters <br /><br />you can access them by the <code>arguments</code> object</p>
-
-<div class="highlight"><pre lang="js">function args () {
+<p>If arguments are more than declared parameters<br>you can access them by the <code>arguments</code> object</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">args</span> <span class="params">()</span> <span class="comment">{
   return arguments;
-}
+}</span>
 
-args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
-</pre></div>
+<span class="title">args</span><span class="params">(1, <span class="string">'hello'</span>, Math.PI)</span>;</span> <span class="comment">//[1, "hello", 3.141592653589793]</span></code></pre>
+
 </article>
 
 
@@ -136,22 +241,17 @@ args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
 
 <article>
 <h1>Functions</h1>
-
 <h2>Invocation</h2>
-
 <h3>Arguments list</h3>
-
-<div class="highlight"><pre lang="js">function sumAll () {
-  var result = 0;
-  for (var i = 0; i < arguments.length; i++) {
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">sumAll</span> <span class="params">()</span> {</span>
+  var result = <span class="number">0</span>;
+  <span class="keyword">for</span> (var <span class="built_in">i</span> = <span class="number">0</span>; <span class="built_in">i</span> &lt; <span class="transposed_variable">arguments.</span><span class="built_in">length</span>; <span class="built_in">i</span>++) <span class="cell">{
     result += arguments[i];
-  }
-  return result;
-}
-</pre></div>
+  }</span>
+  <span class="keyword">return</span> result;
+}</code></pre>
+<pre><code class="language-js">sumAll(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>); <span class="comment">//15</span></code></pre>
 
-<div class="highlight"><pre lang="js">sumAll(1, 2, 3, 4, 5); //15
-</pre></div>
 </article>
 
 
@@ -160,22 +260,17 @@ args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
 
 <article>
 <h1>Functions</h1>
-
 <h2>Invocation</h2>
-
 <h3>Arguments list</h3>
-
-<div class="highlight"><pre lang="js">function max () {
-  var max = Number.NEGATIVE_INFINITY;
-  for (var i = 0; i < arguments.length; i++) {
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">max</span> <span class="params">()</span> {</span>
+  var max = <span class="transposed_variable">Number.</span>NEGATIVE_INFINITY;
+  <span class="keyword">for</span> (var <span class="built_in">i</span> = <span class="number">0</span>; <span class="built_in">i</span> &lt; <span class="transposed_variable">arguments.</span><span class="built_in">length</span>; <span class="built_in">i</span>++) <span class="cell">{
     max = arguments[i] max ? arguments[i] : max;
-  }
-  return max;
-}
-</pre></div>
+  }</span>
+  <span class="keyword">return</span> max;
+}</code></pre>
+<pre><code class="language-js"><span class="built_in">max</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">42</span>, Math.PI, <span class="number">1.4142135</span>); <span class="comment">//100</span></code></pre>
 
-<div class="highlight"><pre lang="js">max(1, 10, 100, 42, Math.PI, 1.4142135); //100
-</pre></div>
 </article>
 
 
@@ -184,26 +279,21 @@ args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
 
 <article>
 <h1>Functions</h1>
-
 <h2>Function as values</h2>
-
 <h3>Functions are objects</h3>
-
 <p>JavaScript functions are a special kind of object with two important features:</p>
-
 <ul>
 <li>they contain code  </li>
 <li>they are executable (can be invoked)  </li>
 </ul>
-
 <p>and because they are objects:</p>
-
 <ul>
 <li>they can be assigned to variables or object properties</li>
 <li>they can be passed to functions  </li>
 <li>they can have properties</li>
 <li>they can be returned by functions</li>
 </ul>
+
 </article>
 
 
@@ -212,17 +302,13 @@ args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
 
 <article>
 <h1>Functions</h1>
-
 <h2>Function as values</h2>
-
 <h3>Assign function to variables</h3>
-
 <p>JavaScript function can be assigned to variables or object properties.</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span> <span class="keyword">return</span> <span class="string">'Hello!'</span>; };
+<span class="keyword">var</span> greets = f;
+<span class="keyword">var</span> person = { say: greets };</code></pre>
 
-<div class="highlight"><pre lang="js">function f () { return 'Hello!'; };
-var greets = f;
-var person = { say: greets };
-</pre></div>
 </article>
 
 
@@ -231,20 +317,14 @@ var person = { say: greets };
 
 <article>
 <h1>Functions</h1>
-
 <h2>Function as values</h2>
-
 <h3>Copy function to variables</h3>
-
 <p>JavaScript functions can be copied to different variables.</p>
+<pre><code class="language-js"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span> <span class="params">(a, b)</span> <span class="comment">{ return a + b; }</span>
+<span class="title">var</span> <span class="title">add</span> = <span class="title">sum</span>;</span></code></pre>
+<pre><code class="language-js">var result = <span class="keyword">add</span>(<span class="number">1</span>, <span class="number">2</span>)<span class="comment">;</span>
+result<span class="comment">; //3</span></code></pre>
 
-<div class="highlight"><pre lang="js">var sum = function (a, b) { return a + b; }
-var add = sum;
-</pre></div>
-
-<div class="highlight"><pre lang="js">var result = add(1, 2);
-result; //3
-</pre></div>
 </article>
 
 
@@ -253,26 +333,20 @@ result; //3
 
 <article>
 <h1>Functions</h1>
-
 <h2>Function as values</h2>
-
 <h3>Pass function to functions</h3>
-
 <p>JavaScript functions can be passed to other function.</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">add</span> <span class="params">(x,y)</span> { <span class="title">return</span> <span class="title">x</span> + <span class="title">y</span>; }</span>
+<span class="function"><span class="keyword">function</span> <span class="title">sub</span> <span class="params">(x,y)</span> { <span class="title">return</span> <span class="title">x</span> - <span class="title">y</span>; }</span>
+<span class="function"><span class="keyword">function</span> <span class="title">mul</span> <span class="params">(x,y)</span> { <span class="title">return</span> <span class="title">x</span> * <span class="title">y</span>; }</span>
+<span class="function"><span class="keyword">function</span> <span class="title">div</span> <span class="params">(x,y)</span> { <span class="title">return</span> <span class="title">x</span> / <span class="title">y</span>; }</span>
 
-<div class="highlight"><pre lang="js">function add (x,y) { return x + y; }
-function sub (x,y) { return x - y; }
-function mul (x,y) { return x * y; }
-function div (x,y) { return x / y; }
+<span class="function"><span class="keyword">function</span> <span class="title">calc</span> <span class="params">(operator, x, y)</span> {</span>
+  <span class="keyword">return</span> operator(x, y);
+}</code></pre>
+<pre><code class="language-js">// Calculate ((<span class="number">2</span>+<span class="number">3</span>) + (<span class="number">4</span>*<span class="number">5</span>))
+calc(<span class="keyword">add</span>, calc(<span class="keyword">add</span>, <span class="number">2</span>, <span class="number">3</span>), calc(<span class="keyword">mul</span>, <span class="number">4</span>, <span class="number">5</span>))<span class="comment">;</span></code></pre>
 
-function calc (operator, x, y) {
-  return operator(x, y);
-}
-</pre></div>
-
-<div class="highlight"><pre lang="js">// Calculate ((2+3) + (4*5))
-calc(add, calc(add, 2, 3), calc(mul, 4, 5));
-</pre></div>
 </article>
 
 
@@ -281,24 +355,19 @@ calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 
 <article>
 <h1>Functions</h1>
-
 <h2>Function as values</h2>
-
 <h3>Assign properties to functions</h3>
-
-<div class="highlight"><pre lang="js">// Compute factorials and cache results as properties of the function itself.
-function factorial (n) {
-  if (!(n in factorial)) {
-    factorial[n] = n * factorial(n-1); 
+<pre><code class="language-js"><span class="regexp">//</span> Compute factorials <span class="keyword">and</span> cache results as properties <span class="keyword">of</span> the <span class="reserved">function</span> itself.
+<span class="reserved">function</span> factorial (n) {
+  <span class="keyword">if</span> (!(n <span class="keyword">in</span> factorial)) {
+    factorial[n] = n * factorial(n-<span class="number">1</span>); 
   }
-  return factorial[n];
+  <span class="keyword">return</span> factorial[n];
 }
 
-factorial[1] = 1; // Initialize the cache to hold this base case.
-</pre></div>
+factorial[<span class="number">1</span>] = <span class="number">1</span>; <span class="regexp">//</span> Initialize the cache to hold <span class="keyword">this</span> base <span class="reserved">case</span>.</code></pre>
+<pre><code class="language-js">factorial(<span class="number">5</span>); <span class="comment">//120</span></code></pre>
 
-<div class="highlight"><pre lang="js">factorial(5); //120
-</pre></div>
 </article>
 
 
@@ -307,26 +376,20 @@ factorial[1] = 1; // Initialize the cache to hold this base case.
 
 <article>
 <h1>Functions</h1>
-
 <h2>Function as values</h2>
-
 <h3>Return function</h3>
-
 <p>JavaScript functions can be returned by functions.</p>
-
-<div class="highlight"><pre lang="js">function greets () {
-  console.log('Hello!');
-  return function () {
-    console.log('Bye!');
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">greets</span> <span class="params">()</span> {</span>
+  <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'Hello!'</span>);
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'Bye!'</span>);
   };
-}
-</pre></div>
+}</code></pre>
+<pre><code class="language-js">var f = greets(); //<span class="string">"Hello!"</span>
+f(); //<span class="string">"Bye!"</span>
+f(); //<span class="string">"Bye!"</span>
+//<span class="keyword">...</span></code></pre>
 
-<div class="highlight"><pre lang="js">var f = greets(); //"Hello!"
-f(); //"Bye!"
-f(); //"Bye!"
-//...
-</pre></div>
 </article>
 
 
@@ -335,31 +398,23 @@ f(); //"Bye!"
 
 <article>
 <h1>Functions</h1>
-
 <h2>Function as values</h2>
-
 <h3>Return function</h3>
-
 <p>JavaScript functions can be returned by functions.</p>
-
-<div class="highlight"><pre lang="js">function greets () {
-  console.log('Hello!');
-  return function () {
-    console.log('Bye!');
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">greets</span> <span class="params">()</span> {</span>
+  <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'Hello!'</span>);
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'Bye!'</span>);
   };
-}
-</pre></div>
+}</code></pre>
+<pre><code class="language-js">greets()();
+<span class="comment">//"Hello!"</span>
+<span class="comment">//"Bye!"</span></code></pre>
+<pre><code class="language-js">greets()()();
+<span class="regexp">//</span><span class="string">"Hello!"</span>
+<span class="regexp">//</span><span class="string">"Bye!"</span>
+<span class="regexp">//</span> TypeError: object <span class="keyword">is</span> <span class="keyword">not</span> a <span class="reserved">function</span></code></pre>
 
-<div class="highlight"><pre lang="js ">greets()();
-//"Hello!"
-//"Bye!"
-</pre></div>
-
-<div class="highlight"><pre lang="js">greets()()();
-//"Hello!"
-//"Bye!"
-// TypeError: object is not a function
-</pre></div>
 </article>
 
 
@@ -368,17 +423,12 @@ f(); //"Bye!"
 
 <article>
 <h1>Functions</h1>
-
 <h2>Self-invoking functions</h2>
-
 <p>JavaScript functions can be called right after they were defined.</p>
+<pre><code class="language-js"><span class="list">(<span class="title">function</span><span class="body"> <span class="list">(<span class="body">)</span></span> { alert<span class="list">(<span class="body">'boo')</span></span><span class="comment">; }());</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> message = (<span class="function"><span class="keyword">function</span> <span class="params">(name)</span> {</span> <span class="keyword">return</span> <span class="string">'Hello '</span> + name + <span class="string">'!'</span>; }(<span class="string">'dude'</span>));
+message; <span class="comment">//"Hello dude!"</span></code></pre>
 
-<div class="highlight"><pre lang="js">(function () { alert('boo'); }());
-</pre></div>
-
-<div class="highlight"><pre lang="js">var message = (function (name) { return 'Hello ' + name + '!'; }('dude'));
-message; //"Hello dude!"
-</pre></div>
 </article>
 
 
@@ -387,30 +437,21 @@ message; //"Hello dude!"
 
 <article>
 <h1>Function</h1>
-
 <h2>Inner (private) functions</h2>
-
 <h3>Define functions inside functions</h3>
-
 <p>JavaScript functions can be defined inside another function.</p>
-
-<div class="highlight"><pre lang="js">function f1 (a) {
-  function f2 (b) {
-    return b * 2;
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f1</span> <span class="params">(a)</span> {</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">f2</span> <span class="params">(b)</span> {</span>
+    <span class="keyword">return</span> b * <span class="number">2</span>;
   }
-  return f2(a);
-};
-</pre></div>
-
-<div class="highlight"><pre lang="js">f1(2); //4
-</pre></div>
-
-<div class="highlight"><pre lang="js">f2(2); //ReferenceError: f2 is not defined
-</pre></div>
-
+  <span class="keyword">return</span> f2(a);
+};</code></pre>
+<pre><code class="language-js">f1(<span class="number">2</span>); <span class="comment">//4</span></code></pre>
+<pre><code class="language-js">f2(<span class="number">2</span>); <span class="regexp">//</span><span class="constant">ReferenceError</span><span class="symbol">:</span> f2 is <span class="keyword">not</span> <span class="keyword">defined</span></code></pre>
 <h4>Note</h4>
+<p><code>f2</code> is defined inside <code>f1</code> and it is not visible outside <code>f1</code>;
+<code>f1</code> internally call the local function <code>f2</code>.</p>
 
-<p><code>f2</code> is defined inside <code>f1</code> and it is not visible outside <code>f1</code>;<br /><code>f1</code> internally call the local function <code>f2</code>.</p>
 </article>
 
 
@@ -419,29 +460,23 @@ message; //"Hello dude!"
 
 <article>
 <h1>Function</h1>
-
 <h2>Inner (private) functions</h2>
-
-<div class="highlight"><pre lang="js">function greets () {
-  console.log('Hello!');
-  greets = function () {
-    console.log('Bye!');
-    return greets;
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">greets</span> <span class="params">()</span> {</span>
+  <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'Hello!'</span>);
+  greets = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'Bye!'</span>);
+    <span class="keyword">return</span> greets;
   };
-  return greets;
-}
-</pre></div>
+  <span class="keyword">return</span> greets;
+}</code></pre>
+<pre><code class="language-js">greets()();
+<span class="comment">//"Hello!"</span>
+<span class="comment">//"Bye!"</span></code></pre>
+<pre><code class="language-js">greets()()();
+<span class="comment">//"Hello!"</span>
+<span class="comment">//"Bye!"</span>
+<span class="comment">//"Bye!"</span></code></pre>
 
-<div class="highlight"><pre lang="js ">greets()();
-//"Hello!"
-//"Bye!"
-</pre></div>
-
-<div class="highlight"><pre lang="js">greets()()();
-//"Hello!"
-//"Bye!"
-//"Bye!"
-</pre></div>
 </article>
 
 
@@ -450,12 +485,11 @@ message; //"Hello dude!"
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
+<p>JavaScript uses <strong>function scope</strong>:<br>variables are visible within the function in which they are defined<br>and within any functions that are nested within that function.</p>
+<p>A variable defined in a function is not visible outside the function, 
+but a variable defined in a code block is visible outside the block.</p>
 
-<p>JavaScript uses <strong>function scope</strong>: <br /><br />variables are visible within the function in which they are defined <br /><br />and within any functions that are nested within that function.</p>
-
-<p>A variable defined in a function is not visible outside the function, <br />but a variable defined in a code block is visible outside the block.</p>
 </article>
 
 
@@ -464,25 +498,18 @@ message; //"Hello dude!"
 
 <article>
 <h1>Function</h1>
-
 <h3>Function Scope</h3>
-
-<div class="highlight"><pre lang="js">var a = 1; 
-function f () { var b = 1; return a; }
-</pre></div>
-
-<div class="highlight"><pre lang="js">f();
-</pre></div>
-
-<div class="highlight"><pre lang="js">b; //b is not defined
-</pre></div>
-
+<pre><code class="language-js"><span class="title">var</span> a = <span class="number">1</span>; 
+<span class="title">function</span> f () { <span class="title">var</span> b = <span class="number">1</span>; <span class="title">return</span> a; }</code></pre>
+<pre><code class="language-js"><span class="function"><span class="title">f</span><span class="params">()</span>;</code></pre>
+<pre><code class="language-js">b; <span class="regexp">//b</span> is <span class="keyword">not</span> <span class="keyword">defined</span></code></pre>
 <ul>
 <li>variable <code>a</code> is in the global space  </li>
 <li>variable <code>b</code> is in the scope of the function <code>f()</code>  </li>
 <li>inside <code>f()</code>, both <code>a</code> and <code>b</code> are visible  </li>
 <li>outside <code>f()</code>, <code>a</code> is visible, but <code>b</code> is not</li>
 </ul>
+
 </article>
 
 
@@ -491,16 +518,12 @@ function f () { var b = 1; return a; }
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Local and Global Scope</h3>
+<p>A variable declared within a function has a <strong>local scope</strong>,<br>it is defined only within the body of the function.  </p>
+<p>A variable not declared within a function has a <strong>global scope</strong>,<br>it is defined everywhere in the code.</p>
+<p>A local variable, a variable declared within a function,<br>takes precedence over a global variable with the same name.</p>
 
-<p>A variable declared within a function has a <strong>local scope</strong>, <br /><br />it is defined only within the body of the function.  </p>
-
-<p>A variable not declared within a function has a <strong>global scope</strong>, <br /><br />it is defined everywhere in the code.</p>
-
-<p>A local variable, a variable declared within a function, <br /><br />takes precedence over a global variable with the same name.</p>
 </article>
 
 
@@ -509,21 +532,18 @@ function f () { var b = 1; return a; }
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Local and Global Scope</h3>
+<pre><code class="language-js"><span class="keyword">var</span> scope = <span class="string">'global'</span>;
 
-<div class="highlight"><pre lang="js">var scope = 'global';
-
-function checkScope () {
-  var scope = 'local';
-  return scope;
+<span class="function"><span class="keyword">function</span> <span class="title">checkScope</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> scope = <span class="string">'local'</span>;
+  <span class="keyword">return</span> scope;
 }
 
-checkScope(); //"local"
-scope;        //"global"
-</pre></div>
+checkScope(); <span class="comment">//"local"</span>
+scope;        <span class="comment">//"global"</span></code></pre>
+
 </article>
 
 
@@ -532,25 +552,20 @@ scope;        //"global"
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Local and Global Scope</h3>
-
 <h4>Attention!</h4>
-
 <p>You must always use <code>var</code> to declare local variables.</p>
+<pre><code class="language-js"><span class="keyword">var</span> scope = <span class="string">'global'</span>;
 
-<div class="highlight"><pre lang="js">var scope = 'global';
-
-function checkScope () {
-  scope = 'local';        // if var is omitted, it refers to global variable
-  return scope;
+<span class="function"><span class="keyword">function</span> <span class="title">checkScope</span> <span class="params">()</span> {</span>
+  scope = <span class="string">'local'</span>;        <span class="comment">// if var is omitted, it refers to global variable</span>
+  <span class="keyword">return</span> scope;
 }
 
-checkScope(); //"local"
-scope;        //"local"
-</pre></div>
+checkScope(); <span class="comment">//"local"</span>
+scope;        <span class="comment">//"local"</span></code></pre>
+
 </article>
 
 
@@ -559,21 +574,17 @@ scope;        //"local"
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Local variables</h3>
-
-<p>Function parameters count as local variables <br /><br />and are defined only within the body of the function.</p>
-
-<div class="highlight"><pre lang="js">function checkParamScope (a) {
+<p>Function parameters count as local variables<br>and are defined only within the body of the function.</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">checkParamScope</span> <span class="params">(a)</span> <span class="comment">{
   a += 1;
   console.log(a);
-}
+}</span>
 
-console.log(a);     //"undefined"
-checkParamScope(1); //2
-</pre></div>
+<span class="title">console</span>.<span class="title">log</span><span class="params">(a)</span>;</span>     <span class="comment">//"undefined"</span>
+checkParamScope(<span class="number">1</span>); <span class="comment">//2</span></code></pre>
+
 </article>
 
 
@@ -582,26 +593,22 @@ checkParamScope(1); //2
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Scope Chain</h3>
+<p>Each function has its own local scope.<br>It is possible to have several nested layers of local scope.</p>
+<pre><code class="language-js">var a = <span class="number">1</span>;
+// code here can see variable a <span class="keyword">and</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>
 
-<p>Each function has its own local scope. <br /><br />It is possible to have several nested layers of local scope.</p>
+<span class="title">function</span> <span class="title">f</span> <span class="params">()</span></span>{
+  var b = <span class="number">1</span>;
+  // code here can see variables a <span class="keyword">and</span> b <span class="keyword">and</span> <span class="function"><span class="keyword">function</span> <span class="title">n</span>
 
-<div class="highlight"><pre lang="js">var a = 1;
-// code here can see variable a and function f
-
-function f (){
-  var b = 1;
-  // code here can see variables a and b and function n
-
-  function n () {
-    var c = 3; 
-    // code here can see variables a, b and c
+  <span class="title">function</span> <span class="title">n</span> <span class="params">()</span></span> {
+    var c = <span class="number">3</span>; 
+    // code here can see variables a, b <span class="keyword">and</span> c
   }
-}
-</pre></div>
+}</code></pre>
+
 </article>
 
 
@@ -610,28 +617,23 @@ function f (){
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Scope Chain</h3>
+<pre><code class="language-js"><span class="title">var</span> scope = <span class="string">'global'</span>;
 
-<div class="highlight"><pre lang="js">var scope = 'global';
+<span class="title">function</span> localScope () {
+  <span class="title">var</span> scope = <span class="string">'local'</span>;
 
-function localScope () {
-  var scope = 'local';
-
-  function nestedScope () {
-    var scope = 'nested';
-    return scope;
+  <span class="title">function</span> nestedScope () {
+    <span class="title">var</span> scope = <span class="string">'nested'</span>;
+    <span class="title">return</span> scope;
   }
 
-  return nestedScope();
-}
-</pre></div>
+  <span class="title">return</span> nestedScope();
+}</code></pre>
+<pre><code class="language-js">localScope(); <span class="comment">//"nested"</span>
+<span class="keyword">scope</span>;        <span class="comment">//"global"</span></code></pre>
 
-<div class="highlight"><pre lang="js">localScope(); //"nested"
-scope;        //"global"
-</pre></div>
 </article>
 
 
@@ -640,12 +642,10 @@ scope;        //"global"
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Variable hoisting</h3>
+<p>Since variables are visible within the function in which they are defined<br>variables are even visible before they are declared.<br>All variable declarations in a function (but not any associated assignments)<br>are &quot;hoisted&quot; to the top of the function.</p>
 
-<p>Since variables are visible within the function in which they are defined <br /><br />variables are even visible before they are declared. <br /><br />All variable declarations in a function (but not any associated assignments) <br /><br />are "hoisted" to the top of the function.</p>
 </article>
 
 
@@ -654,21 +654,19 @@ scope;        //"global"
 
 <article>
 <h3>Variable hoisting</h3>
-
-<div class="highlight"><pre lang="js">function test (o) {
-  var i = 0;                      //i is defined throughout function
-  if (typeof o == 'object') {
-    var j = 0;                    //j is defined everywhere, not just block
-    for (var k=0; k < 10; k++) {  //k is defined everywhere, not just loop
-      console.log(k);             //print numbers 0 through 9
-    }
-    console.log(k);               //k is still defined: prints 10
+<pre><code class="language-js"><span class="title">function</span> test (o) {
+  var i = <span class="number">0</span>;                      //i is defined throughout function
+  <span class="keyword">if</span> (<span class="typedef">typeof o == 'object') <span class="container">{
+    <span class="title">var</span> <span class="title">j</span> = 0;                    //<span class="title">j</span> <span class="title">is</span> <span class="title">defined</span> <span class="title">everywhere</span>, <span class="title">not</span> <span class="title">just</span> <span class="title">block</span>
+    <span class="title">for</span> (<span class="title">var</span> <span class="title">k</span>=0; <span class="title">k</span> &lt; 10; <span class="title">k</span>++) {  //<span class="title">k</span> <span class="title">is</span> <span class="title">defined</span> <span class="title">everywhere</span>, <span class="title">not</span> <span class="title">just</span> <span class="title">loop</span>
+      <span class="title">console</span>.<span class="title">log</span>(<span class="title">k</span>);             //<span class="title">print</span> <span class="title">numbers</span> 0 <span class="title">through</span> 9
+    }</span></span>
+    console.log(k);               //k is still defined: prints <span class="number">10</span>
   }
-  console.log(j);                 //j is defined, but may not be initialized
-}
-</pre></div>
+  console.log(j);                 //j is defined, but may <span class="keyword">not</span> be initialized
+}</code></pre>
+<p>The variables <code>i</code>, <code>j</code>, and <code>k</code> are declared in different spots,<br>but all have the same scope, all three are defined throughout the body of the function.</p>
 
-<p>The variables <code>i</code>, <code>j</code>, and <code>k</code> are declared in different spots, <br /><br />but all have the same scope, all three are defined throughout the body of the function.</p>
 </article>
 
 
@@ -677,29 +675,23 @@ scope;        //"global"
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Variable hoisting</h3>
+<pre><code class="language-js"><span class="keyword">var</span> scope = <span class="string">'global'</span>;
 
-<div class="highlight"><pre lang="js">var scope = 'global';
-
-function f () {
-  console.log(scope);  //prints "undefined", not "local" nor "global"
-  var scope = 'local'; //variable scope initialized here, but defined everywhere in f
-  console.log(scope);  //prints "local"
-}
-</pre></div>
-
+<span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
+  console.log(scope);  <span class="comment">//prints "undefined", not "local" nor "global"</span>
+  <span class="keyword">var</span> scope = <span class="string">'local'</span>; <span class="comment">//variable scope initialized here, but defined everywhere in f</span>
+  console.log(scope);  <span class="comment">//prints "local"</span>
+}</code></pre>
 <p>The function above is equivalent to the following:</p>
+<pre><code class="language-js">function f () {
+  var scope;          // <span class="keyword">local</span> variable <span class="keyword">is</span> declared <span class="keyword">at</span> <span class="keyword">the</span> top <span class="keyword">of</span> <span class="keyword">the</span> function
+  console.<span class="command">log</span>(scope); // <span class="keyword">local</span> variable exists here, <span class="keyword">but</span> still has <span class="string">"undefined"</span> value
+  scope = '<span class="keyword">local</span>';    // <span class="keyword">local</span> variable <span class="keyword">is</span> initialized
+  console.<span class="command">log</span>(scope); // <span class="keyword">local</span> variable has <span class="keyword">the</span> value we expect
+}</code></pre>
 
-<div class="highlight"><pre lang="js">function f () {
-  var scope;          // local variable is declared at the top of the function
-  console.log(scope); // local variable exists here, but still has "undefined" value
-  scope = 'local';    // local variable is initialized
-  console.log(scope); // local variable has the value we expect
-}
-</pre></div>
 </article>
 
 
@@ -708,14 +700,11 @@ function f () {
 
 <article>
 <h1>Function</h1>
-
 <h2>Function Scope</h2>
-
 <h3>Variable hoisting</h3>
-
 <h4>Tip</h4>
-
 <p>Declare all the variables defined within a function at the top of the function.</p>
+
 </article>
 
 
@@ -724,18 +713,13 @@ function f () {
 
 <article>
 <h1>Function</h1>
-
 <h2>Closures</h2>
-
 <h3>Example #0</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> b = <span class="string">'b'</span>;
+}</code></pre>
+<pre><code class="language-js">b; <span class="regexp">//b</span> is <span class="keyword">not</span> <span class="keyword">defined</span></code></pre>
 
-<div class="highlight"><pre lang="js">function f () {
-  var b = 'b';
-}
-</pre></div>
-
-<div class="highlight"><pre lang="js">b; //b is not defined
-</pre></div>
 </article>
 
 
@@ -744,23 +728,16 @@ function f () {
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #1</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> b = <span class="string">'b'</span>;
+  <span class="keyword">return</span> b;
+}</code></pre>
+<pre><code class="language-js">b; <span class="regexp">//b</span> is <span class="keyword">not</span> <span class="keyword">defined</span></code></pre>
+<pre><code class="language-js"><span class="title">b</span> = f();
+<span class="title">b</span>; //<span class="string">"b"</span></code></pre>
 
-<div class="highlight"><pre lang="js">function f () {
-  var b = 'b';
-  return b;
-}
-</pre></div>
-
-<div class="highlight"><pre lang="js">b; //b is not defined
-</pre></div>
-
-<div class="highlight"><pre lang="js">b = f();
-b; //"b"
-</pre></div>
 </article>
 
 
@@ -769,23 +746,18 @@ b; //"b"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #2</h3>
-
-<div class="highlight"><pre lang="js">function f () {
-  var b = 'b';
-  return function () {
-    return b;
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> b = <span class="string">'b'</span>;
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">return</span> b;
   };
-}
-</pre></div>
+}</code></pre>
+<pre><code class="language-js"><span class="title">getB</span> = f();
+<span class="title">b</span> = getB();
+<span class="title">b</span>; //<span class="string">"b"</span></code></pre>
 
-<div class="highlight"><pre lang="js">getB = f();
-b = getB();
-b; //"b"
-</pre></div>
 </article>
 
 
@@ -794,23 +766,18 @@ b; //"b"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #3</h3>
-
-<div class="highlight"><pre lang="js">var getB;
-function f () {
-  var b = 'b';
-  getB = function () {
-    return b;
+<pre><code class="language-js"><span class="keyword">var</span> getB;
+<span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> b = <span class="string">'b'</span>;
+  getB = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">return</span> b;
   };
-}
-</pre></div>
+}</code></pre>
+<pre><code class="language-js"><span class="title">b</span> = getB();
+<span class="title">b</span>; //<span class="string">"b"</span></code></pre>
 
-<div class="highlight"><pre lang="js">b = getB();
-b; //"b"
-</pre></div>
 </article>
 
 
@@ -819,21 +786,16 @@ b; //"b"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #4</h3>
-
-<div class="highlight"><pre lang="js">function f (arg) {
-  return function () {
-    return arg;
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">(arg)</span> {</span>
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">return</span> arg;
   };
-}
-</pre></div>
+}</code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> getArg = f(<span class="string">'Hello'</span>);
+getArg(); <span class="comment">//"Hello"</span></code></pre>
 
-<div class="highlight"><pre lang="js">var getArg = f('Hello');
-getArg(); //"Hello"
-</pre></div>
 </article>
 
 
@@ -842,28 +804,23 @@ getArg(); //"Hello"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #5</h3>
-
-<div class="highlight"><pre lang="js">function countdown (from) {
-  return function () {
-    if (from 0) {
-      return from--;
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">countdown</span> <span class="params">(from)</span></span> {
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span></span> {
+    <span class="keyword">if</span> (from <span class="number">0</span>) {
+      <span class="keyword">return</span> from<span class="comment">--;</span>
     } 
-    return 'Finish!';
+    <span class="keyword">return</span> <span class="string">'Finish!'</span>;
   };
-}
-</pre></div>
+}</code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> c = countdown(<span class="number">3</span>);
+c(); <span class="comment">//3</span>
+c(); <span class="comment">//2</span>
+c(); <span class="comment">//1</span>
+c(); <span class="comment">//"Finish!"</span>
+c(); <span class="comment">//"Finish!"</span></code></pre>
 
-<div class="highlight"><pre lang="js">var c = countdown(3);
-c(); //3
-c(); //2
-c(); //1
-c(); //"Finish!"
-c(); //"Finish!"
-</pre></div>
 </article>
 
 
@@ -872,12 +829,10 @@ c(); //"Finish!"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #6</h3>
+<p>Let&#39;s loop three times, each time creating a new function that returns the loop sequence number.<br>The new functions will be added to an array and we&#39;ll return the array at the end. </p>
 
-<p>Let's loop three times, each time creating a new function that returns the loop sequence number. <br /><br />The new functions will be added to an array and we'll return the array at the end. </p>
 </article>
 
 
@@ -886,12 +841,13 @@ c(); //"Finish!"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #6</h3>
+<p>```js
+function f () {
+  var a = [];
+  var i;</p>
 
-<p>```js<br />function f () {<br />  var a = [];<br />  var i;</p>
 </article>
 
 
@@ -899,9 +855,20 @@ c(); //"Finish!"
 
 
 <article>
-<p>for (i = 0; i &lt; 3; i++) {<br />    a[i] = function () {<br />      return i;<br />    }<br />  }</p>
+<p>  for (i = 0; i &lt; 3; i++) {
+    a[i] = function () {
+      return i;
+    }
+  }</p>
+<p>  return a; 
+}</p>
+<pre><code>
+```js
+var a = f();</code></pre>
+<pre><code class="language-js">a[<span class="number">0</span>](); <span class="comment">//3</span>
+a[<span class="number">1</span>](); <span class="comment">//3</span>
+a[<span class="number">2</span>](); <span class="comment">//3</span></code></pre>
 
-<p>return a; <br />}<br /><div class="highlight"><pre lang=""><br /></pre></div>js<br />var a = f();<br /><div class="highlight"><pre lang=""><br /></pre></div>js<br />a<a href="">0</a>; //3<br />a<a href="">1</a>; //3<br />a<a href="">2</a>; //3<br />```</p>
 </article>
 
 
@@ -910,12 +877,16 @@ c(); //"Finish!"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #6 (that works!)</h3>
+<p>```js
+function f () {
+  function getArg (x) {
+    return function () {
+      return x;
+    } 
+  }</p>
 
-<p>```js<br />function f () {<br />  function getArg (x) {<br />    return function () {<br />      return x;<br />    } <br />  }</p>
 </article>
 
 
@@ -923,7 +894,9 @@ c(); //"Finish!"
 
 
 <article>
-<p>var a = [];<br />  var i;</p>
+<p>  var a = [];
+  var i;</p>
+
 </article>
 
 
@@ -931,7 +904,10 @@ c(); //"Finish!"
 
 
 <article>
-<p>for (i = 0; i &lt; 3; i++) {<br />   a[i] = getArg(i);<br />  }</p>
+<p>  for (i = 0; i &lt; 3; i++) {
+   a[i] = getArg(i);
+  }</p>
+
 </article>
 
 
@@ -939,7 +915,10 @@ c(); //"Finish!"
 
 
 <article>
-<p>return a; <br />}<br />```</p>
+<p>  return a; 
+}
+```</p>
+
 </article>
 
 
@@ -948,29 +927,22 @@ c(); //"Finish!"
 
 <article>
 <h1>Function</h1>
-
 <h2>Closure</h2>
-
 <h3>Example #7</h3>
-
-<div class="highlight"><pre lang="js">var getValue, setValue;
-(function () {
-  var secret = 0;
-  getValue = function () {
-    return secret;
+<pre><code class="language-js"><span class="keyword">var</span> getValue, setValue;
+(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> secret = <span class="number">0</span>;
+  getValue = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">return</span> secret;
   };
-  setValue = function (v) {
+  setValue = <span class="function"><span class="keyword">function</span> <span class="params">(v)</span> {</span>
     secret = v;
   }; 
-})();
-</pre></div>
+})();</code></pre>
+<pre><code class="language-js">getValue();    <span class="comment">//0</span></code></pre>
+<pre><code class="language-js"><span class="title">setValue</span>(<span class="number">123</span>);
+<span class="title">getValue</span>();    //<span class="number">123</span></code></pre>
 
-<div class="highlight"><pre lang="js">getValue();    //0
-</pre></div>
-
-<div class="highlight"><pre lang="js">setValue(123);
-getValue();    //123
-</pre></div>
 </article>
 
 

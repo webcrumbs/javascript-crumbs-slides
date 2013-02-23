@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,6 +141,7 @@ body {
 
 <article>
 <h1>Syntax</h1>
+
 </article>
 
 
@@ -25,8 +150,8 @@ body {
 
 <article>
 <h1>Syntax</h1>
+<p>JavaScript syntax borrows heavily from C<br>and other C-like languages such as Java and Perl.</p>
 
-<p>JavaScript syntax borrows heavily from C <br /><br />and other C-like languages such as Java and Perl.</p>
 </article>
 
 
@@ -35,10 +160,9 @@ body {
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Case-sensitivity</h2>
+<p>In JavaScript, everything is case-sensitive:<br><em>variables</em>, <em>function names</em>, and <em>operators</em>.</p>
 
-<p>In JavaScript, everything is case-sensitive: <br /><br /><em>variables</em>, <em>function names</em>, and <em>operators</em>.</p>
 </article>
 
 
@@ -47,16 +171,14 @@ body {
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Identifiers</h2>
-
 <p>An <em>identifier</em> is the name of a variable, function, property, or argument</p>
-
 <ul>
 <li>may be one or more characters</li>
 <li>starts with a letter or <code>_</code> or <code>$</code></li>
 <li>can contains letters, numbers, <code>_</code>, <code>$</code></li>
 </ul>
+
 </article>
 
 
@@ -65,25 +187,20 @@ body {
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Identifiers</h2>
-
 <h4>Examples</h4>
-
-<div class="highlight"><pre lang="js">var name1;    // OK
-var _name2;   // OK
-var $name3;   // OK
-var $;        // OK
-var _;        // OK
-var Åmstrong; // OK
-var π;        // OK
-var Name;     // OK
-var 1name;    // SyntaxError: Unexpected token ILLEGAL
-</pre></div>
-
+<pre><code class="language-js"><span class="keyword">var</span> name1;    <span class="comment">// OK</span>
+<span class="keyword">var</span> _name2;   <span class="comment">// OK</span>
+<span class="keyword">var</span> <span class="variable">$name3</span>;   <span class="comment">// OK</span>
+<span class="keyword">var</span> $;        <span class="comment">// OK</span>
+<span class="keyword">var</span> _;        <span class="comment">// OK</span>
+<span class="keyword">var</span> Åmstrong; <span class="comment">// OK</span>
+<span class="keyword">var</span> π;        <span class="comment">// OK</span>
+<span class="keyword">var</span> Name;     <span class="comment">// OK</span>
+<span class="keyword">var</span> <span class="number">1</span>name;    <span class="comment">// SyntaxError: Unexpected token ILLEGAL</span></code></pre>
 <h4>Note</h4>
-
 <p>Letters can be in extended ASCII or Unicode</p>
+
 </article>
 
 
@@ -91,11 +208,10 @@ var 1name;    // SyntaxError: Unexpected token ILLEGAL
 
 
 <article>
-<hr />
-
+<hr>
 <h1>Syntax</h1>
-
 <h2>Identifiers</h2>
+
 </article>
 
 
@@ -104,18 +220,15 @@ var 1name;    // SyntaxError: Unexpected token ILLEGAL
 
 <article>
 <h4>convention</h4>
-
 <p>JavaScript identifiers use camel case:</p>
-
 <ul>
 <li>the first letter is lowercase</li>
 <li>each additional word is offset by a capital letter</li>
 </ul>
+<pre><code class="language-js"><span class="title">var</span> firstSecond;
+<span class="title">var</span> doSomethingImportant;
+<span class="title">var</span> yetAnotherCamelCaseExample;</code></pre>
 
-<div class="highlight"><pre lang="js">var firstSecond;
-var doSomethingImportant;
-var yetAnotherCamelCaseExample;
-</pre></div>
 </article>
 
 
@@ -124,25 +237,17 @@ var yetAnotherCamelCaseExample;
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Comments</h2>
-
 <h4>single-line comment</h4>
-
-<div class="highlight"><pre lang="js">//single line comment
-</pre></div>
-
+<pre><code class="language-js"><span class="comment">//single line comment</span></code></pre>
 <h4>block comment</h4>
-
-<div class="highlight"><pre lang="js">/*
+<pre><code class="language-js"><span class="comment">/*
  * This is a multi-line
  * Comment
- */
-</pre></div>
-
+ */</span></code></pre>
 <h4>Convention</h4>
-
 <p>for readability each line of block comment starts with <code>*</code></p>
+
 </article>
 
 
@@ -151,14 +256,11 @@ var yetAnotherCamelCaseExample;
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Statements</h2>
-
 <p>JavaScript statements are terminated by a semicolon <code>;</code></p>
+<pre><code class="language-js"><span class="reserved">var</span> sum = a + b   <span class="regexp">//</span>valid even without a semicolon - <span class="keyword">not</span> recommended
+<span class="reserved">var</span> diff = a - b; <span class="regexp">//</span>valid - preferred</code></pre>
 
-<div class="highlight"><pre lang="js">var sum = a + b   //valid even without a semicolon - not recommended
-var diff = a - b; //valid - preferred
-</pre></div>
 </article>
 
 
@@ -167,18 +269,14 @@ var diff = a - b; //valid - preferred
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Statements</h2>
-
 <h3>Multiple statements</h3>
-
 <p>Multiple statements can be combined into a code block between curly braces <code>{</code> and <code>}</code></p>
+<pre><code class="language-js">{
+  test = <span class="literal">false</span>;
+  alert(<span class="comment">'hello!');</span>
+}</code></pre>
 
-<div class="highlight"><pre lang="js">{
-  test = false;
-  alert('hello!');
-}
-</pre></div>
 </article>
 
 
@@ -187,22 +285,19 @@ var diff = a - b; //valid - preferred
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Keywords and Reserved Words</h2>
-
 <h3>Keywords</h3>
+<pre><code class="language-js"><span class="keyword">break</span>        <span class="keyword">for</span>          <span class="keyword">try</span>          
+<span class="keyword">case</span>         <span class="function"><span class="keyword">function</span>     <span class="title">typeof</span>  
+<span class="title">catch</span>        <span class="title">instanceof</span>   <span class="title">var</span>  
+<span class="title">continue</span>     <span class="title">if</span>           <span class="title">void</span>  
+<span class="title">do</span>           <span class="title">in</span>           <span class="title">while</span>  
+<span class="title">debugger</span>     <span class="title">new</span>          <span class="title">with</span>
+<span class="title">default</span>      <span class="title">return</span>       
+<span class="title">delete</span>       <span class="title">switch</span>       
+<span class="title">else</span>         <span class="title">this</span>         
+<span class="title">finally</span>      <span class="title">throws</span></code></pre>
 
-<div class="highlight"><pre lang="js">break        for          try          
-case         function     typeof  
-catch        instanceof   var  
-continue     if           void  
-do           in           while  
-debugger     new          with
-default      return       
-delete       switch       
-else         this         
-finally      throws       
-</pre></div>
 </article>
 
 
@@ -211,22 +306,19 @@ finally      throws
 
 <article>
 <h1>Syntax</h1>
-
 <h2>Keywords and Reserved Words</h2>
-
 <h3>Reserved words</h3>
+<pre><code class="language-js"><span class="keyword">abstract</span>     extends     <span class="keyword">package</span>      <span class="keyword">volatile</span>
+<span class="keyword">boolean</span>      <span class="keyword">final</span>       <span class="keyword">private</span>      
+<span class="keyword">byte</span>         <span class="keyword">float</span>       <span class="keyword">protected</span>    
+<span class="keyword">char</span>         goto        <span class="keyword">public</span>       
+<span class="class"><span class="keyword">class</span>        <span class="keyword">implements</span>  <span class="title">short</span>        
+<span class="title">const</span>        <span class="title">import</span>      <span class="title">static</span>         
+<span class="title">debugger</span>     <span class="title">int</span>         <span class="title">super</span>
+<span class="title">double</span>       <span class="title">interface</span>   <span class="title">synchronized</span>
+<span class="title">enum</span>         <span class="title">long</span>        <span class="title">throws</span>
+<span class="title">export</span>       <span class="title">native</span>      <span class="title">transient</span></code></pre>
 
-<div class="highlight"><pre lang="js">abstract     extends     package      volatile
-boolean      final       private      
-byte         float       protected    
-char         goto        public       
-class        implements  short        
-const        import      static         
-debugger     int         super
-double       interface   synchronized
-enum         long        throws
-export       native      transient
-</pre></div>
 </article>
 
 

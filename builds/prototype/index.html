@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,6 +141,7 @@ body {
 
 <article>
 <h1>Prototype</h1>
+
 </article>
 
 
@@ -24,7 +149,8 @@ body {
 
 
 <article>
-<h2>Function's <code>prototype</code> property</h2>
+<h2>Function&#39;s <code>prototype</code> property</h2>
+
 </article>
 
 
@@ -33,37 +159,24 @@ body {
 
 <article>
 <h1>Prototype</h1>
-
-<h2>Function's <code>prototype</code> property</h2>
-
+<h2>Function&#39;s <code>prototype</code> property</h2>
 <p>Every function has a property called <code>prototype</code></p>
-
 <p><code>prototype</code> is an object shared by every object instantiated by the function</p>
-
 <p><code>protottype</code> is initially an empty object</p>
-
-<div class="highlight"><pre lang="js">function foo(a, b) { return a * b; }
-typeof foo.prototype // "object"
-</pre></div>
-
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a, b)</span> <span class="comment">{ return a * b; }</span>
+<span class="title">typeof</span> <span class="title">foo</span>.<span class="title">prototype</span> // "<span class="title">object</span>"</code></pre>
 <h1>Prototype</h1>
-
-<h2>Function's <code>prototype</code> property</h2>
-
+<h2>Function&#39;s <code>prototype</code> property</h2>
 <h3>Augmenting <code>prototype</code></h3>
-
 <p><code>prototype</code> object can be augmented with properties and methods  </p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span> <span class="params">(r)</span> {</span>
+  <span class="keyword">this</span>.r = r;
+}</code></pre>
+<pre><code class="language-js"><span class="transposed_variable">Circle.</span><span class="transposed_variable">prototype.</span>name = <span class="string">'circle'</span>;
+<span class="transposed_variable">Circle.</span><span class="transposed_variable">prototype.</span>getArea = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">return</span> <span class="transposed_variable">Math.</span>PI * <span class="transposed_variable">this.</span>r * <span class="transposed_variable">this.</span>r;
+};</code></pre>
 
-<div class="highlight"><pre lang="js">function Circle (r) {
-  this.r = r;
-}
-</pre></div>
-
-<div class="highlight"><pre lang="js">Circle.prototype.name = 'circle';
-Circle.prototype.getArea = function () {
-  return Math.PI * this.r * this.r;
-};
-</pre></div>
 </article>
 
 
@@ -72,24 +185,18 @@ Circle.prototype.getArea = function () {
 
 <article>
 <h1>Prototype</h1>
-
-<h2>Function's <code>prototype</code> property</h2>
-
+<h2>Function&#39;s <code>prototype</code> property</h2>
 <h3> </h3>
+<p>Methods and properties added to the <code>prototype</code> of the function <code>f</code><br>are available to every object created by function <code>f</code>  </p>
+<pre><code class="language-js">var c = new Circle(<span class="number">4</span>)<span class="comment">;</span>
+c<span class="preprocessor">.r</span><span class="comment">;          //4</span>
+c<span class="preprocessor">.name</span><span class="comment">;       // "circle"</span>
+c<span class="preprocessor">.getArea</span>()<span class="comment">;  //50.26548245743669</span></code></pre>
+<pre><code class="language-js">var d = new Circle(<span class="number">2</span>)<span class="comment">;</span>
+d<span class="preprocessor">.r</span><span class="comment">;          //2</span>
+d<span class="preprocessor">.name</span><span class="comment">;       //"circle"</span>
+d<span class="preprocessor">.getArea</span>()<span class="comment">;  //12.566370614359172</span></code></pre>
 
-<p>Methods and properties added to the <code>prototype</code> of the function <code>f</code> <br /><br />are available to every object created by function <code>f</code>  </p>
-
-<div class="highlight"><pre lang="js">var c = new Circle(4);
-c.r;          //4
-c.name;       // "circle"
-c.getArea();  //50.26548245743669
-</pre></div>
-
-<div class="highlight"><pre lang="js">var d = new Circle(2);
-d.r;          //2
-d.name;       //"circle"
-d.getArea();  //12.566370614359172
-</pre></div>
 </article>
 
 
@@ -98,23 +205,17 @@ d.getArea();  //12.566370614359172
 
 <article>
 <h1>Prototype</h1>
+<h2>Function&#39;s <code>prototype</code> property</h2>
+<h3>The prototype is &quot;live&quot;</h3>
+<p>Objects are passed by reference:<br>the prototype is not copied with every new object instance  </p>
+<pre><code class="language-js"><span class="transposed_variable">Circle.</span><span class="transposed_variable">prototype.</span>getCircumference = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">return</span> <span class="number">2</span> * <span class="transposed_variable">Math.</span>PI * <span class="transposed_variable">this.</span>r;
+};</code></pre>
+<pre><code class="language-js">var d = new Circle(<span class="number">5</span>)<span class="comment">;</span>
 
-<h2>Function's <code>prototype</code> property</h2>
+c<span class="preprocessor">.getCircumference</span>()<span class="comment">; //25.132741228718345</span>
+d<span class="preprocessor">.getCircumference</span>()<span class="comment">; //31.41592653589793</span></code></pre>
 
-<h3>The prototype is "live"</h3>
-
-<p>Objects are passed by reference: <br /><br />the prototype is not copied with every new object instance  </p>
-
-<div class="highlight"><pre lang="js">Circle.prototype.getCircumference = function () {
-  return 2 * Math.PI * this.r;
-};
-</pre></div>
-
-<div class="highlight"><pre lang="js">var d = new Circle(5);
-
-c.getCircumference(); //25.132741228718345
-d.getCircumference(); //31.41592653589793
-</pre></div>
 </article>
 
 
@@ -123,6 +224,7 @@ d.getCircumference(); //31.41592653589793
 
 <article>
 <h2>The prototype chain</h2>
+
 </article>
 
 
@@ -131,13 +233,9 @@ d.getCircumference(); //31.41592653589793
 
 <article>
 <h1>Prototype</h1>
-
 <h2>The prototype chain</h2>
-
 <h3>Accessing a property of an object</h3>
-
 <p>When you access a property <code>p</code> of an object <code>o</code> JavaScript:</p>
-
 <ol>
 <li>looks for <code>p</code> in the properties of <code>o</code></li>
 <li>if it finds <code>p</code>, returns its value</li>
@@ -146,6 +244,7 @@ d.getCircumference(); //31.41592653589793
 <li>else it look in the prototype of the prototype of <code>o</code></li>
 <li>...</li>
 </ol>
+
 </article>
 
 
@@ -154,14 +253,11 @@ d.getCircumference(); //31.41592653589793
 
 <article>
 <h1>Prototype</h1>
-
 <h2>The prototype chain</h2>
-
 <h3>Accessing a property of an object</h3>
+<pre><code class="language-js">c.r; //<span class="number">4</span> - found <span class="keyword">in</span> <span class="keyword">the</span> properties <span class="keyword">of</span> c
+c.<span class="property">name</span>; //<span class="string">"circle"</span> - found <span class="keyword">in</span> <span class="keyword">the</span> prototype <span class="keyword">of</span> c</code></pre>
 
-<div class="highlight"><pre lang="js">c.r; //4 - found in the properties of c
-c.name; //"circle" - found in the prototype of c
-</pre></div>
 </article>
 
 
@@ -170,16 +266,37 @@ c.name; //"circle" - found in the prototype of c
 
 <article>
 <h1>Prototype</h1>
-
 <h2>The prototype chain</h2>
+<h3>Understanding the chain</h3>
+<p>Every object <code>o</code> has a <code>constructor</code> property:<br>the function which creates the object <code>o</code></p>
+<p>Every function <code>f</code> has a <code>prototype</code> property:<br>the object shared by instances created by the function <code>f</code></p>
+<p>A constructor is a function, so it has a <code>prototype</code><br>A prototype is an object so it has a <code>constructor</code></p>
 
+</article>
+
+
+<!-- slide -->
+
+
+<article>
+<h1>Prototype</h1>
+<h2>The prototype chain</h2>
 <h3>Understanding the chain</h3>
 
-<p>Every object <code>o</code> has a <code>constructor</code> property: <br /><br />the function which creates the object <code>o</code></p>
+</article>
 
-<p>Every function <code>f</code> has a <code>prototype</code> property: <br /><br />the object shared by instances created by the function <code>f</code></p>
 
-<p>A constructor is a function, so it has a <code>prototype</code> <br /><br />A prototype is an object so it has a <code>constructor</code></p>
+<!-- slide -->
+
+
+<article>
+<pre><code class="language-js"><span class="setting">c = <span class="value">new Circle(<span class="number">4</span>);</span></span></code></pre>
+<pre><code class="language-js">typeof c; <span class="comment">//"object"</span>
+c.<span class="keyword">constructor</span>; <span class="comment">//function Circle(r) {...}</span>
+c.<span class="function"><span class="keyword">constructor</span> === <span class="title">Circle</span>;</span> <span class="comment">//true</span></code></pre>
+<pre><code class="language-js">typeof c<span class="variable">.constructor</span>; <span class="comment">//"function"</span>
+c<span class="variable">.constructor</span><span class="variable">.ptototype</span>; <span class="comment">//"object"</span></code></pre>
+
 </article>
 
 
@@ -188,28 +305,12 @@ c.name; //"circle" - found in the prototype of c
 
 <article>
 <h1>Prototype</h1>
-
 <h2>The prototype chain</h2>
-
 <h3>Understanding the chain</h3>
-</article>
+<p>The built-in <code>Object</code> object is the highest-level parent,<br>the end of the so called <strong>prototype chain</strong>.  </p>
+<pre><code class="language-js">c<span class="variable">.toString</span>();  <span class="comment">// "[object Object]"</span></code></pre>
+<p><code>c</code> doesn&#39;t have an own <code>toString()</code> method<br><code>c.prototype</code> doesn&#39;t have an own <code>toString()</code> method<br><code>Object.prototype</code> has it!</p>
 
-
-<!-- slide -->
-
-
-<article>
-<div class="highlight"><pre lang="js">c = new Circle(4);
-</pre></div>
-
-<div class="highlight"><pre lang="js">typeof c; //"object"
-c.constructor; //function Circle(r) {...}
-c.constructor === Circle; //true
-</pre></div>
-
-<div class="highlight"><pre lang="js">typeof c.constructor; //"function"
-c.constructor.ptototype; //"object"
-</pre></div>
 </article>
 
 
@@ -218,52 +319,23 @@ c.constructor.ptototype; //"object"
 
 <article>
 <h1>Prototype</h1>
-
 <h2>The prototype chain</h2>
-
-<h3>Understanding the chain</h3>
-
-<p>The built-in <code>Object</code> object is the highest-level parent, <br /><br />the end of the so called <strong>prototype chain</strong>.  </p>
-
-<div class="highlight"><pre lang="js">c.toString();  // "[object Object]"
-</pre></div>
-
-<p><code>c</code> doesn't have an own <code>toString()</code> method <br /><br /><code>c.prototype</code> doesn't have an own <code>toString()</code> method <br /><br /><code>Object.prototype</code> has it!</p>
-</article>
-
-
-<!-- slide -->
-
-
-<article>
-<h1>Prototype</h1>
-
-<h2>The prototype chain</h2>
-
-<h3>Overwriting prototype's property with own property</h3>
-
-<p>The own property takes precedence over the prototype's.</p>
-
-<div class="highlight"><pre lang="js">function Circle (r) {
+<h3>Overwriting prototype&#39;s property with own property</h3>
+<p>The own property takes precedence over the prototype&#39;s.</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span> <span class="params">(r)</span> <span class="comment">{
   this.r = r;
   this.color = 'red';
-}
+}</span>
 
-Circle.prototype.color = 'green';
-</pre></div>
+<span class="title">Circle</span>.<span class="title">prototype</span>.<span class="title">color</span> = '<span class="title">green</span>';</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> c = <span class="keyword">new</span> Circle(<span class="number">5</span>);
 
-<div class="highlight"><pre lang="js">var c = new Circle(5);
+c.color; <span class="comment">// "red"</span></code></pre>
+<pre><code class="language-js">delete c<span class="preprocessor">.color</span><span class="comment">;</span>
+c<span class="preprocessor">.color</span><span class="comment">; // "green"</span></code></pre>
+<pre><code class="language-js">c.<span class="keyword">color</span> = <span class="string">'blue'</span>;
+c.<span class="keyword">color</span>; <span class="comment">// "blue"</span></code></pre>
 
-c.color; // "red"
-</pre></div>
-
-<div class="highlight"><pre lang="js">delete c.color;
-c.color; // "green"
-</pre></div>
-
-<div class="highlight"><pre lang="js">c.color = 'blue';
-c.color; // "blue"
-</pre></div>
 </article>
 
 
@@ -272,6 +344,7 @@ c.color; // "blue"
 
 <article>
 <h2>Useful methods</h2>
+
 </article>
 
 
@@ -280,29 +353,23 @@ c.color; // "blue"
 
 <article>
 <h1>Prototype</h1>
-
 <h2>Useful methods</h2>
-
 <h3><code>hasOwnProperty(prop)</code></h3>
-
 <p>A <code>for-in</code> loop iterates over all properties including those of the prototype.</p>
-
-<div class="highlight"><pre lang="js">function Circle (r) {
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span> <span class="params">(r)</span> <span class="comment">{
   this.r = r;
-}
+}</span>
 
-Circle.prototype.color = 'green';
-</pre></div>
+<span class="title">Circle</span>.<span class="title">prototype</span>.<span class="title">color</span> = '<span class="title">green</span>';</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> c = <span class="keyword">new</span> Circle(<span class="number">3</span>);
 
-<div class="highlight"><pre lang="js">var c = new Circle(3);
-
-for (var p in c) {
+<span class="keyword">for</span> (<span class="keyword">var</span> p <span class="keyword">in</span> c) {
   console.log(p);
 }
 
-//r
-//color
-</pre></div>
+<span class="comment">//r</span>
+<span class="comment">//color</span></code></pre>
+
 </article>
 
 
@@ -311,23 +378,19 @@ for (var p in c) {
 
 <article>
 <h1>Prototype</h1>
-
 <h2>Useful methods</h2>
-
 <h3><code>hasOwnProperty(prop)</code></h3>
-
 <p>Use <code>hasOwnProperty()</code> to test if a property belongs to an object.</p>
+<pre><code class="language-js"><span class="keyword">var</span> c = <span class="keyword">new</span> Circle(<span class="number">3</span>);
 
-<div class="highlight"><pre lang="js">var c = new Circle(3);
-
-for (var p in c) {
-  if (c.hasOwnProperty(p)) {
+<span class="keyword">for</span> (<span class="keyword">var</span> p <span class="keyword">in</span> c) {
+  <span class="keyword">if</span> (c.hasOwnProperty(p)) {
     console.log(p);
   }
 }
 
-//r
-</pre></div>
+<span class="comment">//r</span></code></pre>
+
 </article>
 
 
@@ -336,10 +399,9 @@ for (var p in c) {
 
 <article>
 <h1>Prototype</h1>
-
 <h2>Useful methods</h2>
-
 <h3><code>isPrototypeOf(obj)</code></h3>
+
 </article>
 
 
@@ -348,19 +410,16 @@ for (var p in c) {
 
 <article>
 <p>This method tells whether that specific object is used as a prototype of another object.</p>
-
-<div class="highlight"><pre lang="js">function Circle (r) {
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span> <span class="params">(r)</span> <span class="comment">{
   this.r = r;
-}
+}</span>
 
-Circle.prototype.color = 'green';
-</pre></div>
+<span class="title">Circle</span>.<span class="title">prototype</span>.<span class="title">color</span> = '<span class="title">green</span>';</span></code></pre>
+<pre><code class="language-js">var c = new Circle(<span class="number">4</span>)<span class="comment">;</span>
+Circle<span class="preprocessor">.prototype</span><span class="preprocessor">.isPrototypeOf</span>(c)<span class="comment">; //true</span>
+Object<span class="preprocessor">.prototype</span><span class="preprocessor">.isPrototypeOf</span>(c)<span class="comment">; //true</span>
+Array<span class="preprocessor">.prototype</span><span class="preprocessor">.isPrototypeOf</span>(c)<span class="comment">;  //false</span></code></pre>
 
-<div class="highlight"><pre lang="js">var c = new Circle(4);
-Circle.prototype.isPrototypeOf(c); //true
-Object.prototype.isPrototypeOf(c); //true
-Array.prototype.isPrototypeOf(c);  //false
-</pre></div>
 </article>
 
 
@@ -369,6 +428,7 @@ Array.prototype.isPrototypeOf(c);  //false
 
 <article>
 <h2>Some prototype gotchas</h2>
+
 </article>
 
 
@@ -377,18 +437,14 @@ Array.prototype.isPrototypeOf(c);  //false
 
 <article>
 <h1>Prototype</h1>
-
 <h2>Some prototype gotchas</h2>
-
 <h3><code>prototype.constructor</code> is not reliable</h3>
-
-<p>It could be simply overwritten <br /><br />JavaScript access object's prototype through a secret link <br /><br />Some engines expose this link as a <code>__proto__</code> properties  </p>
-
+<p>It could be simply overwritten<br>JavaScript access object&#39;s prototype through a secret link<br>Some engines expose this link as a <code>__proto__</code> properties  </p>
 <blockquote>
-  <h4>Forbidden!</h4>
-  
-  <p>Even when exposed never use secret <code>__proto__</code> property. <br /><br />It's no standard: think it's there only for learning purpose.</p>
+<h4>Forbidden!</h4>
+<p>Even when exposed never use secret <code>__proto__</code> property.<br>It&#39;s no standard: think it&#39;s there only for learning purpose.</p>
 </blockquote>
+
 </article>
 
 
@@ -397,28 +453,23 @@ Array.prototype.isPrototypeOf(c);  //false
 
 <article>
 <h1>Prototype</h1>
-
 <h2>Some prototype gotchas</h2>
-
 <h3><code>prototype.constructor</code> is not reliable</h3>
-
-<div class="highlight"><pre lang="js">function Circle (r) {
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span> <span class="params">(r)</span> <span class="comment">{
   this.r = r;
-}
+}</span>
 
-Circle.prototype.color = 'green';
-</pre></div>
+<span class="title">Circle</span>.<span class="title">prototype</span>.<span class="title">color</span> = '<span class="title">green</span>';</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> c = new Circle(<span class="number">4</span>);
 
-<div class="highlight"><pre lang="js">var c = new Circle(4);
+c.<span class="function"><span class="keyword">constructor</span> = '<span class="title">junk</span>'
 
-c.constructor = 'junk'
+<span class="title">typeof</span> <span class="title">c</span>.<span class="title">constructor</span>.<span class="title">prototype</span> // "<span class="title">undefined</span>"
+// <span class="title">a</span> <span class="title">string</span> <span class="title">object</span> <span class="title">hasn</span>'<span class="title">t</span> <span class="title">a</span> <span class="title">prototype</span> <span class="title">property</span>
 
-typeof c.constructor.prototype // "undefined"
-// a string object hasn't a prototype property
+<span class="title">c</span>.<span class="title">color</span>;</span> <span class="comment">//"green"</span>
+<span class="comment">// JavaScript uses immutable __proto__ secret link</span></code></pre>
 
-c.color; //"green"
-// JavaScript uses immutable __proto__ secret link
-</pre></div>
 </article>
 
 
@@ -427,21 +478,16 @@ c.color; //"green"
 
 <article>
 <h1>Prototype</h1>
-
 <h2>Some prototype gotchas</h2>
-
 <h3><code>prototype.constructor</code> is not reliable</h3>
-
 <p><code>__proto__</code> and <code>prototype</code> refer to the same object but:</p>
-
 <ul>
 <li><code>__proto__</code> is a property of the instances</li>
 <li><code>prototype</code> is a property of the constructor functions</li>
 </ul>
+<pre><code class="language-js"><span class="keyword">typeof</span> c.__proto__   <span class="comment">// "object"</span>
+<span class="keyword">typeof</span> c.prototype   <span class="comment">// "undefifined"</span></code></pre>
 
-<div class="highlight"><pre lang="js">typeof c.__proto__   // "object"
-typeof c.prototype   // "undefifined"
-</pre></div>
 </article>
 
 

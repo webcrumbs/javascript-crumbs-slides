@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,6 +141,7 @@ body {
 
 <article>
 <h1>Built-ins</h1>
+
 </article>
 
 
@@ -25,6 +150,7 @@ body {
 
 <article>
 <h2>Object methods</h2>
+
 </article>
 
 
@@ -33,20 +159,16 @@ body {
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Object methods</h2>
-
-<div class="highlight"><pre lang="js">var o = {};
-var o = new Object();
-</pre></div>
-
+<pre><code class="language-js"><span class="keyword">var</span> o = {};
+<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</code></pre>
 <p>An empty object already contains some methods and properties:</p>
-
 <ul>
 <li><code>o.constructor</code></li>
 <li><code>o.toString()</code></li>
 <li><code>o.valueOf()</code></li>
 </ul>
+
 </article>
 
 
@@ -55,6 +177,7 @@ var o = new Object();
 
 <article>
 <h2>Function methods</h2>
+
 </article>
 
 
@@ -63,32 +186,28 @@ var o = new Object();
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Function methods</h2>
-
 <h3><code>call(thisArg, param...)</code></h3>
-
 <p>It allows your objects to borrow methods from other objects and invoke them as their own.</p>
-
-<div class="highlight"><pre lang="js">var greets = function (breed, birth) {
-  return "Hi I'm " + this.firstName + " " + breed + 
-         ", I was born in " + birth + ".";
+<pre><code class="language-js"><span class="keyword">var</span> greets = <span class="function"><span class="keyword">function</span> <span class="params">(breed, birth)</span> {</span>
+  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed + 
+         <span class="string">", I was born in "</span> + birth + <span class="string">"."</span>;
 }
 
-var mickey = {
-  firstName: 'Mickey'
+<span class="keyword">var</span> mickey = {
+  firstName: <span class="string">'Mickey'</span>
 };
 
-var donald = {
-  firstName: 'Donald'
+<span class="keyword">var</span> donald = {
+  firstName: <span class="string">'Donald'</span>
 };
 
-greets.call(mickey, 'Mouse', 1928); 
-//"Hi I'm Mickey Mouse, I was born in 1928."
+greets.call(mickey, <span class="string">'Mouse'</span>, <span class="number">1928</span>); 
+<span class="comment">//"Hi I'm Mickey Mouse, I was born in 1928."</span>
 
-greets.call(donald, 'Duck', 1934); 
-//"Hi I'm Donald Duck, I was born in 1934."
-</pre></div>
+greets.call(donald, <span class="string">'Duck'</span>, <span class="number">1934</span>); 
+<span class="comment">//"Hi I'm Donald Duck, I was born in 1934."</span></code></pre>
+
 </article>
 
 
@@ -97,32 +216,28 @@ greets.call(donald, 'Duck', 1934);
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Function methods</h2>
-
 <h3><code>apply(thisArg, arrayArg)</code></h3>
-
 <p>It has the same behaviour of <code>call</code> but different signature.</p>
-
-<div class="highlight"><pre lang="js">var greets = function (breed, birth) {
-  return "Hi I'm " + this.firstName + " " + breed + 
-         ", I was born in " + birth + ".";
+<pre><code class="language-js"><span class="keyword">var</span> greets = <span class="function"><span class="keyword">function</span> <span class="params">(breed, birth)</span> {</span>
+  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed + 
+         <span class="string">", I was born in "</span> + birth + <span class="string">"."</span>;
 }
 
-var mickey = {
-  firstName: 'Mickey'
+<span class="keyword">var</span> mickey = {
+  firstName: <span class="string">'Mickey'</span>
 };
 
-var donald = {
-  firstName: 'Donald'
+<span class="keyword">var</span> donald = {
+  firstName: <span class="string">'Donald'</span>
 };
 
-greets.apply(mickey, ['Mouse', 1928]); 
-//"Hi I'm Mickey Mouse, I was born in 1928."
+greets.apply(mickey, [<span class="string">'Mouse'</span>, <span class="number">1928</span>]); 
+<span class="comment">//"Hi I'm Mickey Mouse, I was born in 1928."</span>
 
-greets.call(donald, ['Duck', 1934]); 
-//"Hi I'm Donald Duck, I was born in 1934."
-</pre></div>
+greets.call(donald, [<span class="string">'Duck'</span>, <span class="number">1934</span>]); 
+<span class="comment">//"Hi I'm Donald Duck, I was born in 1934."</span></code></pre>
+
 </article>
 
 
@@ -131,25 +246,21 @@ greets.call(donald, ['Duck', 1934]);
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Function methods</h2>
-
 <h3><code>thisArg</code> parameter</h3>
-
-<p>if <code>null</code> is passed defaults to the global object</p>
-
-<div class="highlight"><pre lang="js">var greets = function (breed, birth) {
-  return "Hi I'm " + this.firstName + " " + breed + 
-         ", I was born in " + birth + ".";
+<p> if <code>null</code> is passed defaults to the global object</p>
+<pre><code class="language-js"><span class="keyword">var</span> greets = <span class="function"><span class="keyword">function</span> <span class="params">(breed, birth)</span> {</span>
+  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed + 
+         <span class="string">", I was born in "</span> + birth + <span class="string">"."</span>;
 }
 
-greets.apply(null, ['Mouse', 1928]);
-//"Hi I'm undefined Mouse, I was born in 1928."
+greets.apply(<span class="literal">null</span>, [<span class="string">'Mouse'</span>, <span class="number">1928</span>]);
+<span class="comment">//"Hi I'm undefined Mouse, I was born in 1928."</span>
 
-var firstName = 'Goofy';
-greets.apply(null, ['Goof', 1932]);
-//"Hi I'm Goofy Goof, I was born in 1932."
-</pre></div>
+<span class="keyword">var</span> firstName = <span class="string">'Goofy'</span>;
+greets.apply(<span class="literal">null</span>, [<span class="string">'Goof'</span>, <span class="number">1932</span>]);
+<span class="comment">//"Hi I'm Goofy Goof, I was born in 1932."</span></code></pre>
+
 </article>
 
 
@@ -158,6 +269,7 @@ greets.apply(null, ['Goof', 1932]);
 
 <article>
 <h2>Array</h2>
+
 </article>
 
 
@@ -166,20 +278,15 @@ greets.apply(null, ['Goof', 1932]);
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array</h2>
-
 <h3>Definition</h3>
-
-<div class="highlight"><pre lang="js">var a = ['one', 'two', 'three'];
+<pre><code class="language-js">var a = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];
 var empty = [];
-var plain = [1+2,'four'];
-var matrix = [[1,2,3], [4,5,6], [7,8,9]];
-var sparseArray = [1,,,,5];
-</pre></div>
+var plain = [<span class="number">1</span>+<span class="number">2</span>,<span class="string">'four'</span>];
+var matrix = <span class="string">[[1,2,3], [4,5,6], [7,8,9]]</span>;
+var sparseArray = [<span class="number">1</span>,,,,<span class="number">5</span>];</code></pre>
+<pre><code class="language-js">var a = <span class="keyword">new</span> <span class="keyword">Array</span>([<span class="attribute">'one</span>', <span class="attribute">'two</span>', <span class="attribute">'three</span>']);</code></pre>
 
-<div class="highlight"><pre lang="js">var a = new Array(['one', 'two', 'three']);
-</pre></div>
 </article>
 
 
@@ -188,22 +295,17 @@ var sparseArray = [1,,,,5];
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array</h2>
-
 <h3>Definition</h3>
-
 <p>Arrays are objects, but of a special type because:  </p>
-
 <ul>
 <li>the names of their properties are automatically assigned using numbers  </li>
 <li>they have a <code>length</code> property which contains the number of elements in the array  </li>
 </ul>
+<pre><code class="language-js"><span class="keyword">var</span> a = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];
+a.length; <span class="comment">//3</span>
+<span class="keyword">typeof</span> a; <span class="comment">//"object"</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = ['one', 'two', 'three'];
-a.length; //3
-typeof a; //"object"
-</pre></div>
 </article>
 
 
@@ -212,21 +314,17 @@ typeof a; //"object"
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array</h2>
-
 <h2>Access</h2>
-
 <p>Arrays can be accessed through square bracket notation.</p>
+<pre><code class="language-js">var a = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];
+a[<span class="number">1</span>]; //<span class="string">"two"</span>
+a[<span class="string">'1'</span>]; //<span class="string">"two"</span>
+a[<span class="number">1</span>] = <span class="number">2</span>
+a[<span class="number">1</span>]; //<span class="number">2</span>
+var matrix = <span class="string">[[1,2,3], [4,5,6], [7,8,9]]</span>;
+matrix[<span class="number">0</span>][<span class="number">1</span>]; //<span class="number">2</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = ['one', 'two', 'three'];
-a[1]; //"two"
-a['1']; //"two"
-a[1] = 2
-a[1]; //2
-var matrix = [[1,2,3], [4,5,6], [7,8,9]];
-matrix[0][1]; //2
-</pre></div>
 </article>
 
 
@@ -235,6 +333,7 @@ matrix[0][1]; //2
 
 <article>
 <h2>Array methods</h2>
+
 </article>
 
 
@@ -243,12 +342,9 @@ matrix[0][1]; //2
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3>Overview</h3>
-
-<div class="highlight"><pre lang="js">push(item...)
+<pre><code class="language-js">push(item...)
 pop()
 shift()
 unshift(item...)
@@ -260,14 +356,14 @@ slice(start, end)
 splice(start, deleteCount, item...)
 indexOf(item, startPos)
 lastIndexOf(item, startPos)
-every(function(item, index, array) {...}, scope)
-some(function(item, index, array) {...}, scope)
-filter(function(item, index, array) {...}, scope)
-forEach(function(item, index, array) {...}, scope)
-map(function(item, index, array) {...}, scope)
-reduce(function(prev, cur, index, array) {...}, initVal)
-reduceRight(function(prev, cur, index, array) {...}, initVal)
-</pre></div>
+every(<span class="keyword">function</span>(item, index, array) {<span class="keyword">...</span>}, scope)
+some(<span class="keyword">function</span>(item, index, array) {<span class="keyword">...</span>}, scope)
+filter(<span class="keyword">function</span>(item, index, array) {<span class="keyword">...</span>}, scope)
+forEach(<span class="keyword">function</span>(item, index, array) {<span class="keyword">...</span>}, scope)
+map(<span class="keyword">function</span>(item, index, array) {<span class="keyword">...</span>}, scope)
+reduce(<span class="keyword">function</span>(prev, cur, index, array) {<span class="keyword">...</span>}, initVal)
+reduceRight(<span class="keyword">function</span>(prev, cur, index, array) {<span class="keyword">...</span>}, initVal)</code></pre>
+
 </article>
 
 
@@ -276,23 +372,19 @@ reduceRight(function(prev, cur, index, array) {...}, initVal)
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>push(item...)</code> method</h3>
-
-<p>It accepts any number of item to push in the array. <br /><br />It returns the array's new length.  </p>
-
+<p>It accepts any number of item to push in the array.<br>It returns the array&#39;s new length.  </p>
 <pre><code>!js
 var colors = [];   // create an array
-var count = colors.push('red', 'green'); // push any number of items
+var count = colors.push(&#39;red&#39;, &#39;green&#39;); // push any number of items
 count;  // 2
-colors; // ["red", "green"]
+colors; // [&quot;red&quot;, &quot;green&quot;]
 
-count = colors.push('black');   // push another item on
+count = colors.push(&#39;black&#39;);   // push another item on
 count;  // 3
-colors; // ["red", "green", "black"]
-</code></pre>
+colors; // [&quot;red&quot;, &quot;green&quot;, &quot;black&quot;]</code></pre>
+
 </article>
 
 
@@ -301,21 +393,17 @@ colors; // ["red", "green", "black"]
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>pop()</code> method</h3>
-
-<p>It acceps no parameter. <br /><br />It returns and removes the last element in the array. <br /><br />If the array is empty, return undefined.</p>
-
+<p>It acceps no parameter.<br>It returns and removes the last element in the array.<br>If the array is empty, return undefined.</p>
 <pre><code>!js
-var colors = new Array('red', 'green', 'black');
+var colors = new Array(&#39;red&#39;, &#39;green&#39;, &#39;black&#39;);
 
 var item = colors.pop(); // get the last item
-item; // "black"
+item; // &quot;black&quot;
 colors.length; // 2
-colors; // ["red", "green"]
-</code></pre>
+colors; // [&quot;red&quot;, &quot;green&quot;]</code></pre>
+
 </article>
 
 
@@ -324,26 +412,20 @@ colors; // ["red", "green"]
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3>sort(comparefn)</h3>
-
 <p>The default comparing function is the lexicographical order.</p>
-
-<div class="highlight"><pre lang="js">var values = [0, 1, 5, 10, 15];
-values.sort();
-values;   // 0,1,10,15,5
-</pre></div>
-
-<div class="highlight"><pre lang="js">var compare = function (value1, value2) {
- return value2 - value1;
+<pre><code class="language-js">var <span class="keyword">values</span> = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>];
+<span class="keyword">values</span>.<span class="keyword">sort</span>();
+<span class="keyword">values</span>;   <span class="regexp">//</span> <span class="number">0</span>,<span class="number">1</span>,<span class="number">10</span>,<span class="number">15</span>,<span class="number">5</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span> <span class="params">(value1, value2)</span> {</span>
+ <span class="keyword">return</span> value2 - value1;
 };
 
-var values = [0, 1, 5, 10, 15];
+<span class="keyword">var</span> values = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>];
 values.sort(compare);
-values;   // 0,1,5,10,15
-</pre></div>
+values;   <span class="comment">// 0,1,5,10,15</span></code></pre>
+
 </article>
 
 
@@ -352,25 +434,20 @@ values;   // 0,1,5,10,15
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3>Iterative methods: <code>every</code>, <code>filter</code>, <code>forEach</code>, <code>map</code>, <code>some</code></h3>
-
 <p>Each of the iterative methods accepts two arguments:</p>
-
 <ul>
 <li>a function to run on each item</li>
 <li>an optional scope object in which to run the function (affecting the value of <code>this</code>)</li>
 </ul>
-
 <p>The function passed into one of these methods will receive three arguments:</p>
-
 <ol>
 <li>the array item value</li>
 <li>the position of the item in the array</li>
 <li>the array object itself</li>
 </ol>
+
 </article>
 
 
@@ -379,30 +456,24 @@ values;   // 0,1,5,10,15
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>every(iterator, scope)</code></h3>
-
 <p>Runs the given function on every item in the array and returns <code>true</code> if the function returns <code>true</code> for every item.</p>
+<pre><code class="language-js"><span class="reserved">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];
 
-<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
-
-var everyResult = numbers.every(function(item, index, array) {
- return (item > 2);
+<span class="reserved">var</span> everyResult = numbers.every(<span class="reserved">function</span>(item, index, array) {
+ <span class="keyword">return</span> (item &gt; <span class="number">2</span>);
 });
 
-everyResult;   //false
-</pre></div>
+everyResult;   <span class="regexp">//</span><span class="literal">false</span></code></pre>
+<pre><code class="language-js"><span class="reserved">var</span> numbers = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">9</span>];
 
-<div class="highlight"><pre lang="js">var numbers = [3,5,3,4,5,4,3,8,9];
-
-var everyResult = numbers.every(function(item) {
- return (item > 2);
+<span class="reserved">var</span> everyResult = numbers.every(<span class="reserved">function</span>(item) {
+ <span class="keyword">return</span> (item &gt; <span class="number">2</span>);
 });
 
-everyResult;   //true
-</pre></div>
+everyResult;   <span class="regexp">//</span><span class="literal">true</span></code></pre>
+
 </article>
 
 
@@ -411,30 +482,24 @@ everyResult;   //true
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>some(iterator, scope)</code></h3>
-
 <p>Runs the given function on every item in the array and returns <code>true</code>if the function returns <code>true</code> for any one item.</p>
+<pre><code class="language-js"><span class="reserved">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];
 
-<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
-
-var someResult = numbers.some(function(item, index, array) {
- return (item > 2);
+<span class="reserved">var</span> someResult = numbers.some(<span class="reserved">function</span>(item, index, array) {
+ <span class="keyword">return</span> (item &gt; <span class="number">2</span>);
 });
 
-someResult;   //true
-</pre></div>
+someResult;   <span class="regexp">//</span><span class="literal">true</span></code></pre>
+<pre><code class="language-js"><span class="reserved">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];
 
-<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
-
-var someResult = numbers.some(function(item, index, array) {
- return (item > 5);
+<span class="reserved">var</span> someResult = numbers.some(<span class="reserved">function</span>(item, index, array) {
+ <span class="keyword">return</span> (item &gt; <span class="number">5</span>);
 });
 
-someResult;   //false
-</pre></div>
+someResult;   <span class="regexp">//</span><span class="literal">false</span></code></pre>
+
 </article>
 
 
@@ -443,21 +508,17 @@ someResult;   //false
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>filter(iterator, scope)</code></h3>
-
 <p>Runs the given function on every item in the array and returns an array of all items for which the function returns <code>true</code>.</p>
+<pre><code class="language-js"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];
 
-<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+<span class="keyword">var</span> filterResult = numbers.filter(<span class="keyword">function</span>(item, <span class="keyword">index</span>, <span class="keyword">array</span>)<span class="comment">{
+ return (item &gt; 2);
+}</span>);
 
-var filterResult = numbers.filter(function(item, index, array){
- return (item > 2);
-});
+filterResult;   <span class="comment">//[3,4,5,4,3]</span></code></pre>
 
-filterResult;   //[3,4,5,4,3]
-</pre></div>
 </article>
 
 
@@ -466,19 +527,15 @@ filterResult;   //[3,4,5,4,3]
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>forEach(oterator, scope)</code></h3>
-
 <p>Runs the given function on every item in the array. This method has no return value.</p>
+<pre><code class="language-js"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];
 
-<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
+numbers.<span class="keyword">forEach</span>(function(item, index, <span class="keyword">array</span>){   
+   <span class="comment">//do something here</span>
+});</code></pre>
 
-numbers.forEach(function(item, index, array){   
-   //do something here
-});
-</pre></div>
 </article>
 
 
@@ -487,21 +544,17 @@ numbers.forEach(function(item, index, array){
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>map(iterator, scope)</code></h3>
-
 <p>Runs the given function on every item in the array and returns the result of each function call in an array.</p>
+<pre><code class="language-js"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];
 
-<div class="highlight"><pre lang="js">var numbers = [1,2,3,4,5,4,3,2,1];
-
-var mapResult = numbers.map(function(item, index, array){
+<span class="keyword">var</span> mapResult = numbers.map(<span class="keyword">function</span>(item, <span class="keyword">index</span>, <span class="keyword">array</span>)<span class="comment">{
    return item * 2;
-});
+}</span>);
 
-mapResult;   // [2,4,6,8,10,8,6,4,2]
-</pre></div>
+mapResult;   <span class="comment">// [2,4,6,8,10,8,6,4,2]</span></code></pre>
+
 </article>
 
 
@@ -510,28 +563,22 @@ mapResult;   // [2,4,6,8,10,8,6,4,2]
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3>Reduction methods: <code>reduce</code>, <code>reduceRight</code></h3>
-
 <p>Both methods accept two arguments:</p>
-
 <ul>
 <li>a function to call on each item</li>
 <li>an optional initial value upon which the reduction is based</li>
 </ul>
-
 <p>The passed function accepts four arguments: </p>
-
 <ol>
 <li>the previous value </li>
 <li>the current value </li>
-<li>the item's index </li>
+<li>the item&#39;s index </li>
 <li>the array object</li>
 </ol>
-
 <p>Any value returned from the function is automatically passed in as the first argument for the next item.</p>
+
 </article>
 
 
@@ -540,21 +587,17 @@ mapResult;   // [2,4,6,8,10,8,6,4,2]
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>reduce(iterator, initVal)</code></h3>
-
 <p>Perform reduction in left-to-right order.</p>
+<pre><code class="language-js"><span class="keyword">var</span> values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];
 
-<div class="highlight"><pre lang="js">var values = [1,2,3,4,5];
-
-var sum = values.reduce(function(prev, cur, index, array){
+<span class="keyword">var</span> sum = values.reduce(<span class="keyword">function</span>(prev, cur, <span class="keyword">index</span>, <span class="keyword">array</span>)<span class="comment">{
  return prev + cur;
-});
+}</span>);
 
-sum; // 15
-</pre></div>
+sum; <span class="comment">// 15</span></code></pre>
+
 </article>
 
 
@@ -563,21 +606,17 @@ sum; // 15
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Array methods</h2>
-
 <h3><code>reduceRight(iterator, initVal)</code></h3>
-
 <p>Perform reduction in right-to-left order.</p>
+<pre><code class="language-js"><span class="keyword">var</span> values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">15</span>];
 
-<div class="highlight"><pre lang="js">var values = [1,2,3,4,5,15];
-
-var diff = values.reduceRight(function(prev, cur, index, array){
+<span class="keyword">var</span> diff = values.reduceRight(<span class="keyword">function</span>(prev, cur, <span class="keyword">index</span>, <span class="keyword">array</span>)<span class="comment">{
  return prev - cur;
-});
+}</span>);
 
-diff; // 0
-</pre></div>
+diff; <span class="comment">// 0</span></code></pre>
+
 </article>
 
 
@@ -586,6 +625,7 @@ diff; // 0
 
 <article>
 <h1>Built-in object <code>Math</code></h1>
+
 </article>
 
 
@@ -594,20 +634,17 @@ diff; // 0
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Built-in object <code>Math</code></h2>
-
 <h3>Properties overview</h3>
+<pre><code class="language-js">Math.E        // <span class="keyword">the</span> value <span class="keyword">of</span> e, <span class="keyword">the</span> base <span class="keyword">of</span> <span class="keyword">the</span> natural logarithms
+Math.LN10     // <span class="keyword">the</span> natural logarithm <span class="keyword">of</span> <span class="number">10</span>
+Math.LN2      // <span class="keyword">the</span> natural logarithm <span class="keyword">of</span> <span class="number">2</span>
+Math.LOG2E    // <span class="keyword">the</span> base <span class="number">2</span> logarithm <span class="keyword">of</span> e
+Math.LOG10E   // <span class="keyword">the</span> base <span class="number">10</span> logarithm <span class="keyword">of</span> e
+Math.PI       // <span class="keyword">the</span> value <span class="keyword">of</span> π
+Math.SQRT1_2  // <span class="keyword">the</span> square root <span class="keyword">of</span> <span class="number">1</span>⁄<span class="number">2</span>
+Math.SQRT2    // <span class="keyword">the</span> square root <span class="keyword">of</span> <span class="number">2</span></code></pre>
 
-<div class="highlight"><pre lang="js">Math.E        // the value of e, the base of the natural logarithms
-Math.LN10     // the natural logarithm of 10
-Math.LN2      // the natural logarithm of 2
-Math.LOG2E    // the base 2 logarithm of e
-Math.LOG10E   // the base 10 logarithm of e
-Math.PI       // the value of π
-Math.SQRT1_2  // the square root of 1⁄2
-Math.SQRT2    // the square root of 2
-</pre></div>
 </article>
 
 
@@ -616,29 +653,26 @@ Math.SQRT2    // the square root of 2
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Built-in object <code>Math</code></h2>
-
 <h3>Methods overview</h3>
+<pre><code class="language-js">Math.min(n0,n1,...)  // Returns <span class="keyword">the</span> minimum value
+Math.max(n0,n1,...)  // Returns <span class="keyword">the</span> maximum value
+Math.ceil(num)       // Rounds <span class="type">number</span> up <span class="keyword">to</span> <span class="keyword">the</span> nearest <span class="type">integer</span> value
+Math.floor(num)      // Rounds <span class="type">number</span> down <span class="keyword">to</span> <span class="keyword">the</span> nearest <span class="type">integer</span> value
+Math.<span class="command">round</span>(num)      // Rounds <span class="type">number</span>
+Math.random()        // Returns a <span class="command">random number</span> <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>)
+Math.exp(num)        // Returns Math.E raised <span class="keyword">to</span> <span class="keyword">the</span> power <span class="keyword">of</span> num
+Math.<span class="command">log</span>(num)        // Returns <span class="keyword">the</span> natural logarithm <span class="keyword">of</span> num
+Math.pow(num, power) // Returns num raised <span class="keyword">to</span> <span class="keyword">the</span> power <span class="keyword">of</span> power
+Math.sqrt(num)       // Returns <span class="keyword">the</span> square root <span class="keyword">of</span> num
+Math.acos(x)         // Returns <span class="keyword">the</span> arc cosine <span class="keyword">of</span> x
+Math.asin(x)         // Returns <span class="keyword">the</span> arc sine <span class="keyword">of</span> x
+Math.atan(x)         // Returns <span class="keyword">the</span> arc tangent <span class="keyword">of</span> x
+Math.atan2(y, x)     // Returns <span class="keyword">the</span> arc tangent <span class="keyword">of</span> y/x
+Math.cos(x)          // Returns <span class="keyword">the</span> cosine <span class="keyword">of</span> x
+Math.sin(x)          // Returns <span class="keyword">the</span> sine <span class="keyword">of</span> x
+Math.tan(x)          // Returns <span class="keyword">the</span> tangent <span class="keyword">of</span> x</code></pre>
 
-<div class="highlight"><pre lang="js">Math.min(n0,n1,...)  // Returns the minimum value
-Math.max(n0,n1,...)  // Returns the maximum value
-Math.ceil(num)       // Rounds number up to the nearest integer value
-Math.floor(num)      // Rounds number down to the nearest integer value
-Math.round(num)      // Rounds number
-Math.random()        // Returns a random number in [0,1)
-Math.exp(num)        // Returns Math.E raised to the power of num
-Math.log(num)        // Returns the natural logarithm of num
-Math.pow(num, power) // Returns num raised to the power of power
-Math.sqrt(num)       // Returns the square root of num
-Math.acos(x)         // Returns the arc cosine of x
-Math.asin(x)         // Returns the arc sine of x
-Math.atan(x)         // Returns the arc tangent of x
-Math.atan2(y, x)     // Returns the arc tangent of y/x
-Math.cos(x)          // Returns the cosine of x
-Math.sin(x)          // Returns the sine of x
-Math.tan(x)          // Returns the tangent of x
-</pre></div>
 </article>
 
 
@@ -647,6 +681,7 @@ Math.tan(x)          // Returns the tangent of x
 
 <article>
 <h2>RegExp</h2>
+
 </article>
 
 
@@ -655,21 +690,16 @@ Math.tan(x)          // Returns the tangent of x
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>RegExp</h2>
-
 <h3>Regex literals</h3>
-
-<div class="highlight"><pre lang="js">var expression = /pattern/flags;
-</pre></div>
-
+<pre><code class="language-js"><span class="keyword">var</span> expression = <span class="regexp">/pattern/</span>flags;</code></pre>
 <p>Flags can be:</p>
-
 <ul>
 <li>g — global mode, meaning the pattern will be applied to all of the string instead of stopping after the first match is found</li>
 <li>i — case-insensitive mode, meaning the case of the pattern and the string are ignored when determining matches</li>
 <li>m — multiline mode, meaning the pattern will continue looking for matches after reaching the end of one line of text</li>
 </ul>
+
 </article>
 
 
@@ -678,14 +708,11 @@ Math.tan(x)          // Returns the tangent of x
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>RegExp</h2>
-
 <h3>Methods overview</h3>
+<pre><code class="language-js"><span class="function"><span class="title">exec</span><span class="params">(str)</span>
+<span class="title">test</span><span class="params">(str)</span></code></pre>
 
-<div class="highlight"><pre lang="js">exec(str)
-test(str)
-</pre></div>
 </article>
 
 
@@ -694,6 +721,7 @@ test(str)
 
 <article>
 <h2>String methods</h2>
+
 </article>
 
 
@@ -702,23 +730,20 @@ test(str)
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>String methods</h2>
-
 <h3>Overview</h3>
+<pre><code class="language-js"><span class="function"><span class="title">charAt</span><span class="params">(pos)</span>
+<span class="title">charCodeAt</span><span class="params">(pos)</span>
+<span class="title">concat</span><span class="params">(str...)</span>
+<span class="title">indexOf</span><span class="params">(search<span class="variable">String</span>, position)</span>
+<span class="title">lastIndexOf</span><span class="params">(search<span class="variable">String</span>, position)</span>
+<span class="title">match</span><span class="params">(regexp)</span>
+<span class="title">search</span><span class="params">(regexp)</span>
+<span class="title">slice</span><span class="params">(start, end)</span>
+<span class="title">split</span><span class="params">(separator, limit)</span>
+<span class="title">toLowerCase</span><span class="params">()</span>
+<span class="title">toUpperCase</span><span class="params">()</span></code></pre>
 
-<div class="highlight"><pre lang="js">charAt(pos)
-charCodeAt(pos)
-concat(str...)
-indexOf(searchString, position)
-lastIndexOf(searchString, position)
-match(regexp)
-search(regexp)
-slice(start, end)
-split(separator, limit)
-toLowerCase()
-toUpperCase()
-</pre></div>
 </article>
 
 
@@ -727,6 +752,7 @@ toUpperCase()
 
 <article>
 <h2>Date</h2>
+
 </article>
 
 
@@ -735,19 +761,13 @@ toUpperCase()
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Date</h2>
-
 <h3>Definition</h3>
-
 <p>The Date type stores dates as the number of milliseconds that have passed since midnight on January 1, 1970 UTC (Universal Time Code)</p>
+<pre><code class="language-js">var <span class="built_in">now</span> = <span class="keyword">new</span> <span class="built_in">Date</span>();</code></pre>
+<pre><code class="language-js">now<span class="variable">.toDateString</span>(); <span class="comment">//"Thu Mar 08 2012"</span>
+now<span class="variable">.toString</span>();     <span class="comment">//"Thu Mar 08 2012 10:41:02 GMT+0100 (CET)"</span></code></pre>
 
-<div class="highlight"><pre lang="js">var now = new Date();
-</pre></div>
-
-<div class="highlight"><pre lang="js">now.toDateString(); //"Thu Mar 08 2012"
-now.toString();     //"Thu Mar 08 2012 10:41:02 GMT+0100 (CET)"
-</pre></div>
 </article>
 
 
@@ -756,18 +776,14 @@ now.toString();     //"Thu Mar 08 2012 10:41:02 GMT+0100 (CET)"
 
 <article>
 <h1>Built-ins</h1>
-
 <h2>Date</h2>
-
 <h3>Definition</h3>
-
 <p>Date constructor accept many format</p>
+<pre><code class="language-js">var someDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"May 25, 2004"</span>);
+var someDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"25/5/2004"</span>);
+var someDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="comment">'Tue May 25 2004 00:00:00 GMT-0700');</span>
+var someDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="comment">'2004-05-25T00:00:00');</span></code></pre>
 
-<div class="highlight"><pre lang="js">var someDate = new Date("May 25, 2004");
-var someDate = new Date("25/5/2004");
-var someDate = new Date('Tue May 25 2004 00:00:00 GMT-0700');
-var someDate = new Date('2004-05-25T00:00:00');
-</pre></div>
 </article>
 
 

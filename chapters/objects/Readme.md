@@ -1,14 +1,16 @@
 # Objects
- 
+
 - - -
+
 # Objects
 
 ## Using `this` value
 
-Inside a method, there is a special way to access the object this method belongs to:  
-by using the special value `this`.  
+Inside a method, there is a special way to access the object this method belongs to:
+by using the special value `this`.
 
 > #### Example
+>
 >```js
 >var hero = {
 >  name: 'Rafaelo',
@@ -25,15 +27,16 @@ by using the special value `this`.
 > when you say `this`, you are actually saying "this object" or "the current object".
 
 - - -
+
 # Objects
 
 ## Constructor functions
 
-They are another way to create objects.  
+They are another way to create objects.
 In order to create an object using this kind of function, use the `new` operator.
 
 > #### Exmaple
->```js 
+>```js
 >function Hero() {
 >  this.occupation = 'Ninja';
 >}
@@ -45,6 +48,7 @@ In order to create an object using this kind of function, use the `new` operator
 >```
 
 - - -
+
 # Objects
 
 ## Constructor functions
@@ -71,11 +75,12 @@ Constructor functions accept parameters, which can be used when creating new obj
 > capitalize the first letter of your constructor functions
 
 - - -
+
 # Objects
 
 ## Constructor functions
 
-> #### Warning 
+> #### Warning
 > calling a function that is designed to be a constructor but
 > omitting the `new` operator may result in a behaviour you could not expect.
 >
@@ -88,12 +93,13 @@ Constructor functions accept parameters, which can be used when creating new obj
 > In this case, `this` refer to global object.
 
 - - -
+
 # Objects
 
 ## The global object
 
-The host environment provides a global object and all global variables are actually properties of the global object.  
-If your host environment is the web browser, the global object is called `window`.  
+The host environment provides a global object and all global variables are actually properties of the global object.
+If your host environment is the web browser, the global object is called `window`.
 
 > #### Exmaple
 >```js
@@ -108,6 +114,7 @@ If your host environment is the web browser, the global object is called `window
 >```
 
 - - -
+
 # Objects
 
 ## The global object
@@ -122,16 +129,17 @@ If your host environment is the web browser, the global object is called `window
 >```
 >
 > `this` is binded to global object
-> 
+>
 > continue...
 
 - - -
+
 # Objects
 
 ## The global object
 
 > ...continue
-> 
+>
 >```js
 >name   // "Leonardo"
 >window.name   // "Leonardo"
@@ -146,12 +154,13 @@ If your host environment is the web browser, the global object is called `window
 >```
 
 - - -
+
 #Objects
 
 ## `constructor` property
 
-When an object is created, this special property is assigned to it behind the scenes.  
-It contains a reference to the constructor function used to create this object.  
+When an object is created, this special property is assigned to it behind the scenes.
+It contains a reference to the constructor function used to create this object.
 
 > #### Exmaple
 >```js
@@ -171,11 +180,12 @@ It contains a reference to the constructor function used to create this object.
 > ```
 
 - - -
+
 #Objects
 
 ## `constructor` property
 
-If an object was created using the object literal notation,  
+If an object was created using the object literal notation,
 its constructor is the built-in `Object()` constructor function.
 
 > #### Example
@@ -187,14 +197,15 @@ its constructor is the built-in `Object()` constructor function.
 >```
 
 - - -
+
 # Objects
 
 ## `instanceof` operator
 Using the instanceof operator, you can test if an object was created with a specific constructor function.
 
-> #### Example￼
+> #### Example
 >
->```js￼
+>```js
 >function Hero() {}
 >var h = new Hero();
 >var o = {};
@@ -205,11 +216,12 @@ Using the instanceof operator, you can test if an object was created with a spec
 >```
 
 - - -
+
 # Objects
 
 ## Passing objects
 
-When you copy an object or pass it to a function, you only pass a reference to that object.  
+When you copy an object or pass it to a function, you only pass a reference to that object.
 Consequently, if you make a change to the reference, you are actually modifying the original object.
 
 > #### Example
@@ -217,7 +229,7 @@ Consequently, if you make a change to the reference, you are actually modifying 
 >```js
 >var original = { howmany: 1 };
 >var copy = original;
->copy.howmany; //￼1
+>copy.howmany; // 1
 >copy.howmany = 100;
 >original.howmany; // 100
 >```
@@ -234,11 +246,12 @@ The same thing applies when passing objects to functions:
 > ```
 
 - - -
+
 # Objects
 
 ## Comparing objects
 
-When you compare objects, you'll get `true` only if you compare two references to the same object.  
+When you compare objects, you'll get `true` only if you compare two references to the same object.
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
 > #### Example

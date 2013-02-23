@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,6 +141,7 @@ body {
 
 <article>
 <h1>Inheritance</h1>
+
 </article>
 
 
@@ -25,20 +150,17 @@ body {
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A first geometric example</h3>
-
-<div class="highlight"><pre lang="js">function Shape(){
-  this.name = 'shape';
-  this.toString = function() { return this.name; };
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span><span class="params">()</span>{</span>
+  <span class="keyword">this</span>.name = <span class="string">'shape'</span>;
+  <span class="keyword">this</span>.toString = <span class="keyword">function</span>() { <span class="keyword">return</span> <span class="keyword">this</span>.name; };
 }
 
-function TwoDShape(){
-  this.name = '2D shape';
-}
-</pre></div>
+<span class="function"><span class="keyword">function</span> <span class="title">TwoDShape</span><span class="params">()</span>{</span>
+  <span class="keyword">this</span>.name = <span class="string">'2D shape'</span>;
+}</code></pre>
+
 </article>
 
 
@@ -47,16 +169,12 @@ function TwoDShape(){
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A first geometric example</h3>
-
 <p>Here is the inheritance magic code:</p>
+<pre><code class="language-js">TwoDShape.prototype = new Shape();
+TwoDShape.prototype.<span class="function"><span class="keyword">constructor</span> = <span class="title">TwoDShape</span>;</span></code></pre>
 
-<div class="highlight"><pre lang="js">TwoDShape.prototype = new Shape();
-TwoDShape.prototype.constructor = TwoDShape;
-</pre></div>
 </article>
 
 
@@ -65,18 +183,14 @@ TwoDShape.prototype.constructor = TwoDShape;
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A first geometric example: explanation</h3>
-
 <p>We completely overwrote the object in the <code>prototype</code> property of <code>TwoDShape</code> with another object, created by invoking the <code>Shape()</code> constructor with <code>new</code>.  </p>
-
 <p>The important thing to note is that JavaScript works with objects, not classes.  </p>
-
 <p>An <strong>instance</strong> is created using the <code>new Shape()</code> constructor and after that its properties can be inherited;  </p>
+<p>After inheriting, whatever modification to <code>Shape()</code> function, will have no effect on <code>TwoDShape</code>.
+This is because inheritance works on one instance: the instance to inherit from.  </p>
 
-<p>After inheriting, whatever modification to <code>Shape()</code> function, will have no effect on <code>TwoDShape</code>.<br />This is because inheritance works on one instance: the instance to inherit from.  </p>
 </article>
 
 
@@ -85,22 +199,16 @@ TwoDShape.prototype.constructor = TwoDShape;
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A first geometric example</h3>
-
 <p>Now test it:</p>
-
-<div class="highlight"><pre lang="js">var tds = new TwoDShape();
-tds.toString(); // "2D shape"
-</pre></div>
-
+<pre><code class="language-js"><span class="keyword">var</span> tds = <span class="keyword">new</span> TwoDShape();
+tds.toString(); <span class="comment">// "2D shape"</span></code></pre>
 <blockquote>
-  <h4>Note</h4>
-  
-  <p>the inherited method <code>toString()</code> binds the <code>this</code> object to <code>tri</code>.  </p>
+<h4>Note</h4>
+<p>the inherited method <code>toString()</code> binds the <code>this</code> object to <code>tri</code>.  </p>
 </blockquote>
+
 </article>
 
 
@@ -109,18 +217,15 @@ tds.toString(); // "2D shape"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A second geometric example</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Triangle</span><span class="params">(side, height)</span> {</span>
+  <span class="keyword">this</span>.name = <span class="string">'Triangle'</span>;
+  <span class="keyword">this</span>.side = side;
+  <span class="keyword">this</span>.height = height;
+    <span class="keyword">this</span>.getArea = <span class="keyword">function</span>() { <span class="keyword">return</span> <span class="keyword">this</span>.side * <span class="keyword">this</span>.height / <span class="number">2</span>; };
+}</code></pre>
 
-<div class="highlight"><pre lang="js">function Triangle(side, height) {
-  this.name = 'Triangle';
-  this.side = side;
-  this.height = height;
-    this.getArea = function() { return this.side * this.height / 2; };
-}
-</pre></div>
 </article>
 
 
@@ -129,16 +234,12 @@ tds.toString(); // "2D shape"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A second geometric example</h3>
-
 <p>Here is the inheritance magic code:</p>
+<pre><code class="language-js">Triangle.prototype = new TwoDShape();
+Triangle.prototype.<span class="function"><span class="keyword">constructor</span> = <span class="title">Triangle</span>;</span></code></pre>
 
-<div class="highlight"><pre lang="js">Triangle.prototype = new TwoDShape();
-Triangle.prototype.constructor = Triangle;
-</pre></div>
 </article>
 
 
@@ -147,25 +248,17 @@ Triangle.prototype.constructor = Triangle;
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A second geometric example</h3>
-
 <p>Now test it</p>
-
-<div class="highlight"><pre lang="js">var tri = new Triangle(5, 10);
-tri.getArea(); //25
-</pre></div>
-
-<div class="highlight"><pre lang="js">tri.toString() //"Triangle"
-</pre></div>
-
+<pre><code class="language-js"><span class="keyword">var</span> tri = <span class="keyword">new</span> Triangle(<span class="number">5</span>, <span class="number">10</span>);
+tri.getArea(); <span class="comment">//25</span></code></pre>
+<pre><code class="language-js">tri<span class="variable">.toString</span>() <span class="comment">//"Triangle"</span></code></pre>
 <blockquote>
-  <h4>Note</h4>
-  
-  <p>the inherited method <code>toString()</code> binds the <code>this</code> object to <code>tri</code>.  </p>
+<h4>Note</h4>
+<p>the inherited method <code>toString()</code> binds the <code>this</code> object to <code>tri</code>.  </p>
 </blockquote>
+
 </article>
 
 
@@ -174,20 +267,17 @@ tri.getArea(); //25
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>What exactly happen</h3>
-
 <p>Here is what the JavaScript engine does when you call <code>my.toString()</code>:</p>
-
 <ol>
-<li>it loops through all of the properties of <code>tri</code> and doesn't find a method called <code>toString()</code>;</li>
+<li>it loops through all of the properties of <code>tri</code> and doesn&#39;t find a method called <code>toString()</code>;</li>
 <li>it looks at the object that <code>my.__proto__</code> points to; this object is the instance <code>new TwoDShape()</code> created during the inheritance process.</li>
-<li>now the JavaScript engine loops through the instance of <code>TwoDShape</code> and doesn't find a <code>toString()</code> method. It then checks the <code>__proto__</code> of that object. This time <code>__proto__</code> points to the instance created by <code>new Shape()</code>;</li>
+<li>now the JavaScript engine loops through the instance of <code>TwoDShape</code> and doesn&#39;t find a <code>toString()</code> method. It then checks the <code>__proto__</code> of that object. This time <code>__proto__</code> points to the instance created by <code>new Shape()</code>;</li>
 <li>the instance of <code>new Shape()</code> is examined and <code>toString()</code> is finally found;</li>
 <li>this method is invoked in the context of <code>tri</code>, meaning that <code>this</code> points to <code>tri</code>.</li>
 </ol>
+
 </article>
 
 
@@ -196,25 +286,18 @@ tri.getArea(); //25
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>Some tests</h3>
+<pre><code class="language-js">tri<span class="variable">.constructor</span>; <span class="comment">// Triangle(side, height)</span></code></pre>
+<pre><code class="language-js">tri <span class="keyword">instanceof</span> Shape     <span class="regexp">//</span> <span class="literal">true</span>
+tri <span class="keyword">instanceof</span> TwoDShape <span class="regexp">//</span> <span class="literal">true</span>
+tri <span class="keyword">instanceof</span> Triangle  <span class="regexp">//</span> <span class="literal">true</span>
+tri <span class="keyword">instanceof</span> Array     <span class="regexp">//</span> <span class="literal">false</span></code></pre>
+<pre><code class="language-js">Shape<span class="variable">.prototype</span><span class="variable">.isPrototypeOf</span>(tri)     <span class="comment">// true</span>
+TwoDShape<span class="variable">.prototype</span><span class="variable">.isPrototypeOf</span>(tri) <span class="comment">// true</span>
+Triangle<span class="variable">.prototype</span><span class="variable">.isPrototypeOf</span>(tri)  <span class="comment">// true</span>
+String<span class="variable">.prototype</span><span class="variable">.isPrototypeOf</span>(tri)    <span class="comment">// false</span></code></pre>
 
-<div class="highlight"><pre lang="js">tri.constructor; // Triangle(side, height)
-</pre></div>
-
-<div class="highlight"><pre lang="js">tri instanceof Shape     // true
-tri instanceof TwoDShape // true
-tri instanceof Triangle  // true
-tri instanceof Array     // false
-</pre></div>
-
-<div class="highlight"><pre lang="js">Shape.prototype.isPrototypeOf(tri)     // true
-TwoDShape.prototype.isPrototypeOf(tri) // true
-Triangle.prototype.isPrototypeOf(tri)  // true
-String.prototype.isPrototypeOf(tri)    // false
-</pre></div>
 </article>
 
 
@@ -223,19 +306,15 @@ String.prototype.isPrototypeOf(tri)    // false
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheritance through prototype chain</h2>
-
 <h3>A second geometric example - the end</h3>
+<p>Of course, it&#39;s possible to create objects using the other two constructors.</p>
+<pre><code class="language-js">var td = new TwoDShape()<span class="comment">;</span>
+td<span class="preprocessor">.constructor</span><span class="comment">; // TwoDShape()</span>
+td<span class="preprocessor">.toString</span>()
+var s = new Shape()<span class="comment">;</span>
+s<span class="preprocessor">.constructor</span><span class="comment">; // Shape()</span></code></pre>
 
-<p>Of course, it's possible to create objects using the other two constructors.</p>
-
-<div class="highlight"><pre lang="js">var td = new TwoDShape();
-td.constructor; // TwoDShape()
-td.toString()
-var s = new Shape();
-s.constructor; // Shape()
-</pre></div>
 </article>
 
 
@@ -244,6 +323,7 @@ s.constructor; // Shape()
 
 <article>
 <h2>Moving shared properties to the prototype</h2>
+
 </article>
 
 
@@ -252,17 +332,13 @@ s.constructor; // Shape()
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Moving shared properties to the prototype</h2>
-
 <h3>The wrog way</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span><span class="params">()</span> {</span>
+  <span class="keyword">this</span>.name = <span class="string">'shape'</span>;
+}</code></pre>
+<p>In this way, every time new object is created using <code>new Shape()</code>,<br>a new <code>name</code> property will be created and stored somewhere in memory. </p>
 
-<div class="highlight"><pre lang="js">function Shape() {
-  this.name = 'shape';
-}
-</pre></div>
-
-<p>In this way, every time new object is created using <code>new Shape()</code>, <br /><br />a new <code>name</code> property will be created and stored somewhere in memory. </p>
 </article>
 
 
@@ -271,20 +347,14 @@ s.constructor; // Shape()
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Moving shared properties to the prototype</h2>
-
 <h3>The right way</h3>
-
-<div class="highlight"><pre lang="js">function Shape() {}
-Shape.prototype.name = 'shape';
-</pre></div>
-
-<p>In this way every time an object is created using <code>new Shape()</code>, <br /><br />this object will not have its own property <code>name</code>, <br /><br />but will use the one added to the prototype.  </p>
-
-<p>This is more efficient, but you should only use it for properties <br /><br />that don't change from one instance to another  </p>
-
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span><span class="params">()</span> <span class="comment">{}</span>
+<span class="title">Shape</span>.<span class="title">prototype</span>.<span class="title">name</span> = '<span class="title">shape</span>';</span></code></pre>
+<p>In this way every time an object is created using <code>new Shape()</code>,<br>this object will not have its own property <code>name</code>,<br>but will use the one added to the prototype.  </p>
+<p>This is more efficient, but you should only use it for properties<br>that don&#39;t change from one instance to another  </p>
 <p>Methods are ideal for this type of sharing.  </p>
+
 </article>
 
 
@@ -293,16 +363,13 @@ Shape.prototype.name = 'shape';
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Moving shared properties to the prototype</h2>
-
 <h3>The right way</h3>
-
 <blockquote>
-  <h3>Tip</h3>
-  
-  <p>for reasons of efficiency, it's good to add the reusable properties and methods to the prototype.</p>
+<h3>Tip</h3>
+<p>for reasons of efficiency, it&#39;s good to add the reusable properties and methods to the prototype.</p>
 </blockquote>
+
 </article>
 
 
@@ -311,19 +378,16 @@ Shape.prototype.name = 'shape';
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Moving shared properties to the prototype</h2>
-
 <h3>Improving the geometric example</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span><span class="params">()</span> <span class="comment">{}</span>
 
-<div class="highlight"><pre lang="js">function Shape() {}
-
-// augment prototype
-Shape.prototype.name = 'shape';
-Shape.prototype.toString = function() { 
+// <span class="title">augment</span> <span class="title">prototype</span>
+<span class="title">Shape</span>.<span class="title">prototype</span>.<span class="title">name</span> = '<span class="title">shape</span>';</span>
+Shape.prototype.toString = <span class="keyword">function</span>() <span class="comment">{ 
     return this.name; 
-};
-</pre></div>
+}</span>;</code></pre>
+
 </article>
 
 
@@ -332,21 +396,18 @@ Shape.prototype.toString = function() {
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Moving shared properties to the prototype</h2>
-
 <h3>Improoving the geometric example</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">TwoDShape</span><span class="params">()</span> <span class="comment">{}</span>
 
-<div class="highlight"><pre lang="js">function TwoDShape() {}
+// <span class="title">take</span> <span class="title">care</span> <span class="title">of</span> <span class="title">inheritance</span> <span class="title">first</span> <span class="title">before</span> <span class="title">augmenting</span> <span class="title">the</span> <span class="title">prototype</span>,
+// <span class="title">otherwise</span> <span class="title">anything</span> <span class="title">you</span> <span class="title">add</span> <span class="title">to</span> <span class="title">TwoDShape</span>.<span class="title">prototype</span> <span class="title">will</span> <span class="title">be</span> <span class="title">wiped</span> <span class="title">out</span> <span class="title">when</span> <span class="title">you</span> <span class="title">inherit</span>.
+<span class="title">TwoDShape</span>.<span class="title">prototype</span> = <span class="title">new</span> <span class="title">Shape</span><span class="params">()</span>;</span>
+TwoDShape.prototype.<span class="function"><span class="keyword">constructor</span> = <span class="title">TwoDShape</span>;</span>
 
-// take care of inheritance first before augmenting the prototype,
-// otherwise anything you add to TwoDShape.prototype will be wiped out when you inherit.
-TwoDShape.prototype = new Shape();
-TwoDShape.prototype.constructor = TwoDShape;
+<span class="comment">// augment prototype</span>
+TwoDShape.prototype.name = <span class="string">'2D shape'</span>;</code></pre>
 
-// augment prototype
-TwoDShape.prototype.name = '2D shape';
-</pre></div>
 </article>
 
 
@@ -355,24 +416,21 @@ TwoDShape.prototype.name = '2D shape';
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Moving shared properties to the prototype</h2>
-
 <h3>Improving the geometric example</h3>
-
-<div class="highlight"><pre lang="js">function Triangle(side, height) {
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Triangle</span><span class="params">(side, height)</span> <span class="comment">{
   this.side = side;
   this.height = height;
-}
+}</span>
 
-// take care of inheritance first before augmenting the prototype,
-Triangle.prototype = new TwoDShape();
-Triangle.prototype.constructor = Triangle;
+// <span class="title">take</span> <span class="title">care</span> <span class="title">of</span> <span class="title">inheritance</span> <span class="title">first</span> <span class="title">before</span> <span class="title">augmenting</span> <span class="title">the</span> <span class="title">prototype</span>,
+<span class="title">Triangle</span>.<span class="title">prototype</span> = <span class="title">new</span> <span class="title">TwoDShape</span><span class="params">()</span>;</span>
+Triangle.prototype.<span class="function"><span class="keyword">constructor</span> = <span class="title">Triangle</span>;</span>
 
-// augment prototype
-Triangle.prototype.name = 'Triangle';
-Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
-</pre></div>
+<span class="comment">// augment prototype</span>
+Triangle.prototype.name = <span class="string">'Triangle'</span>;
+Triangle.prototype.getArea = <span class="keyword">function</span>() <span class="comment">{ return this.side * this.height / 2; }</span>;</code></pre>
+
 </article>
 
 
@@ -381,21 +439,18 @@ Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Moving shared properties to the prototype</h2>
-
 <h3>Testing the improved geometric example</h3>
+<pre><code class="language-js"><span class="reserved">var</span> tri = <span class="keyword">new</span> Triangle(<span class="number">5</span>, <span class="number">10</span>);
+tri.getArea();  <span class="regexp">//</span> <span class="number">25</span>
+tri.toString(); <span class="regexp">//</span> <span class="string">"Triangle"</span>
 
-<div class="highlight"><pre lang="js">var tri = new Triangle(5, 10);
-tri.getArea();  // 25
-tri.toString(); // "Triangle"
+tri.hasOwnProperty(<span class="string">'side'</span>); <span class="regexp">//</span> <span class="literal">true</span>
+tri.hasOwnProperty(<span class="string">'name'</span>); <span class="regexp">//</span> <span class="literal">false</span>
 
-tri.hasOwnProperty('side'); // true
-tri.hasOwnProperty('name'); // false
+TwoDShape.prototype.isPrototypeOf(tri); <span class="regexp">//</span> <span class="literal">true</span>
+tri <span class="keyword">instanceof</span> Shape <span class="regexp">//</span> <span class="literal">true</span></code></pre>
 
-TwoDShape.prototype.isPrototypeOf(tri); // true
-tri instanceof Shape // true
-</pre></div>
 </article>
 
 
@@ -404,6 +459,7 @@ tri instanceof Shape // true
 
 <article>
 <h2>Inheriting the prototype only</h2>
+
 </article>
 
 
@@ -412,33 +468,29 @@ tri instanceof Shape // true
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheriting the prototype only</h2>
-
 <h3>How to do it</h3>
-
 <p>Inheriting the object contained in <code>Shape.prototype</code> could be better than inheriting the object created with <code>new Shape()</code>.  </p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span><span class="params">()</span> <span class="comment">{}</span>
 
-<div class="highlight"><pre lang="js">function Shape() {}
-
-// augment prototype
-Shape.prototype.name = 'shape';
-Shape.prototype.toString = function() {return this.name;};
+// <span class="title">augment</span> <span class="title">prototype</span>
+<span class="title">Shape</span>.<span class="title">prototype</span>.<span class="title">name</span> = '<span class="title">shape</span>';</span>
+Shape.prototype.toString = <span class="keyword">function</span>() <span class="comment">{return this.name;}</span>;
 
 
-function Triangle(side, height) {
+<span class="function"><span class="keyword">function</span> <span class="title">Triangle</span><span class="params">(side, height)</span> <span class="comment">{
   this.side = side;
   this.height = height;
-}
+}</span>
 
-// take care of inheritance
-Triangle.prototype = Shape.prototype;
-Triangle.prototype.constructor = Triangle;
+// <span class="title">take</span> <span class="title">care</span> <span class="title">of</span> <span class="title">inheritance</span>
+<span class="title">Triangle</span>.<span class="title">prototype</span> = <span class="title">Shape</span>.<span class="title">prototype</span>;</span>
+Triangle.prototype.<span class="function"><span class="keyword">constructor</span> = <span class="title">Triangle</span>;</span>
 
-// augment prototype
-Triangle.prototype.name = 'Triangle';
-Triangle.prototype.getArea = function() { return this.side * this.height / 2; }
-</pre></div>
+<span class="comment">// augment prototype</span>
+Triangle.prototype.name = <span class="string">'Triangle'</span>;
+Triangle.prototype.getArea = <span class="keyword">function</span>() <span class="comment">{ return this.side * this.height / 2; }</span></code></pre>
+
 </article>
 
 
@@ -447,23 +499,16 @@ Triangle.prototype.getArea = function() { return this.side * this.height / 2; }
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Inheriting the prototype only</h2>
-
 <h3>Testing this approach</h3>
-
-<div class="highlight"><pre lang="js">var tri = new Triangle(5, 10);
-tri.getArea();  // 25
-tri.toString(); // "Triangle"
-</pre></div>
-
+<pre><code class="language-js">var tri = new Triangle(<span class="number">5</span>, <span class="number">10</span>)<span class="comment">;</span>
+tri<span class="preprocessor">.getArea</span>()<span class="comment">;  // 25</span>
+tri<span class="preprocessor">.toString</span>()<span class="comment">; // "Triangle"</span></code></pre>
 <p>So the lookup is only a two-step process as opposed to four.  </p>
-
 <p>Simply copying the prototype is more efficient but it has a side effect:</p>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="keyword">new</span> Shape();
+s.name <span class="comment">// "Triangle"</span></code></pre>
 
-<div class="highlight"><pre lang="js">var s = new Shape();
-s.name // "Triangle"
-</pre></div>
 </article>
 
 
@@ -472,6 +517,7 @@ s.name // "Triangle"
 
 <article>
 <h2>A temporary constructor <code>new F()</code></h2>
+
 </article>
 
 
@@ -480,14 +526,11 @@ s.name // "Triangle"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>A temporary constructor <code>new F()</code></h2>
-
 <h3>Explanation</h3>
+<p>A solution to the problem outlined above, is to use an intermediary to break the chain.<br>The intermediary is in the form of a temporary constructor function.  </p>
+<p>Creating an empty function <code>F()</code> and setting its prototype to the prototype of the parent constructor, allows to call <code>new F()</code> and create objects that have no properties of their own, but inherit everything from the parent&#39;s prototype.  </p>
 
-<p>A solution to the problem outlined above, is to use an intermediary to break the chain. <br /><br />The intermediary is in the form of a temporary constructor function.  </p>
-
-<p>Creating an empty function <code>F()</code> and setting its prototype to the prototype of the parent constructor, allows to call <code>new F()</code> and create objects that have no properties of their own, but inherit everything from the parent's prototype.  </p>
 </article>
 
 
@@ -496,19 +539,16 @@ s.name // "Triangle"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>A temporary constructor <code>new F()</code></h2>
-
 <h3>How to do it</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span><span class="params">()</span> <span class="comment">{}</span>
 
-<div class="highlight"><pre lang="js">function Shape() {}
-
-// augment prototype
-Shape.prototype.name = 'shape';
-Shape.prototype.toString = function() {
+// <span class="title">augment</span> <span class="title">prototype</span>
+<span class="title">Shape</span>.<span class="title">prototype</span>.<span class="title">name</span> = '<span class="title">shape</span>';</span>
+Shape.prototype.toString = <span class="keyword">function</span>() <span class="comment">{
     return this.name;
-};
-</pre></div>
+}</span>;</code></pre>
+
 </article>
 
 
@@ -517,28 +557,25 @@ Shape.prototype.toString = function() {
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>A temporary constructor <code>new F()</code></h2>
-
 <h3>How to do it</h3>
-
-<div class="highlight"><pre lang="js">function Triangle(side, height) {
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Triangle</span><span class="params">(side, height)</span> <span class="comment">{
   this.side = side;
   this.height = height;
-}
+}</span>
 
-// take care of inheritance
-var F = function() {};
+// <span class="title">take</span> <span class="title">care</span> <span class="title">of</span> <span class="title">inheritance</span>
+<span class="title">var</span> <span class="title">F</span> = <span class="title">function</span><span class="params">()</span> <span class="comment">{}</span>;</span>
 F.prototype = Shape.prototype;
 
 
 Triangle.prototype = new F();
-Triangle.prototype.constructor = Triangle;
+Triangle.prototype.<span class="function"><span class="keyword">constructor</span> = <span class="title">Triangle</span>;</span>
 
-// augment prototype
-Triangle.prototype.name = 'Triangle';
-Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
-</pre></div>
+<span class="comment">// augment prototype</span>
+Triangle.prototype.name = <span class="string">'Triangle'</span>;
+Triangle.prototype.getArea = <span class="keyword">function</span>() <span class="comment">{ return this.side * this.height / 2; }</span>;</code></pre>
+
 </article>
 
 
@@ -547,21 +584,15 @@ Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>A temporary constructor <code>new F()</code></h2>
-
 <h3>Testing this approach</h3>
+<pre><code class="language-js">var my = new Triangle(<span class="number">5</span>, <span class="number">10</span>)<span class="comment">;</span>
+my<span class="preprocessor">.getArea</span>()<span class="comment">;  // 25</span>
+my<span class="preprocessor">.toString</span>()<span class="comment">; // "Triangle"</span></code></pre>
+<p>Using this approach, we keep the prototype chain in place<br>and the parents&#39; properties are not overwritten by the children.<br>In fact:</p>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="keyword">new</span> Shape();
+s.name; <span class="comment">// "shape"</span></code></pre>
 
-<div class="highlight"><pre lang="js">var my = new Triangle(5, 10);
-my.getArea();  // 25
-my.toString(); // "Triangle"
-</pre></div>
-
-<p>Using this approach, we keep the prototype chain in place <br /><br />and the parents' properties are not overwritten by the children. <br /><br />In fact:</p>
-
-<div class="highlight"><pre lang="js">var s = new Shape();
-s.name; // "shape"
-</pre></div>
 </article>
 
 
@@ -570,17 +601,14 @@ s.name; // "shape"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>A temporary constructor <code>new F()</code></h2>
-
 <h3>The idea behind</h3>
-
 <p>This approach supports the idea that:</p>
-
 <ul>
 <li>only properties and methods added to the prototype should be inherited, and</li>
 <li>own properties should not be inherited.</li>
 </ul>
+
 </article>
 
 
@@ -589,6 +617,7 @@ s.name; // "shape"
 
 <article>
 <h2>Isolating the inheritance part into a function</h2>
+
 </article>
 
 
@@ -597,20 +626,16 @@ s.name; // "shape"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Isolating the inheritance part into a function</h2>
-
 <h3><code>inherits(Child, Parent)</code></h3>
-
-<p>Let's move the code that takes care of all of the inheritance details into a reusable <code>inherits()</code> function:</p>
-
-<div class="highlight"><pre lang="js">function inherits(Child, Parent) {
-  var F = function() {};
+<p>Let&#39;s move the code that takes care of all of the inheritance details into a reusable <code>inherits()</code> function:</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span><span class="params">(Child, Parent)</span> <span class="comment">{
+  var F = function() {}</span>;</span>
   F.prototype = Parent.prototype;
   Child.prototype = new F();
-  Child.prototype.constructor = Child;
-}
-</pre></div>
+  Child.prototype.<span class="function"><span class="keyword">constructor</span> = <span class="title">Child</span>;</span>
+}</code></pre>
+
 </article>
 
 
@@ -619,15 +644,11 @@ s.name; // "shape"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Isolating the inheritance part into a function</h2>
-
 <h3><code>inherits(Child, Parent)</code></h3>
+<p>Using this function (or your own custom version of it) will help you keep your code clean with regard to the repetitive inheritance-related tasks.<br>This way you can inherit by simply using:</p>
+<pre><code class="language-js"><span class="function"><span class="title">inherits</span><span class="params">(<span class="variable">Child</span>, <span class="variable">Parent</span>)</span>;</code></pre>
 
-<p>Using this function (or your own custom version of it) will help you keep your code clean with regard to the repetitive inheritance-related tasks. <br /><br />This way you can inherit by simply using:</p>
-
-<div class="highlight"><pre lang="js">inherits(Child, Parent);
-</pre></div>
 </article>
 
 
@@ -636,19 +657,16 @@ s.name; // "shape"
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Isolating the inheritance part into a function</h2>
-
 <h3>Applying <code>inherits(Child, Parent)</code> function</h3>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span><span class="params">()</span> <span class="comment">{}</span>
 
-<div class="highlight"><pre lang="js">function Shape() {}
-
-// augment prototype
-Shape.prototype.name = 'shape';
-Shape.prototype.toString = function() {
+// <span class="title">augment</span> <span class="title">prototype</span>
+<span class="title">Shape</span>.<span class="title">prototype</span>.<span class="title">name</span> = '<span class="title">shape</span>';</span>
+Shape.prototype.toString = <span class="keyword">function</span>() <span class="comment">{
     return this.name;
-};
-</pre></div>
+}</span>;</code></pre>
+
 </article>
 
 
@@ -657,23 +675,20 @@ Shape.prototype.toString = function() {
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Isolating the inheritance part into a function</h2>
-
 <h3>Applying <code>inherits(Child, Parent)</code> function</h3>
-
-<div class="highlight"><pre lang="js">function Triangle(side, height) {
-    this.side = side;
-    this.height = height;
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Triangle</span><span class="params">(side, height)</span> {</span>
+    <span class="keyword">this</span>.side = side;
+    <span class="keyword">this</span>.height = height;
 }
 
-// take care of inheritance
+<span class="comment">// take care of inheritance</span>
 inherits(Triangle, TwoDShape);
 
-// augment prototype
-Triangle.prototype.name = 'Triangle';
-Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
-</pre></div>
+<span class="comment">// augment prototype</span>
+Triangle.prototype.name = <span class="string">'Triangle'</span>;
+Triangle.prototype.getArea = <span class="keyword">function</span>() { <span class="keyword">return</span> <span class="keyword">this</span>.side * <span class="keyword">this</span>.height / <span class="number">2</span>; };</code></pre>
+
 </article>
 
 
@@ -682,18 +697,15 @@ Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
 
 <article>
 <h1>Inheritance</h1>
-
 <h2>Isolating the inheritance part into a function</h2>
-
 <h3>Testing <code>inherits(Child, Parent)</code> function</h3>
+<pre><code class="language-js">var my = new Triangle(<span class="number">5</span>, <span class="number">10</span>)<span class="comment">;</span>
+my<span class="preprocessor">.getArea</span>()<span class="comment">;  // 25</span>
+my<span class="preprocessor">.toString</span>()<span class="comment">; // "Triangle"</span>
 
-<div class="highlight"><pre lang="js">var my = new Triangle(5, 10);
-my.getArea();  // 25
-my.toString(); // "Triangle"
+var shape = Shape()<span class="comment">;</span>
+shape<span class="preprocessor">.name</span><span class="comment">; //"Shape"</span></code></pre>
 
-var shape = Shape();
-shape.name; //"Shape"
-</pre></div>
 </article>
 
 

@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,17 +141,15 @@ body {
 
 <article>
 <h2>Statements</h2>
-
 <h4>Code block statement</h4>
-
-<div class="highlight"><pre lang="js">{
-  //code block
+<pre><code class="language-js">{
+  <span class="comment">//code block</span>
   {
-    //nested code block
-    //use indentation
+    <span class="comment">//nested code block</span>
+    <span class="comment">//use indentation</span>
   }
-}
-</pre></div>
+}</code></pre>
+
 </article>
 
 
@@ -36,23 +158,17 @@ body {
 
 <article>
 <h2>Statements</h2>
-
 <h4><code>if</code> statement</h4>
+<pre><code class="language-js"><span class="function"><span class="title">if</span> <span class="params">(condition)</span> <span class="title">statement1</span> <span class="title">else</span> <span class="title">statement2</span></code></pre>
+<pre><code class="language-js"><span class="function"><span class="title">if</span> <span class="params">(condition1)</span> <span class="title">statement1</span> <span class="title">else</span> <span class="title">if</span> <span class="params">(condition2)</span> <span class="title">statement2</span> <span class="title">else</span> <span class="title">statement3</span></code></pre>
+<pre><code class="language-js"><span class="function"><span class="title">if</span> <span class="params">(condition1)</span> {
+  <span class="title">statement1</span> 
+} <span class="title">else</span> <span class="title">if</span> <span class="params">(condition2)</span> {
+  <span class="title">statement2</span> 
+} <span class="title">else</span> {
+  <span class="title">statement3</span>
+}</code></pre>
 
-<div class="highlight"><pre lang="js">if (condition) statement1 else statement2
-</pre></div>
-
-<div class="highlight"><pre lang="js">if (condition1) statement1 else if (condition2) statement2 else statement3
-</pre></div>
-
-<div class="highlight"><pre lang="js">if (condition1) {
-  statement1 
-} else if (condition2) {
-  statement2 
-} else {
-  statement3
-}
-</pre></div>
 </article>
 
 
@@ -61,17 +177,15 @@ body {
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>switch</code> statement</h3>
-
-<div class="highlight"><pre lang="js">switch (expression) {
-  case value1: statement1; break;
-  case value2: statement2; break;
-  //...
-  case valueN: statementN; break;
+<pre><code class="language-js"><span class="keyword">switch</span> (expression) {
+  case value1: statement1; <span class="keyword">break</span>;
+  case value2: statement2; <span class="keyword">break</span>;
+  //<span class="keyword">...</span>
+  case valueN: statementN; <span class="keyword">break</span>;
   default: statement
-}
-</pre></div>
+}</code></pre>
+
 </article>
 
 
@@ -80,13 +194,11 @@ body {
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>do-while</code> statement</h3>
+<pre><code class="language-js"><span class="title">do</span> {
+  <span class="title">statement</span>
+} while (expression);</code></pre>
 
-<div class="highlight"><pre lang="js">do {
-  statement
-} while (expression);
-</pre></div>
 </article>
 
 
@@ -95,18 +207,15 @@ body {
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>do-while</code> statement</h3>
-
 <h4>example</h4>
-
-<div class="highlight"><pre lang="js">var i = 0;
+<pre><code class="language-js">var i = <span class="number">0</span><span class="comment">;</span>
 do {
-  i += 1;
-} while (i < 10);
+  i += <span class="number">1</span><span class="comment">;</span>
+} while (i &lt; <span class="number">10</span>)<span class="comment">;</span>
 
-console.log(i); //?
-</pre></div>
+console<span class="preprocessor">.log</span>(i)<span class="comment">; //?</span></code></pre>
+
 </article>
 
 
@@ -115,11 +224,9 @@ console.log(i); //?
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>while</code> statement</h3>
+<pre><code class="language-js"><span class="function"><span class="title">while</span> <span class="params">(expression)</span> <span class="title">statement</span></code></pre>
 
-<div class="highlight"><pre lang="js">while (expression) statement
-</pre></div>
 </article>
 
 
@@ -128,16 +235,13 @@ console.log(i); //?
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>while</code> statement</h3>
-
 <h4>Example</h4>
+<pre><code class="language-js"><span class="title">var</span> i = <span class="number">0</span>;
+<span class="title">while</span> (i &lt; <span class="number">10</span>) {
+  <span class="title">i</span> += <span class="number">2</span>;
+}</code></pre>
 
-<div class="highlight"><pre lang="js">var i = 0;
-while (i < 10) {
-  i += 2;
-}
-</pre></div>
 </article>
 
 
@@ -146,11 +250,9 @@ while (i < 10) {
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>for</code> statement</h3>
+<pre><code class="language-js"><span class="function"><span class="title">for</span> <span class="params">(initialization; expression; post-loop-expression)</span> <span class="title">statement</span></code></pre>
 
-<div class="highlight"><pre lang="js">for (initialization; expression; post-loop-expression) statement
-</pre></div>
 </article>
 
 
@@ -159,18 +261,15 @@ while (i < 10) {
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>for</code> statement</h3>
-
 <h4><code>while</code> using <code>for</code></h4>
-
-<div class="highlight"><pre lang="js">var count = 10;
-var i = 0;             //initialization
-for (; i < count; ) {  //expression
+<pre><code class="language-js"><span class="reserved">var</span> count = <span class="number">10</span>;
+<span class="reserved">var</span> i = <span class="number">0</span>;             <span class="regexp">//i</span>nitialization
+<span class="keyword">for</span> (; i &lt; count; ) {  <span class="regexp">//</span>expression
   console.log(i);
-  i++;                 //post-loop-expression
-}
-</pre></div>
+  i++;                 <span class="regexp">//</span>post-<span class="keyword">loop</span>-expression
+}</code></pre>
+
 </article>
 
 
@@ -179,15 +278,12 @@ for (; i < count; ) {  //expression
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>for</code> statement</h3>
-
 <h4>infinite loop</h4>
-
-<div class="highlight"><pre lang="js">for (;;) { //don't try this at home!
+<pre><code class="language-js"><span class="keyword">for</span> (;;) { //don't <span class="keyword">try</span> this <span class="keyword">at</span> home!
   doSomething();
-}
-</pre></div>
+}</code></pre>
+
 </article>
 
 
@@ -196,11 +292,9 @@ for (; i < count; ) {  //expression
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>for in</code> statement</h3>
+<pre><code class="language-js"><span class="function"><span class="title">for</span> <span class="params">(property in object)</span> <span class="title">statement</span></code></pre>
 
-<div class="highlight"><pre lang="js">for (property in object) statement
-</pre></div>
 </article>
 
 
@@ -209,18 +303,15 @@ for (; i < count; ) {  //expression
 
 <article>
 <h2>Statements</h2>
-
 <h3><code>for in</code> statement</h3>
-
 <h4>Example</h4>
-
-<div class="highlight"><pre lang="js">var obj = {a: 1, b: 2, c: 3};
-var s = '';
-for (var key in obj) {
-   s += key + ' ';
+<pre><code class="language-js"><span class="keyword">var</span> obj = {a: <span class="number">1</span>, b: <span class="number">2</span>, c: <span class="number">3</span>};
+<span class="keyword">var</span> s = <span class="string">''</span>;
+<span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) {
+   s += key + <span class="string">' '</span>;
 }
-console.log(s); //?;
-</pre></div>
+console.log(s); <span class="comment">//?;</span></code></pre>
+
 </article>
 
 

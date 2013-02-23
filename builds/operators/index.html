@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,6 +141,7 @@ body {
 
 <article>
 <h1>Operators</h1>
+
 </article>
 
 
@@ -25,19 +150,17 @@ body {
 
 <article>
 <h1>Operators</h1>
-
 <h2>The <code>typeof</code> Operator</h2>
-
 <p><code>typeof value</code> returns:</p>
-
 <ul>
-<li><code>"undefined"</code> if the <code>value</code> is undefined</li>
-<li><code>"boolean"</code>   if the <code>value</code> is a boolean</li>
-<li><code>"string"</code>    if the <code>value</code> is a string</li>
-<li><code>"number"</code>    if the <code>value</code> is a number</li>
-<li><code>"object"</code>    if the <code>value</code> is an object or null</li>
-<li><code>"function"</code>  if the <code>value</code> is a function</li>
+<li><code>&quot;undefined&quot;</code> if the <code>value</code> is undefined</li>
+<li><code>&quot;boolean&quot;</code>   if the <code>value</code> is a boolean</li>
+<li><code>&quot;string&quot;</code>    if the <code>value</code> is a string</li>
+<li><code>&quot;number&quot;</code>    if the <code>value</code> is a number</li>
+<li><code>&quot;object&quot;</code>    if the <code>value</code> is an object or null</li>
+<li><code>&quot;function&quot;</code>  if the <code>value</code> is a function</li>
 </ul>
+
 </article>
 
 
@@ -46,21 +169,19 @@ body {
 
 <article>
 <h1>Operators</h1>
-
 <h2>The <code>typeof</code> Operator</h2>
+<pre><code class="language-js"><span class="keyword">typeof</span> <span class="literal">undefined</span>;       <span class="comment">// "undefined"</span>
+<span class="keyword">typeof</span> <span class="literal">null</span>;            <span class="comment">// "object"</span>
+<span class="keyword">typeof</span> <span class="literal">true</span>;            <span class="comment">// "boolean"</span>
+<span class="keyword">typeof</span> <span class="literal">false</span>;           <span class="comment">// "boolean"</span>
+<span class="keyword">typeof</span> <span class="string">'false'</span>;         <span class="comment">// "string"</span>
+<span class="keyword">typeof</span> <span class="string">'hello'</span>;         <span class="comment">// "string"</span>
+<span class="keyword">typeof</span> <span class="number">42</span>;              <span class="comment">// "number"</span>
+<span class="keyword">typeof</span> <span class="number">1.4142135</span>;       <span class="comment">// "number"</span>
+<span class="keyword">typeof</span> {key: <span class="string">'value'</span> }; <span class="comment">// "object"</span>
+<span class="keyword">typeof</span> Math.sin;        <span class="comment">// "function"</span>
+<span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>};  <span class="comment">// "function"</span></code></pre>
 
-<div class="highlight"><pre lang="js">typeof undefined;       // "undefined"
-typeof null;            // "object"
-typeof true;            // "boolean"
-typeof false;           // "boolean"
-typeof 'false';         // "string"
-typeof 'hello';         // "string"
-typeof 42;              // "number"
-typeof 1.4142135;       // "number"
-typeof {key: 'value' }; // "object"
-typeof Math.sin;        // "function"
-typeof function () {};  // "function"
-</pre></div>
 </article>
 
 
@@ -69,12 +190,10 @@ typeof function () {};  // "function"
 
 <article>
 <h1>Operators</h1>
-
 <h2>The <code>typeof</code> Operator</h2>
+<p><code>typeof null</code> returns <code>&quot;object&quot;</code><br>because <code>null</code> is considered an empty object reference  </p>
+<p><code>typeof</code> applied to a function returns <code>&quot;function&quot;</code> not <code>&quot;object&quot;</code><br>although functions are considered objects and don’t represent another data type<br>they do have some special properties, which differentiate them from other objects </p>
 
-<p><code>typeof null</code> returns <code>"object"</code> <br /><br />because <code>null</code> is considered an empty object reference  </p>
-
-<p><code>typeof</code> applied to a function returns <code>"function"</code> not <code>"object"</code> <br /><br />although functions are considered objects and don’t represent another data type <br /><br />they do have some special properties, which differentiate them from other objects </p>
 </article>
 
 
@@ -83,20 +202,15 @@ typeof function () {};  // "function"
 
 <article>
 <h1>Operators</h1>
-
 <h2>Unary Operators</h2>
-
 <h3>increment/decrement</h3>
-
 <h4>pre-increment</h4>
-
 <p><code>++value</code> increments <code>value</code> by <code>1</code> before the statement is evaluated</p>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">123</span>;
+<span class="keyword">var</span> b = ++a;
+a; <span class="comment">//124</span>
+b; <span class="comment">//124</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = 123;
-var b = ++a;
-a; //124
-b; //124
-</pre></div>
 </article>
 
 
@@ -105,20 +219,15 @@ b; //124
 
 <article>
 <h1>Operators</h1>
-
 <h2>Unary Operators</h2>
-
 <h3>increment/decrement</h3>
-
 <h4>post-increment</h4>
-
 <p><code>value++</code> increments <code>value</code> by <code>1</code> after the statement is evaluated</p>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">123</span>;
+<span class="keyword">var</span> b = a++;
+a; <span class="comment">//124</span>
+b; <span class="comment">//123</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = 123;
-var b = a++;
-a; //124
-b; //123
-</pre></div>
 </article>
 
 
@@ -127,20 +236,15 @@ b; //123
 
 <article>
 <h1>Operators</h1>
-
 <h2>Unary Operators</h2>
-
 <h3>increment/decrement</h3>
-
 <h4>pre-decrement</h4>
-
 <p><code>--value</code> decremented <code>value</code> by <code>1</code> before the statement is evaluated</p>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">123</span>;
+<span class="keyword">var</span> b = ++a;
+b; <span class="comment">//124</span>
+a; <span class="comment">//124</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = 123;
-var b = ++a;
-b; //124
-a; //124
-</pre></div>
 </article>
 
 
@@ -149,20 +253,15 @@ a; //124
 
 <article>
 <h1>Operators</h1>
-
 <h2>Unary Operators</h2>
-
 <h3>increment/decrement</h3>
-
 <h4>post-decrement</h4>
-
 <p><code>value--</code> decremented <code>value</code> by <code>1</code> after the statement is evaluated</p>
+<pre><code class="language-js"><span class="title">var</span> a = <span class="number">123</span>;
+<span class="title">var</span> b = a<span class="comment">--;</span>
+<span class="title">b</span>; //<span class="number">123</span>
+<span class="title">a</span>; //<span class="number">122</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = 123;
-var b = a--;
-b; //123
-a; //122
-</pre></div>
 </article>
 
 
@@ -171,40 +270,27 @@ a; //122
 
 <article>
 <h1>Operators</h1>
-
 <h2>Unary Operators</h2>
-
 <h3>increment/decrement</h3>
-
 <p>if <code>value</code> is a nonnumeric value, it is converted to a number:</p>
-
 <ul>
 <li>a string that represent a number is converted to that number  </li>
-<li>a string that don't represent a number is converted to <code>NaN</code>  </li>
+<li>a string that don&#39;t represent a number is converted to <code>NaN</code>  </li>
 <li>a boolean <code>false</code> is converted to number <code>0</code>  </li>
 <li>a boolean <code>true</code> is converted to number <code>1</code>  </li>
 <li>an object is converted to the value returned by its method <code>valueOf()</code></li>
 </ul>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="string">"10"</span>;
+++s;            <span class="comment">//11</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> x = <span class="string">":("</span>;
+++x;            <span class="comment">//NaN</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> b = <span class="keyword">true</span>;
+++b;            <span class="comment">//2</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> f = <span class="number">0.07</span>;
+++f;            <span class="comment">//1.07;</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> o = { valueOf: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span> <span class="keyword">return</span> <span class="number">100</span>; } };
+++o;            <span class="comment">//101</span></code></pre>
 
-<div class="highlight"><pre lang="js">var s = "10";
-++s;            //11
-</pre></div>
-
-<div class="highlight"><pre lang="js">var x = ":(";
-++x;            //NaN
-</pre></div>
-
-<div class="highlight"><pre lang="js">var b = true;
-++b;            //2
-</pre></div>
-
-<div class="highlight"><pre lang="js">var f = 0.07;
-++f;            //1.07;
-</pre></div>
-
-<div class="highlight"><pre lang="js">var o = { valueOf: function () { return 100; } };
-++o;            //101
-</pre></div>
 </article>
 
 
@@ -213,42 +299,25 @@ a; //122
 
 <article>
 <h1>Operators</h1>
-
 <h2>Unary Operators</h2>
-
 <h3>Unary plus and minus</h3>
-
 <h4>Unary plus</h4>
-
 <p><code>+value</code> returns numeric value of <code>value</code>  </p>
+<pre><code class="language-js"><span class="keyword">var</span> n = <span class="number">25</span>;
+n = +n; <span class="comment">//still 25</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="string">"01"</span>;
+s = +s; <span class="comment">//value becomes numeric 1</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="string">"1.1"</span>;
+s = +s; <span class="comment">//value becomes numeric 1.1</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="string">"z"</span>;
+s = +s; <span class="comment">//value becomes NaN</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> b = <span class="keyword">false</span>;
+b = +b; <span class="comment">//value becomes numeric 0</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> f = <span class="number">1.1</span>;
+f = +f; <span class="comment">//still 1.1</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> o = { valueOf: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span> <span class="keyword">return</span> <span class="number">1</span>; } };
+o = +o; <span class="comment">//value becomes numeric 1</span></code></pre>
 
-<div class="highlight"><pre lang="js">var n = 25;
-n = +n; //still 25
-</pre></div>
-
-<div class="highlight"><pre lang="js">var s = "01";
-s = +s; //value becomes numeric 1
-</pre></div>
-
-<div class="highlight"><pre lang="js">var s = "1.1";
-s = +s; //value becomes numeric 1.1
-</pre></div>
-
-<div class="highlight"><pre lang="js">var s = "z";
-s = +s; //value becomes NaN
-</pre></div>
-
-<div class="highlight"><pre lang="js">var b = false;
-b = +b; //value becomes numeric 0
-</pre></div>
-
-<div class="highlight"><pre lang="js">var f = 1.1;
-f = +f; //still 1.1
-</pre></div>
-
-<div class="highlight"><pre lang="js">var o = { valueOf: function () { return 1; } };
-o = +o; //value becomes numeric 1
-</pre></div>
 </article>
 
 
@@ -257,42 +326,25 @@ o = +o; //value becomes numeric 1
 
 <article>
 <h1>Operators</h1>
-
 <h2>Unary Operators</h2>
-
 <h3>Unary plus and minus</h3>
-
 <h4>Unary minus</h4>
-
 <p><code>-value</code> returns the negation of the numeric value of <code>value</code></p>
+<pre><code class="language-js"><span class="keyword">var</span> n = <span class="number">25</span>;
+n = -n; <span class="comment">//-25</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="string">"01"</span>;
+s = -s; <span class="comment">//value becomes numeric -1</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="string">"1.1"</span>;
+s = -s; <span class="comment">//value becomes numeric -1.1</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> s = <span class="string">"z"</span>;
+s = -s; <span class="comment">//value becomes NaN</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> b = <span class="keyword">false</span>;
+b = -b; <span class="comment">//value becomes numeric 0</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> f = <span class="number">1.1</span>;
+f = -f; <span class="comment">//value becomes -1.1</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> o = { valueOf: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span> <span class="keyword">return</span> <span class="number">1</span>; } };
+o = -o; <span class="comment">//value becomes numeric -1</span></code></pre>
 
-<div class="highlight"><pre lang="js">var n = 25;
-n = -n; //-25
-</pre></div>
-
-<div class="highlight"><pre lang="js">var s = "01";
-s = -s; //value becomes numeric -1
-</pre></div>
-
-<div class="highlight"><pre lang="js">var s = "1.1";
-s = -s; //value becomes numeric -1.1
-</pre></div>
-
-<div class="highlight"><pre lang="js">var s = "z";
-s = -s; //value becomes NaN
-</pre></div>
-
-<div class="highlight"><pre lang="js">var b = false;
-b = -b; //value becomes numeric 0
-</pre></div>
-
-<div class="highlight"><pre lang="js">var f = 1.1;
-f = -f; //value becomes -1.1
-</pre></div>
-
-<div class="highlight"><pre lang="js">var o = { valueOf: function () { return 1; } };
-o = -o; //value becomes numeric -1
-</pre></div>
 </article>
 
 
@@ -301,17 +353,13 @@ o = -o; //value becomes numeric -1
 
 <article>
 <h1>Operators</h1>
-
 <h2>Bitwise operators</h2>
-
 <h3>Bitwise NOT</h3>
+<p><code>~value</code> returns the one&#39;s complement of the number <code>value</code>.</p>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">25</span>;  <span class="comment">//binary 0000 0000 0000 0000 0000 0000 0001 1001</span>
+<span class="keyword">var</span> b = ~a;  <span class="comment">//binary 1111 1111 1111 1111 1111 1111 1110 0110</span>
+b;           <span class="comment">//-26</span></code></pre>
 
-<p><code>~value</code> returns the one's complement of the number <code>value</code>.</p>
-
-<div class="highlight"><pre lang="js">var a = 25;  //binary 0000 0000 0000 0000 0000 0000 0001 1001
-var b = ~a;  //binary 1111 1111 1111 1111 1111 1111 1110 0110
-b;           //-26
-</pre></div>
 </article>
 
 
@@ -320,18 +368,14 @@ b;           //-26
 
 <article>
 <h1>Operators</h1>
-
 <h2>Bitwise operators</h2>
-
 <h3>Bitwise AND</h3>
-
 <p><code>a &amp; b</code> performs an AND operation between the bits of <code>a</code> and <code>b</code></p>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">25</span>;        <span class="comment">//binary 0000 0000 0000 0000 0000 0000 0001 1001</span>
+<span class="keyword">var</span> b = <span class="number">11</span>;        <span class="comment">//binary 0000 0000 0000 0000 0000 0000 0000 1011</span>
+<span class="keyword">var</span> c = a &amp; b;     <span class="comment">//binary 0000 0000 0000 0000 0000 0000 0000 1001</span>
+c;                 <span class="comment">//9</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
-var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
-var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
-c;                 //9
-</pre></div>
 </article>
 
 
@@ -340,18 +384,14 @@ c;                 //9
 
 <article>
 <h1>Operators</h1>
-
 <h2>Bitwise operators</h2>
-
 <h3>Bitwise OR</h3>
-
 <p><code>a | b</code> performs an OR operation between the bits of <code>a</code> and <code>b</code></p>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">25</span>;        <span class="comment">//binary 0000 0000 0000 0000 0000 0000 0001 1001</span>
+<span class="keyword">var</span> b = <span class="number">11</span>;        <span class="comment">//binary 0000 0000 0000 0000 0000 0000 0000 1011</span>
+<span class="keyword">var</span> c = a | b;     <span class="comment">//binary 0000 0000 0000 0000 0000 0000 0001 1011</span>
+c;                 <span class="comment">//27</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
-var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
-var c = a | b;     //binary 0000 0000 0000 0000 0000 0000 0001 1011
-c;                 //27
-</pre></div>
 </article>
 
 
@@ -360,18 +400,14 @@ c;                 //27
 
 <article>
 <h1>Operators</h1>
-
 <h2>Bitwise operators</h2>
-
 <h3>Bitwise XOR</h3>
-
 <p><code>a ^ b</code> performs a XOR operation between the bits of <code>a</code> and <code>b</code></p>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">25</span>;        <span class="comment">//0000 0000 0000 0000 0000 0000 0001 1001 </span>
+<span class="keyword">var</span> b = <span class="number">3</span>;         <span class="comment">//0000 0000 0000 0000 0000 0000 0000 0011</span>
+<span class="keyword">var</span> c = a ^ b;     <span class="comment">//0000 0000 0000 0000 0000 0000 0001 1010</span>
+c;                 <span class="comment">//26</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a = 25;        //0000 0000 0000 0000 0000 0000 0001 1001 
-var b = 3;         //0000 0000 0000 0000 0000 0000 0000 0011
-var c = a ^ b;     //0000 0000 0000 0000 0000 0000 0001 1010
-c;                 //26
-</pre></div>
 </article>
 
 
@@ -380,29 +416,22 @@ c;                 //26
 
 <article>
 <h1>Operators</h1>
-
 <h2>Logical Operators</h2>
-
 <h3>Logical NOT</h3>
-
 <p><code>!value</code> negate the boolean value.</p>
-
-<div class="highlight"><pre lang="js">!true;  //false
-!false; //true
-</pre></div>
-
+<pre><code class="language-js">!<span class="literal">true</span>;  <span class="regexp">//</span><span class="literal">false</span>
+!<span class="literal">false</span>; <span class="regexp">//</span><span class="literal">true</span></code></pre>
 <p>if <code>value</code> is a non-boolean value, it is converted to a boolean: </p>
-
-<p>most values are converted to <code>true</code> <br /><br />following values are converted to <code>false</code></p>
-
+<p>most values are converted to <code>true</code><br>following values are converted to <code>false</code></p>
 <ul>
-<li>the empty string <code>""</code></li>
+<li>the empty string <code>&quot;&quot;</code></li>
 <li><code>null</code></li>
 <li><code>undefined</code></li>
 <li>the number <code>0</code></li>
 <li>the number <code>NaN</code></li>
 <li>the boolean <code>false</code></li>
 </ul>
+
 </article>
 
 
@@ -411,14 +440,11 @@ c;                 //26
 
 <article>
 <h1>Operators</h1>
-
 <h2>Logical Operators</h2>
-
 <h3>Logical NOT</h3>
-
 <h4>Tip</h4>
+<p>If you use the logical NOT twice, you get the original value.<br>Use double negation to easily convert any value to its boolean equivalent.</p>
 
-<p>If you use the logical NOT twice, you get the original value. <br /><br />Use double negation to easily convert any value to its boolean equivalent.</p>
 </article>
 
 
@@ -426,16 +452,16 @@ c;                 //26
 
 
 <article>
-<div class="highlight"><pre lang="js">!!false;     //false
-!!"";        //false
-!!null;      //false
-!!undefined; //false
-!!0;         //false
-!!NaN;       //false
-!!true;      //true
-!!"0";       //true
-!!1;         //true
-</pre></div>
+<pre><code class="language-js">!!<span class="literal">false</span>;     <span class="regexp">//</span><span class="literal">false</span>
+!!<span class="string">""</span>;        <span class="regexp">//</span><span class="literal">false</span>
+!!<span class="literal">null</span>;      <span class="regexp">//</span><span class="literal">false</span>
+!!<span class="literal">undefined</span>; <span class="regexp">//</span><span class="literal">false</span>
+!!<span class="number">0</span>;         <span class="regexp">//</span><span class="literal">false</span>
+!!NaN;       <span class="regexp">//</span><span class="literal">false</span>
+!!<span class="literal">true</span>;      <span class="regexp">//</span><span class="literal">true</span>
+!!<span class="string">"0"</span>;       <span class="regexp">//</span><span class="literal">true</span>
+!!<span class="number">1</span>;         <span class="regexp">//</span><span class="literal">true</span></code></pre>
+
 </article>
 
 
@@ -444,18 +470,14 @@ c;                 //26
 
 <article>
 <h1>Operators</h1>
-
 <h2>Logical Operators</h2>
-
 <h3>Logical AND</h3>
-
 <p><code>a &amp;&amp; b</code> returns the logical AND of <code>a</code> and <code>b</code>.</p>
+<pre><code class="language-js"><span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;   <span class="regexp">//</span><span class="literal">true</span>
+<span class="literal">true</span> &amp;&amp; <span class="literal">false</span>;  <span class="regexp">//</span><span class="literal">false</span>
+<span class="literal">false</span> &amp;&amp; <span class="literal">true</span>;  <span class="regexp">//</span><span class="literal">false</span>
+<span class="literal">false</span> &amp;&amp; <span class="literal">false</span>; <span class="regexp">//</span><span class="literal">false</span></code></pre>
 
-<div class="highlight"><pre lang="js">true && true;   //true
-true && false;  //false
-false && true;  //false
-false && false; //false
-</pre></div>
 </article>
 
 
@@ -464,18 +486,14 @@ false && false; //false
 
 <article>
 <h1>Operators</h1>
-
 <h2>Logical Operators</h2>
-
 <h3>Logical OR</h3>
-
 <p><code>a || b</code> returns the logical OR of <code>a</code> and <code>b</code></p>
+<pre><code class="language-js"><span class="literal">true</span> || <span class="literal">true</span>;   <span class="regexp">//</span><span class="literal">true</span>
+<span class="literal">true</span> || <span class="literal">false</span>;  <span class="regexp">//</span><span class="literal">true</span>
+<span class="literal">false</span> || <span class="literal">true</span>;  <span class="regexp">//</span><span class="literal">true</span>
+<span class="literal">false</span> || <span class="literal">false</span>; <span class="regexp">//</span><span class="literal">false</span></code></pre>
 
-<div class="highlight"><pre lang="js">true || true;   //true
-true || false;  //true
-false || true;  //true
-false || false; //false
-</pre></div>
 </article>
 
 
@@ -484,18 +502,13 @@ false || false; //false
 
 <article>
 <h1>Operators</h1>
-
 <h2>Logical Operators</h2>
-
 <h3>Operators precedence</h3>
-
 <p><code>!</code> is executed first, then comes <code>&amp;&amp;</code> and finally <code>||</code></p>
+<p>Use parentheses instead of relying on operator precedence,<br>in order to make your code easier to read and understand.</p>
+<pre><code class="language-js"><span class="literal">false</span> &amp;&amp; <span class="literal">false</span> || <span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;     <span class="regexp">//</span><span class="literal">true</span>
+(<span class="literal">false</span> &amp;&amp; <span class="literal">false</span>) || (<span class="literal">true</span> &amp;&amp; <span class="literal">true</span>); <span class="regexp">//</span><span class="literal">true</span></code></pre>
 
-<p>Use parentheses instead of relying on operator precedence, <br /><br />in order to make your code easier to read and understand.</p>
-
-<div class="highlight"><pre lang="js">false && false || true && true;     //true
-(false && false) || (true && true); //true
-</pre></div>
 </article>
 
 
@@ -504,22 +517,18 @@ false || false; //false
 
 <article>
 <h1>Operators</h1>
-
 <h2>Multiplicative operators</h2>
-
 <h3>Multiply</h3>
-
 <p><code>*</code> multiply two numbers</p>
+<pre><code class="language-js"><span class="number">6</span> * <span class="number">8</span>;               <span class="comment">//48</span>
+<span class="number">1e308</span> * <span class="number">2</span>;           <span class="comment">//Infinity</span>
+<span class="literal">NaN</span> * <span class="number">3</span>;             <span class="comment">//NaN</span>
+<span class="literal">Infinity</span> * <span class="number">0</span>;        <span class="comment">//NaN</span>
+<span class="literal">Infinity</span> * <span class="number">1</span>;        <span class="comment">//Infinity</span>
+<span class="literal">Infinity</span> * -<span class="number">2</span>;       <span class="comment">//-Infinity</span>
+<span class="literal">Infinity</span> * <span class="literal">Infinity</span>; <span class="comment">//Infinity</span>
+<span class="string">"3"</span> * <span class="literal">true</span>;          <span class="comment">//3</span></code></pre>
 
-<div class="highlight"><pre lang="js">6 * 8;               //48
-1e308 * 2;           //Infinity
-NaN * 3;             //NaN
-Infinity * 0;        //NaN
-Infinity * 1;        //Infinity
-Infinity * -2;       //-Infinity
-Infinity * Infinity; //Infinity
-"3" * true;          //3
-</pre></div>
 </article>
 
 
@@ -528,24 +537,20 @@ Infinity * Infinity; //Infinity
 
 <article>
 <h1>Operators</h1>
-
 <h2>Multiplicative operators</h2>
-
 <h3>Divide</h3>
-
 <p><code>/</code> divides the first operand by the second operand</p>
+<pre><code class="language-js"><span class="number">25</span> * <span class="number">2</span>;              <span class="comment">//12.5</span>
+<span class="literal">NaN</span> / <span class="number">3</span>;             <span class="comment">//NaN</span>
+<span class="number">3</span> / <span class="literal">NaN</span>;             <span class="comment">//NaN</span>
+<span class="number">0</span> / <span class="number">0</span>;               <span class="comment">//NaN</span>
+<span class="number">1</span> / <span class="number">0</span>;               <span class="comment">//Infinity</span>
+<span class="literal">Infinity</span> / <span class="number">0</span>;        <span class="comment">//Infinity</span>
+<span class="literal">Infinity</span> / <span class="number">1</span>;        <span class="comment">//Infinity</span>
+<span class="literal">Infinity</span> / -<span class="number">2</span>;       <span class="comment">//-Infinity</span>
+<span class="literal">Infinity</span> / <span class="literal">Infinity</span>; <span class="comment">//NaN</span>
+<span class="string">"3"</span> / <span class="literal">true</span>;          <span class="comment">//3</span></code></pre>
 
-<div class="highlight"><pre lang="js">25 * 2;              //12.5
-NaN / 3;             //NaN
-3 / NaN;             //NaN
-0 / 0;               //NaN
-1 / 0;               //Infinity
-Infinity / 0;        //Infinity
-Infinity / 1;        //Infinity
-Infinity / -2;       //-Infinity
-Infinity / Infinity; //NaN
-"3" / true;          //3
-</pre></div>
 </article>
 
 
@@ -554,12 +559,10 @@ Infinity / Infinity; //NaN
 
 <article>
 <h1>Operators</h1>
-
 <h2>Multiplicative operators</h2>
-
 <h3>Modulus</h3>
-
 <p><code>%</code> returns the remainder of the division</p>
+
 </article>
 
 
@@ -568,28 +571,24 @@ Infinity / Infinity; //NaN
 
 <article>
 <h1>Operators</h1>
-
 <h2>Additive Operators</h2>
-
 <h3>Add</h3>
-
 <p><code>+</code> returns the sum of its operands</p>
+<pre><code class="language-js"><span class="number">1</span> + <span class="literal">NaN</span>;               <span class="comment">//NaN</span>
+<span class="literal">NaN</span> + <span class="number">1</span>;               <span class="comment">//NaN</span>
+<span class="literal">Infinity</span> + <span class="literal">Infinity</span>;   <span class="comment">//Infinity</span>
+-<span class="literal">Infinity</span> + -<span class="literal">Infinity</span>; <span class="comment">//-Infinity</span>
+<span class="literal">Infinity</span> + -<span class="literal">Infinity</span>;  <span class="comment">//NaN</span>
+<span class="number">0</span> + <span class="number">0</span>;                 <span class="comment">//0</span>
+-<span class="number">0</span> + <span class="number">0</span>;                <span class="comment">//0</span>
+-<span class="number">0</span> + -<span class="number">0</span>;               <span class="comment">//-0</span>
+<span class="number">1</span> / (-<span class="number">0</span> + -<span class="number">0</span>);         <span class="comment">//-Infinity</span>
+<span class="number">5</span> + <span class="number">7</span>;                 <span class="comment">//12</span>
+<span class="string">"5"</span> + <span class="number">7</span>;               <span class="comment">//"57"</span>
+<span class="number">5</span> + <span class="string">"7"</span>;               <span class="comment">//"57"</span>
+<span class="literal">true</span> + <span class="number">5</span>;              <span class="comment">//6</span>
+<span class="literal">true</span> + <span class="string">"5"</span>;            <span class="comment">//"true5"</span></code></pre>
 
-<div class="highlight"><pre lang="js">1 + NaN;               //NaN
-NaN + 1;               //NaN
-Infinity + Infinity;   //Infinity
--Infinity + -Infinity; //-Infinity
-Infinity + -Infinity;  //NaN
-0 + 0;                 //0
--0 + 0;                //0
--0 + -0;               //-0
-1 / (-0 + -0);         //-Infinity
-5 + 7;                 //12
-"5" + 7;               //"57"
-5 + "7";               //"57"
-true + 5;              //6
-true + "5";            //"true5"
-</pre></div>
 </article>
 
 
@@ -598,29 +597,25 @@ true + "5";            //"true5"
 
 <article>
 <h1>Operators</h1>
-
 <h2>Additive Operators</h2>
-
 <h3>Subtract</h3>
-
 <p><code>-</code> returns the difference of its operands</p>
+<pre><code class="language-js"><span class="comment">NaN</span> <span class="literal">-</span> <span class="comment">1;</span>               <span class="comment">//NaN</span>
+<span class="comment">2</span> <span class="literal">-</span> <span class="comment">NaN;</span>               <span class="comment">//NaN</span>
+<span class="comment">Infinity</span> <span class="literal">-</span> <span class="comment">Infinity;</span>   <span class="comment">//NaN</span>
+<span class="literal">-</span><span class="comment">Infinity</span> <span class="literal">-</span> <span class="literal">-</span><span class="comment">Infinity;</span> <span class="comment">//NaN</span>
+<span class="comment">Infinity</span> <span class="literal">-</span> <span class="literal">-</span><span class="comment">Infinity;</span>  <span class="comment">//Infinity</span>
+<span class="literal">-</span><span class="comment">Infinity</span> <span class="literal">-</span> <span class="comment">Infinity;</span>  <span class="comment">//</span>-<span class="comment">Infinity</span>
+<span class="literal">+</span><span class="comment">0</span> <span class="literal">-</span> <span class="literal">+</span><span class="comment">0;</span>               <span class="comment">//</span>+<span class="comment">0</span>
+<span class="literal">+</span><span class="comment">0</span> <span class="literal">-</span> <span class="literal">-</span><span class="comment">0;</span>               <span class="comment">//</span>-<span class="comment">0</span>
+<span class="literal">-</span><span class="comment">0</span> <span class="literal">-</span> <span class="literal">-</span><span class="comment">0;</span>               <span class="comment">//</span>+<span class="comment">0</span>
+<span class="comment">3</span> <span class="literal">-</span> <span class="comment">true;</span>              <span class="comment">//2</span> <span class="literal">-</span> <span class="comment">because</span> <span class="comment">true</span> <span class="comment">is</span> <span class="comment">converted</span> <span class="comment">to</span> <span class="comment">1</span>
+<span class="comment">NaN</span> <span class="literal">-</span> <span class="comment">1;</span>               <span class="comment">//NaN</span>
+<span class="comment">5</span> <span class="literal">-</span> <span class="comment">3;</span>                 <span class="comment">//2</span>
+<span class="comment">5</span> <span class="literal">-</span> <span class="comment">"";</span>                <span class="comment">//5</span> <span class="literal">-</span> <span class="comment">because</span> <span class="comment">""</span> <span class="comment">is</span> <span class="comment">converted</span> <span class="comment">to</span> <span class="comment">0</span> 
+<span class="comment">5</span> <span class="literal">-</span> <span class="comment">"2";</span>               <span class="comment">//3</span> <span class="literal">-</span> <span class="comment">because</span> <span class="comment">"2"</span> <span class="comment">is</span> <span class="comment">converted</span> <span class="comment">to</span> <span class="comment">2</span>
+<span class="comment">5</span> <span class="literal">-</span> <span class="comment">null;</span>              <span class="comment">//5</span> <span class="literal">-</span> <span class="comment">because</span> <span class="comment">null</span> <span class="comment">is</span> <span class="comment">converted</span> <span class="comment">to</span> <span class="comment">0</code></pre>
 
-<div class="highlight"><pre lang="js">NaN - 1;               //NaN
-2 - NaN;               //NaN
-Infinity - Infinity;   //NaN
--Infinity - -Infinity; //NaN
-Infinity - -Infinity;  //Infinity
--Infinity - Infinity;  //-Infinity
-+0 - +0;               //+0
-+0 - -0;               //-0
--0 - -0;               //+0
-3 - true;              //2 - because true is converted to 1
-NaN - 1;               //NaN
-5 - 3;                 //2
-5 - "";                //5 - because "" is converted to 0 
-5 - "2";               //3 - because "2" is converted to 2
-5 - null;              //5 - because null is converted to 0
-</pre></div>
 </article>
 
 
@@ -629,15 +624,14 @@ NaN - 1;               //NaN
 
 <article>
 <h1>Operators</h1>
-
 <h2>Relational Operators</h2>
-
 <ul>
 <li>less-than <code>&lt;</code></li>
 <li>greater-than <code>&gt;</code></li>
 <li>less-than-or-equal-to <code>&lt;=</code></li>
 <li>greater-than-or-equal-to <code>&gt;=</code> </li>
 </ul>
+
 </article>
 
 
@@ -646,20 +640,16 @@ NaN - 1;               //NaN
 
 <article>
 <h1>Operators</h1>
-
 <h2>Relational Operators</h2>
-
 <p>When using different data types:</p>
-
 <ul>
 <li>if the operands are numbers, perform a numeric comparison</li>
 <li>if the operands are strings, perform a lessicographic comparison</li>
-<li>if an operand is a number, convert the other operand to a number <br />
-and perform a numeric comparison</li>
-<li>if an operand is an object, call its <code>valueOf()</code> method <br />
-and use its result to perform the comparison,  </li>
+<li>if an operand is a number, convert the other operand to a number<br>and perform a numeric comparison</li>
+<li>if an operand is an object, call its <code>valueOf()</code> method<br>and use its result to perform the comparison,  </li>
 <li>if an operand is a boolean, convert it to a number and perform the comparison</li>
 </ul>
+
 </article>
 
 
@@ -668,31 +658,24 @@ and use its result to perform the comparison,  </li>
 
 <article>
 <h1>Operators</h1>
-
 <h2>Equality operators</h2>
-
 <h3>Equal and Not Equal</h3>
-
 <p><code>a == b</code> returns <code>true</code> if <code>a</code> is equals to <code>b</code>  </p>
-
 <p><code>a != b</code> returns <code>true</code> if <code>a</code> is not equals to <code>b</code>  </p>
-
 <h4>Attention!</h4>
-
 <p><code>==</code> and <code>!=</code> perform a type conversions</p>
+<pre><code class="language-js"><span class="literal">null</span> == <span class="literal">undefined</span>; <span class="regexp">//</span><span class="literal">true</span>
+<span class="string">"NaN"</span> == NaN;      <span class="regexp">//</span><span class="literal">false</span>
+<span class="number">5</span> == NaN;          <span class="regexp">//</span><span class="literal">false</span>
+NaN == NaN;        <span class="regexp">//</span><span class="literal">false</span>
+NaN != NaN;        <span class="regexp">//</span><span class="literal">true</span>
+<span class="literal">false</span> == <span class="number">0</span>;        <span class="regexp">//</span><span class="literal">true</span>
+<span class="literal">true</span> == <span class="number">1</span>;         <span class="regexp">//</span><span class="literal">true</span>
+<span class="literal">true</span> == <span class="number">2</span>;         <span class="regexp">//</span><span class="literal">false</span>
+<span class="literal">undefined</span> == <span class="number">0</span>;    <span class="regexp">//</span><span class="literal">false</span>
+<span class="literal">null</span> == <span class="number">0</span>;         <span class="regexp">//</span><span class="literal">false</span>
+<span class="string">"5"</span> == <span class="number">5</span>;          <span class="regexp">//</span><span class="literal">true</span></code></pre>
 
-<div class="highlight"><pre lang="js">null == undefined; //true
-"NaN" == NaN;      //false
-5 == NaN;          //false
-NaN == NaN;        //false
-NaN != NaN;        //true
-false == 0;        //true
-true == 1;         //true
-true == 2;         //false
-undefined == 0;    //false
-null == 0;         //false
-"5" == 5;          //true
-</pre></div>
 </article>
 
 
@@ -701,26 +684,17 @@ null == 0;         //false
 
 <article>
 <h1>Operators</h1>
-
 <h2>Equality operators</h2>
-
 <h3>Strict Equal and Not Strict Equal</h3>
-
 <p><code>===</code> returns <code>true</code> only if the operands are equal (without conversion)</p>
-
 <p><code>!==</code> returns <code>true</code> only if the operands are not equal (without conversion)</p>
+<pre><code class="language-js"><span class="string">"55"</span> == <span class="number">55</span>;  <span class="regexp">//</span><span class="literal">true</span>  - equal because <span class="keyword">of</span> conversion
+<span class="string">"55"</span> === <span class="number">55</span>; <span class="regexp">//</span><span class="literal">false</span> - <span class="keyword">not</span> equal because different data types</code></pre>
+<pre><code class="language-js"><span class="string">"55"</span> != <span class="number">55</span>;  <span class="regexp">//</span><span class="literal">false</span> - equal because <span class="keyword">of</span> conversion
+<span class="string">"55"</span> !== <span class="number">55</span>; <span class="regexp">//</span><span class="literal">true</span>  - <span class="keyword">not</span> equal because different data types</code></pre>
+<pre><code class="language-js"><span class="literal">null</span> == <span class="literal">undefined</span>;  <span class="regexp">//</span><span class="literal">true</span>  - because they are similar values  
+<span class="literal">null</span> === <span class="literal">undefined</span>; <span class="regexp">//</span><span class="literal">false</span> - because they are <span class="keyword">not</span> the same type</code></pre>
 
-<div class="highlight"><pre lang="js">"55" == 55;  //true  - equal because of conversion
-"55" === 55; //false - not equal because different data types
-</pre></div>
-
-<div class="highlight"><pre lang="js">"55" != 55;  //false - equal because of conversion
-"55" !== 55; //true  - not equal because different data types
-</pre></div>
-
-<div class="highlight"><pre lang="js">null == undefined;  //true  - because they are similar values  
-null === undefined; //false - because they are not the same type
-</pre></div>
 </article>
 
 
@@ -729,18 +703,12 @@ null === undefined; //false - because they are not the same type
 
 <article>
 <h1>Operators</h1>
-
 <h2>Equality operators</h2>
-
 <h3>Conditional Operator</h3>
+<pre><code class="language-js"><span class="title">conditional_expression</span> ? true_case : false_case;</code></pre>
+<p>if <code>conditional_expression</code> is <code>true</code><br>then returns <code>true_case</code> value<br>else returns <code>false_case</code> value</p>
+<pre><code class="language-js"><span class="title">var</span> max = (a &gt; b) ? a : b;</code></pre>
 
-<div class="highlight"><pre lang="js">conditional_expression ? true_case : false_case;
-</pre></div>
-
-<p>if <code>conditional_expression</code> is <code>true</code> <br /><br />then returns <code>true_case</code> value <br /><br />else returns <code>false_case</code> value</p>
-
-<div class="highlight"><pre lang="js">var max = (a > b) ? a : b;
-</pre></div>
 </article>
 
 
@@ -749,15 +717,11 @@ null === undefined; //false - because they are not the same type
 
 <article>
 <h1>Operators</h1>
-
 <h2>Assignment Operators</h2>
-
 <h3>Simple assignment</h3>
-
 <p><code>=</code> assigns the value on the right to the variable on the left</p>
+<pre><code class="language-js"><span class="keyword">var</span> variable = <span class="keyword">value</span>;</code></pre>
 
-<div class="highlight"><pre lang="js">var variable = value;
-</pre></div>
 </article>
 
 
@@ -766,11 +730,8 @@ null === undefined; //false - because they are not the same type
 
 <article>
 <h1>Operators</h1>
-
 <h2>Assignment Operators</h2>
-
 <h3>Compound assignment</h3>
-
 <ul>
 <li>multiply/assign <code>*=</code></li>
 <li>divide/assign <code>/=</code></li>
@@ -781,6 +742,7 @@ null === undefined; //false - because they are not the same type
 <li>signed right shift/assign <code>&gt;&gt;=</code></li>
 <li>unsigned right shift/assign <code>&gt;&gt;&gt;=</code></li>
 </ul>
+
 </article>
 
 
@@ -789,24 +751,17 @@ null === undefined; //false - because they are not the same type
 
 <article>
 <h1>Operators</h1>
-
 <h2>Comma Operator</h2>
-
 <p>allows execution of more than one operation in a single statement</p>
-
 <h4>Tip</h4>
-
 <p>Comma operator can be used in the declaration of variables</p>
+<pre><code class="language-js"><span class="reserved">var</span> a, b = <span class="number">1</span>, c = <span class="number">2</span>;
+a; <span class="regexp">//</span><span class="literal">undefined</span>
+b; <span class="regexp">//</span><span class="number">1</span>
+c; <span class="regexp">//</span><span class="number">2</span></code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> n = (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);
+n; <span class="comment">//5</span></code></pre>
 
-<div class="highlight"><pre lang="js">var a, b = 1, c = 2;
-a; //undefined
-b; //1
-c; //2
-</pre></div>
-
-<div class="highlight"><pre lang="js ">var n = (0, 1, 2, 3, 4, 5);
-n; //5
-</pre></div>
 </article>
 
 

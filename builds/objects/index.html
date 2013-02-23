@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <style>
 
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+}
+
+</style>
+
+<style>
+  pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 </style>
@@ -17,6 +141,7 @@ body {
 
 <article>
 <h1>Objects</h1>
+
 </article>
 
 
@@ -24,31 +149,24 @@ body {
 
 
 <article>
-<hr />
-
 <h1>Objects</h1>
-
 <h2>Using <code>this</code> value</h2>
-
-<p>Inside a method, there is a special way to access the object this method belongs to: <br /><br />by using the special value <code>this</code>.  </p>
-
+<p>Inside a method, there is a special way to access the object this method belongs to:
+by using the special value <code>this</code>.</p>
 <blockquote>
-  <h4>Example</h4>
-  
-  <div class="highlight"><pre lang="js">>var hero = {
-   name: 'Rafaelo',
-   sayName: function() {
-     return this.name;
-   }
-  }
-  
-  hero.sayName();   // "Rafaelo"
-  </pre></div>
-  
-  <h4>Tip</h4>
-  
-  <p>when you say <code>this</code>, you are actually saying "this object" or "the current object".</p>
+<h4>Example</h4>
+<pre><code class="language-js"><span class="keyword">var</span> hero = {
+ name: <span class="string">'Rafaelo'</span>,
+ sayName: <span class="keyword">function</span>() {
+   <span class="keyword">return</span> <span class="keyword">this</span>.name;
+ }
+}
+
+hero.sayName();   <span class="comment">// "Rafaelo"</span></code></pre>
+<h4>Tip</h4>
+<p>when you say <code>this</code>, you are actually saying &quot;this object&quot; or &quot;the current object&quot;.</p>
 </blockquote>
+
 </article>
 
 
@@ -57,23 +175,18 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>Constructor functions</h2>
-
-<p>They are another way to create objects. <br /><br />In order to create an object using this kind of function, use the <code>new</code> operator.</p>
-
+<p>They are another way to create objects.
+In order to create an object using this kind of function, use the <code>new</code> operator.</p>
 <blockquote>
-  <h4>Exmaple</h4>
-  
-  <div class="highlight"><pre lang="js ">>function Hero() {
-   this.occupation = 'Ninja';
-  }
-  </pre></div>
-  
-  <div class="highlight"><pre lang="js">>var hero = new Hero();
-  hero.occupation; // "Ninja"
-  </pre></div>
+<h4>Exmaple</h4>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Hero</span><span class="params">()</span> {</span>
+ <span class="keyword">this</span>.occupation = <span class="string">'Ninja'</span>;
+}</code></pre>
+<pre><code class="language-js"><span class="keyword">var</span> hero = <span class="keyword">new</span> Hero();
+hero.occupation; <span class="comment">// "Ninja"</span></code></pre>
 </blockquote>
+
 </article>
 
 
@@ -82,32 +195,26 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>Constructor functions</h2>
-
 <p>Constructor functions accept parameters, which can be used when creating new objects.</p>
-
 <blockquote>
-  <h4>Example</h4>
-  
-  <div class="highlight"><pre lang="js">>function Hero(name) {
-   this.name = name;
-   this.occupation = 'Ninja';
-   this.whoAreYou = function() {
-     return "I'm " + this.name + " and I'm a " + this.occupation;
-   }
-  }
-  
-  var h1 = new Hero('Michelangelo');
-  var h2 = new Hero('Donatello');
-  h1.whoAreYou(); // "I'm Michelangelo and I'm a Ninja"
-  h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
-  </pre></div>
-  
-  <h4>Convention</h4>
-  
-  <p>capitalize the first letter of your constructor functions</p>
+<h4>Example</h4>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Hero</span><span class="params">(name)</span> {</span>
+ <span class="keyword">this</span>.name = name;
+ <span class="keyword">this</span>.occupation = <span class="string">'Ninja'</span>;
+ <span class="keyword">this</span>.whoAreYou = <span class="keyword">function</span>() {
+   <span class="keyword">return</span> <span class="string">"I'm "</span> + <span class="keyword">this</span>.name + <span class="string">" and I'm a "</span> + <span class="keyword">this</span>.occupation;
+ }
+}
+
+<span class="keyword">var</span> h1 = <span class="keyword">new</span> Hero(<span class="string">'Michelangelo'</span>);
+<span class="keyword">var</span> h2 = <span class="keyword">new</span> Hero(<span class="string">'Donatello'</span>);
+h1.whoAreYou(); <span class="comment">// "I'm Michelangelo and I'm a Ninja"</span>
+h2.whoAreYou(); <span class="comment">// "I'm Donatello and I'm a Ninja"</span></code></pre>
+<h4>Convention</h4>
+<p>capitalize the first letter of your constructor functions</p>
 </blockquote>
+
 </article>
 
 
@@ -116,22 +223,17 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>Constructor functions</h2>
-
 <blockquote>
-  <h4>Warning</h4>
-  
-  <p>calling a function that is designed to be a constructor but<br />omitting the <code>new</code> operator may result in a behaviour you could not expect.</p>
-  
-  <div class="highlight"><pre lang="js">> var h = Hero('Leonardo');
-  typeof h   // "undefifined"
-  </pre></div>
-  
-  <h4>Note</h4>
-  
-  <p>In this case, <code>this</code> refer to global object.</p>
+<h4>Warning</h4>
+<p>calling a function that is designed to be a constructor but
+omitting the <code>new</code> operator may result in a behaviour you could not expect.</p>
+<pre><code class="language-js"><span class="title">var</span> h = Hero(<span class="string">'Leonardo'</span>);
+<span class="title">typeof</span> h   // <span class="string">"undefifined"</span></code></pre>
+<h4>Note</h4>
+<p>In this case, <code>this</code> refer to global object.</p>
 </blockquote>
+
 </article>
 
 
@@ -140,23 +242,17 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>The global object</h2>
-
-<p>The host environment provides a global object and all global variables are actually properties of the global object. <br /><br />If your host environment is the web browser, the global object is called <code>window</code>.  </p>
-
+<p>The host environment provides a global object and all global variables are actually properties of the global object.
+If your host environment is the web browser, the global object is called <code>window</code>.</p>
 <blockquote>
-  <h4>Exmaple</h4>
-  
-  <div class="highlight"><pre lang="js">>var a = 1;
-  a;   // 1
-  </pre></div>
-  
-  <p>a is global i.e. belongs to the global object</p>
-  
-  <div class="highlight"><pre lang="js">>window['a']   // 1
-  </pre></div>
+<h4>Exmaple</h4>
+<pre><code class="language-js"><span class="keyword">var</span> a = <span class="number">1</span>;
+a;   <span class="comment">// 1</span></code></pre>
+<p>a is global i.e. belongs to the global object</p>
+<pre><code class="language-js">window[<span class="string">'a'</span>]   <span class="comment">// 1</span></code></pre>
 </blockquote>
+
 </article>
 
 
@@ -165,23 +261,18 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>The global object</h2>
-
 <blockquote>
-  <h4>Exmaple</h4>
-  
-  <div class="highlight"><pre lang="js">>function Hero(name) { this.name = name; }
-  
-  var h = Hero('Leonardo');
-  typeof h   // "undefined"
-  typeof h.name   // TypeError: Cannot read property 'name' of undefined
-  </pre></div>
-  
-  <p><code>this</code> is binded to global object</p>
-  
-  <p>continue...</p>
+<h4>Exmaple</h4>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Hero</span><span class="params">(name)</span> {</span> <span class="keyword">this</span>.name = name; }
+
+<span class="keyword">var</span> h = Hero(<span class="string">'Leonardo'</span>);
+<span class="keyword">typeof</span> h   <span class="comment">// "undefined"</span>
+<span class="keyword">typeof</span> h.name   <span class="comment">// TypeError: Cannot read property 'name' of undefined</span></code></pre>
+<p><code>this</code> is binded to global object</p>
+<p>continue...</p>
 </blockquote>
+
 </article>
 
 
@@ -190,23 +281,17 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>The global object</h2>
-
 <blockquote>
-  <p>...continue</p>
-  
-  <div class="highlight"><pre lang="js">>name   // "Leonardo"
-  window.name   // "Leonardo"
-  </pre></div>
-  
-  <p>using <code>new</code> operator instead</p>
-  
-  <div class="highlight"><pre lang="js">>var h2 = new Hero('Michelangelo');
-  typeof h2   // "object"
-  h2.name   // "Michelangelo"
-  </pre></div>
+<p>...continue</p>
+<pre><code class="language-js">name   <span class="comment">// "Leonardo"</span>
+window<span class="variable">.name</span>   <span class="comment">// "Leonardo"</span></code></pre>
+<p>using <code>new</code> operator instead</p>
+<pre><code class="language-js"><span class="keyword">var</span> h2 = <span class="keyword">new</span> Hero(<span class="string">'Michelangelo'</span>);
+<span class="keyword">typeof</span> h2   <span class="comment">// "object"</span>
+h2.name   <span class="comment">// "Michelangelo"</span></code></pre>
 </blockquote>
+
 </article>
 
 
@@ -215,26 +300,22 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2><code>constructor</code> property</h2>
-
-<p>When an object is created, this special property is assigned to it behind the scenes. <br /><br />It contains a reference to the constructor function used to create this object.  </p>
-
+<p>When an object is created, this special property is assigned to it behind the scenes.
+It contains a reference to the constructor function used to create this object.</p>
 <blockquote>
-  <h4>Exmaple</h4>
-  
-  <div class="highlight"><pre lang="js">>function Hero(name) { this.name = name; }
-  var h = new Hero('Leonardo');
-  
-  h.constructor // Hero(name)
-  </pre></div>
-  
-  <p>following code means:<br />"I don't care how object <code>h</code> was created,<br />but I want another one just like it"</p>
-  
-  <div class="highlight"><pre lang="js">> var h2 = new h.constructor('Rafaello');
-  h2.name; // "Rafaello"
-  </pre></div>
+<h4>Exmaple</h4>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">Hero</span><span class="params">(name)</span> <span class="comment">{ this.name = name; }</span>
+<span class="title">var</span> <span class="title">h</span> = <span class="title">new</span> <span class="title">Hero</span><span class="params">(<span class="string">'Leonardo'</span>)</span>;</span>
+
+h.<span class="function"><span class="keyword">constructor</span> // <span class="title">Hero</span><span class="params">(name)</span></code></pre>
+<p>following code means:
+&quot;I don&#39;t care how object <code>h</code> was created,
+but I want another one just like it&quot;</p>
+<pre><code class="language-js"><span class="keyword">var</span> h2 = <span class="keyword">new</span> h.constructor(<span class="string">'Rafaello'</span>);
+h2.name; <span class="comment">// "Rafaello"</span></code></pre>
 </blockquote>
+
 </article>
 
 
@@ -243,19 +324,16 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2><code>constructor</code> property</h2>
-
-<p>If an object was created using the object literal notation, <br /><br />its constructor is the built-in <code>Object()</code> constructor function.</p>
-
+<p>If an object was created using the object literal notation,
+its constructor is the built-in <code>Object()</code> constructor function.</p>
 <blockquote>
-  <h4>Example</h4>
-  
-  <div class="highlight"><pre lang="js">>var o = {};
-  o.constructor; // Object();
-  typeof o.constructor; // "function"
-  </pre></div>
+<h4>Example</h4>
+<pre><code class="language-js">var o = {}<span class="comment">;</span>
+o<span class="preprocessor">.constructor</span><span class="comment">; // Object();</span>
+typeof o<span class="preprocessor">.constructor</span><span class="comment">; // "function"</span></code></pre>
 </blockquote>
+
 </article>
 
 
@@ -264,23 +342,19 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2><code>instanceof</code> operator</h2>
-
 <p>Using the instanceof operator, you can test if an object was created with a specific constructor function.</p>
-
 <blockquote>
-  <h4>Example￼</h4>
-  
-  <div class="highlight"><pre lang="js￼">>function Hero() {}
-  var h = new Hero();
-  var o = {};
-  h instanceof Hero;   //true
-  h instanceof Object; //true
-  o instanceof Object; //true
-  o instanceof Hero;   //false
-  </pre></div>
+<h4>Example</h4>
+<pre><code class="language-js"><span class="reserved">function</span> Hero() {}
+<span class="reserved">var</span> h = <span class="keyword">new</span> Hero();
+<span class="reserved">var</span> o = {};
+h <span class="keyword">instanceof</span> Hero;   <span class="regexp">//</span><span class="literal">true</span>
+h <span class="keyword">instanceof</span> Object; <span class="regexp">//</span><span class="literal">true</span>
+o <span class="keyword">instanceof</span> Object; <span class="regexp">//</span><span class="literal">true</span>
+o <span class="keyword">instanceof</span> Hero;   <span class="regexp">//</span><span class="literal">false</span></code></pre>
 </blockquote>
+
 </article>
 
 
@@ -289,33 +363,26 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>Passing objects</h2>
-
-<p>When you copy an object or pass it to a function, you only pass a reference to that object. <br /><br />Consequently, if you make a change to the reference, you are actually modifying the original object.</p>
-
+<p>When you copy an object or pass it to a function, you only pass a reference to that object.
+Consequently, if you make a change to the reference, you are actually modifying the original object.</p>
 <blockquote>
-  <h4>Example</h4>
-  
-  <div class="highlight"><pre lang="js">>var original = { howmany: 1 };
-  var copy = original;
-  copy.howmany; //￼1
-  copy.howmany = 100;
-  original.howmany; // 100
-  </pre></div>
+<h4>Example</h4>
+<pre><code class="language-js">var original = { howmany: <span class="number">1</span> }<span class="comment">;</span>
+var copy = original<span class="comment">;</span>
+copy<span class="preprocessor">.howmany</span><span class="comment">; // 1</span>
+copy<span class="preprocessor">.howmany</span> = <span class="number">100</span><span class="comment">;</span>
+original<span class="preprocessor">.howmany</span><span class="comment">; // 100</span></code></pre>
 </blockquote>
-
 <p>The same thing applies when passing objects to functions:</p>
-
 <blockquote>
-  <h4>Example</h4>
-  
-  <div class="highlight"><pre lang="js">> var original = { howmany: 100 };
-  var nullify = function(o) { o.howmany = 0; }
-  nullify(original);
-  original.howmany; // 0
-  </pre></div>
+<h4>Example</h4>
+<pre><code class="language-js">var original = { howmany: <span class="number">100</span> }<span class="comment">;</span>
+var nullify = function(o) { o<span class="preprocessor">.howmany</span> = <span class="number">0</span><span class="comment">; }</span>
+nullify(original)<span class="comment">;</span>
+original<span class="preprocessor">.howmany</span><span class="comment">; // 0</span></code></pre>
 </blockquote>
+
 </article>
 
 
@@ -324,27 +391,20 @@ body {
 
 <article>
 <h1>Objects</h1>
-
 <h2>Comparing objects</h2>
-
-<p>When you compare objects, you'll get <code>true</code> only if you compare two references to the same object. <br /><br />Comparing two distinct objects that happen to have the exact same methods and properties will return <code>false</code>.</p>
-
+<p>When you compare objects, you&#39;ll get <code>true</code> only if you compare two references to the same object.
+Comparing two distinct objects that happen to have the exact same methods and properties will return <code>false</code>.</p>
 <blockquote>
-  <h4>Example</h4>
-  
-  <div class="highlight"><pre lang="js">> var fido  = {breed: 'dog'};
-  var benji = {breed: 'dog'};
-  </pre></div>
-  
-  <div class="highlight"><pre lang="js">> benji === fido // false
-  benji == fido  // false
-  </pre></div>
-  
-  <div class="highlight"><pre lang="js">> var mydog = benji;
-  mydog === benji // true
-  mydog === fido  // false
-  </pre></div>
+<h4>Example</h4>
+<pre><code class="language-js"><span class="keyword">var</span> fido  = {breed: <span class="string">'dog'</span>};
+<span class="keyword">var</span> benji = {breed: <span class="string">'dog'</span>};</code></pre>
+<pre><code class="language-js"><span class="setting">benji =<span class="value">== fido // <span class="keyword">false</span></span></span>
+<span class="setting">benji =<span class="value">= fido  // <span class="keyword">false</span></span></span></code></pre>
+<pre><code class="language-js"><span class="title">var</span> mydog = benji;
+<span class="title">mydog</span> === benji // <span class="built_in">true</span>
+mydog === fido  // <span class="built_in">false</span></code></pre>
 </blockquote>
+
 </article>
 
 

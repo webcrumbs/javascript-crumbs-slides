@@ -13,8 +13,9 @@
     "node": "*"
   },
   "dependencies": {
-    "github-flavored-markdown": "1.0.1",
-    "mustache": "0.7.2"
+    "mustache": "0.7.2",
+    "highlight.js":"7.3.0",
+    "marked": "0.2.8"
   },
   "devDependencies": {}
 }
