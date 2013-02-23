@@ -33,7 +33,7 @@ It allows your objects to borrow methods from other objects and invoke them as t
 
 ```js
 var greets = function (breed, birth) {
-  return "Hi I'm " + this.firstName + " " + breed + 
+  return "Hi I'm " + this.firstName + " " + breed +
          ", I was born in " + birth + ".";
 }
 
@@ -45,10 +45,10 @@ var donald = {
   firstName: 'Donald'
 };
 
-greets.call(mickey, 'Mouse', 1928); 
+greets.call(mickey, 'Mouse', 1928);
 //"Hi I'm Mickey Mouse, I was born in 1928."
 
-greets.call(donald, 'Duck', 1934); 
+greets.call(donald, 'Duck', 1934);
 //"Hi I'm Donald Duck, I was born in 1934."
 ```
 
@@ -63,7 +63,7 @@ It has the same behaviour of `call` but different signature.
 
 ```js
 var greets = function (breed, birth) {
-  return "Hi I'm " + this.firstName + " " + breed + 
+  return "Hi I'm " + this.firstName + " " + breed +
          ", I was born in " + birth + ".";
 }
 
@@ -75,10 +75,10 @@ var donald = {
   firstName: 'Donald'
 };
 
-greets.apply(mickey, ['Mouse', 1928]); 
+greets.apply(mickey, ['Mouse', 1928]);
 //"Hi I'm Mickey Mouse, I was born in 1928."
 
-greets.call(donald, ['Duck', 1934]); 
+greets.call(donald, ['Duck', 1934]);
 //"Hi I'm Donald Duck, I was born in 1934."
 ```
 
@@ -93,7 +93,7 @@ greets.call(donald, ['Duck', 1934]);
 
 ```js
 var greets = function (breed, birth) {
-  return "Hi I'm " + this.firstName + " " + breed + 
+  return "Hi I'm " + this.firstName + " " + breed +
          ", I was born in " + birth + ".";
 }
 
@@ -134,10 +134,10 @@ var a = new Array(['one', 'two', 'three']);
 
 ### Definition
 
-Arrays are objects, but of a special type because:  
+Arrays are objects, but of a special type because:
 
-* the names of their properties are automatically assigned using numbers  
-* they have a `length` property which contains the number of elements in the array  
+* the names of their properties are automatically assigned using numbers
+* they have a `length` property which contains the number of elements in the array
 
 ```js
 var a = ['one', 'two', 'three'];
@@ -203,18 +203,20 @@ reduceRight(function(prev, cur, index, array) {...}, initVal)
 
 ### `push(item...)` method
 
-It accepts any number of item to push in the array.  
-It returns the array's new length.  
+It accepts any number of item to push in the array.
+It returns the array's new length.
 
-    !js
-    var colors = [];   // create an array
-    var count = colors.push('red', 'green'); // push any number of items
-    count;  // 2
-    colors; // ["red", "green"]
+```js
+var colors = [];   // create an array
+var count = colors.push('red', 'green'); // push any number of items
+count;  // 2
+colors; // ["red", "green"]
 
-    count = colors.push('black');   // push another item on
-    count;  // 3
-    colors; // ["red", "green", "black"]
+count = colors.push('black');   // push another item on
+count;  // 3
+colors; // ["red", "green", "black"]
+```
+
 - - -
 # Built-ins
 
@@ -222,19 +224,20 @@ It returns the array's new length.
 
 ### `pop()` method
 
-It acceps no parameter.  
-It returns and removes the last element in the array.  
+It acceps no parameter.
+It returns and removes the last element in the array.
 If the array is empty, return undefined.
 
-    !js
-    var colors = new Array('red', 'green', 'black');
+```js
+var colors = new Array('red', 'green', 'black');
 
-    var item = colors.pop(); // get the last item
-    item; // "black"
-    colors.length; // 2
-    colors; // ["red", "green"]
+var item = colors.pop(); // get the last item
+item; // "black"
+colors.length; // 2
+colors; // ["red", "green"]
+```
 
-- - - 
+- - -
 # Built-ins
 
 ## Array methods
@@ -276,7 +279,7 @@ The function passed into one of these methods will receive three arguments:
 2. the position of the item in the array
 3. the array object itself
 
-- - - 
+- - -
 # Built-ins
 
 ## Array methods
@@ -365,7 +368,7 @@ Runs the given function on every item in the array. This method has no return va
 ```js
 var numbers = [1,2,3,4,5,4,3,2,1];
 
-numbers.forEach(function(item, index, array){   
+numbers.forEach(function(item, index, array){
    //do something here
 });
 ```
@@ -401,11 +404,11 @@ Both methods accept two arguments:
 * a function to call on each item
 * an optional initial value upon which the reduction is based
 
-The passed function accepts four arguments: 
+The passed function accepts four arguments:
 
-1. the previous value 
-2. the current value 
-3. the item's index 
+1. the previous value
+2. the current value
+3. the item's index
 4. the array object
 
 Any value returned from the function is automatically passed in as the first argument for the next item.

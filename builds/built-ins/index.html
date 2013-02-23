@@ -6,6 +6,15 @@
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.7em;
+}
+
+h2 {
+  font-size: 1.5em;
 }
 
 </style>
@@ -190,7 +199,7 @@ pre .chunk {
 <h3><code>call(thisArg, param...)</code></h3>
 <p>It allows your objects to borrow methods from other objects and invoke them as their own.</p>
 <pre><code class="language-js"><span class="keyword">var</span> greets = <span class="function"><span class="keyword">function</span> <span class="params">(breed, birth)</span> {</span>
-  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed + 
+  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed +
          <span class="string">", I was born in "</span> + birth + <span class="string">"."</span>;
 }
 
@@ -202,10 +211,10 @@ pre .chunk {
   firstName: <span class="string">'Donald'</span>
 };
 
-greets.call(mickey, <span class="string">'Mouse'</span>, <span class="number">1928</span>); 
+greets.call(mickey, <span class="string">'Mouse'</span>, <span class="number">1928</span>);
 <span class="comment">//"Hi I'm Mickey Mouse, I was born in 1928."</span>
 
-greets.call(donald, <span class="string">'Duck'</span>, <span class="number">1934</span>); 
+greets.call(donald, <span class="string">'Duck'</span>, <span class="number">1934</span>);
 <span class="comment">//"Hi I'm Donald Duck, I was born in 1934."</span></code></pre>
 
 </article>
@@ -220,7 +229,7 @@ greets.call(donald, <span class="string">'Duck'</span>, <span class="number">193
 <h3><code>apply(thisArg, arrayArg)</code></h3>
 <p>It has the same behaviour of <code>call</code> but different signature.</p>
 <pre><code class="language-js"><span class="keyword">var</span> greets = <span class="function"><span class="keyword">function</span> <span class="params">(breed, birth)</span> {</span>
-  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed + 
+  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed +
          <span class="string">", I was born in "</span> + birth + <span class="string">"."</span>;
 }
 
@@ -232,10 +241,10 @@ greets.call(donald, <span class="string">'Duck'</span>, <span class="number">193
   firstName: <span class="string">'Donald'</span>
 };
 
-greets.apply(mickey, [<span class="string">'Mouse'</span>, <span class="number">1928</span>]); 
+greets.apply(mickey, [<span class="string">'Mouse'</span>, <span class="number">1928</span>]);
 <span class="comment">//"Hi I'm Mickey Mouse, I was born in 1928."</span>
 
-greets.call(donald, [<span class="string">'Duck'</span>, <span class="number">1934</span>]); 
+greets.call(donald, [<span class="string">'Duck'</span>, <span class="number">1934</span>]);
 <span class="comment">//"Hi I'm Donald Duck, I was born in 1934."</span></code></pre>
 
 </article>
@@ -250,7 +259,7 @@ greets.call(donald, [<span class="string">'Duck'</span>, <span class="number">19
 <h3><code>thisArg</code> parameter</h3>
 <p> if <code>null</code> is passed defaults to the global object</p>
 <pre><code class="language-js"><span class="keyword">var</span> greets = <span class="function"><span class="keyword">function</span> <span class="params">(breed, birth)</span> {</span>
-  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed + 
+  <span class="keyword">return</span> <span class="string">"Hi I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">" "</span> + breed +
          <span class="string">", I was born in "</span> + birth + <span class="string">"."</span>;
 }
 
@@ -297,10 +306,10 @@ var sparseArray = [<span class="number">1</span>,,,,<span class="number">5</span
 <h1>Built-ins</h1>
 <h2>Array</h2>
 <h3>Definition</h3>
-<p>Arrays are objects, but of a special type because:  </p>
+<p>Arrays are objects, but of a special type because:</p>
 <ul>
-<li>the names of their properties are automatically assigned using numbers  </li>
-<li>they have a <code>length</code> property which contains the number of elements in the array  </li>
+<li>the names of their properties are automatically assigned using numbers</li>
+<li>they have a <code>length</code> property which contains the number of elements in the array</li>
 </ul>
 <pre><code class="language-js"><span class="keyword">var</span> a = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];
 a.length; <span class="comment">//3</span>
@@ -374,16 +383,16 @@ reduceRight(<span class="keyword">function</span>(prev, cur, index, array) {<spa
 <h1>Built-ins</h1>
 <h2>Array methods</h2>
 <h3><code>push(item...)</code> method</h3>
-<p>It accepts any number of item to push in the array.<br>It returns the array&#39;s new length.  </p>
-<pre><code>!js
-var colors = [];   // create an array
-var count = colors.push(&#39;red&#39;, &#39;green&#39;); // push any number of items
-count;  // 2
-colors; // [&quot;red&quot;, &quot;green&quot;]
+<p>It accepts any number of item to push in the array.
+It returns the array&#39;s new length.</p>
+<pre><code class="language-js">var colors = [];   <span class="comment">// create an array</span>
+var <span class="keyword">count</span> = colors.push(<span class="string">'red'</span>, <span class="string">'green'</span>); <span class="comment">// push any number of items</span>
+<span class="keyword">count</span>;  <span class="comment">// 2</span>
+colors; <span class="comment">// ["red", "green"]</span>
 
-count = colors.push(&#39;black&#39;);   // push another item on
-count;  // 3
-colors; // [&quot;red&quot;, &quot;green&quot;, &quot;black&quot;]</code></pre>
+<span class="keyword">count</span> = colors.push(<span class="string">'black'</span>);   <span class="comment">// push another item on</span>
+<span class="keyword">count</span>;  <span class="comment">// 3</span>
+colors; <span class="comment">// ["red", "green", "black"]</span></code></pre>
 
 </article>
 
@@ -395,14 +404,15 @@ colors; // [&quot;red&quot;, &quot;green&quot;, &quot;black&quot;]</code></pre>
 <h1>Built-ins</h1>
 <h2>Array methods</h2>
 <h3><code>pop()</code> method</h3>
-<p>It acceps no parameter.<br>It returns and removes the last element in the array.<br>If the array is empty, return undefined.</p>
-<pre><code>!js
-var colors = new Array(&#39;red&#39;, &#39;green&#39;, &#39;black&#39;);
+<p>It acceps no parameter.
+It returns and removes the last element in the array.
+If the array is empty, return undefined.</p>
+<pre><code class="language-js"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="keyword">Array</span>(<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'black'</span>);
 
-var item = colors.pop(); // get the last item
-item; // &quot;black&quot;
-colors.length; // 2
-colors; // [&quot;red&quot;, &quot;green&quot;]</code></pre>
+<span class="keyword">var</span> item = colors.pop(); <span class="comment">// get the last item</span>
+item; <span class="comment">// "black"</span>
+colors.length; <span class="comment">// 2</span>
+colors; <span class="comment">// ["red", "green"]</span></code></pre>
 
 </article>
 
@@ -532,7 +542,7 @@ filterResult;   <span class="comment">//[3,4,5,4,3]</span></code></pre>
 <p>Runs the given function on every item in the array. This method has no return value.</p>
 <pre><code class="language-js"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];
 
-numbers.<span class="keyword">forEach</span>(function(item, index, <span class="keyword">array</span>){   
+numbers.<span class="keyword">forEach</span>(function(item, index, <span class="keyword">array</span>){
    <span class="comment">//do something here</span>
 });</code></pre>
 
@@ -570,11 +580,11 @@ mapResult;   <span class="comment">// [2,4,6,8,10,8,6,4,2]</span></code></pre>
 <li>a function to call on each item</li>
 <li>an optional initial value upon which the reduction is based</li>
 </ul>
-<p>The passed function accepts four arguments: </p>
+<p>The passed function accepts four arguments:</p>
 <ol>
-<li>the previous value </li>
-<li>the current value </li>
-<li>the item&#39;s index </li>
+<li>the previous value</li>
+<li>the current value</li>
+<li>the item&#39;s index</li>
 <li>the array object</li>
 </ol>
 <p>Any value returned from the function is automatically passed in as the first argument for the next item.</p>

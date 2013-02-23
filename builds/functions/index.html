@@ -6,6 +6,15 @@
 body {
   font-family: Helvetica Neue;
   font-size: 20px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.7em;
+}
+
+h2 {
+  font-size: 1.5em;
 }
 
 </style>
@@ -152,7 +161,7 @@ pre .chunk {
 <h1>Functions</h1>
 <h2>Definition</h2>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">name</span> <span class="params">(comma_separated_params)</span> {</span>
-  <span class="comment">// code block </span>
+  <span class="comment">// code block</span>
 }</code></pre>
 
 </article>
@@ -209,7 +218,8 @@ result; <span class="comment">// ?</span></code></pre>
 <h2>Invocation</h2>
 <h3>Arguments and parameters</h3>
 <h4>Optional parameters</h4>
-<p>If arguments are fewer than declared parameters<br>the additional parameters are set to <code>undefined</code></p>
+<p>If arguments are fewer than declared parameters
+the additional parameters are set to <code>undefined</code></p>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> <span class="params">(a, b)</span> <span class="comment">{ return a + b; }</span>
 
 <span class="title">sum</span><span class="params">(3)</span>;</span>       <span class="comment">// NaN</span>
@@ -226,7 +236,8 @@ sum(<span class="string">'Hello '</span>); <span class="comment">// "Hello undef
 <h2>Invocation</h2>
 <h3>Arguments and parameters</h3>
 <h4>Arguments list</h4>
-<p>If arguments are more than declared parameters<br>you can access them by the <code>arguments</code> object</p>
+<p>If arguments are more than declared parameters
+you can access them by the <code>arguments</code> object</p>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">args</span> <span class="params">()</span> <span class="comment">{
   return arguments;
 }</span>
@@ -283,13 +294,13 @@ sum(<span class="string">'Hello '</span>); <span class="comment">// "Hello undef
 <h3>Functions are objects</h3>
 <p>JavaScript functions are a special kind of object with two important features:</p>
 <ul>
-<li>they contain code  </li>
-<li>they are executable (can be invoked)  </li>
+<li>they contain code</li>
+<li>they are executable (can be invoked)</li>
 </ul>
 <p>and because they are objects:</p>
 <ul>
 <li>they can be assigned to variables or object properties</li>
-<li>they can be passed to functions  </li>
+<li>they can be passed to functions</li>
 <li>they can have properties</li>
 <li>they can be returned by functions</li>
 </ul>
@@ -360,7 +371,7 @@ calc(<span class="keyword">add</span>, calc(<span class="keyword">add</span>, <s
 <pre><code class="language-js"><span class="regexp">//</span> Compute factorials <span class="keyword">and</span> cache results as properties <span class="keyword">of</span> the <span class="reserved">function</span> itself.
 <span class="reserved">function</span> factorial (n) {
   <span class="keyword">if</span> (!(n <span class="keyword">in</span> factorial)) {
-    factorial[n] = n * factorial(n-<span class="number">1</span>); 
+    factorial[n] = n * factorial(n-<span class="number">1</span>);
   }
   <span class="keyword">return</span> factorial[n];
 }
@@ -436,7 +447,7 @@ message; <span class="comment">//"Hello dude!"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Inner (private) functions</h2>
 <h3>Define functions inside functions</h3>
 <p>JavaScript functions can be defined inside another function.</p>
@@ -459,7 +470,7 @@ message; <span class="comment">//"Hello dude!"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Inner (private) functions</h2>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">greets</span> <span class="params">()</span> {</span>
   <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="string">'Hello!'</span>);
@@ -484,10 +495,12 @@ message; <span class="comment">//"Hello dude!"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
-<p>JavaScript uses <strong>function scope</strong>:<br>variables are visible within the function in which they are defined<br>and within any functions that are nested within that function.</p>
-<p>A variable defined in a function is not visible outside the function, 
+<p>JavaScript uses <strong>function scope</strong>:
+variables are visible within the function in which they are defined
+and within any functions that are nested within that function.</p>
+<p>A variable defined in a function is not visible outside the function,
 but a variable defined in a code block is visible outside the block.</p>
 
 </article>
@@ -497,16 +510,16 @@ but a variable defined in a code block is visible outside the block.</p>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h3>Function Scope</h3>
-<pre><code class="language-js"><span class="title">var</span> a = <span class="number">1</span>; 
+<pre><code class="language-js"><span class="title">var</span> a = <span class="number">1</span>;
 <span class="title">function</span> f () { <span class="title">var</span> b = <span class="number">1</span>; <span class="title">return</span> a; }</code></pre>
 <pre><code class="language-js"><span class="function"><span class="title">f</span><span class="params">()</span>;</code></pre>
 <pre><code class="language-js">b; <span class="regexp">//b</span> is <span class="keyword">not</span> <span class="keyword">defined</span></code></pre>
 <ul>
-<li>variable <code>a</code> is in the global space  </li>
-<li>variable <code>b</code> is in the scope of the function <code>f()</code>  </li>
-<li>inside <code>f()</code>, both <code>a</code> and <code>b</code> are visible  </li>
+<li>variable <code>a</code> is in the global space</li>
+<li>variable <code>b</code> is in the scope of the function <code>f()</code></li>
+<li>inside <code>f()</code>, both <code>a</code> and <code>b</code> are visible</li>
 <li>outside <code>f()</code>, <code>a</code> is visible, but <code>b</code> is not</li>
 </ul>
 
@@ -517,12 +530,15 @@ but a variable defined in a code block is visible outside the block.</p>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Local and Global Scope</h3>
-<p>A variable declared within a function has a <strong>local scope</strong>,<br>it is defined only within the body of the function.  </p>
-<p>A variable not declared within a function has a <strong>global scope</strong>,<br>it is defined everywhere in the code.</p>
-<p>A local variable, a variable declared within a function,<br>takes precedence over a global variable with the same name.</p>
+<p>A variable declared within a function has a <strong>local scope</strong>,
+it is defined only within the body of the function.</p>
+<p>A variable not declared within a function has a <strong>global scope</strong>,
+it is defined everywhere in the code.</p>
+<p>A local variable, a variable declared within a function,
+takes precedence over a global variable with the same name.</p>
 
 </article>
 
@@ -531,7 +547,7 @@ but a variable defined in a code block is visible outside the block.</p>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Local and Global Scope</h3>
 <pre><code class="language-js"><span class="keyword">var</span> scope = <span class="string">'global'</span>;
@@ -551,7 +567,7 @@ scope;        <span class="comment">//"global"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Local and Global Scope</h3>
 <h4>Attention!</h4>
@@ -573,10 +589,11 @@ scope;        <span class="comment">//"local"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Local variables</h3>
-<p>Function parameters count as local variables<br>and are defined only within the body of the function.</p>
+<p>Function parameters count as local variables
+and are defined only within the body of the function.</p>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">checkParamScope</span> <span class="params">(a)</span> <span class="comment">{
   a += 1;
   console.log(a);
@@ -592,10 +609,11 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Scope Chain</h3>
-<p>Each function has its own local scope.<br>It is possible to have several nested layers of local scope.</p>
+<p>Each function has its own local scope.
+It is possible to have several nested layers of local scope.</p>
 <pre><code class="language-js">var a = <span class="number">1</span>;
 // code here can see variable a <span class="keyword">and</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>
 
@@ -604,7 +622,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
   // code here can see variables a <span class="keyword">and</span> b <span class="keyword">and</span> <span class="function"><span class="keyword">function</span> <span class="title">n</span>
 
   <span class="title">function</span> <span class="title">n</span> <span class="params">()</span></span> {
-    var c = <span class="number">3</span>; 
+    var c = <span class="number">3</span>;
     // code here can see variables a, b <span class="keyword">and</span> c
   }
 }</code></pre>
@@ -616,7 +634,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Scope Chain</h3>
 <pre><code class="language-js"><span class="title">var</span> scope = <span class="string">'global'</span>;
@@ -641,10 +659,13 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Variable hoisting</h3>
-<p>Since variables are visible within the function in which they are defined<br>variables are even visible before they are declared.<br>All variable declarations in a function (but not any associated assignments)<br>are &quot;hoisted&quot; to the top of the function.</p>
+<p>Since variables are visible within the function in which they are defined
+variables are even visible before they are declared.
+All variable declarations in a function (but not any associated assignments)
+are &quot;hoisted&quot; to the top of the function.</p>
 
 </article>
 
@@ -665,7 +686,8 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
   }
   console.log(j);                 //j is defined, but may <span class="keyword">not</span> be initialized
 }</code></pre>
-<p>The variables <code>i</code>, <code>j</code>, and <code>k</code> are declared in different spots,<br>but all have the same scope, all three are defined throughout the body of the function.</p>
+<p>The variables <code>i</code>, <code>j</code>, and <code>k</code> are declared in different spots,
+but all have the same scope, all three are defined throughout the body of the function.</p>
 
 </article>
 
@@ -674,7 +696,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Variable hoisting</h3>
 <pre><code class="language-js"><span class="keyword">var</span> scope = <span class="string">'global'</span>;
@@ -699,7 +721,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Function Scope</h2>
 <h3>Variable hoisting</h3>
 <h4>Tip</h4>
@@ -712,7 +734,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closures</h2>
 <h3>Example #0</h3>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
@@ -727,7 +749,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #1</h3>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
@@ -745,7 +767,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #2</h3>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
@@ -765,7 +787,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #3</h3>
 <pre><code class="language-js"><span class="keyword">var</span> getB;
@@ -785,7 +807,7 @@ checkParamScope(<span class="number">1</span>); <span class="comment">//2</span>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #4</h3>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">(arg)</span> {</span>
@@ -803,14 +825,14 @@ getArg(); <span class="comment">//"Hello"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #5</h3>
 <pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">countdown</span> <span class="params">(from)</span></span> {
   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span></span> {
     <span class="keyword">if</span> (from <span class="number">0</span>) {
       <span class="keyword">return</span> from<span class="comment">--;</span>
-    } 
+    }
     <span class="keyword">return</span> <span class="string">'Finish!'</span>;
   };
 }</code></pre>
@@ -828,10 +850,11 @@ c(); <span class="comment">//"Finish!"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #6</h3>
-<p>Let&#39;s loop three times, each time creating a new function that returns the loop sequence number.<br>The new functions will be added to an array and we&#39;ll return the array at the end. </p>
+<p>Let&#39;s loop three times, each time creating a new function that returns the loop sequence number.
+The new functions will be added to an array and we&#39;ll return the array at the end.</p>
 
 </article>
 
@@ -840,31 +863,22 @@ c(); <span class="comment">//"Finish!"</span></code></pre>
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #6</h3>
-<p>```js
-function f () {
-  var a = [];
-  var i;</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> a = [];
+  <span class="keyword">var</span> i;
 
-</article>
-
-
-<!-- slide -->
-
-
-<article>
-<p>  for (i = 0; i &lt; 3; i++) {
-    a[i] = function () {
-      return i;
+  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) {
+    a[i] = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">return</span> i;
     }
-  }</p>
-<p>  return a; 
-}</p>
-<pre><code>
-```js
-var a = f();</code></pre>
+  }
+
+  <span class="keyword">return</span> a;
+}</code></pre>
+<pre><code class="language-js"><span class="title">var</span> a = f();</code></pre>
 <pre><code class="language-js">a[<span class="number">0</span>](); <span class="comment">//3</span>
 a[<span class="number">1</span>](); <span class="comment">//3</span>
 a[<span class="number">2</span>](); <span class="comment">//3</span></code></pre>
@@ -876,37 +890,25 @@ a[<span class="number">2</span>](); <span class="comment">//3</span></code></pre
 
 
 <article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #6 (that works!)</h3>
-<p>```js
-function f () {
-  function getArg (x) {
-    return function () {
-      return x;
-    } 
-  }</p>
+<pre><code class="language-js"><span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span> {</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">getArg</span> <span class="params">(x)</span> {</span>
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">return</span> x;
+    }
+  }
 
-</article>
+  var a = <span class="matrix">[]</span>;
+  var <span class="built_in">i</span>;
 
-
-<!-- slide -->
-
-
-<article>
-<p>  var a = [];
-  var i;</p>
-
-</article>
-
-
-<!-- slide -->
-
-
-<article>
-<p>  for (i = 0; i &lt; 3; i++) {
+  <span class="keyword">for</span> (<span class="built_in">i</span> = <span class="number">0</span>; <span class="built_in">i</span> &lt; <span class="number">3</span>; <span class="built_in">i</span>++) <span class="cell">{
    a[i] = getArg(i);
-  }</p>
+  }</span>
+
+  <span class="keyword">return</span> a;
+}</code></pre>
 
 </article>
 
@@ -915,18 +917,7 @@ function f () {
 
 
 <article>
-<p>  return a; 
-}
-```</p>
-
-</article>
-
-
-<!-- slide -->
-
-
-<article>
-<h1>Function</h1>
+<h1>Functions</h1>
 <h2>Closure</h2>
 <h3>Example #7</h3>
 <pre><code class="language-js"><span class="keyword">var</span> getValue, setValue;
@@ -937,7 +928,7 @@ function f () {
   };
   setValue = <span class="function"><span class="keyword">function</span> <span class="params">(v)</span> {</span>
     secret = v;
-  }; 
+  };
 })();</code></pre>
 <pre><code class="language-js">getValue();    <span class="comment">//0</span></code></pre>
 <pre><code class="language-js"><span class="title">setValue</span>(<span class="number">123</span>);

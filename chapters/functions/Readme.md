@@ -8,7 +8,7 @@
 
 ```js
 function name (comma_separated_params) {
-  // code block 
+  // code block
 }
 ```
 
@@ -65,7 +65,7 @@ result; // ?
 
 #### Optional parameters
 
-If arguments are fewer than declared parameters  
+If arguments are fewer than declared parameters
 the additional parameters are set to `undefined`
 
 ```js
@@ -85,7 +85,7 @@ sum('Hello '); // "Hello undefined"
 
 #### Arguments list
 
-If arguments are more than declared parameters  
+If arguments are more than declared parameters
 you can access them by the `arguments` object
 
 ```js
@@ -117,7 +117,7 @@ function sumAll () {
 sumAll(1, 2, 3, 4, 5); //15
 ```
 
-- - - 
+- - -
 
 # Functions
 
@@ -138,7 +138,7 @@ function max () {
 max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 ```
 
-- - - 
+- - -
 
 # Functions
 
@@ -148,17 +148,17 @@ max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 
 JavaScript functions are a special kind of object with two important features:
 
-* they contain code  
-* they are executable (can be invoked)  
+* they contain code
+* they are executable (can be invoked)
 
 and because they are objects:
 
 * they can be assigned to variables or object properties
-* they can be passed to functions  
+* they can be passed to functions
 * they can have properties
 * they can be returned by functions
 
-- - - 
+- - -
 
 # Functions
 
@@ -230,7 +230,7 @@ calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 // Compute factorials and cache results as properties of the function itself.
 function factorial (n) {
   if (!(n in factorial)) {
-    factorial[n] = n * factorial(n-1); 
+    factorial[n] = n * factorial(n-1);
   }
   return factorial[n];
 }
@@ -286,7 +286,7 @@ function greets () {
 }
 ```
 
-```js 
+```js
 greets()();
 //"Hello!"
 //"Bye!"
@@ -318,7 +318,7 @@ message; //"Hello dude!"
 
 - - -
 
-# Function
+# Functions
 
 ## Inner (private) functions
 
@@ -347,7 +347,7 @@ f2(2); //ReferenceError: f2 is not defined
 
 - - -
 
-# Function
+# Functions
 ## Inner (private) functions
 
 ```js
@@ -361,7 +361,7 @@ function greets () {
 }
 ```
 
-```js 
+```js
 greets()();
 //"Hello!"
 //"Bye!"
@@ -376,25 +376,25 @@ greets()()();
 
 - - -
 
-# Function
+# Functions
 
 ## Function Scope
 
-JavaScript uses **function scope**:  
-variables are visible within the function in which they are defined  
+JavaScript uses **function scope**:
+variables are visible within the function in which they are defined
 and within any functions that are nested within that function.
 
-A variable defined in a function is not visible outside the function, 
+A variable defined in a function is not visible outside the function,
 but a variable defined in a code block is visible outside the block.
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ### Function Scope
 
 ```js
-var a = 1; 
+var a = 1;
 function f () { var b = 1; return a; }
 ```
 ```js
@@ -404,31 +404,31 @@ f();
 b; //b is not defined
 ```
 
-- variable `a` is in the global space  
-- variable `b` is in the scope of the function `f()`  
-- inside `f()`, both `a` and `b` are visible  
+- variable `a` is in the global space
+- variable `b` is in the scope of the function `f()`
+- inside `f()`, both `a` and `b` are visible
 - outside `f()`, `a` is visible, but `b` is not
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ## Function Scope
 
 ### Local and Global Scope
 
-A variable declared within a function has a **local scope**,  
-it is defined only within the body of the function.  
+A variable declared within a function has a **local scope**,
+it is defined only within the body of the function.
 
-A variable not declared within a function has a **global scope**,  
+A variable not declared within a function has a **global scope**,
 it is defined everywhere in the code.
 
-A local variable, a variable declared within a function,  
+A local variable, a variable declared within a function,
 takes precedence over a global variable with the same name.
 
 - - -
 
-# Function
+# Functions
 
 ## Function Scope
 
@@ -446,9 +446,9 @@ checkScope(); //"local"
 scope;        //"global"
 ```
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ## Function Scope
 
@@ -469,15 +469,15 @@ checkScope(); //"local"
 scope;        //"local"
 ```
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ## Function Scope
 
 ### Local variables
 
-Function parameters count as local variables  
+Function parameters count as local variables
 and are defined only within the body of the function.
 
 ```js
@@ -490,15 +490,15 @@ console.log(a);     //"undefined"
 checkParamScope(1); //2
 ```
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ## Function Scope
 
 ### Scope Chain
 
-Each function has its own local scope.  
+Each function has its own local scope.
 It is possible to have several nested layers of local scope.
 
 ```js
@@ -510,7 +510,7 @@ function f (){
   // code here can see variables a and b and function n
 
   function n () {
-    var c = 3; 
+    var c = 3;
     // code here can see variables a, b and c
   }
 }
@@ -518,7 +518,7 @@ function f (){
 
 - - -
 
-# Function
+# Functions
 
 ## Function Scope
 
@@ -543,17 +543,17 @@ localScope(); //"nested"
 scope;        //"global"
 ```
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ## Function Scope
 
 ### Variable hoisting
 
-Since variables are visible within the function in which they are defined  
-variables are even visible before they are declared.  
-All variable declarations in a function (but not any associated assignments)  
+Since variables are visible within the function in which they are defined
+variables are even visible before they are declared.
+All variable declarations in a function (but not any associated assignments)
 are "hoisted" to the top of the function.
 
 - - -
@@ -574,12 +574,12 @@ function test (o) {
 }
 ```
 
-The variables `i`, `j`, and `k` are declared in different spots,  
+The variables `i`, `j`, and `k` are declared in different spots,
 but all have the same scope, all three are defined throughout the body of the function.
 
 - - -
 
-# Function
+# Functions
 
 ## Function Scope
 
@@ -608,7 +608,7 @@ function f () {
 
 - - -
 
-# Function
+# Functions
 
 ## Function Scope
 
@@ -617,9 +617,9 @@ function f () {
 #### Tip
 Declare all the variables defined within a function at the top of the function.
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ## Closures
 
@@ -637,7 +637,7 @@ b; //b is not defined
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -661,7 +661,7 @@ b; //"b"
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -684,7 +684,7 @@ b; //"b"
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -707,7 +707,7 @@ b; //"b"
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -728,7 +728,7 @@ getArg(); //"Hello"
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -739,7 +739,7 @@ function countdown (from) {
   return function () {
     if (from 0) {
       return from--;
-    } 
+    }
     return 'Finish!';
   };
 }
@@ -756,18 +756,18 @@ c(); //"Finish!"
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
 ### Example \#6
 
-Let's loop three times, each time creating a new function that returns the loop sequence number.  
-The new functions will be added to an array and we'll return the array at the end. 
+Let's loop three times, each time creating a new function that returns the loop sequence number.
+The new functions will be added to an array and we'll return the array at the end.
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -777,14 +777,14 @@ The new functions will be added to an array and we'll return the array at the en
 function f () {
   var a = [];
   var i;
-  
+
   for (i = 0; i < 3; i++) {
     a[i] = function () {
       return i;
     }
   }
 
-  return a; 
+  return a;
 }
 ```
 
@@ -800,7 +800,7 @@ a[2](); //3
 
 - - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -811,23 +811,23 @@ function f () {
   function getArg (x) {
     return function () {
       return x;
-    } 
+    }
   }
-  
+
   var a = [];
   var i;
-  
+
   for (i = 0; i < 3; i++) {
    a[i] = getArg(i);
   }
-  
-  return a; 
+
+  return a;
 }
 ```
 
-- - - 
+- - -
 
-# Function
+# Functions
 
 ## Closure
 
@@ -842,7 +842,7 @@ var getValue, setValue;
   };
   setValue = function (v) {
     secret = v;
-  }; 
+  };
 })();
 ```
 
