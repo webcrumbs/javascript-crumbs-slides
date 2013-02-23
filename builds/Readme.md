@@ -1,4 +1,6 @@
-# JavaScipt crumbs slides
+# javascript-crumbs-slides
+
+## for beginners
 
 to build clone repo and then
 
