@@ -17,8 +17,12 @@
 
 ### Bakers
 
-- [Enrico Marino](http://onirame.no.de)
-- [Federico Spini](http://spini.no.de)
+- [Enrico Marino](http://onirame.com)
+- [Federico Spini](http://federicospini.com)
+
+### Bakery
+
+[Computational Visual Design Lab](http://dia.uniroma3.it/~cvdlab/)
 
 ### Flour
 
@@ -32,7 +36,7 @@
 
 (The MIT License)
 
-Copyright (c) 2012 Enrico Marino and Federico Spini for CVD Lab ([http://dia.uniroma3.it/~cvdlab](http://dia.uniroma3.it/~cvdlab))
+Copyright (c) 2013 Enrico Marino and Federico Spini
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
