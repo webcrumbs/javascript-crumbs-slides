@@ -40,6 +40,7 @@ value++  //increments value by 1 after the statement is evaluated
 
 ```js
 value--  //decremented value by 1 after the statement is evaluated
+```
 
 - - -
 
