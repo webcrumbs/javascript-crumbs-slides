@@ -78,11 +78,25 @@ false && false || true && true;     //true
 
 ### Basic operation
 
+#### Add
+
 `+` returns the sum of its operands
+
+#### Sub
+
 `-` returns the difference of its operands
+
+#### Mul
+
 `*` multiply two numbers
+
+#### Div
+
 `/` divides the first operand by the second operand
-`%` "modulus" returns the remainder of the division
+
+#### Mod
+
+`%` returns the remainder of the division
 
 - - -
 
