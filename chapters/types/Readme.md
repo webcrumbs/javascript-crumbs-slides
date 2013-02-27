@@ -128,9 +128,7 @@ var exp3 = 123e-3; //123 * 10^-3 = 0.123
 
 - - -
 
-# Types
-
-## Data types
+## Types
 
 ### Numbers
 
