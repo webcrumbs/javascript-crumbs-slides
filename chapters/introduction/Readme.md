@@ -237,8 +237,6 @@ server.listen(3000);
 
 # JavaScript crumbs
 
-### the end
-
 ### this presentation is powered by
 
 ### JavaScript
