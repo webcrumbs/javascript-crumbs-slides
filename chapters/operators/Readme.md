@@ -26,21 +26,20 @@ typeof undefined;       // "undefined"
 
 ### Unary Operators
 
-#### pre-increment
+```js
+++value  //increments value by 1 before the statement is evaluated
+```
 
-`++value` increments `value` by `1` before the statement is evaluated
+```js
+value++  //increments value by 1 after the statement is evaluated
+```
 
-#### post-increment
+```js
+--value  //decremented value by 1 before the statement is evaluated
+```
 
-`value++` increments `value` by `1` after the statement is evaluated
-
-#### pre-decrement
-
-`--value` decremented `value` by `1` before the statement is evaluated
-
-#### post-decrement
-
-`value--` decremented `value` by `1` after the statement is evaluated
+```js
+value--  //decremented value by 1 after the statement is evaluated
 
 - - -
 
@@ -48,17 +47,17 @@ typeof undefined;       // "undefined"
 
 ### Logical Operators
 
-#### Logical NOT
+```js
+!value  //negate the boolean value.
+```
 
-`!value` negate the boolean value.
+```js
+a && b  //returns the logical AND of a and b.
+```
 
-### Logical AND
-
-`a && b` returns the logical AND of `a` and `b`.
-
-#### Logical OR
-
-`a || b` returns the logical OR of `a` and `b`
+```js
+a || b  //returns the logical OR of a and b
+```
 
 #### Operators precedence
 
@@ -78,12 +77,25 @@ false && false || true && true;     //true
 
 ### Basic operation
 
+```js
++  //returns the sum of its operands
+```
 
-* `+` returns the sum of its operands
-* `-` returns the difference of its operands
-* `*` multiply two numbers
-* `/` divides the first operand by the second operand
-* `%` returns the remainder of the division
+```js
+-  //returns the difference of its operands
+```
+
+```js
+*  //multiply two numbers
+```
+
+```js
+/  //divides the first operand by the second operand
+```
+
+```js
+%  //returns the remainder of the division
+```
 
 - - -
 
@@ -91,10 +103,21 @@ false && false || true && true;     //true
 
 ### Relational Operators
 
-* `<` less-than
-* `>` greater-than
-* `<=` less-than-or-equal-to
-* `>=` greater-than-or-equal-to
+```js
+<  //less-than
+```
+
+```js
+>  //greater-than
+```
+
+```js
+<=  //less-than-or-equal-to
+```
+
+```js
+>=  //greater-than-or-equal-to
+```
 
 - - -
 
@@ -102,17 +125,18 @@ false && false || true && true;     //true
 
 ### Equality operators
 
-#### Strict Equal and Not Equal
 
-`a === b` returns `true` if `a` is equals to `b`
+```js
+a === b  //returns true if a is equals to b
+```
 
-`a !== b` returns `true` if `a` is not equals to `b`
+```js
+a !== b  //returns true if a is not equals to b
+```
 
 - - -
 
 ## Operators
-
-### Equality operators
 
 #### Conditional Operator
 
@@ -134,9 +158,9 @@ var max = (a > b) ? a : b;
 
 ### Assignment Operators
 
-#### Simple assignment
-
-`=` assigns the value on the right to the variable on the left
+```js
+=  //assigns the value on the right to the variable on the left
+```
 
 ```js
 var variable = value;
@@ -148,11 +172,23 @@ var variable = value;
 
 ### Assignment Operators
 
-#### Compound assignment
+```js
++=  //add/assign
+```
 
-* `+=` add/assign
-* `-=` subtract/assign
-* `*=` multiply/assign
-* `/=` divide/assign
-* `%=` modulus/assign
+```js
+-=  //subtract/assign
+```
+
+```js
+*=  //multiply/assign
+```
+
+```js
+/=  //divide/assign
+```
+
+```js
+%=  //modulus/assign
+```
 

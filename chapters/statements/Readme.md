@@ -29,9 +29,9 @@ if (condition1) statement1 else if (condition2) statement2 else statement3
 ```
 ```js
 if (condition1) {
-  statement1 
+  statement1
 } else if (condition2) {
-  statement2 
+  statement2
 } else {
   statement3
 }
@@ -84,12 +84,6 @@ console.log(i); //?
 ```js
 while (expression) statement
 ```
-
-- - - 
-
-## Statements
-
-### `while` statement
 
 #### example
 
