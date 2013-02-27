@@ -40,15 +40,13 @@
 ## What's JavaScript?
 
 JavaScript is a  
-
-_ dinamic  
-_ weakly typed  
-_ interpreted  
-_ object oriented  
-_ prototype based  
-_ general purpose  
-
-_ programming language
+dinamic  
+weakly typed  
+interpreted  
+object oriented  
+prototype based  
+general purpose  
+programming language
 
 - - -
 
