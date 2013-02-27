@@ -44,7 +44,7 @@ var 1name;    // SyntaxError: Unexpected token ILLEGAL
 #### Note 
 Letters can be in extended ASCII or Unicode
   
-- - - 
+- - -
 
 # Syntax
 
