@@ -27,19 +27,19 @@ typeof undefined;       // "undefined"
 ### Unary Operators
 
 ```js
-++value  // increments value by 1 before the statement is evaluated
+++value  /* increments value by 1 before the statement is evaluated */
 ```
 
 ```js
-value++  // increments value by 1 after the statement is evaluated
+value++  /* increments value by 1 after the statement is evaluated */
 ```
 
 ```js
---value  // decremented value by 1 before the statement is evaluated
+--value  /* decremented value by 1 before the statement is evaluated */
 ```
 
 ```js
-value--  // decremented value by 1 after the statement is evaluated
+value--  /* decremented value by 1 after the statement is evaluated */
 ```
 
 - - -
@@ -49,15 +49,15 @@ value--  // decremented value by 1 after the statement is evaluated
 ### Logical Operators
 
 ```js
-!value  // negate the boolean value.
+!value  /* negate the boolean value */
 ```
 
 ```js
-a && b  // returns the logical AND of a and b.
+a && b  /* returns the logical AND of a and b */
 ```
 
 ```js
-a || b  // returns the logical OR of a and b
+a || b  /* returns the logical OR of a and b */
 ```
 
 #### Operators precedence
@@ -79,23 +79,23 @@ false && false || true && true;     // true
 ### Basic operation
 
 ```js
-+  // returns the sum of its operands
++  /* returns the sum of its operands */
 ```
 
 ```js
--  // returns the difference of its operands
+-  /* returns the difference of its operands */
 ```
 
 ```js
-*  // multiply two numbers
+*  /* multiply two numbers */
 ```
 
 ```js
-/  // divides the first operand by the second operand
+/  /* divides the first operand by the second operand */
 ```
 
 ```js
-%  // returns the remainder of the division
+%  /* returns the remainder of the division */
 ```
 
 - - -
@@ -105,19 +105,19 @@ false && false || true && true;     // true
 ### Relational Operators
 
 ```js
-<  // less-than
+<  /* less-than */
 ```
 
 ```js
->  // greater-than
+>  /* greater-than */
 ```
 
 ```js
-<=  // less-than-or-equal-to
+<=  /* less-than-or-equal-to */
 ```
 
 ```js
->=  // greater-than-or-equal-to
+>=  /* greater-than-or-equal-to */
 ```
 
 - - -
@@ -128,11 +128,11 @@ false && false || true && true;     // true
 
 
 ```js
-a === b  // returns true if a is equals to b
+a === b  /* returns true if a is equals to b */
 ```
 
 ```js
-a !== b  // returns true if a is not equals to b
+a !== b  /* returns true if a is not equals to b */
 ```
 
 - - -
@@ -150,7 +150,9 @@ then returns `true_case` value
 else returns `false_case` value
 
 ```js
-var max = (a > b) ? a : b;
+var a = 5;
+var b = 6;
+var max = (a > b) ? a : b; // max is 6
 ```
 
 - - -
@@ -160,7 +162,7 @@ var max = (a > b) ? a : b;
 ### Assignment Operators
 
 ```js
-=  // assigns the value on the right to the variable on the left
+=  /* assigns the value on the right to the variable on the left */
 ```
 
 #### example
@@ -176,22 +178,22 @@ var variable = value;
 ### Assignment Operators
 
 ```js
-+=  // add/assign
++=  /* add/assign */
 ```
 
 ```js
--=  // subtract/assign
+-=  /* subtract/assign */
 ```
 
 ```js
-*=  // multiply/assign
+*=  /* multiply/assign */
 ```
 
 ```js
-/=  // divide/assign
+/=  /* divide/assign */
 ```
 
 ```js
-%=  // modulus/assign
+%=  /* modulus/assign */
 ```
 
