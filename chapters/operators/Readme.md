@@ -91,10 +91,10 @@ false && false || true && true;     //true
 
 ### Relational Operators
 
-* less-than `<`
-* greater-than `>`
-* less-than-or-equal-to `<=`
-* greater-than-or-equal-to `>=`
+* `<` less-than
+* `>` greater-than
+* `<=` less-than-or-equal-to
+* `>=` greater-than-or-equal-to
 
 - - -
 
