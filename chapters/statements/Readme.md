@@ -134,7 +134,7 @@ for (;;) { //don't try this at home!
 for (property in object) statement
 ```
 
-#### Example
+#### example
 
 ```js
 var obj = {a: 1, b: 2, c: 3};
