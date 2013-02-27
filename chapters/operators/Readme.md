@@ -78,25 +78,12 @@ false && false || true && true;     //true
 
 ### Basic operation
 
-#### Add
 
-`+` returns the sum of its operands
-
-#### Sub
-
-`-` returns the difference of its operands
-
-#### Mul
-
-`*` multiply two numbers
-
-#### Div
-
-`/` divides the first operand by the second operand
-
-#### Mod
-
-`%` returns the remainder of the division
+* `+` returns the sum of its operands
+* `-` returns the difference of its operands
+* `*` multiply two numbers
+* `/` divides the first operand by the second operand
+* `%` returns the remainder of the division
 
 - - -
 
@@ -163,12 +150,9 @@ var variable = value;
 
 ### Compound assignment
 
-* multiply/assign `*=`
-* divide/assign `/=`
-* modulus/assign `%=`
-* add/assign `+=`
-* subtract/assign `-=`
-* left shift/assign `<<=`
-* signed right shift/assign `>>=`
-* unsigned right shift/assign `>>>=`
+* `+=` add/assign
+* `-=` subtract/assign
+* `*=` multiply/assign
+* `/=` divide/assign
+* `%=` modulus/assign
 
