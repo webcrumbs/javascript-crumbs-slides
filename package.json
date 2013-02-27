@@ -1,8 +1,17 @@
 {
-  "author": "cvdlab <cvdlab@email.com> (https://github.com/cvdlab/)",
   "name": "javascript-crumbs-slides",
   "description": "JavaScript crumbs for beginners",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "maintainers": [
+    {
+      "name": "Enrico Marino",
+      "url": "onirame.com"
+    },
+    {
+      "name": "Federico Spini",
+      "url": "federicospini.com"
+    }
+  ],
   "homepage": "https://github.com/cvdlab/javascript-crumbs-slides.js",
   "repository": {
     "type": "git",

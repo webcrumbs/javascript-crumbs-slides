@@ -1,6 +1,10 @@
 ## Statements
 
-#### Code block statement
+- - -
+
+## Statements
+
+### Code block statement
 
 ```js
 {
@@ -15,7 +19,7 @@
 
 ## Statements
 
-#### `if` statement
+### `if` statement
 
 ```js
 if (condition) statement1 else statement2
@@ -61,12 +65,6 @@ do {
 } while (expression);
 ```
 
-- - - 
-
-## Statements
-
-### `do-while` statement
-
 #### example
 
 ```js
@@ -93,7 +91,7 @@ while (expression) statement
 
 ### `while` statement
 
-#### Example
+#### example
 
 ```js
 var i = 0;
@@ -111,28 +109,13 @@ while (i < 10) {
 for (initialization; expression; post-loop-expression) statement
 ```
 
-- - -
-
-## Statements
-
-### `for` statement
-
-#### `while` using `for`
+#### example
 
 ```js
-var count = 10;
-var i = 0;             //initialization
-for (; i < count; ) {  //expression
+for (var i = 0; i < 10; i +=1) {
   console.log(i);
-  i++;                 //post-loop-expression
 }
 ```
-
-- - -
-
-## Statements
-
-### `for` statement
 
 #### infinite loop
 
@@ -151,13 +134,7 @@ for (;;) { //don't try this at home!
 for (property in object) statement
 ```
 
-- - -
-
-## Statements
-
-### `for in` statement
-
-#### Example
+#### example
 
 ```js
 var obj = {a: 1, b: 2, c: 3};

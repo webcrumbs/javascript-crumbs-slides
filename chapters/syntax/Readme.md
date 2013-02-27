@@ -2,79 +2,51 @@
 
 - - -
 
-# Syntax
+## Syntax
+
+### C-like syntax
 
 JavaScript syntax borrows heavily from C  
 and other C-like languages such as Java and Perl.
 
-- - -
+### Case-sensitivity
 
-# Syntax
-
-## Case-sensitivity
-
-In JavaScript, everything is case-sensitive:  
-*variables*, *function names*, and *operators*.
+In JavaScript, everything is case-sensitive  
+*variables*, *function names*, and *operators* are case-sensitive
 
 - - - 
 
-# Syntax
+## Syntax
 
-## Identifiers
+### Identifiers
 
-An *identifier* is the name of a variable, function, property, or argument
+An **identifier** is the name of a *variable*, *function*, *property*, or *argument*
 
 * may be one or more characters
 * starts with a letter or `_` or `$`
 * can contains letters, numbers, `_`, `$`
 
-- - - 
-
-# Syntax
-
-## Identifiers
-
-#### Examples
 
 ```js
-var name1;    // OK
-var _name2;   // OK
-var $name3;   // OK
-var $;        // OK
-var _;        // OK
-var Åmstrong; // OK
-var π;        // OK
 var Name;     // OK
+var name;     // OK
+var _;        // OK
+var _name1;   // OK
+var $;        // OK
+var $name2;   // OK
+var π;        // OK
+var Åmstrong; // OK
 var 1name;    // SyntaxError: Unexpected token ILLEGAL
 ```
 
 #### Note 
 Letters can be in extended ASCII or Unicode
-  
-- - - 
 
-# Syntax
+- - -
 
-## Identifiers
-  
-#### convention
+## Syntax
 
-JavaScript identifiers use camel case:
-
-* the first letter is lowercase
-* each additional word is offset by a capital letter
-
-```js
-var firstSecond;
-var doSomethingImportant;
-var yetAnotherCamelCaseExample;
-```
-
-- - - 
-
-# Syntax
-
-## Comments
+### Comments
 
 #### single-line comment
 
@@ -92,76 +64,53 @@ var yetAnotherCamelCaseExample;
 ```
 
 #### Convention
-for readability each line of block comment starts with `*`
+For readability each line of block comment starts with `*`
 
 - - - 
 
-# Syntax
+## Syntax
 
-## Statements
+### Statements
 
-JavaScript statements are terminated by a semicolon `;`
+Statements are terminated by a semicolon `;`
 
 ```js
-var sum = a + b   //valid even without a semicolon - not recommended
-var diff = a - b; //valid - preferred
+var diff = a - b; //OK
+var sum = a + b   //OK but don't forget semicolon!
 ```
 
-- - - 
-
-# Syntax
-
-## Statements
-
-### Multiple statements
-
-Multiple statements can be combined into a code block between curly braces `{` and `}`
+Statements can be combined into a code block between curly braces `{` and `}`
 
 ```js
 {
   test = false;
-  alert('hello!');
+  alert("hello!");
 }
 ```
 
 - - - 
 
-# Syntax
-
-## Keywords and Reserved Words
+## Syntax
 
 ### Keywords
 
 ```js
-break        for          try          
-case         function     typeof  
-catch        instanceof   var  
-continue     if           void  
-do           in           while  
-debugger     new          with
-default      return       
-delete       switch       
-else         this         
-finally      throws       
+break        case         catch        continue     do          
+debugger     default      delete       else         finally     
+for          function     instanceof   if           in          
+new          return       switch       this         throws      
+try          typeof       var          void         while       
+with
 ```
-
-- - -
-
-# Syntax
-
-## Keywords and Reserved Words
 
 ### Reserved words
 
 ```js
-abstract     extends     package      volatile
-boolean      final       private      
-byte         float       protected    
-char         goto        public       
-class        implements  short        
-const        import      static         
-debugger     int         super
-double       interface   synchronized
-enum         long        throws
-export       native      transient
+abstract     boolean      byte         char         class       
+const        debugger     double       enum         export      
+extends      final        float        goto         implements  
+import       int          interface    long         native      
+package      private      protected    public       short       
+static       super        synchronized throws       transient   
+volatile
 ```
