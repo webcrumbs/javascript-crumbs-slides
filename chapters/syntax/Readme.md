@@ -64,7 +64,7 @@ Letters can be in extended ASCII or Unicode
 ```
 
 #### Convention
-for readability each line of block comment starts with `*`
+For readability each line of block comment starts with `*`
 
 - - - 
 
@@ -75,8 +75,8 @@ for readability each line of block comment starts with `*`
 Statements are terminated by a semicolon `;`
 
 ```js
-var diff = a - b; //valid - preferred
-var sum = a + b   //valid - not recommended - use semicolon!
+var diff = a - b; //OK
+var sum = a + b   //OK but don't forget semicolon!
 ```
 
 Statements can be combined into a code block between curly braces `{` and `}`
@@ -84,7 +84,7 @@ Statements can be combined into a code block between curly braces `{` and `}`
 ```js
 {
   test = false;
-  alert('hello!');
+  alert("hello!");
 }
 ```
 
