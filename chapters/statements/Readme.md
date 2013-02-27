@@ -117,23 +117,6 @@ for (initialization; expression; post-loop-expression) statement
 
 ### `for` statement
 
-#### `while` using `for`
-
-```js
-var count = 10;
-var i = 0;             //initialization
-for (; i < count; ) {  //expression
-  console.log(i);
-  i++;                 //post-loop-expression
-}
-```
-
-- - -
-
-## Statements
-
-### `for` statement
-
 #### infinite loop
 
 ```js
