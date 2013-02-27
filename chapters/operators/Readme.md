@@ -2,7 +2,7 @@
 
 - - -
 
-# Operators
+## Operators
 
 ## The `typeof` Operator
 
@@ -110,11 +110,11 @@ false && false || true && true;     //true
 
 - - -
 
-# Operators
+## Operators
 
-## Equality operators
+### Equality operators
 
-### Conditional Operator
+#### Conditional Operator
 
 ```js
 conditional_expression ? true_case : false_case;
@@ -130,11 +130,11 @@ var max = (a > b) ? a : b;
 
 - - -
 
-# Operators
+## Operators
 
-## Assignment Operators
+### Assignment Operators
 
-### Simple assignment
+#### Simple assignment
 
 `=` assigns the value on the right to the variable on the left
 
@@ -144,11 +144,11 @@ var variable = value;
 
 - - -
 
-# Operators
+## Operators
 
-## Assignment Operators
+### Assignment Operators
 
-### Compound assignment
+#### Compound assignment
 
 * `+=` add/assign
 * `-=` subtract/assign
