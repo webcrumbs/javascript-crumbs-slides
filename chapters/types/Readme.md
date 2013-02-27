@@ -42,9 +42,9 @@ uninitializated; // undefined
 
 - - -
 
-# Types
+## Types
 
-## Data types
+### Data types
 
 There are five *simple data types* (or *primitive types*):
 
@@ -60,9 +60,7 @@ and one *complex data type*:
 
 - - -
 
-# Types
-
-## Data types
+## Types
 
 ### Null
 
@@ -74,16 +72,12 @@ but to check that a variable does not have an assigned value.
 
 - - -
 
-# Types
-
-## Data types
+## Types
 
 ### Undefined
 
-Javascript treats `undefined` as being equal to `null`.  
-
-The one difference between `null` and `undefined` is that  
-`null` is a reserved word while `undefined` is not. 
+`undefined` is a special value treated like `null`,  
+but `null` is a reserved word while `undefined` is not. 
 
 ```js
 var undefined = 'hello'; // legal, but not reccomended
@@ -91,9 +85,7 @@ var undefined = 'hello'; // legal, but not reccomended
 
 - - -
 
-# Types
-
-## Data types
+## Types
 
 ### Booleans
 
@@ -107,19 +99,31 @@ var f = false;
 
 - - -
 
-# Types
-
-## Data types
+## Types
 
 ### Numbers
 
-#### Integer
+```js
+var int = 1;
+var float = 3.14;
+
+var float1 = .07;  //missing decimal - interpreted as 0.07 preferred
+var float2 = 1.;   //missing digit after decimal - interpreted as integer 1
+var float3 = 10.0; //whole number - interpreted as integer 10
+```
 
 ```js
-var int1 = 1;
-var int2 = 2;
-var int3 = 3;
-// ...
+var octal1 = 070;  //octal for 56
+var octal2 = 079;  //invalid octal - interpreted as 79
+var octal3 = 008;  //invalid octal - interpreted as 8
+
+var hex1 = 0x0;    //hexadecimal for 0
+var hex2 = 0xA;    //hexadecimal for 10
+var hex3 = 0X1F;   //hexedecimal for 31
+
+var exp1 = 1e+1;   //1 * 10^1 = 10
+var exp2 = 2e+3;   //2 * 10^3 = 2000
+var exp3 = 123e-3; //123 * 10^-3 = 0.123
 ```
 
 - - -
@@ -130,186 +134,38 @@ var int3 = 3;
 
 ### Numbers
 
-#### Octal numbers
-
-starts with digit zero `0`  
-followed by a sequence of octal digits (`0` through `7`).  
- 
-```js
-var octal1 = 070; //octal for 56
-var octal2 = 079; //invalid octal - interpreted as 79
-var octal3 = 008; //invalid octal - interpreted as 8
-```
-
-> #### Note
-> If a number out of the range `0`-`7` is detected in the literal,  
-> then the leading zero is ignored and the number is treated as a decimal.
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-#### Hexadecimal numbers
-
-starts with two characters `0x`  
-followed by a sequence of hexadecimal digits (`0` through `9`, `A` through `F`).  
+#### Range of Values
 
 ```js
-var hex1 = 0x0;  //hexadecimal for 0
-var hex2 = 0xA;  //hexadecimal for 10
-var hex3 = 0X1F; //hexedecimal for 31
+Number.MIN_VALUE;          // 5e-324 is the smallest representable number    
+Number.MAX_VALUE;          //1.7976931348623157e+308 is the largest representable number
+Number.POSITIVE_INIFINITY; //Infinity represent the positive inifinity
+Number.NEGATIVE_INFINITY;  //Infinity represent the negative infinity  
 ```
-
-> #### Note
-> Letters may be in uppercase or lowercase.
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-#### Floating-Point Values
-
-must include a decimal point `.`  
-and at least one number after the decimal point.
 
 ```js
-var float1 = 0.1;
-var float2 = 1.2;
-var float3 = 3.14;
+Infinity - 1e307;          //Infinity 
+Infinity - Infinity;       //NaN
+-Infinity * -1;            //Infinity
+Infinity * -1;             //-Infinity
 ```
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-#### Floating-Point Values
-
-decimal or digits after decimal can be omitted.
-
-```js
-var float4 = .07;  //missing decimal - interpreted as 0.07 preferred
-var float5 = 1.;   //missing digit after decimal - interpreted as integer 1
-var float6 = 10.0; //whole number - interpreted as integer 10
-```
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-#### e-notation
-
-starts with a number (integer or floating-point)  
-followed by letter `e` (or `E`)  
-followed by the power of 10 to multiply by.
-
-```js
-1e1;    //10
-1e+1;   //10
-2e+3;   //2000
-2e-3;   //0.002
-123E-3; //0.123
-```
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-### Range of Values
-
-the smallest representable number is  
-`5e-324` stored in `Number.MIN_VALUE` 
-
-the largest representable number is  
-`1.7976931348623157e+308` stored in `Number.MAX_VALUE`
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-#### Infinity
-
-represents a number out of range of values  
-(Number.MIN_VALUE through Number.MAX_VALUE)
-
-the positive infinity is  
-`Infinity` stored in `Number.POSITIVE_INIFINITY`
-
-the negative infinity is  
-`–Infinity` stored in `Number.NEGATIVE_INFINITY`
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-#### Infinity
-
-If a calculation returns either positive or negative Infinity,  
-that value cannot be used in any further calculations,  
-because Infinity has no numeric representation with which to calculate.
-
-```js
-Infinity - 1e307;    //Infinity 
-Infinity - Infinity; //NaN
--Infinity * -1;      //Infinity
-Infinity * -1;       //-Infinity
-```
-
-- - -
-
-# Types
-
-## Data types
-
-### Numbers
-
-#### Testing if a value is not out of range
 
 To determine if a value is finite there is the `isFinite()` function.
 
 ```js
-isFinite(Infinite);  //false
-isFinite(-Infinite); //false
-isFinite(Number.MAX_VALUE + Number.MAX_VALUE); //false
+isFinite(0);                        //true
+isFinite(1.7e308);                  //true
+isFinite(1.8e308);                  //false
+isFinite(Infinite);                 //false
+isFinite(-Infinite);                //false
+isFinite(Number.MAX_VALUE + 1);     //false
 isFinite(Number.POSITIVE_INFINITE); //false
 isFinite(Number.NEGATIVE_INFINITE); //false
-isFinite(0); //true
-isFinite(1.7e308); //true
-isFinite(1.8e308); //false
 ```
 
 - - -
 
-# Types
-
-## Data types
+## Types
 
 ### Numbers
 
@@ -329,9 +185,7 @@ NaN == NaN;      //false
 
 - - -
 
-# Types
-
-## Data types
+## Types
 
 ### Numbers
 
@@ -349,11 +203,9 @@ isNaN(true);   //false - can be converted to number 1
 
 - - -
 
-# Types
+## Types
 
-## Data types
-
-## Strings
+### Strings
 
 A string is a sequence of character placed between single or double quotes.
 
@@ -367,14 +219,6 @@ A string is a sequence of character placed between single or double quotes.
 'hello"; //syntax error - quotes must match
 ```
 
-- - -
-
-# Types
-
-## Data types
-
-## Strings
-
 #### Character Literals
 
 nonprintable or otherwise useful characters
@@ -385,21 +229,10 @@ nonprintable or otherwise useful characters
 * `\r` carriage return
 * `\f` form feed
 * `\\` backslash (`\`)
-* `\'` single quote (`'`) — used when the string is delineated by single quotes.
-* `\"` double quote (`"`) — used when the string is delineated by double quotes.
-* \xnn a character represented by hexadecimal code nn (where n is a hexadecimal digit 0-F).
-* \unnnn a unicode character represented by the hexadecimal code nnnn (where n is a hexadecimal digit 0-F).
-
-
-- - -
-
-# Types
-
-## Data types
-
-## Strings
-
-#### Character Literals
+* `\'` single quote (`'`)
+* `\"` double quote (`"`)
+* \xnn character in hexadecimal code `nn` (`n` is a hexadecimal digit).
+* \unnnn unicode character in hexadecimal code `nnnn` (`n` is a hexadecimal digit).
 
 ```js
 'he said \'hello\''; //"he said 'hello'"
@@ -410,42 +243,29 @@ nonprintable or otherwise useful characters
 
 - - -
 
-# Types
+## Types
 
-## Data types
+### Object
 
-## Object
-
-An object is an unordered collection of key/value pairs,  
+An object is an unordered collection of *key*/*value* pairs,  
 separated by commas `,`, placed within curly braces `{` and `}`.
 
-The keys are strings, the values can be of any type (even Object).
+The *keys* are strings, the values can be of *any type*.
 
 ```js
-{
-    s: 'string value'
-  , n: 123
-  , b: true
-  , o: {
-      k: 2
-    }
-}
+var obj1 = {
+  s: "string value", 
+  n: 123,
+  b: true,
+  o: { k: 2 }
+};
 ```
 
-- - -
-
-# Types
-
-## Data types
-
-## Object
-
-The keys can optionally be placed in quotation marks.  
+The *keys* can optionally be placed in quotation marks.  
 
 ```js
-var obj = {
-    "s": 'string value'
-  , 'key': 'another value'
-  , "name with spaces": true
+var obj2 = {
+  "s": 'string value',
+  'key': 'another value',
+  "name with spaces": true
 }; 
-
