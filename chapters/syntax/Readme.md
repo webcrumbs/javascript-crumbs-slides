@@ -28,13 +28,6 @@ An *identifier* is the name of a variable, function, property, or argument
 * starts with a letter or `_` or `$`
 * can contains letters, numbers, `_`, `$`
 
-- - - 
-
-# Syntax
-
-## Identifiers
-
-#### Examples
 
 ```js
 var name1;    // OK
@@ -51,25 +44,6 @@ var 1name;    // SyntaxError: Unexpected token ILLEGAL
 #### Note 
 Letters can be in extended ASCII or Unicode
   
-- - - 
-
-# Syntax
-
-## Identifiers
-  
-#### convention
-
-JavaScript identifiers use camel case:
-
-* the first letter is lowercase
-* each additional word is offset by a capital letter
-
-```js
-var firstSecond;
-var doSomethingImportant;
-var yetAnotherCamelCaseExample;
-```
-
 - - - 
 
 # Syntax
@@ -106,12 +80,6 @@ JavaScript statements are terminated by a semicolon `;`
 var sum = a + b   //valid even without a semicolon - not recommended
 var diff = a - b; //valid - preferred
 ```
-
-- - - 
-
-# Syntax
-
-## Statements
 
 ### Multiple statements
 
