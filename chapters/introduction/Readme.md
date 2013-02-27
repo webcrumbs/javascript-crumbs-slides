@@ -17,3 +17,16 @@
 [federicospini.com](federicospini.com)
 
 - - -
+
+# JavaScript crumbs
+
+## What's JavaScript?
+
+JavaScript is a  
+_ dinamic  
+_ weakly typed  
+_ interpreted  
+_ object oriented  
+_ prototype based  
+_ general purpose  
+_ programming language
