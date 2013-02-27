@@ -2,27 +2,25 @@
 
 - - -
 
-# Syntax
+## Syntax
+
+### C-like syntax
 
 JavaScript syntax borrows heavily from C  
 and other C-like languages such as Java and Perl.
 
-- - -
+### Case-sensitivity
 
-# Syntax
-
-## Case-sensitivity
-
-In JavaScript, everything is case-sensitive:  
-*variables*, *function names*, and *operators*.
+In JavaScript, everything is case-sensitive  
+*variables*, *function names*, and *operators* are case-sensitive
 
 - - - 
 
-# Syntax
+## Syntax
 
-## Identifiers
+### Identifiers
 
-An *identifier* is the name of a variable, function, property, or argument
+An **identifier** is the name of a *variable*, *function*, *property*, or *argument*
 
 * may be one or more characters
 * starts with a letter or `_` or `$`
@@ -30,14 +28,14 @@ An *identifier* is the name of a variable, function, property, or argument
 
 
 ```js
-var name1;    // OK
-var _name2;   // OK
-var $name3;   // OK
-var $;        // OK
-var _;        // OK
-var Åmstrong; // OK
-var π;        // OK
 var Name;     // OK
+var name;     // OK
+var _;        // OK
+var _name1;   // OK
+var $;        // OK
+var $name2;   // OK
+var π;        // OK
+var Åmstrong; // OK
 var 1name;    // SyntaxError: Unexpected token ILLEGAL
 ```
 
@@ -46,9 +44,9 @@ Letters can be in extended ASCII or Unicode
 
 - - -
 
-# Syntax
+## Syntax
 
-## Comments
+### Comments
 
 #### single-line comment
 
@@ -70,20 +68,18 @@ for readability each line of block comment starts with `*`
 
 - - - 
 
-# Syntax
+## Syntax
 
-## Statements
+### Statements
 
-JavaScript statements are terminated by a semicolon `;`
+Statements are terminated by a semicolon `;`
 
 ```js
-var sum = a + b   //valid even without a semicolon - not recommended
 var diff = a - b; //valid - preferred
+var sum = a + b   //valid - not recommended - use semicolon!
 ```
 
-### Multiple statements
-
-Multiple statements can be combined into a code block between curly braces `{` and `}`
+Statements can be combined into a code block between curly braces `{` and `}`
 
 ```js
 {
@@ -94,9 +90,7 @@ Multiple statements can be combined into a code block between curly braces `{` a
 
 - - - 
 
-# Syntax
-
-## Keywords and Reserved Words
+## Syntax
 
 ### Keywords
 
@@ -112,12 +106,6 @@ delete       switch
 else         this         
 finally      throws       
 ```
-
-- - -
-
-# Syntax
-
-## Keywords and Reserved Words
 
 ### Reserved words
 
