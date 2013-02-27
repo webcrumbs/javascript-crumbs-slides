@@ -95,29 +95,22 @@ Statements can be combined into a code block between curly braces `{` and `}`
 ### Keywords
 
 ```js
-break        for          try          
-case         function     typeof  
-catch        instanceof   var  
-continue     if           void  
-do           in           while  
-debugger     new          with
-default      return       
-delete       switch       
-else         this         
-finally      throws       
+break        case         catch        continue     do          
+debugger     default      delete       else         finally     
+for          function     instanceof   if           in          
+new          return       switch       this         throws      
+try          typeof       var          void         while       
+with
 ```
 
 ### Reserved words
 
 ```js
-abstract     extends     package      volatile
-boolean      final       private      
-byte         float       protected    
-char         goto        public       
-class        implements  short        
-const        import      static         
-debugger     int         super
-double       interface   synchronized
-enum         long        throws
-export       native      transient
+abstract     boolean      byte         char         class       
+const        debugger     double       enum         export      
+extends      final        float        goto         implements  
+import       int          interface    long         native      
+package      private      protected    public       short       
+static       super        synchronized throws       transient   
+volatile
 ```
