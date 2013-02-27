@@ -2,18 +2,13 @@
 
 - - -
 
-# Types
+## Types
 
-## Variables
+### Variables
 
-JavaScript variables are **loosely typed**:  
-a variable is simply a named placeholder for a value of any type.
+#### Loosely typing
 
-- - -
-
-# Types
-
-## Variables
+A **variable** is a named placeholder for a value of *any type*.
 
 #### definition
 
@@ -23,15 +18,7 @@ To define a variable, use the `var` operator followed by the variable name.
 var variable_name;
 ```
 
-- - -
-
-# Types
-
-## Variables
-
 #### initialization
-
-Without initialization, a variable holds the special value `undefined`.  
 
 It’s possible to define the variable and set its value at the same time.
 
@@ -43,7 +30,14 @@ It's possible to change the value stored in the variable and also its type.
 
 ```js
 var response = 'bye!';
-response = 100;        //legal, but not recommended
+response = 100;
+```
+
+Without initialization, a variable holds the special value `undefined`.
+
+```js
+var uninitializated;
+uninitializated; // undefined
 ```
 
 - - -
@@ -52,19 +46,17 @@ response = 100;        //legal, but not recommended
 
 ## Data types
 
-There are five simple data types (or primitive types):
+There are five *simple data types* (or *primitive types*):
 
-* Null  
-* Undefined  
-* Boolean  
-* Number  
-* String  
+* `null`  
+* `undefined`  
+* `boolean`  
+* `number`  
+* `string`  
 
-and one complex data type:
+and one *complex data type*:
 
-* Object
-
-All values can be represented as one of these six data types.  
+* `object`
 
 - - -
 
