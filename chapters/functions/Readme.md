@@ -343,11 +343,11 @@ takes precedence over a global variable with the same name.
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local and Global Scope
+#### Local and Global Scope
 
 ```js
 var scope = 'global';
@@ -358,19 +358,19 @@ function checkScope () {
 }
 
 checkScope(); //"local"
+
 scope;        //"global"
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local and Global Scope
+#### Local and Global Scope
 
-#### Attention!
-You must always use `var` to declare local variables.
+Use `var` to declare local variables.
 
 ```js
 var scope = 'global';
@@ -381,18 +381,19 @@ function checkScope () {
 }
 
 checkScope(); //"local"
+
 scope;        //"local"
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local variables
+#### Local variables
 
-Function parameters count as local variables
+Function parameters count as local variables  
 and are defined only within the body of the function.
 
 ```js
@@ -402,18 +403,19 @@ function checkParamScope (a) {
 }
 
 console.log(a);     //"undefined"
+
 checkParamScope(1); //2
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Scope Chain
+#### Scope Chain
 
-Each function has its own local scope.
+Each function has its own local scope.  
 It is possible to have several nested layers of local scope.
 
 ```js
@@ -433,11 +435,11 @@ function f (){
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Scope Chain
+#### Scope Chain
 
 ```js
 var scope = 'global';
@@ -460,20 +462,16 @@ scope;        //"global"
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Variable hoisting
+#### Variable hoisting
 
-Since variables are visible within the function in which they are defined
-variables are even visible before they are declared.
-All variable declarations in a function (but not any associated assignments)
+Since variables are visible within the function in which they are defined  
+variables are even visible before they are declared.  
+All variable declarations in a function (but not any associated assignments)  
 are "hoisted" to the top of the function.
-
-- - -
-
-### Variable hoisting
 
 ```js
 function test (o) {
@@ -489,16 +487,16 @@ function test (o) {
 }
 ```
 
-The variables `i`, `j`, and `k` are declared in different spots,
+The variables `i`, `j`, and `k` are declared in different spots,  
 but all have the same scope, all three are defined throughout the body of the function.
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Variable hoisting
+#### Variable hoisting
 
 ```js
 var scope = 'global';
@@ -521,24 +519,16 @@ function f () {
 }
 ```
 
-- - -
-
-# Functions
-
-## Function Scope
-
-### Variable hoisting
-
-#### Tip
+##### Tip
 Declare all the variables defined within a function at the top of the function.
 
 - - -
 
-# Functions
+## Functions
 
-## Closures
+### Closures
 
-### Example \#0
+#### Example \#0
 
 ```js
 function f () {
@@ -552,11 +542,11 @@ b; //b is not defined
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#1
+#### Example \#1
 
 ```js
 function f () {
@@ -576,11 +566,11 @@ b; //"b"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#2
+#### Example \#2
 
 ```js
 function f () {
@@ -599,11 +589,11 @@ b; //"b"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#3
+#### Example \#3
 
 ```js
 var getB;
@@ -622,11 +612,11 @@ b; //"b"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#4
+#### Example \#4
 
 ```js
 function f (arg) {
@@ -643,11 +633,11 @@ getArg(); //"Hello"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#5
+#### Example \#5
 
 ```js
 function countdown (from) {
@@ -671,22 +661,22 @@ c(); //"Finish!"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#6
+#### Example \#6
 
 Let's loop three times, each time creating a new function that returns the loop sequence number.
 The new functions will be added to an array and we'll return the array at the end.
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#6
+#### Example \#6
 
 ```js
 function f () {
@@ -715,11 +705,11 @@ a[2](); //3
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#6 (that works!)
+#### Example \#6 (that works!)
 
 ```js
 function f () {
@@ -742,11 +732,11 @@ function f () {
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#7
+#### Example \#7
 
 ```js
 var getValue, setValue;
