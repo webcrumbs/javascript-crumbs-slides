@@ -2,9 +2,9 @@
 
 - - -
 
-# Functions
+## Functions
 
-## Definition
+### Definition
 
 ```js
 function name (comma_separated_params) {
@@ -12,24 +12,12 @@ function name (comma_separated_params) {
 }
 ```
 
-- - -
-
-# Functions
-
-## Definition
-
 ```js
 function sum (a, b) {
   var result = a + b;
   return result;
 }
 ```
-
-- - -
-
-# Functions
-
-## Definition
 
 ```js
 function greets (name) {
@@ -46,30 +34,27 @@ var square = function (x) {
 
 - - -
 
-# Functions
+## Functions
 
-## Invocation
+### Invocation
 
 ```js
 var result = square(3);
-result; // ?
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Invocation
-
-### Arguments and parameters
-
-#### Optional parameters
+### Parameters
 
 If arguments are fewer than declared parameters
 the additional parameters are set to `undefined`
 
 ```js
-function sum (a, b) { return a + b; }
+function sum (a, b) { 
+  return a + b; 
+}
 
 sum(3);       // NaN
 sum('Hello '); // "Hello undefined"
@@ -77,16 +62,12 @@ sum('Hello '); // "Hello undefined"
 
 - - -
 
-# Functions
+## Functions
 
-## Invocation
+### Arguments
 
-### Arguments and parameters
-
-#### Arguments list
-
-If arguments are more than declared parameters
-you can access them by the `arguments` object
+Functions have a special object called `arguments` 
+that has all the passed parameters
 
 ```js
 function args () {
@@ -96,45 +77,29 @@ function args () {
 args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
 ```
 
-- - -
-
-# Functions
-
-## Invocation
-
-### Arguments list
-
 ```js
 function sumAll () {
   var result = 0;
-  for (var i = 0; i < arguments.length; i++) {
+  var i;
+  for (i = 0; i < arguments.length; i += 1) {
     result += arguments[i];
   }
   return result;
 }
-```
-```js
+
 sumAll(1, 2, 3, 4, 5); //15
 ```
-
-- - -
-
-# Functions
-
-## Invocation
-
-### Arguments list
 
 ```js
 function max () {
   var max = Number.NEGATIVE_INFINITY;
-  for (var i = 0; i < arguments.length; i++) {
-    max = arguments[i] max ? arguments[i] : max;
+  var i;
+  for (i = 0; i < arguments.length; i += 1) {
+    max = (arguments[i] > max) ? arguments[i] : max;
   }
   return max;
 }
-```
-```js
+
 max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 ```
 
