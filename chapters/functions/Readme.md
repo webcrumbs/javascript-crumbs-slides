@@ -242,9 +242,9 @@ f();              //"Bye!"
 
 - - -
 
-# Functions
+## Functions
 
-## Self-invoking functions
+### Self-invoking functions
 
 JavaScript functions can be called right after they were defined.
 
@@ -253,17 +253,18 @@ JavaScript functions can be called right after they were defined.
 ```
 
 ```js
-var message = (function (name) { return 'Hello ' + name + '!'; }('dude'));
+var message = (function (name) { 
+  return "Hello " + name + "!"; 
+}("dude"));
+
 message; //"Hello dude!"
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Inner (private) functions
-
-### Define functions inside functions
+### Inner (private) functions
 
 JavaScript functions can be defined inside another function.
 
@@ -274,97 +275,70 @@ function f1 (a) {
   }
   return f2(a);
 };
-```
-```js
+
 f1(2); //4
-```
-```js
+
 f2(2); //ReferenceError: f2 is not defined
 ```
 
-#### Note
-`f2` is defined inside `f1` and it is not visible outside `f1`;
+##### Note
+`f2` is defined inside `f1` and it is not visible outside `f1`  
 `f1` internally call the local function `f2`.
 
 - - -
 
-# Functions
-## Inner (private) functions
+## Functions
 
-```js
-function greets () {
-  console.log('Hello!');
-  greets = function () {
-    console.log('Bye!');
-    return greets;
-  };
-  return greets;
-}
-```
+### Function Scope
 
-```js
-greets()();
-//"Hello!"
-//"Bye!"
-```
-
-```js
-greets()()();
-//"Hello!"
-//"Bye!"
-//"Bye!"
-```
-
-- - -
-
-# Functions
-
-## Function Scope
-
-JavaScript uses **function scope**:
-variables are visible within the function in which they are defined
+JavaScript uses **function scope**:  
+variables are visible within the function in which they are defined  
 and within any functions that are nested within that function.
 
-A variable defined in a function is not visible outside the function,
+A variable defined in a function is not visible outside the function,  
 but a variable defined in a code block is visible outside the block.
 
 - - -
 
-# Functions
+## Functions
 
 ### Function Scope
 
 ```js
 var a = 1;
-function f () { var b = 1; return a; }
-```
-```js
+
+function f () { 
+  var b = 1; 
+  return a; 
+}
+
 f();
-```
-```js
+
 b; //b is not defined
 ```
 
-- variable `a` is in the global space
+#### Note
+
+- variable `a` is in the *global space*
 - variable `b` is in the scope of the function `f()`
-- inside `f()`, both `a` and `b` are visible
-- outside `f()`, `a` is visible, but `b` is not
+- inside function `f`, both `a` and `b` are visible
+- outside function `f`, `a` is visible, but `b` is not
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local and Global Scope
+#### Local and Global Scope
 
-A variable declared within a function has a **local scope**,
+A variable declared within a function has a **local scope**,  
 it is defined only within the body of the function.
 
-A variable not declared within a function has a **global scope**,
+A variable not declared within a function has a **global scope**,  
 it is defined everywhere in the code.
 
-A local variable, a variable declared within a function,
+A local variable, a variable declared within a function,  
 takes precedence over a global variable with the same name.
 
 - - -
