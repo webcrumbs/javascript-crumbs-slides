@@ -4,7 +4,7 @@
 
 ### [Recipe](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/Readme.md)
 
-1. [introduction](https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/introduction/Readme.md)
+1. [introduction](chapters/introduction/Readme.md)
 2. [syntax](https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/syntax/Readme.md)
 3. [types](https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/types/Readme.md)
 4. [operators](https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/operators/Readme.md)
