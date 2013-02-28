@@ -105,11 +105,11 @@ max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Functions are objects
+#### Functions are objects
 
 JavaScript functions are a special kind of object with two important features:
 
@@ -125,46 +125,49 @@ and because they are objects:
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Assign function to variables
+#### Assign function to variables
 
 JavaScript function can be assigned to variables or object properties.
 
 ```js
 function f () { return 'Hello!'; };
+
 var greets = f;
+
 var person = { say: greets };
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Copy function to variables
+#### Copy function to variables
 
 JavaScript functions can be copied to different variables.
 
 ```js
 var sum = function (a, b) { return a + b; }
+
 var add = sum;
-```
-```js
+
 var result = add(1, 2);
+
 result; //3
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Pass function to functions
+#### Pass function to functions
 
 JavaScript functions can be passed to other function.
 
@@ -177,91 +180,64 @@ function div (x,y) { return x / y; }
 function calc (operator, x, y) {
   return operator(x, y);
 }
-```
-```js
+
 // Calculate ((2+3) + (4*5))
 calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Assign properties to functions
+#### Assign properties to functions
 
 ```js
 // Compute factorials and cache results as properties of the function itself.
 function factorial (n) {
   if (!(n in factorial)) {
-    factorial[n] = n * factorial(n-1);
+    factorial[n] = n * factorial(n - 1);
   }
   return factorial[n];
 }
 
 factorial[1] = 1; // Initialize the cache to hold this base case.
-```
-```js
+
 factorial(5); //120
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Return function
-
-JavaScript functions can be returned by functions.
-
-```js
-function greets () {
-  console.log('Hello!');
-  return function () {
-    console.log('Bye!');
-  };
-}
-```
-
-```js
-var f = greets(); //"Hello!"
-f(); //"Bye!"
-f(); //"Bye!"
-//...
-```
-
-- - -
-
-# Functions
-
-## Function as values
-
-### Return function
+#### Return function
 
 JavaScript functions can be returned by functions.
 
 ```js
 function greets () {
-  console.log('Hello!');
+  console.log("Hello!");
   return function () {
-    console.log('Bye!');
+    console.log("Bye!");
   };
 }
-```
 
-```js
 greets()();
 //"Hello!"
 //"Bye!"
-```
 
-```js
 greets()()();
 //"Hello!"
 //"Bye!"
 // TypeError: object is not a function
+
+var f = greets(); //"Hello!"
+f();              //"Bye!"
+f();              //"Bye!"
+f();              //"Bye!"
 ```
 
 - - -
