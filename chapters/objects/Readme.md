@@ -2,156 +2,141 @@
 
 - - -
 
-# Objects
+## Object
 
-## Using `this` value
+### Declaration
 
-Inside a method, there is a special way to access the object this method belongs to:
-by using the special value `this`.
-
-> #### Example
->
->```js
->var hero = {
->  name: 'Rafaelo',
->  sayName: function() {
->    return this.name;
->  }
->}
->
->hero.sayName();   // "Rafaelo"
->```
->
-
-> #### Tip
-> when you say `this`, you are actually saying "this object" or "the current object".
+```js
+var o = {
+  key1: 'value1',
+  key2: 2,
+  key3: true,
+  key4: function () { return 'value4' }
+};
+```
 
 - - -
 
-# Objects
+## Objects
 
-## Constructor functions
+### Using `this` value
+
+Inside a method, there is a special way to access the object this method belongs to:  
+by using the special value `this`.
+
+```js
+var hero = {
+  name: 'Rafaelo',
+  sayName: function() {
+    return this.name;
+  }
+}
+
+hero.sayName();   // "Rafaelo"
+```
+
+#### Tip
+when you say `this`, you are actually saying "this object" or "the current object".
+
+- - -
+
+## Objects
+
+### Constructor functions
 
 They are another way to create objects.
 In order to create an object using this kind of function, use the `new` operator.
 
-> #### Exmaple
->```js
->function Hero() {
->  this.occupation = 'Ninja';
->}
->```
->
->```js
->var hero = new Hero();
->hero.occupation; // "Ninja"
->```
+```js
+function Hero() {
+  this.occupation = 'Ninja';
+}
+
+var hero = new Hero();
+hero.occupation; // "Ninja"
+```
 
 - - -
 
-# Objects
+## Objects
 
-## Constructor functions
+### Constructor functions
 
 Constructor functions accept parameters, which can be used when creating new objects.
 
-> #### Example
->```js
->function Hero(name) {
->  this.name = name;
->  this.occupation = 'Ninja';
->  this.whoAreYou = function() {
->    return "I'm " + this.name + " and I'm a " + this.occupation;
->  }
->}
->
->var h1 = new Hero('Michelangelo');
->var h2 = new Hero('Donatello');
->h1.whoAreYou(); // "I'm Michelangelo and I'm a Ninja"
->h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
->```
+```js
+function Hero(name) {
+  this.name = name;
+  this.occupation = 'Ninja';
+  this.whoAreYou = function() {
+    return "I'm " + this.name + " and I'm a " + this.occupation;
+  }
+}
 
-> #### Convention
-> capitalize the first letter of your constructor functions
+var h1 = new Hero('Michelangelo');
+var h2 = new Hero('Donatello');
+h1.whoAreYou(); // "I'm Michelangelo and I'm a Ninja"
+h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
+```
 
-- - -
-
-# Objects
-
-## Constructor functions
-
-> #### Warning
-> calling a function that is designed to be a constructor but
-> omitting the `new` operator may result in a behaviour you could not expect.
->
-> ```js
-> var h = Hero('Leonardo');
-> typeof h   // "undefifined"
-> ```
->
-> #### Note
-> In this case, `this` refer to global object.
+#### Convention
+capitalize the first letter of your constructor functions
 
 - - -
 
-# Objects
+## Objects
 
-## The global object
+### Constructor functions
 
-The host environment provides a global object and all global variables are actually properties of the global object.
+#### Warning
+calling a function that is designed to be a constructor but  
+omitting the `new` operator may result in a behaviour you could not expect.
+
+
+```js
+ var h = Hero('Leonardo');
+ typeof h   // "undefifined"
+```
+
+#### Note
+In this case, `this` refer to global object.
+
+- - -
+
+## Objects
+
+### The global object
+
+The host environment provides a global object and all global variables are actually properties of the global object.  
 If your host environment is the web browser, the global object is called `window`.
 
-> #### Exmaple
->```js
->var a = 1;
->a;   // 1
->```
->
-> a is global i.e. belongs to the global object
->
->```js
->window['a']   // 1
->```
+```js
+var a = 1;
+a;   // 1
 
-- - -
+// a is global i.e. belongs to the global object
+window['a']   // 1
+```
 
-# Objects
+```js
+function Hero(name) { this.name = name; }
 
-## The global object
+var h = Hero('Leonardo');
+typeof h   // "undefined"
+typeof h.name   // TypeError: Cannot read property 'name' of undefined
 
-> #### Exmaple
->```js
->function Hero(name) { this.name = name; }
->
->var h = Hero('Leonardo');
->typeof h   // "undefined"
->typeof h.name   // TypeError: Cannot read property 'name' of undefined
->```
->
-> `this` is binded to global object
->
-> continue...
+// `this` is binded to global object
 
-- - -
+name   // "Leonardo"
+window.name   // "Leonardo"
 
-# Objects
+// using `new` operator instead
 
-## The global object
 
-> ...continue
->
->```js
->name   // "Leonardo"
->window.name   // "Leonardo"
->```
->
-> using `new` operator instead
->
->```js
->var h2 = new Hero('Michelangelo');
->typeof h2   // "object"
->h2.name   // "Michelangelo"
->```
+var h2 = new Hero('Michelangelo');
+typeof h2   // "object"
+h2.name   // "Michelangelo"
+```
 
 - - -
 
