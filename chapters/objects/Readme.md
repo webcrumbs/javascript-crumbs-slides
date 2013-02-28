@@ -140,119 +140,108 @@ h2.name   // "Michelangelo"
 
 - - -
 
-#Objects
+## Objects
 
-## `constructor` property
+### `constructor` property
 
-When an object is created, this special property is assigned to it behind the scenes.
+When an object is created, this special property is assigned to it behind the scenes. 
 It contains a reference to the constructor function used to create this object.
 
-> #### Exmaple
->```js
->function Hero(name) { this.name = name; }
->var h = new Hero('Leonardo');
->
->h.constructor // Hero(name)
->```
->
-> following code means:
-> "I don't care how object `h` was created,
-> but I want another one just like it"
->
-> ```js
-> var h2 = new h.constructor('Rafaello');
-> h2.name; // "Rafaello"
-> ```
+```js
+function Hero(name) { 
+  this.name = name; 
+}
+var h = new Hero('Leonardo');
+
+h.constructor // Hero(name)
+```
+
+following code means:
+"I don't care how object `h` was created,
+but I want another one just like it"
+
+```js
+var h2 = new h.constructor('Rafaello');
+h2.name; // "Rafaello"
+```
 
 - - -
 
-#Objects
+## Objects
 
-## `constructor` property
+### `constructor` property
 
-If an object was created using the object literal notation,
+If an object was created using the object literal notation,  
 its constructor is the built-in `Object()` constructor function.
 
-> #### Example
->
->```js
->var o = {};
->o.constructor; // Object();
->typeof o.constructor; // "function"
->```
+```js
+var o = {};
+o.constructor; // Object();
+typeof o.constructor; // "function"
+```
 
 - - -
 
-# Objects
+## Objects
 
-## `instanceof` operator
+### `instanceof` operator
 Using the instanceof operator, you can test if an object was created with a specific constructor function.
 
-> #### Example
->
->```js
->function Hero() {}
->var h = new Hero();
->var o = {};
->h instanceof Hero;   //true
->h instanceof Object; //true
->o instanceof Object; //true
->o instanceof Hero;   //false
->```
+```js
+function Hero() {}
+var h = new Hero();
+var o = {};
+h instanceof Hero;   //true
+h instanceof Object; //true
+o instanceof Object; //true
+o instanceof Hero;   //false
+```
 
 - - -
 
-# Objects
+## Objects
 
-## Passing objects
+### Passing objects
 
-When you copy an object or pass it to a function, you only pass a reference to that object.
+When you copy an object or pass it to a function, you only pass a reference to that object.  
 Consequently, if you make a change to the reference, you are actually modifying the original object.
 
-> #### Example
->
->```js
->var original = { howmany: 1 };
->var copy = original;
->copy.howmany; // 1
->copy.howmany = 100;
->original.howmany; // 100
->```
+```js
+var original = { howmany: 1 };
+var copy = original;
+copy.howmany; // 1
+copy.howmany = 100;
+original.howmany; // 100
+```
 
 The same thing applies when passing objects to functions:
 
-> #### Example
->
-> ```js
-> var original = { howmany: 100 };
-> var nullify = function(o) { o.howmany = 0; }
-> nullify(original);
-> original.howmany; // 0
-> ```
+```js
+var original = { howmany: 100 };
+var nullify = function(o) { o.howmany = 0; }
+nullify(original);
+original.howmany; // 0
+```
 
 - - -
 
-# Objects
+## Objects
 
-## Comparing objects
+### Comparing objects
 
 When you compare objects, you'll get `true` only if you compare two references to the same object.
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
-> #### Example
->
-> ```js
-> var fido  = {breed: 'dog'};
-> var benji = {breed: 'dog'};
-> ```
->
-> ```js
-> benji === fido // false
-> benji == fido  // false
-> ```
->
-> ```js
-> var mydog = benji;
-> mydog === benji // true
-> mydog === fido  // false
-> ```
+```js
+var fido  = {breed: 'dog'};
+var benji = {breed: 'dog'};
+
+benji === fido // false
+benji == fido  // false
+```
+
+```js
+var mydog = benji;
+mydog === benji // true
+mydog === fido  // false
+```
