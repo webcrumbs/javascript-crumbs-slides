@@ -35,17 +35,14 @@ var hero = {
 hero.sayName();   // "Rafaelo"
 ```
 
-#### Tip
-when you say `this`, you are actually saying "this object" or "the current object".
-
 - - -
 
 ## Objects
 
 ### Constructor functions
 
-They are another way to create objects.
-In order to create an object using this kind of function, use the `new` operator.
+Object can be created by constructor function,  
+invoking function with the `new` operator.
 
 ```js
 function Hero() {
