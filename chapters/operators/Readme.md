@@ -64,7 +64,7 @@ a || b  // returns the logical OR of a and b
 
 `!` is executed first, then comes `&&` and finally `||`
 
-Use parentheses instead of relying on operator precedence,
+Use parentheses instead of relying on operator precedence,  
 in order to make your code easier to read and understand.
 
 ```js
