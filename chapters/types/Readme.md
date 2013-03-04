@@ -12,32 +12,24 @@ A **variable** is a named placeholder for a value of *any type*.
 
 #### definition
 
-To define a variable, use the `var` operator followed by the variable name.
-
 ```js
 var variable_name;
 ```
 
 #### initialization
 
-It’s possible to define the variable and set its value at the same time.
-
 ```js
-var message = "hello!";
+var variable_name = "value";
 ```
 
-It's possible to change the value stored in the variable and also its type.
-
 ```js
-var response = "bye!";
-response = 100;
+var variable_name = "value";  // variable_name is a string
+variable_name = 123;          // variable_name is now a number
 ```
 
-Without initialization, a variable holds the special value `undefined`.
-
 ```js
-var uninitializated;
-uninitializated; // undefined
+var uninitializated; // variable not initializated
+uninitializated;     // holds the special value `undefined`
 ```
 
 - - -
