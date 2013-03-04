@@ -62,7 +62,7 @@ a variable holds if it isn't initialized
 `undefined` is not a reserved word
 
 ```js
-var undefined = "hello"; // SyntaxError: Unexpected token null
+var undefined = "hello"; // legal but not reccomended
 ```
 
 - - -
@@ -77,7 +77,7 @@ used to represent a null value
 `null` is a reserved word
 
 ```js
-var null = "hello"; // legal but not reccomended
+var null = "hello"; // SyntaxError: Unexpected token null
 ```
 
 - - -
