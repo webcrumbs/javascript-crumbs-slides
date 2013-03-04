@@ -195,10 +195,9 @@ ECMAScript edition 6 is coming...
 
 #### HTML5 API
 
-- Geolocation
-- Video
-- WebCL
-- WebGL
+- Geolocation ([demo](http://html5demos.com/geo))
+- Video ([demo](http://www.craftymind.com/factory/html5video/CanvasVideo.html))
+- WebGL ([plasm.js](http://cvdlab.github.com/plasm.js/showcase.html), [three.js](http://mrdoob.github.com/three.js/))
 
 - - -
 
