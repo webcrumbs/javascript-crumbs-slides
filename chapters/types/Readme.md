@@ -166,16 +166,18 @@ isFinite(Number.NEGATIVE_INFINITE); //false
 
 #### NaN
 
-is the value that represent Not a Number,  
+`NaN` is a special value that represent "Not a Number"
 
-The value `NaN` has a couple of unique properties:
-
-* `NaN` is contagious, any operation involving `NaN` always returns `NaN`
-* `NaN` is not equal to any value, including `NaN`
+`NaN` is contagious, any operation involving `NaN` always returns `NaN`
 
 ```js
 Nan + 1 * 2 / 3; //NaN
-NaN == NaN;      //false
+```
+
+`NaN` is not equal to any value, including `NaN`
+
+```js
+NaN === NaN;     //false
 ```
 
 - - -
