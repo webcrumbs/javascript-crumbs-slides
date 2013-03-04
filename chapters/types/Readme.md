@@ -210,18 +210,18 @@ A string is a sequence of character placed between single or double quotes.
 
 #### Character Literals
 
-nonprintable or otherwise useful characters
-
-* `\n` new line
-* `\t` tab
-* `\b` backspace
-* `\r` carriage return
-* `\f` form feed
-* `\\` backslash (`\`)
-* `\'` single quote (`'`)
-* `\"` double quote (`"`)
-* \xnn character in hexadecimal code `nn` (`n` is a hexadecimal digit).
-* \unnnn unicode character in hexadecimal code `nnnn` (`n` is a hexadecimal digit).
+```js
+"\n"     // new line
+"\t"     // tab
+"\b"     // backspace
+"\r"     // carriage return
+"\f"     // form feed
+"\\"     // backslash (`\`)
+"\'"     // single quote (`'`)
+"\""     // double quote (`"`)
+"\xnn"   // character in hexadecimal code `nn` (`n` is a hexadecimal digit).
+"\unnnn" // unicode character in hexadecimal code `nnnn` (`n` is a hexadecimal digit).
+```
 
 ```js
 'he said \'hello\''; //"he said 'hello'"
@@ -258,3 +258,4 @@ var obj2 = {
   'key': 'another value',
   "name with spaces": true
 }; 
+```
