@@ -180,14 +180,6 @@ Nan + 1 * 2 / 3; //NaN
 NaN === NaN;     //false
 ```
 
-- - -
-
-## Types
-
-### Numbers
-
-#### Testing if a value is not a number
-
 To determine if a value is "not a number" there is the `isNaN()` function.  
 
 ```js
