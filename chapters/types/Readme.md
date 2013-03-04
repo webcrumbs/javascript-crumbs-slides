@@ -23,13 +23,13 @@ var variable_name;
 It’s possible to define the variable and set its value at the same time.
 
 ```js
-var message = 'hello!';
+var message = "hello!";
 ```
 
 It's possible to change the value stored in the variable and also its type.
 
 ```js
-var response = 'bye!';
+var response = "bye!";
 response = 100;
 ```
 
@@ -48,8 +48,8 @@ uninitializated; // undefined
 
 There are five *simple data types* (or *primitive types*):
 
-* `null`  
 * `undefined`  
+* `null`  
 * `boolean`  
 * `number`  
 * `string`  
@@ -62,25 +62,30 @@ and one *complex data type*:
 
 ## Types
 
-### Null
+### Undefined
 
-`null` is a special value that all variables are considered to have  
-if they have been defined but have not been assigned a value. 
+`undefined` is a special value 
+a variable holds if it isn't initialized 
 
-`null` is a reserved word and cannot be used for anything,  
-but to check that a variable does not have an assigned value.
+`undefined` is not a reserved word
+
+```js
+var undefined = "hello"; // SyntaxError: Unexpected token null
+```
 
 - - -
 
 ## Types
 
-### Undefined
+### Null
 
-`undefined` is a special value treated like `null`,  
-but `null` is a reserved word while `undefined` is not. 
+`null` is a special value 
+used to represent a null value
+
+`null` is a reserved word
 
 ```js
-var undefined = 'hello'; // legal, but not reccomended
+var null = "hello"; // legal but not reccomended
 ```
 
 - - -
