@@ -141,16 +141,6 @@ var greets = f;
 var person = { say: greets };
 ```
 
-- - -
-
-## Functions
-
-### Function as values
-
-#### Copy function to variables
-
-JavaScript functions can be copied to different variables.
-
 ```js
 var sum = function (a, b) { return a + b; }
 
