@@ -752,3 +752,190 @@ set(123);
 get();    //123
 ```
 
+- - - 
+
+
+## Function
+
+### Constructor functions
+
+Function can be used to instantiate objects,  
+using the `new` operator.
+
+```js
+function Hero () {
+  this.occupation = "Ninja";
+}
+
+var hero = new Hero();
+hero.occupation; // "Ninja"
+```
+
+- - - 
+
+### What is `this`?!
+
+`this` is the context where the function is invoked,  
+that correspond to the object the function belongs to.
+
+If the function is called as a constructor function,  
+`this` refers to the new object instatiated.
+
+```js
+function Cat (name) {
+  this.name = name;
+}
+
+var cat = new Cat("Felix");
+cat.name;  // "Felix"
+```
+
+```js
+var cat2 = {
+  name: "Tom",
+  get_name: function () {
+    return this.name;
+  }
+};
+
+cat2.name;       // "Tom"
+cat2.get_name(); // "Tom"
+```
+
+- - -
+
+## Function
+
+### Constructor functions
+
+Constructor functions accept parameters, which can be used when creating new objects.
+
+```js
+function Hero(name) {
+  this.name = name;
+  this.occupation = 'Ninja';
+  this.whoAreYou = function() {
+    return "I'm " + this.name + " and I'm a " + this.occupation;
+  }
+}
+
+var h1 = new Hero('Michelangelo');
+var h2 = new Hero('Donatello');
+h1.whoAreYou(); // "I'm Michelangelo and I'm a Ninja"
+h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
+```
+
+#### Convention
+capitalize the first letter of your constructor functions
+
+- - -
+
+## Function
+
+### Constructor functions
+
+#### Warning
+calling a function that is designed to be a constructor but  
+omitting the `new` operator may result in a behaviour you could not expect.
+
+
+```js
+ var h = Hero('Leonardo');
+ typeof h   // "undefifined"
+```
+
+#### Note
+In this case, `this` refer to global object.
+
+- - -
+
+## Object
+
+### The global object
+
+The host environment provides a global object  
+that holds all global variables.
+
+If the host environment is the web browser,  
+the global object is called `window` or `self`.
+
+```js
+var a = 1;
+
+a;         // 1
+self["a"]; // 1
+window.a;  // 1
+```
+
+```js
+function Cat(name) { 
+  this.name = name; 
+}
+```
+
+```js
+// invoking function without new
+var c1 = Cat("Felix");
+
+typeof c1;   // "undefined"
+c1.name;     // TypeError: Cannot read property "name" of undefined
+window.name; // "Leonardo"
+```
+
+```js
+// invoking function with new
+var c2 = new Cat("Tom");
+
+typeof c2;   // "object"
+c2.name;     // "Tom"
+window.name; // undefined
+```
+
+- - -
+
+## Objects
+
+### `constructor` property
+
+Every object has a special property called `constructor`  
+that refer to its constructor function.
+
+```js
+function Cat(name) { 
+  this.name = name; 
+}
+
+var c1 = new Cat("Felix");
+c1.constructor; // function Cat(name) {...}
+
+var c2 = new c1.constructor("Tom");
+c2.name;        // "Tom"
+```
+
+If an object is created via the object literal notation  
+its constructor function is the built-in `Object` function.
+
+```js
+var o = {};
+o.constructor; // funciton Object () { [native code] };
+```
+
+- - -
+
+## Objects
+
+### `instanceof` operator
+
+`instanceof` operator tests if an object is created by a constructor function.
+
+```js
+function Hero () {}
+
+var h = new Hero();
+var o = {};
+
+h instanceof Hero;   //true
+h instanceof Object; //true
+o instanceof Object; //true
+o instanceof Hero;   //false
+```
