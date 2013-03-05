@@ -48,7 +48,7 @@ var result = square(3);
 
 ### Parameters
 
-If arguments are fewer than declared parameters
+If arguments are fewer than declared parameters  
 the additional parameters are set to `undefined`
 
 ```js
@@ -66,7 +66,7 @@ sum('Hello '); // "Hello undefined"
 
 ### Arguments
 
-Functions have a special object called `arguments` 
+Functions have a special object called `arguments`  
 that has all the passed parameters
 
 ```js
@@ -74,7 +74,7 @@ function args () {
   return arguments;
 }
 
-args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
+args(1, "hello", Math.PI); //[1, "hello", 3.141592653589793]
 ```
 
 ```js
