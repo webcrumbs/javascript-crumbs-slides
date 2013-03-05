@@ -2,21 +2,20 @@
 
 - - -
 
-# Functions
+## Functions
 
-## Definition
+JavaScript functions are a special kind of object with two important features:
+
+* they contain code
+* they are executable (they can be invoked)
+
+### Definition
 
 ```js
 function name (comma_separated_params) {
   // code block
 }
 ```
-
-- - -
-
-# Functions
-
-## Definition
 
 ```js
 function sum (a, b) {
@@ -25,51 +24,32 @@ function sum (a, b) {
 }
 ```
 
-- - -
-
-# Functions
-
-## Definition
-
 ```js
 function greets (name) {
   alert('Hello ' + name + '!');
-  // implicitly return undefined;
+  // return undefined;
 }
 ```
 
+### Invocation
+
 ```js
-var square = function (x) {
-  return x*x;
-};
+var result = sum(1, 2);
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Invocation
+### Parameters
 
-```js
-var result = square(3);
-result; // ?
-```
-
-- - -
-
-# Functions
-
-## Invocation
-
-### Arguments and parameters
-
-#### Optional parameters
-
-If arguments are fewer than declared parameters
+If arguments are fewer than declared parameters  
 the additional parameters are set to `undefined`
 
 ```js
-function sum (a, b) { return a + b; }
+function sum (a, b) { 
+  return a + b; 
+}
 
 sum(3);       // NaN
 sum('Hello '); // "Hello undefined"
@@ -77,81 +57,55 @@ sum('Hello '); // "Hello undefined"
 
 - - -
 
-# Functions
+## Functions
 
-## Invocation
+### Arguments
 
-### Arguments and parameters
-
-#### Arguments list
-
-If arguments are more than declared parameters
-you can access them by the `arguments` object
+Functions have a special object called `arguments`  
+that has all the passed parameters
 
 ```js
 function args () {
   return arguments;
 }
 
-args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
+args(1, "hello", Math.PI); //[1, "hello", 3.141592653589793]
 ```
 
-- - -
-
-# Functions
-
-## Invocation
-
-### Arguments list
-
 ```js
-function sumAll () {
+function sum_all () {
   var result = 0;
-  for (var i = 0; i < arguments.length; i++) {
+  var n = arguments.length;
+  var i;
+  for (i = 0; i < n; i += 1) {
     result += arguments[i];
   }
   return result;
 }
+
+sum_all(1, 2, 3, 4, 5); //15
 ```
-```js
-sumAll(1, 2, 3, 4, 5); //15
-```
-
-- - -
-
-# Functions
-
-## Invocation
-
-### Arguments list
 
 ```js
 function max () {
-  var max = Number.NEGATIVE_INFINITY;
-  for (var i = 0; i < arguments.length; i++) {
-    max = arguments[i] max ? arguments[i] : max;
+  var result = Number.NEGATIVE_INFINITY;
+  var i;
+  for (i = 0; i < arguments.length; i += 1) {
+    result = (arguments[i] > result) ? arguments[i] : result;
   }
-  return max;
+  return result;
 }
-```
-```js
+
 max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Functions are objects
-
-JavaScript functions are a special kind of object with two important features:
-
-* they contain code
-* they are executable (can be invoked)
-
-and because they are objects:
+Since JavaScript functions are object:
 
 * they can be assigned to variables or object properties
 * they can be passed to functions
@@ -160,46 +114,41 @@ and because they are objects:
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Assign function to variables
+#### Assign function to variables
 
 JavaScript function can be assigned to variables or object properties.
 
 ```js
-function f () { return 'Hello!'; };
+function f (name) { return "Hello " + name + "!"; };
+
 var greets = f;
+
 var person = { say: greets };
+
+person.say("Enrico"); // Hello Enrico!
+
+greets("Federico");   // Hello Federico!
 ```
-
-- - -
-
-# Functions
-
-## Function as values
-
-### Copy function to variables
-
-JavaScript functions can be copied to different variables.
 
 ```js
 var sum = function (a, b) { return a + b; }
+
 var add = sum;
-```
-```js
-var result = add(1, 2);
-result; //3
+
+add(1, 2); //3
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Pass function to functions
+#### Pass function to functions
 
 JavaScript functions can be passed to other function.
 
@@ -212,98 +161,71 @@ function div (x,y) { return x / y; }
 function calc (operator, x, y) {
   return operator(x, y);
 }
-```
-```js
-// Calculate ((2+3) + (4*5))
+
+// ((2+3) + (4*5))
 calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Assign properties to functions
+#### Assign properties to functions
 
 ```js
 // Compute factorials and cache results as properties of the function itself.
 function factorial (n) {
   if (!(n in factorial)) {
-    factorial[n] = n * factorial(n-1);
+    factorial[n] = n * factorial(n - 1);
   }
   return factorial[n];
 }
 
 factorial[1] = 1; // Initialize the cache to hold this base case.
-```
-```js
+
 factorial(5); //120
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function as values
+### Function as values
 
-### Return function
-
-JavaScript functions can be returned by functions.
-
-```js
-function greets () {
-  console.log('Hello!');
-  return function () {
-    console.log('Bye!');
-  };
-}
-```
-
-```js
-var f = greets(); //"Hello!"
-f(); //"Bye!"
-f(); //"Bye!"
-//...
-```
-
-- - -
-
-# Functions
-
-## Function as values
-
-### Return function
+#### Return function
 
 JavaScript functions can be returned by functions.
 
 ```js
 function greets () {
-  console.log('Hello!');
+  console.log("Hello!");
   return function () {
-    console.log('Bye!');
+    console.log("Bye!");
   };
 }
-```
 
-```js
 greets()();
 //"Hello!"
 //"Bye!"
-```
 
-```js
 greets()()();
 //"Hello!"
 //"Bye!"
 // TypeError: object is not a function
+
+var f = greets(); //"Hello!"
+f();              //"Bye!"
+f();              //"Bye!"
+f();              //"Bye!"
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Self-invoking functions
+### Self-invoking functions
 
 JavaScript functions can be called right after they were defined.
 
@@ -312,17 +234,18 @@ JavaScript functions can be called right after they were defined.
 ```
 
 ```js
-var message = (function (name) { return 'Hello ' + name + '!'; }('dude'));
+var message = (function (name) { 
+  return "Hello " + name + "!"; 
+}("dude"));
+
 message; //"Hello dude!"
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Inner (private) functions
-
-### Define functions inside functions
+### Inner (private) functions
 
 JavaScript functions can be defined inside another function.
 
@@ -333,106 +256,79 @@ function f1 (a) {
   }
   return f2(a);
 };
-```
-```js
+
 f1(2); //4
-```
-```js
+
 f2(2); //ReferenceError: f2 is not defined
 ```
 
-#### Note
-`f2` is defined inside `f1` and it is not visible outside `f1`;
+##### Note
+`f2` is defined inside `f1` and it is not visible outside `f1`  
 `f1` internally call the local function `f2`.
 
 - - -
 
-# Functions
-## Inner (private) functions
+## Functions
 
-```js
-function greets () {
-  console.log('Hello!');
-  greets = function () {
-    console.log('Bye!');
-    return greets;
-  };
-  return greets;
-}
-```
+### Function Scope
 
-```js
-greets()();
-//"Hello!"
-//"Bye!"
-```
-
-```js
-greets()()();
-//"Hello!"
-//"Bye!"
-//"Bye!"
-```
-
-- - -
-
-# Functions
-
-## Function Scope
-
-JavaScript uses **function scope**:
-variables are visible within the function in which they are defined
+JavaScript uses **function scope**:  
+variables are visible within the function in which they are defined  
 and within any functions that are nested within that function.
 
-A variable defined in a function is not visible outside the function,
+A variable defined in a function is not visible outside the function,  
 but a variable defined in a code block is visible outside the block.
 
 - - -
 
-# Functions
+## Functions
 
 ### Function Scope
 
 ```js
 var a = 1;
-function f () { var b = 1; return a; }
-```
-```js
+
+function f () { 
+  var b = 1; 
+  return a; 
+}
+
 f();
-```
-```js
+
 b; //b is not defined
 ```
 
-- variable `a` is in the global space
+#### Note
+
+- variable `a` is in the *global space*
 - variable `b` is in the scope of the function `f()`
-- inside `f()`, both `a` and `b` are visible
-- outside `f()`, `a` is visible, but `b` is not
+- inside function `f`, both `a` and `b` are visible
+- outside function `f`, `a` is visible, but `b` is not
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local and Global Scope
+#### Local and Global Scope
 
-A variable declared within a function has a **local scope**,
+A variable declared within a function has a **local scope**,  
 it is defined only within the body of the function.
 
-A variable not declared within a function has a **global scope**,
+A variable not declared within a function has a **global scope**,  
 it is defined everywhere in the code.
 
-A local variable, a variable declared within a function,
+A local variable, a variable declared within a function,  
 takes precedence over a global variable with the same name.
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local and Global Scope
+#### Local and Global Scope
 
 ```js
 var scope = 'global';
@@ -443,19 +339,19 @@ function checkScope () {
 }
 
 checkScope(); //"local"
+
 scope;        //"global"
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local and Global Scope
+#### Local and Global Scope
 
-#### Attention!
-You must always use `var` to declare local variables.
+Use `var` to declare local variables.
 
 ```js
 var scope = 'global';
@@ -466,18 +362,19 @@ function checkScope () {
 }
 
 checkScope(); //"local"
+
 scope;        //"local"
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Local variables
+#### Local variables
 
-Function parameters count as local variables
+Function parameters count as local variables  
 and are defined only within the body of the function.
 
 ```js
@@ -487,18 +384,19 @@ function checkParamScope (a) {
 }
 
 console.log(a);     //"undefined"
+
 checkParamScope(1); //2
 ```
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Scope Chain
+#### Scope Chain
 
-Each function has its own local scope.
+Each function has its own local scope.  
 It is possible to have several nested layers of local scope.
 
 ```js
@@ -518,11 +416,11 @@ function f (){
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Scope Chain
+#### Scope Chain
 
 ```js
 var scope = 'global';
@@ -545,20 +443,16 @@ scope;        //"global"
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Variable hoisting
+#### Variable hoisting
 
-Since variables are visible within the function in which they are defined
-variables are even visible before they are declared.
-All variable declarations in a function (but not any associated assignments)
+Since variables are visible within the function in which they are defined  
+variables are even visible before they are declared.  
+All variable declarations in a function (but not any associated assignments)  
 are "hoisted" to the top of the function.
-
-- - -
-
-### Variable hoisting
 
 ```js
 function test (o) {
@@ -574,16 +468,16 @@ function test (o) {
 }
 ```
 
-The variables `i`, `j`, and `k` are declared in different spots,
+The variables `i`, `j`, and `k` are declared in different spots,  
 but all have the same scope, all three are defined throughout the body of the function.
 
 - - -
 
-# Functions
+## Functions
 
-## Function Scope
+### Function Scope
 
-### Variable hoisting
+#### Variable hoisting
 
 ```js
 var scope = 'global';
@@ -606,24 +500,16 @@ function f () {
 }
 ```
 
-- - -
-
-# Functions
-
-## Function Scope
-
-### Variable hoisting
-
-#### Tip
+##### Tip
 Declare all the variables defined within a function at the top of the function.
 
 - - -
 
-# Functions
+## Functions
 
-## Closures
+### Closures
 
-### Example \#0
+#### Example \#0
 
 ```js
 function f () {
@@ -637,11 +523,11 @@ b; //b is not defined
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#1
+#### Example \#1
 
 ```js
 function f () {
@@ -661,11 +547,11 @@ b; //"b"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#2
+#### Example \#2
 
 ```js
 function f () {
@@ -684,11 +570,11 @@ b; //"b"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#3
+#### Example \#3
 
 ```js
 var getB;
@@ -707,11 +593,11 @@ b; //"b"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#4
+#### Example \#4
 
 ```js
 function f (arg) {
@@ -728,11 +614,11 @@ getArg(); //"Hello"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#5
+#### Example \#5
 
 ```js
 function countdown (from) {
@@ -756,22 +642,22 @@ c(); //"Finish!"
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#6
+#### Example \#6
 
 Let's loop three times, each time creating a new function that returns the loop sequence number.
 The new functions will be added to an array and we'll return the array at the end.
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#6
+#### Example \#6
 
 ```js
 function f () {
@@ -800,11 +686,11 @@ a[2](); //3
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#6 (that works!)
+#### Example \#6 (that works!)
 
 ```js
 function f () {
@@ -827,11 +713,11 @@ function f () {
 
 - - -
 
-# Functions
+## Functions
 
-## Closure
+### Closure
 
-### Example \#7
+#### Example \#7
 
 ```js
 var getValue, setValue;

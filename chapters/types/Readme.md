@@ -12,32 +12,24 @@ A **variable** is a named placeholder for a value of *any type*.
 
 #### definition
 
-To define a variable, use the `var` operator followed by the variable name.
-
 ```js
 var variable_name;
 ```
 
 #### initialization
 
-It’s possible to define the variable and set its value at the same time.
-
 ```js
-var message = 'hello!';
+var variable_name = "value";
 ```
 
-It's possible to change the value stored in the variable and also its type.
-
 ```js
-var response = 'bye!';
-response = 100;
+var variable_name = "value";  // variable_name is a string
+variable_name = 123;          // variable_name is now a number
 ```
 
-Without initialization, a variable holds the special value `undefined`.
-
 ```js
-var uninitializated;
-uninitializated; // undefined
+var uninitializated; // variable not initializated
+uninitializated;     // holds the special value `undefined`
 ```
 
 - - -
@@ -48,8 +40,8 @@ uninitializated; // undefined
 
 There are five *simple data types* (or *primitive types*):
 
-* `null`  
 * `undefined`  
+* `null`  
 * `boolean`  
 * `number`  
 * `string`  
@@ -62,25 +54,30 @@ and one *complex data type*:
 
 ## Types
 
-### Null
+### Undefined
 
-`null` is a special value that all variables are considered to have  
-if they have been defined but have not been assigned a value. 
+`undefined` is a special value 
+a variable holds if it isn't initialized 
 
-`null` is a reserved word and cannot be used for anything,  
-but to check that a variable does not have an assigned value.
+`undefined` is not a reserved word
+
+```js
+var undefined = "hello"; // legal but not reccomended
+```
 
 - - -
 
 ## Types
 
-### Undefined
+### Null
 
-`undefined` is a special value treated like `null`,  
-but `null` is a reserved word while `undefined` is not. 
+`null` is a special value 
+used to represent a null value
+
+`null` is a reserved word
 
 ```js
-var undefined = 'hello'; // legal, but not reccomended
+var null = "hello"; // SyntaxError: Unexpected token null
 ```
 
 - - -
@@ -169,25 +166,19 @@ isFinite(Number.NEGATIVE_INFINITE); //false
 
 #### NaN
 
-is the value that represent Not a Number,  
+`NaN` is a special value that represent "Not a Number"
 
-The value `NaN` has a couple of unique properties:
-
-* `NaN` is contagious, any operation involving `NaN` always returns `NaN`
-* `NaN` is not equal to any value, including `NaN`
+`NaN` is contagious, any operation involving `NaN` always returns `NaN`
 
 ```js
 Nan + 1 * 2 / 3; //NaN
-NaN == NaN;      //false
 ```
 
-- - -
+`NaN` is not equal to any value, including `NaN`
 
-## Types
-
-### Numbers
-
-#### Testing if a value is not a number
+```js
+NaN === NaN;     //false
+```
 
 To determine if a value is "not a number" there is the `isNaN()` function.  
 
@@ -219,18 +210,18 @@ A string is a sequence of character placed between single or double quotes.
 
 #### Character Literals
 
-nonprintable or otherwise useful characters
-
-* `\n` new line
-* `\t` tab
-* `\b` backspace
-* `\r` carriage return
-* `\f` form feed
-* `\\` backslash (`\`)
-* `\'` single quote (`'`)
-* `\"` double quote (`"`)
-* \xnn character in hexadecimal code `nn` (`n` is a hexadecimal digit).
-* \unnnn unicode character in hexadecimal code `nnnn` (`n` is a hexadecimal digit).
+```js
+"\n"     // new line
+"\t"     // tab
+"\b"     // backspace
+"\r"     // carriage return
+"\f"     // form feed
+"\\"     // backslash (`\`)
+"\'"     // single quote (`'`)
+"\""     // double quote (`"`)
+"\xnn"   // character in hexadecimal code `nn` (`n` is a hexadecimal digit).
+"\unnnn" // unicode character in hexadecimal code `nnnn` (`n` is a hexadecimal digit).
+```
 
 ```js
 'he said \'hello\''; //"he said 'hello'"
@@ -322,4 +313,6 @@ hero[keyName]; // "Ninja"
 
 ```js
 hero.height; // "undefined"
+```
+=======
 ```
