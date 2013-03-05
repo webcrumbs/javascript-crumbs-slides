@@ -283,7 +283,7 @@ obj.property_key_name
 ```
 
 ```js
-hero.occupation;
+hero.occupation; // "Ninja"
 ```
 
 ##### Square bracket notation
@@ -293,17 +293,19 @@ obj["property key name"]
 ```
 
 ```js
-hero["breed"];
+hero["breed"]; // "Turtle"
 ```
 
-If property name needs quotation in definition, access needs square bracket notation.
+If property name needs quotation in definition,  
+access needs square bracket notation
 
 ```js
  hero['finger count']; // 3
 ```
 
-if property name is stored in a variable, use it with square bracket notation
-  
+if property name is stored in a variable,   
+use it with square bracket notation
+
 ```js
 var keyName = 'occupation';
 hero[keyName]; // "Ninja"
