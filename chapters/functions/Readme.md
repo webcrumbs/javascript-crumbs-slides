@@ -189,9 +189,13 @@ function factorial (n) {
   return factorial[n];
 }
 
-factorial[1] = 1; // Initialize the cache to hold this base case.
+factorial[0] = 1; // Initialize the cache to hold this base case.
+```
 
-factorial(5); //120
+```js
+factorial(0); // 1
+factorial(5); // 120
+factorial(6); // 720
 ```
 
 - - -
