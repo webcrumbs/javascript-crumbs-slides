@@ -267,3 +267,59 @@ var obj2 = {
   'key': 'another value',
   "name with spaces": true
 }; 
+
+- - -
+
+## Types
+
+### Object
+
+#### Accessing object's properties
+
+
+```js
+var hero = {
+  breed: "Turtle",
+  occupation: "Ninja",
+  'finger count':  3
+};
+```
+
+##### Dot notation
+
+```js
+obj.property_key_name
+```
+
+```js
+hero.occupation;
+```
+
+##### Square bracket notation
+
+```js
+obj["property key name"]
+```
+
+```js
+hero["breed"];
+```
+
+If property name needs quotation in definition, access needs square bracket notation.
+
+```js
+ hero['finger count']; // 3
+```
+
+if property name is stored in a variable, use it with square bracket notation
+  
+```js
+var keyName = 'occupation';
+hero[keyName]; // "Ninja"
+```
+
+##### Accessing a non-existing property
+
+```js
+hero.height; // "undefined"
+```
