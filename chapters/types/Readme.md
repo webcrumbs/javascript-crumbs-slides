@@ -266,9 +266,6 @@ var obj2 = {
 
 ### Object
 
-#### Accessing object's properties
-
-
 ```js
 var hero = {
   breed: "Turtle",
@@ -277,43 +274,40 @@ var hero = {
 };
 ```
 
-##### Dot notation
+#### Get
 
 ```js
-obj.property_key_name
+hero.occupation; // "Ninja" - dot notation
 ```
 
 ```js
-hero.occupation; // "Ninja"
-```
-
-##### Square bracket notation
-
-```js
-obj["property key name"]
+hero["breed"]; // "Turtle" - square bracket notation
 ```
 
 ```js
-hero["breed"]; // "Turtle"
+ hero["finger count"]; // 3
 ```
-
-If property name needs quotation in definition,  
-access needs square bracket notation
 
 ```js
- hero['finger count']; // 3
+var key = "occupation";
+hero[key]; // "Ninja"
 ```
-
-if property name is stored in a variable,   
-use it with square bracket notation
-
-```js
-var keyName = 'occupation';
-hero[keyName]; // "Ninja"
-```
-
-##### Accessing a non-existing property
 
 ```js
 hero.height; // "undefined"
+```
+
+#### Set
+
+```js
+hero.name = "Michelangelo";
+```
+
+```js
+ hero["height"] = 1.5;
+```
+
+```js
+var key = "occupation";
+hero[key] = "Pizza eater";
 ```
