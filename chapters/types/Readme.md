@@ -301,13 +301,16 @@ hero.height; // "undefined"
 
 ```js
 hero.name = "Michelangelo";
+hero.name; // "Michelangelo"
 ```
 
 ```js
- hero["height"] = 1.5;
+hero["height"] = 1.5;
+hero.height; // 1.5
 ```
 
 ```js
 var key = "occupation";
 hero[key] = "Pizza eater";
+hero.occupation; // "Pizza eater"
 ```
