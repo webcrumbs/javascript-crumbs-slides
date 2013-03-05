@@ -314,5 +314,3 @@ hero[keyName]; // "Ninja"
 ```js
 hero.height; // "undefined"
 ```
-=======
-```
