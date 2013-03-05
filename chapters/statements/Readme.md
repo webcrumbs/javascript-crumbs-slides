@@ -22,11 +22,21 @@
 ### `if` statement
 
 ```js
-if (condition) statement1 else statement2
+if (condition) 
+  statement1 
+else 
+  statement2
 ```
+
 ```js
-if (condition1) statement1 else if (condition2) statement2 else statement3
+if (condition1) 
+  statement1 
+else if (condition2) 
+  statement2 
+else 
+  statement3
 ```
+
 ```js
 if (condition1) {
   statement1
@@ -106,7 +116,8 @@ for (initialization; expression; post-loop-expression) statement
 #### example
 
 ```js
-for (var i = 0; i < 10; i +=1) {
+var i;
+for (i = 0; i < 10; i +=1) {
   console.log(i);
 }
 ```
@@ -133,7 +144,8 @@ for (property in object) statement
 ```js
 var obj = {a: 1, b: 2, c: 3};
 var s = '';
-for (var key in obj) {
+var key;
+for (key in obj) {
    s += key + ' ';
 }
 console.log(s); //?;
