@@ -4,6 +4,11 @@
 
 ## Functions
 
+JavaScript functions are a special kind of object with two important features:
+
+* they contain code
+* they are executable (they can be invoked)
+
 ### Definition
 
 ```js
@@ -22,24 +27,14 @@ function sum (a, b) {
 ```js
 function greets (name) {
   alert('Hello ' + name + '!');
-  // implicitly return undefined;
+  // return undefined;
 }
 ```
-
-```js
-var square = function (x) {
-  return x*x;
-};
-```
-
-- - -
-
-## Functions
 
 ### Invocation
 
 ```js
-var result = square(3);
+var result = sum(1, 2);
 ```
 
 - - -
@@ -78,26 +73,27 @@ args(1, "hello", Math.PI); //[1, "hello", 3.141592653589793]
 ```
 
 ```js
-function sumAll () {
+function sum_all () {
   var result = 0;
+  var n = arguments.length;
   var i;
-  for (i = 0; i < arguments.length; i += 1) {
+  for (i = 0; i < n; i += 1) {
     result += arguments[i];
   }
   return result;
 }
 
-sumAll(1, 2, 3, 4, 5); //15
+sum_all(1, 2, 3, 4, 5); //15
 ```
 
 ```js
 function max () {
-  var max = Number.NEGATIVE_INFINITY;
+  var result = Number.NEGATIVE_INFINITY;
   var i;
   for (i = 0; i < arguments.length; i += 1) {
-    max = (arguments[i] > max) ? arguments[i] : max;
+    result = (arguments[i] > result) ? arguments[i] : result;
   }
-  return max;
+  return result;
 }
 
 max(1, 10, 100, 42, Math.PI, 1.4142135); //100
@@ -109,14 +105,7 @@ max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 
 ### Function as values
 
-#### Functions are objects
-
-JavaScript functions are a special kind of object with two important features:
-
-* they contain code
-* they are executable (can be invoked)
-
-and because they are objects:
+Since JavaScript functions are object:
 
 * they can be assigned to variables or object properties
 * they can be passed to functions
@@ -134,11 +123,15 @@ and because they are objects:
 JavaScript function can be assigned to variables or object properties.
 
 ```js
-function f () { return 'Hello!'; };
+function f (name) { return "Hello " + name + "!"; };
 
 var greets = f;
 
 var person = { say: greets };
+
+person.say("Enrico"); // Hello Enrico!
+
+greets("Federico");   // Hello Federico!
 ```
 
 ```js
@@ -146,9 +139,7 @@ var sum = function (a, b) { return a + b; }
 
 var add = sum;
 
-var result = add(1, 2);
-
-result; //3
+add(1, 2); //3
 ```
 
 - - -
@@ -171,7 +162,7 @@ function calc (operator, x, y) {
   return operator(x, y);
 }
 
-// Calculate ((2+3) + (4*5))
+// ((2+3) + (4*5))
 calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 ```
 
