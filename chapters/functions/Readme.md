@@ -43,7 +43,8 @@ var result = sum(1, 2);
 
 ### Parameters
 
-If arguments are fewer than declared parameters  
+When a function is invoked  
+if passed arguments are fewer than declared parameters  
 the additional parameters are set to `undefined`
 
 ```js
@@ -61,8 +62,9 @@ sum('Hello '); // "Hello undefined"
 
 ### Arguments
 
-Functions have a special object called `arguments`  
-that has all the passed parameters
+When a function is invoked  
+it creates a special object called `arguments`  
+that holds the passed parameters
 
 ```js
 function args () {
@@ -89,9 +91,12 @@ sum_all(1, 2, 3, 4, 5); //15
 ```js
 function max () {
   var result = Number.NEGATIVE_INFINITY;
+  var n = arguments.length;
   var i;
-  for (i = 0; i < arguments.length; i += 1) {
-    result = (arguments[i] > result) ? arguments[i] : result;
+  for (i = 0; i < n; i += 1) {
+    if (arguments[i] > result) {
+      result = arguments[i];
+    }
   }
   return result;
 }
@@ -108,7 +113,7 @@ max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 Since JavaScript functions are object:
 
 * they can be assigned to variables or object properties
-* they can be passed to functions
+* they can be passed to other functions
 * they can have properties
 * they can be returned by functions
 
@@ -120,7 +125,7 @@ Since JavaScript functions are object:
 
 #### Assign function to variables
 
-JavaScript function can be assigned to variables or object properties.
+JavaScript functions can be assigned to variables or object properties.
 
 ```js
 function f (name) { return "Hello " + name + "!"; };
@@ -174,8 +179,9 @@ calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 
 #### Assign properties to functions
 
+JavaScript functions can have properties.
+
 ```js
-// Compute factorials and cache results as properties of the function itself.
 function factorial (n) {
   if (!(n in factorial)) {
     factorial[n] = n * factorial(n - 1);
@@ -333,12 +339,12 @@ takes precedence over a global variable with the same name.
 ```js
 var scope = 'global';
 
-function checkScope () {
+function check_scope () {
   var scope = 'local';
   return scope;
 }
 
-checkScope(); //"local"
+check_scope(); //"local"
 
 scope;        //"global"
 ```
@@ -356,12 +362,12 @@ Use `var` to declare local variables.
 ```js
 var scope = 'global';
 
-function checkScope () {
+function check_scope () {
   scope = 'local';        // if var is omitted, it refers to global variable
   return scope;
 }
 
-checkScope(); //"local"
+check_scope(); //"local"
 
 scope;        //"local"
 ```
@@ -378,14 +384,14 @@ Function parameters count as local variables
 and are defined only within the body of the function.
 
 ```js
-function checkParamScope (a) {
+function check_param_scope (a) {
   a += 1;
   console.log(a);
 }
 
 console.log(a);     //"undefined"
 
-checkParamScope(1); //2
+check_param_scope(1); //2
 ```
 
 - - -
@@ -425,19 +431,19 @@ function f (){
 ```js
 var scope = 'global';
 
-function localScope () {
+function local_scope () {
   var scope = 'local';
 
-  function nestedScope () {
+  function nested_scope () {
     var scope = 'nested';
     return scope;
   }
 
-  return nestedScope();
+  return nested_scope();
 }
 ```
 ```js
-localScope(); //"nested"
+local_scope(); //"nested"
 scope;        //"global"
 ```
 
@@ -648,7 +654,7 @@ c(); //"Finish!"
 
 #### Example \#6
 
-Let's loop three times, each time creating a new function that returns the loop sequence number.
+Let's loop three times, each time creating a new function that returns the loop sequence number.  
 The new functions will be added to an array and we'll return the array at the end.
 
 - - -
@@ -720,24 +726,25 @@ function f () {
 #### Example \#7
 
 ```js
-var getValue, setValue;
+var get
+var set;
 (function () {
   var secret = 0;
-  getValue = function () {
+  get = function () {
     return secret;
   };
-  setValue = function (v) {
+  set = function (v) {
     secret = v;
   };
 })();
 ```
 
 ```js
-getValue();    //0
+get();    //0
 ```
 
 ```js
-setValue(123);
-getValue();    //123
+set(123);
+get();    //123
 ```
 
