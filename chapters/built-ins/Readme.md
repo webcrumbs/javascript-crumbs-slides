@@ -1,31 +1,12 @@
 # Built-ins
 
 - - -
-## Object methods
+
+# Function
 
 - - -
-# Built-ins
 
-## Object methods
-
-```js
-var o = {};
-var o = new Object();
-```
-
-An empty object already contains some methods and properties:
-
-* `o.constructor`
-* `o.toString()`
-* `o.valueOf()`
-
-- - -
-## Function methods
-
-- - -
-# Built-ins
-
-## Function methods
+## Function
 
 ### `call(thisArg, param...)`
 
@@ -53,9 +34,7 @@ greets.call(donald, 'Duck', 1934);
 ```
 
 - - -
-# Built-ins
-
-## Function methods
+## Function
 
 ### `apply(thisArg, arrayArg)`
 
@@ -83,9 +62,8 @@ greets.call(donald, ['Duck', 1934]);
 ```
 
 - - -
-# Built-ins
 
-## Function methods
+## Function
 
 ### `thisArg` parameter
 
@@ -106,10 +84,10 @@ greets.apply(null, ['Goof', 1932]);
 ```
 
 - - -
-## Array
+
+# Array
 
 - - -
-# Built-ins
 
 ## Array
 
@@ -123,17 +101,6 @@ var matrix = [[1,2,3], [4,5,6], [7,8,9]];
 var sparseArray = [1,,,,5];
 ```
 
-```js
-var a = new Array(['one', 'two', 'three']);
-```
-
-- - -
-# Built-ins
-
-## Array
-
-### Definition
-
 Arrays are objects, but of a special type because:
 
 * the names of their properties are automatically assigned using numbers
@@ -146,11 +113,10 @@ typeof a; //"object"
 ```
 
 - - -
-# Built-ins
 
 ## Array
 
-## Access
+### Access
 
 Arrays can be accessed through square bracket notation.
 
@@ -165,14 +131,10 @@ matrix[0][1]; //2
 ```
 
 - - -
-## Array methods
 
-- - -
-# Built-ins
+## Array
 
-## Array methods
-
-### Overview
+### Methods overview
 
 ```js
 push(item...)
@@ -197,11 +159,10 @@ reduceRight(function(prev, cur, index, array) {...}, initVal)
 ```
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
-### `push(item...)` method
+### `push(item...)`
 
 It accepts any number of item to push in the array.
 It returns the array's new length.
@@ -218,11 +179,10 @@ colors; // ["red", "green", "black"]
 ```
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
-### `pop()` method
+### `pop()`
 
 It acceps no parameter.
 It returns and removes the last element in the array.
@@ -238,9 +198,8 @@ colors; // ["red", "green"]
 ```
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
 ### sort(comparefn)
 The default comparing function is the lexicographical order.
@@ -262,9 +221,8 @@ values;   // 0,1,5,10,15
 ```
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
 ### Iterative methods: `every`, `filter`, `forEach`, `map`, `some`
 
@@ -280,13 +238,13 @@ The function passed into one of these methods will receive three arguments:
 3. the array object itself
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
 ### `every(iterator, scope)`
 
-Runs the given function on every item in the array and returns `true` if the function returns `true` for every item.
+Runs the given function on every item in the array  
+and returns `true` if the function returns `true` for every item.
 
 ```js
 var numbers = [1,2,3,4,5,4,3,2,1];
@@ -309,9 +267,8 @@ everyResult;   //true
 ```
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
 ### `some(iterator, scope)`
 
@@ -338,13 +295,12 @@ someResult;   //false
 ```
 
 - - -
-# Built-ins
-
-## Array methods
+## Array
 
 ### `filter(iterator, scope)`
 
-Runs the given function on every item in the array and returns an array of all items for which the function returns `true`.
+Runs the given function on every item in the array  
+and returns an array of all items for which the function returns `true`.
 
 ```js
 var numbers = [1,2,3,4,5,4,3,2,1];
@@ -357,13 +313,12 @@ filterResult;   //[3,4,5,4,3]
 ```
 
 - - -
-# Built-ins
-
-## Array methods
+## Array
 
 ### `forEach(oterator, scope)`
 
-Runs the given function on every item in the array. This method has no return value.
+Runs the given function on every item in the array.  
+This method has no return value.
 
 ```js
 var numbers = [1,2,3,4,5,4,3,2,1];
@@ -374,13 +329,12 @@ numbers.forEach(function(item, index, array){
 ```
 
 - - -
-# Built-ins
-
-## Array methods
+## Array
 
 ### `map(iterator, scope)`
 
-Runs the given function on every item in the array and returns the result of each function call in an array.
+Runs the given function on every item in the array  
+and returns the result of each function call in an array.
 
 ```js
 var numbers = [1,2,3,4,5,4,3,2,1];
@@ -393,9 +347,8 @@ mapResult;   // [2,4,6,8,10,8,6,4,2]
 ```
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
 ### Reduction methods: `reduce`, `reduceRight`
 
@@ -414,9 +367,8 @@ The passed function accepts four arguments:
 Any value returned from the function is automatically passed in as the first argument for the next item.
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
 ### `reduce(iterator, initVal)`
 
@@ -433,9 +385,8 @@ sum; // 15
 ```
 
 - - -
-# Built-ins
 
-## Array methods
+## Array
 
 ### `reduceRight(iterator, initVal)`
 
@@ -452,12 +403,11 @@ diff; // 0
 ```
 
 - - -
-# Built-in object `Math`
+
+# The `Math` object
 
 - - -
-# Built-ins
-
-## Built-in object `Math`
+## The `Math` object
 
 ### Properties overview
 
@@ -473,9 +423,7 @@ Math.SQRT2    // the square root of 2
 ```
 
 - - -
-# Built-ins
-
-## Built-in object `Math`
+## The `Math` object
 
 ### Methods overview
 
@@ -500,10 +448,10 @@ Math.tan(x)          // Returns the tangent of x
 ```
 
 - - -
-## RegExp
+
+# RegExp
 
 - - -
-# Built-ins
 
 ## RegExp
 
@@ -520,7 +468,6 @@ Flags can be:
 * m — multiline mode, meaning the pattern will continue looking for matches after reaching the end of one line of text
 
 - - -
-# Built-ins
 
 ## RegExp
 
@@ -532,14 +479,13 @@ test(str)
 ```
 
 - - -
-## String methods
+
+# String
 
 - - -
-# Built-ins
+## String
 
-## String methods
-
-### Overview
+### Methods overview
 
 ```js
 charAt(pos)
@@ -556,10 +502,10 @@ toUpperCase()
 ```
 
 - - -
+
 ## Date
 
 - - -
-# Built-ins
 
 ## Date
 
@@ -575,13 +521,6 @@ var now = new Date();
 now.toDateString(); //"Thu Mar 08 2012"
 now.toString();     //"Thu Mar 08 2012 10:41:02 GMT+0100 (CET)"
 ```
-
-- - -
-# Built-ins
-
-## Date
-
-### Definition
 
 Date constructor accept many format
 
