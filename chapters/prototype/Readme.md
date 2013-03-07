@@ -6,8 +6,9 @@
 
 ### Constructor functions
 
-Function can be used to instantiate objects,  
-using the `new` operator.
+#### Instantiate objects
+
+Function can be used to instantiate objects using the `new` operator.
 
 ```js
 function Hero () {
@@ -74,14 +75,6 @@ cat.name;     // "Tom"
 cat.greets(); // "Hi! I'm Tom!"
 ```
 
-```js
-function f() {
-  return this;
-}
-
-f();          // Object window
-```
-
 - - -
 
 ## Object Oriented JavaScript
@@ -106,6 +99,14 @@ h.name;            // TypeError: Cannot read property "name" of undefined
 
 window.name;       // "Leonardo"
 window.occupation; // "Ninja"
+```
+
+```js
+function f () {
+  return this;
+}
+
+f();                // Object window
 ```
 
 - - -
