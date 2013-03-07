@@ -261,8 +261,9 @@ Circle.prototype.name = "circle";
 
 ```js
 c = new Circle(4);
-c.r;    //4 - found in the properties of c
-c.name; //"circle" - found in the prototype of c
+
+c.r;        // 4 - found in the properties of c
+c.name;     // "circle" - found in the prototype of c
 ```
 
 - - -
@@ -279,7 +280,7 @@ the object shared by instances created by the function `f`
 
 A constructor is a function, so it has a `prototype`  
 A prototype is an object so it has a `constructor`
-  
+
 ```js
 function Circle (r) {
   this.r = r;
@@ -290,15 +291,11 @@ Circle.prototype.name = "circle";
 
 ```js
 c = new Circle(4);
-```
 
-```js
 c.constructor;            // function Circle(r) {...}
 typeof c.constructor;     // "function"
 c.constructor === Circle; // true
-```
 
-```js
 Circle.prototype;         // { name: "circle" }
 typeof Circle.ptototype;  // "object"
 ```
@@ -309,26 +306,9 @@ typeof Circle.ptototype;  // "object"
 
 ### The prototype chain
 
-The built-in `Object` object is the highest-level parent,  
-the end of the so called **prototype chain**.  
+#### Overwriting `prototype`'s property
 
-```js
-c.toString();  // "[object Object]"
-```
-
-`c` doesn't have an own `toString()` method  
-`c.prototype` doesn't have an own `toString()` method  
-`Object.prototype` has it!
-
-- - -
-
-## Object Oriented JavaScript
-
-### The prototype chain
-
-#### Overwriting prototype's property with own property
-
-The own property takes precedence over the prototype's
+The object property takes precedence over the prototype's
 
 ```js
 function Circle (r) {
@@ -340,7 +320,7 @@ Circle.prototype.color = "green";
 ```
 
 ```js
-var c = new Circle(5);
+var c = new Circle(4);
 
 c.color;                       // "red"
 c.constructor.prototype.color; // "green"
@@ -411,7 +391,7 @@ for (var p in c) {
 ### The prototype chain
 
 #### `isPrototypeOf(obj)`
- 
+
 This method tells whether that specific object is used as a prototype of another object.
 
 ```js
