@@ -417,16 +417,11 @@ Array.prototype.isPrototypeOf(c);  //false
 
 #### `__proto__` special property
 
-`prototype.constructor` is not reliable  
-since it could be simply overwritten  
+`__proto__` is a special property of an object 
+that refers to its prototype
 
-JavaScript access object's prototype through a secret link  
-some engines expose this link as a `__proto__` properties  
-
-> #### Warning!
->
-> `__proto__` property is not in the standard  
-
+`__proto__` is not in the JavaScript standard  
+so don't use it!
 
 ```js
 function Circle (r) {
@@ -447,11 +442,26 @@ typeof c.constructor.prototype // "undefined"
 c.color;                       //"green"
 // JavaScript uses immutable __proto__ secret link :)
 ```
+- - -
+
+## Object Oriented JavaScript
+
+### The prototype chain
+
+#### `__proto__` special property
 
 `__proto__` and `prototype` refer to the same object but:
 
 * `__proto__` is a property of the instances
 * `prototype` is a property of the constructor functions
+
+```js
+function Circle (r) {
+  this.r = r;
+}
+
+Circle.prototype.color = 'green';
+```
 
 ```js
 typeof c.__proto__;                      // "object"
