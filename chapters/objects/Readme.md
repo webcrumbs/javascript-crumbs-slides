@@ -29,7 +29,7 @@ hero["breed"]; // "Turtle" - square bracket notation
 ```
 
 ```js
- hero["finger count"]; // 3
+hero["finger count"]; // 3
 ```
 
 ```js
