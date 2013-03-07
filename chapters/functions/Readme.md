@@ -472,9 +472,9 @@ function test (o) {
     for (var k=0; k<10; k+=1) {   //k is defined everywhere, not just loop
       console.log(k);             //print numbers 0 through 9
     }
-    console.log(k);               //k is still defined: prints 10
+    console.log('k = ' + k);      //k is still defined: prints 10
   }
-  console.log(j);                 //j is defined, but may not be initialized
+  console.log('j = ' + j);       //j is defined, but may not be initialized
 }
 ```
 
