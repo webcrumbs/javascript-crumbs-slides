@@ -41,6 +41,14 @@ var felix = new Cat("Felix");
 felix.name;      // "Felix"
 ```
 
+- - - 
+
+## Object Oriented JavaScript
+
+### Constructor functions
+
+#### `this` special value
+
 In general, `this` is the context where the function is invoked,  
 and corresponds to the object the function belongs to.
 
@@ -80,10 +88,10 @@ f();          // Object window
 
 ### Constructor functions
 
-#### Warning
+#### `this` special value
 
-Calling a function that is designed to be a constructor but  
-omitting the `new` operator may result in a behaviour you could not expect.
+If a constructor function is called without `new`  
+`this` refers to the object the function belongs to (`window`)
 
 ```js
 function Hero (name) {
@@ -154,6 +162,8 @@ o instanceof Hero;   //false
 ## Object Oriented JavaScript
 
 ### Prototype
+
+### `prototype` special property
 
 Every function has a special property called `prototype`
 
