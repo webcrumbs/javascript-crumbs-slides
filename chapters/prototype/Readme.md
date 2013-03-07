@@ -19,7 +19,7 @@ hero.occupation; // "Ninja"
 ```
 
 #### Convention
-capitalize the first letter of your constructor functions
+Capitalize the first letter of your constructor functions
 
 - - - 
 
@@ -73,29 +73,6 @@ function f() {
 
 f();          // Object window
 ```
-- - -
-
-## Object Oriented JavaScript
-
-### Constructor functions
-
-Constructor functions can accept parameters,  
-which can be used when creating new objects.
-
-```js
-function Hero (name) {
-  this.name = name;
-  this.occupation = "Ninja";
-  this.greets = function () {
-    return "Hi! I'm " + this.name + " and I'm a " + this.occupation;
-  }
-}
-
-var h1 = new Hero("Michelangelo");
-var h2 = new Hero("Donatello");
-h1.greets(); // "Hi! I'm Michelangelo and I'm a Ninja"
-h2.greets(); // "Hi! I'm Donatello and I'm a Ninja"
-```
 
 - - -
 
@@ -104,7 +81,8 @@ h2.greets(); // "Hi! I'm Donatello and I'm a Ninja"
 ### Constructor functions
 
 #### Warning
-calling a function that is designed to be a constructor but  
+
+Calling a function that is designed to be a constructor but  
 omitting the `new` operator may result in a behaviour you could not expect.
 
 ```js
@@ -129,7 +107,7 @@ window.occupation; // "Ninja"
 ### `constructor` property
 
 Every object has a special property called `constructor`  
-that refer to its constructor function.
+that refers to constructor function.
 
 ```js
 function Cat (name) { 
@@ -137,7 +115,7 @@ function Cat (name) {
 }
 
 var c1 = new Cat("Felix");
-c1.constructor; // function Cat(name) {...}
+c1.constructor; // function Cat(name) { ... }
 
 var c2 = new c1.constructor("Tom");
 c2.name;        // "Tom"
@@ -175,27 +153,29 @@ o instanceof Hero;   //false
 
 ## Object Oriented JavaScript
 
-# Prototype
+### Prototype
 
-## Function's `prototype` property
-
-
-Every function has a property called `prototype`
+Every function has a special property called `prototype`
 
 `prototype` is an object shared by every object instantiated by the function
 
-`protottype` is initially an empty object
+`prototype` is initially an empty object
 
 ```js
-function foo(a, b) { return a * b; }
-typeof foo.prototype // "object"
+function Circle (r) { 
+  this.r = r; 
+}
+
+Circle.prototype; // {}
 ```
 
-# Prototype
+- - -
 
-## Function's `prototype` property
+## Object Oriented JavaScript
 
-### Augmenting `prototype`
+### Prototype
+
+#### Augmenting the `prototype` object
 
 `prototype` object can be augmented with properties and methods  
 
@@ -206,96 +186,81 @@ function Circle (r) {
 ```
 
 ```js
-Circle.prototype.name = 'circle';
-Circle.prototype.getArea = function () {
+Circle.prototype.name = "circle";
+Circle.prototype.area = function () {
   return Math.PI * this.r * this.r;
 };
 ```
 
-- - -
-# Prototype
-
-## Function's `prototype` property
-
-### 
-
-Methods and properties added to the `prototype` of the function `f`  
-are available to every object created by function `f`  
+Properties and methods added to the `prototype` of a function  
+are available to every object instantiated by that function
 
 ```js
-var c = new Circle(4);
-c.r;          //4
-c.name;       // "circle"
-c.getArea();  //50.26548245743669
-```
+var c1 = new Circle(4);
+c1.r;       //4
+c1.name;    // "circle"
+c1.area();  //50.26548245743669
 
-```js
-var d = new Circle(2);
-d.r;          //2
-d.name;       //"circle"
-d.getArea();  //12.566370614359172
+var c2 = new Circle(2);
+c2.r;       //2
+c2.name;    //"circle"
+c2.area();  //12.566370614359172
 ```
 
 - - -
-# Prototype
 
-## Function's `prototype` property
+## Object Oriented JavaScript
 
-### The prototype is "live"  
+### Prototype
+
+#### Augmenting the `prototype` object
 
 Objects are passed by reference:  
 the prototype is not copied with every new object instance  
 
 ```js
-Circle.prototype.getCircumference = function () {
+Circle.prototype.circumference = function () {
   return 2 * Math.PI * this.r;
 };
-```
 
-```js
-var d = new Circle(5);
-
-c.getCircumference(); //25.132741228718345
-d.getCircumference(); //31.41592653589793
+c2.circumference();   //25.132741228718345
 ```
 
 - - -
-## The prototype chain
 
-- - -
-# Prototype
+## Object Oriented JavaScript
 
-## The prototype chain
+### The prototype chain
 
-### Accessing a property of an object
+#### Accessing a property of an object
 
-When you access a property `p` of an object `o` JavaScript:
+When accessing a property `p` of an object `o` JavaScript:
 
 1. looks for `p` in the properties of `o`
-2. if it finds `p`, returns its value
+2. if it finds `p` then returns its value
 3. else it looks in the prototype of `o`
-4. if it finds `p`, it returns its value
-5. else it look in the prototype of the prototype of `o`
+4. if it finds `p` then it returns its value
+5. else it looks in the prototype of the prototype of `o`
 6. ...
 
 - - -
-# Prototype
 
-## The prototype chain
+## Object Oriented JavaScript
 
-### Accessing a property of an object
+### The prototype chain
+
+#### Accessing a property of an object
 
 ```js
-c.r; //4 - found in the properties of c
+c.r;    //4 - found in the properties of c
 c.name; //"circle" - found in the prototype of c
 ```
 
 - - -
-# Prototype
 
-## The prototype chain
+## Object Oriented JavaScript
 
-### Understanding the chain
+### The prototype chain
 
 Every object `o` has a `constructor` property:  
 the function which creates the object `o`
@@ -307,11 +272,10 @@ A constructor is a function, so it has a `prototype`
 A prototype is an object so it has a `constructor`
 
 - - -
-# Prototype
 
-## The prototype chain
+## Object Oriented JavaScript
 
-### Understanding the chain
+### The prototype chain
   
 ```js
 c = new Circle(4);
@@ -329,11 +293,10 @@ c.constructor.ptototype; //"object"
 ```
 
 - - -
-# Prototype
 
-## The prototype chain
+## Object Oriented JavaScript
 
-### Understanding the chain
+### The prototype chain
 
 The built-in `Object` object is the highest-level parent,  
 the end of the so called **prototype chain**.  
@@ -347,48 +310,45 @@ c.toString();  // "[object Object]"
 `Object.prototype` has it!
 
 - - -
-# Prototype
 
-## The prototype chain
+## Object Oriented JavaScript
 
-### Overwriting prototype's property with own property
+### The prototype chain
 
-The own property takes precedence over the prototype's.
+#### Overwriting prototype's property with own property
+
+The own property takes precedence over the prototype's
 
 ```js
 function Circle (r) {
   this.r = r;
-  this.color = 'red';
+  this.color = "red";
 }
 
-Circle.prototype.color = 'green';
+Circle.prototype.color = "green";
 ```
 
 ```js
 var c = new Circle(5);
 
-c.color; // "red"
-```
+c.color;                       // "red"
+c.constructor.prototype.color; // "green"
 
-```js
 delete c.color;
-c.color; // "green"
-```
+c.color;                       // "green"
 
-```js
 c.color = 'blue';
-c.color; // "blue"
+c.color;                       // "blue"
+c.constructor.prototype.color; // "green"
 ```
 
 - - -
-## Useful methods
 
-- - -
-# Prototype
+## Object Oriented JavaScript
 
-## Useful methods
+### The prototype chain
 
-### `hasOwnProperty(prop)`
+#### `hasOwnProperty(prop)`
 
 A `for-in` loop iterates over all properties including those of the prototype.
 
@@ -407,16 +367,17 @@ for (var p in c) {
   console.log(p);
 }
 
-//r
-//color
+// r
+// color
 ```
 
 - - -
-# Prototype
 
-## Useful methods
+## Object Oriented JavaScript
 
-### `hasOwnProperty(prop)`
+### The prototype chain
+
+#### `hasOwnProperty(prop)`
 
 Use `hasOwnProperty()` to test if a property belongs to an object.
 
@@ -429,15 +390,16 @@ for (var p in c) {
   }
 }
 
-//r
+// r
 ```
 
 - - -
-# Prototype
 
-## Useful methods
+## Object Oriented JavaScript
 
-### `isPrototypeOf(obj)`
+### The prototype chain
+
+#### `isPrototypeOf(obj)`
  
 This method tells whether that specific object is used as a prototype of another object.
 
@@ -457,30 +419,23 @@ Array.prototype.isPrototypeOf(c);  //false
 ```
 
 - - -
-## Some prototype gotchas
 
-- - -
-# Prototype
+## Object Oriented JavaScript
 
-## Some prototype gotchas
+### The prototype chain
 
-### `prototype.constructor` is not reliable
+#### `__proto__` special property
 
-It could be simply overwritten  
+`prototype.constructor` is not reliable  
+since it could be simply overwritten  
+
 JavaScript access object's prototype through a secret link  
-Some engines expose this link as a `__proto__` properties  
+some engines expose this link as a `__proto__` properties  
 
-> #### Forbidden!
+> #### Warning!
 >
-> Even when exposed never use secret `__proto__` property.  
-> It's no standard: think it's there only for learning purpose.
+> `__proto__` property is not in the standard  
 
-- - -
-# Prototype
-
-## Some prototype gotchas
-
-### `prototype.constructor` is not reliable
 
 ```js
 function Circle (r) {
@@ -498,16 +453,9 @@ c.constructor = 'junk'
 typeof c.constructor.prototype // "undefined"
 // a string object hasn't a prototype property
 
-c.color; //"green"
-// JavaScript uses immutable __proto__ secret link
+c.color;                       //"green"
+// JavaScript uses immutable __proto__ secret link :)
 ```
-
-- - -
-# Prototype
-
-## Some prototype gotchas
-
-### `prototype.constructor` is not reliable
 
 `__proto__` and `prototype` refer to the same object but:
 
@@ -515,6 +463,7 @@ c.color; //"green"
 * `prototype` is a property of the constructor functions
 
 ```js
-typeof c.__proto__   // "object"
-typeof c.prototype   // "undefifined"
+typeof c.__proto__;                      // "object"
+typeof c.prototype;                      // "undefifined"
+c.constructor.prototype === c.__proto__; // true
 ```
