@@ -1,9 +1,180 @@
-# Prototype
+# Object Oriented JavaScript
 
 - - -
-## Function's `prototype` property
+
+## Object Oriented JavaScript
+
+### Constructor functions
+
+Function can be used to instantiate objects,  
+using the `new` operator.
+
+```js
+function Hero () {
+  this.occupation = "Ninja";
+}
+
+var hero = new Hero();
+hero.occupation; // "Ninja"
+```
+
+#### Convention
+capitalize the first letter of your constructor functions
+
+- - - 
+
+## Object Oriented JavaScript
+
+### Constructor functions
+
+#### `this` special value
+
+In a constructor function (a function called via the `new` operator)  
+`this` refers to the new object instatiated.
+
+```js
+function Cat (name) {
+  this.name = name;
+}
+
+var felix = new Cat("Felix");
+felix.name;      // "Felix"
+```
+
+In general, `this` is the context where the function is invoked,  
+and corresponds to the object the function belongs to.
+
+```js
+var o = {
+  f: function () {
+    return this;
+  }
+};
+
+obj.f();      // Object o
+```
+
+```js
+var cat = {
+  name: "Tom",
+  greets: function () {
+    return "Hi! I'm " + this.name + "!";
+  }
+};
+
+cat.name;     // "Tom"
+cat.greets(); // "Hi! I'm Tom!"
+```
+
+```js
+function f() {
+  return this;
+}
+
+f();          // Object window
+```
+- - -
+
+## Object Oriented JavaScript
+
+### Constructor functions
+
+Constructor functions can accept parameters,  
+which can be used when creating new objects.
+
+```js
+function Hero (name) {
+  this.name = name;
+  this.occupation = "Ninja";
+  this.greets = function () {
+    return "Hi! I'm " + this.name + " and I'm a " + this.occupation;
+  }
+}
+
+var h1 = new Hero("Michelangelo");
+var h2 = new Hero("Donatello");
+h1.greets(); // "Hi! I'm Michelangelo and I'm a Ninja"
+h2.greets(); // "Hi! I'm Donatello and I'm a Ninja"
+```
 
 - - -
+
+## Object Oriented JavaScript
+
+### Constructor functions
+
+#### Warning
+calling a function that is designed to be a constructor but  
+omitting the `new` operator may result in a behaviour you could not expect.
+
+```js
+function Hero (name) {
+  this.name = name;
+  this.occupation = "Ninja";
+}
+
+// invoking Hero without new
+var h = Hero("Leonardo");
+typeof h;          // "undefifined"
+h.name;            // TypeError: Cannot read property "name" of undefined
+
+window.name;       // "Leonardo"
+window.occupation; // "Ninja"
+```
+
+- - -
+
+## Object Oriented JavaScript
+
+### `constructor` property
+
+Every object has a special property called `constructor`  
+that refer to its constructor function.
+
+```js
+function Cat (name) { 
+  this.name = name; 
+}
+
+var c1 = new Cat("Felix");
+c1.constructor; // function Cat(name) {...}
+
+var c2 = new c1.constructor("Tom");
+c2.name;        // "Tom"
+```
+
+If an object is created via the object literal notation  
+its constructor is the built-in `Object` function.
+
+```js
+var o = {};
+o.constructor; // funciton Object () { [native code] };
+```
+
+- - -
+
+## Object Oriented JavaScript
+
+### `instanceof` operator
+
+`instanceof` operator tests if an object is created by a constructor function.
+
+```js
+function Hero () {}
+
+var h = new Hero();
+var o = {};
+
+h instanceof Hero;   //true
+h instanceof Object; //true
+o instanceof Object; //true
+o instanceof Hero;   //false
+```
+
+- - -
+
+## Object Oriented JavaScript
+
 # Prototype
 
 ## Function's `prototype` property
