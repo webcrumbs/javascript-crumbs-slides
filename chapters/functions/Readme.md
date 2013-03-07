@@ -469,7 +469,7 @@ function test (o) {
   var i = 0;                      //i is defined throughout function
   if (typeof o === 'object') {
     var j = 0;                    //j is defined everywhere, not just block
-    for (var k=0; k < 10; k += 1) {  //k is defined everywhere, not just loop
+    for (var k = 0; k < 10; k += 1) {  //k is defined everywhere, not just loop
       console.log(k);             //print numbers 0 through 9
     }
     console.log(k);               //k is still defined: prints 10
