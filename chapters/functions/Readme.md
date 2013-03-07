@@ -597,6 +597,7 @@ function f () {
 ```
 
 ```js
+f();
 b = getB();
 b; //"b"
 ```
@@ -633,7 +634,7 @@ getArg(); //"Hello"
 ```js
 function countdown (from) {
   return function () {
-    if (from 0) {
+    if (from > 0) {
       return from--;
     }
     return 'Finish!';
