@@ -12,5 +12,5 @@
 6. [objects](objects/Readme.md)
 7. [functions](functions/Readme.md)
 8. [built-in objects](built-ins/Readme.md)
-9. [prototype](prototype/Readme.md)
+9. [object oriented javascript](prototype/Readme.md)
 10. [inheritance](inheritance/Readme.md)
