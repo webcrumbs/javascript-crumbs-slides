@@ -417,11 +417,11 @@ Array.prototype.isPrototypeOf(c);  //false
 
 #### `__proto__` special property
 
-`__proto__` is a special property of an object 
-that refers to its prototype
+`constructor.prototype` is not reliable since it could be overwritten
 
-`__proto__` is not in the JavaScript standard  
-so don't use it!
+`__proto__` is a special property of an object that refers to its prototype
+
+`__proto__` is not in the JavaScript standard so don't use it!
 
 ```js
 function Circle (r) {
@@ -434,12 +434,9 @@ Circle.prototype.color = 'green';
 ```js
 var c = new Circle(4);
 
-c.constructor = 'junk'
-
-typeof c.constructor.prototype // "undefined"
-// a string object hasn't a prototype property
-
-c.color;                       //"green"
+c.constructor = 'junk';
+c.constructor.prototype // undefined
+c.color;                //"green"
 // JavaScript uses immutable __proto__ secret link :)
 ```
 - - -
@@ -450,10 +447,11 @@ c.color;                       //"green"
 
 #### `__proto__` special property
 
-`__proto__` and `prototype` refer to the same object but:
+`__proto__` and `prototype` refer to the same object but
 
-* `__proto__` is a property of the instances
-* `prototype` is a property of the constructor functions
+`__proto__` is a property of the instances
+
+`prototype` is a property of the constructor functions
 
 ```js
 function Circle (r) {
@@ -464,7 +462,9 @@ Circle.prototype.color = 'green';
 ```
 
 ```js
-typeof c.__proto__;                      // "object"
-typeof c.prototype;                      // "undefifined"
-c.constructor.prototype === c.__proto__; // true
+var c = new Circle(4);
+
+typeof c.__proto__;               // "object"
+typeof c.prototype;               // "undefifined"
+Circle.prototype === c.__proto__; // true
 ```
