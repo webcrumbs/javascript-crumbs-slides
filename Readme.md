@@ -1,7 +1,5 @@
 # javascript-crumbs-slides
 
-## for beginners
-
 ### [Recipe](chapters/Readme.md)
 
 1. [introduction](chapters/introduction/Readme.md)
@@ -12,7 +10,7 @@
 6. [objects](chapters/objects/Readme.md)
 7. [functions](chapters/functions/Readme.md)
 8. [built-in objects](chapters/built-ins/Readme.md)
-9. [prototype](chapters/prototype/Readme.md)
+9. [object oriented javascript](chapters/prototype/Readme.md)
 10. [inheritance](chapters/inheritance/Readme.md)
 
 ### Bakers
