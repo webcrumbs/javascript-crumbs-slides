@@ -163,7 +163,7 @@ o instanceof Hero;   //false
 
 ### Prototype
 
-### `prototype` special property
+#### `prototype` special property
 
 Every function has a special property called `prototype`
 
@@ -185,7 +185,7 @@ Circle.prototype; // {}
 
 ### Prototype
 
-#### Augmenting the `prototype` object
+#### `prototype` special property
 
 `prototype` object can be augmented with properties and methods  
 
@@ -193,9 +193,7 @@ Circle.prototype; // {}
 function Circle (r) {
   this.r = r;
 }
-```
 
-```js
 Circle.prototype.name = "circle";
 Circle.prototype.area = function () {
   return Math.PI * this.r * this.r;
@@ -223,7 +221,7 @@ c2.area();  //12.566370614359172
 
 ### Prototype
 
-#### Augmenting the `prototype` object
+#### `prototype` special property
 
 Objects are passed by reference:  
 the prototype is not copied with every new object instance  
@@ -253,15 +251,16 @@ When accessing a property `p` of an object `o` JavaScript:
 5. else it looks in the prototype of the prototype of `o`
 6. ...
 
-- - -
+```js
+function Circle (r) {
+  this.r = r;
+}
 
-## Object Oriented JavaScript
-
-### The prototype chain
-
-#### Accessing a property of an object
+Circle.prototype.name = "circle";
+```
 
 ```js
+c = new Circle(4);
 c.r;    //4 - found in the properties of c
 c.name; //"circle" - found in the prototype of c
 ```
@@ -280,26 +279,28 @@ the object shared by instances created by the function `f`
 
 A constructor is a function, so it has a `prototype`  
 A prototype is an object so it has a `constructor`
-
-- - -
-
-## Object Oriented JavaScript
-
-### The prototype chain
   
+```js
+function Circle (r) {
+  this.r = r;
+}
+
+Circle.prototype.name = "circle";
+```
+
 ```js
 c = new Circle(4);
 ```
 
 ```js
-typeof c; //"object"
-c.constructor; //function Circle(r) {...}
-c.constructor === Circle; //true
+c.constructor;            // function Circle(r) {...}
+typeof c.constructor;     // "function"
+c.constructor === Circle; // true
 ```
 
 ```js
-typeof c.constructor; //"function"
-c.constructor.ptototype; //"object"
+Circle.prototype;         // { name: "circle" }
+typeof Circle.ptototype;  // "object"
 ```
 
 - - -
