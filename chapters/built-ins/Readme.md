@@ -201,7 +201,7 @@ colors; // ["red", "green"]
 
 ## Array
 
-### sort(comparefn)
+### `sort(comparefn)`
 The default comparing function is the lexicographical order.
 
 ```js
