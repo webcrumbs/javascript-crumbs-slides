@@ -272,7 +272,7 @@ everyResult;   //true
 
 ### `some(iterator, scope)`
 
-Runs the given function on every item in the array and returns `true` if the function returns `true` for any one item.
+Runs the given function on every item in the array and returns `true` if the function returns `true` for at least one item.
 
 ```js
 var numbers = [1,2,3,4,5,4,3,2,1];
