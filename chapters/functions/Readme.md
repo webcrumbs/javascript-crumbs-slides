@@ -759,7 +759,7 @@ function f () {
 
 ### Closure
 
-#### Exercize \#1
+#### Exercise \#1
 
 ```js
 var a = 1;
