@@ -721,9 +721,9 @@ var a = f();
 ```
 
 ```js
-a[0](); //3
-a[1](); //3
-a[2](); //3
+a[0](); //?
+a[1](); //?
+a[2](); //?
 ```
 
 - - -
@@ -751,4 +751,25 @@ function f () {
 
   return a;
 }
+```
+
+- - -
+
+## Functions
+
+### Closure
+
+#### Exercize \#1
+
+```js
+var a = 1;
+function f() {
+  var a = 2;
+  function n () {
+    alert(a); 
+  }
+  n(); 
+}
+
+f(); //?
 ```
