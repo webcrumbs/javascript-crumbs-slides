@@ -60,7 +60,7 @@ var o = {
   }
 };
 
-obj.f();      // Object o
+o.f();      // Object o
 ```
 
 ```js
