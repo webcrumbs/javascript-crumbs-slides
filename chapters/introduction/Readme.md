@@ -230,6 +230,33 @@ server.listen(3000);
 
 ## JavaScript crumbs
 
+### A Simple Testing Ground
+
+If you have a web browser and any text editor,  
+you have everything you need to run JavaScript programs. 
+
+Make an HTML file (`index.html`)
+
+```html
+<html>
+<body>
+  <script src="index.js"></script>
+</body>
+</html>
+```
+
+Make a JS file (`index.js`)
+
+```js
+document.writeln('Hello Web!');
+```
+
+Open your HTML file in your browser to see the result.
+
+- - -
+
+## JavaScript crumbs
+
 #### the end
 
 - - -
