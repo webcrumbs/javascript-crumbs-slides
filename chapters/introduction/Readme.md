@@ -88,7 +88,7 @@ programming language
 
 #### The world's most popular programming language
 
-It's the scripting language of the web ([GitHub numbers](https://github.com/languages))  
+It's the scripting language of the web
 
 It's the only one inside every pc (in the browser)
 
