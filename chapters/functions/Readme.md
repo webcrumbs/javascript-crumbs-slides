@@ -467,13 +467,13 @@ All variable declarations in a function (but not any associated assignments)
 are "hoisted" to the top of the function.
 
 ```js
-function test(o) {
-//note i is defined throughout function
+function test (o) {
+  //note i is defined throughout function
   var i = 0;                      
   if (typeof o === 'object') {
-//note j is defined everywhere, not just block
+    //note j is defined everywhere, not just block
     var j = 0;                    
-//note k is defined everywhere, not just loop
+    //note k is defined everywhere, not just loop
     for (var k=0; k<10; k+=1) {   
       //prints k numbers 0 through 9
       console.log(k);             
