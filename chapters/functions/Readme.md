@@ -467,7 +467,7 @@ All variable declarations in a function (but not any associated assignments)
 are "hoisted" to the top of the function.
 
 ```js
-function test (o) {
+function test(o) {
   //note i is defined throughout function
   var i = 0;                      
   if (typeof o === 'object') {
