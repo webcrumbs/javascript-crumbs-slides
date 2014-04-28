@@ -468,15 +468,21 @@ are "hoisted" to the top of the function.
 
 ```js
 function test (o) {
-  var i = 0;                      //i is defined throughout function
+  //i is defined throughout function
+  var i = 0;                      
   if (typeof o === 'object') {
-    var j = 0;                    //j is defined everywhere, not just block
-    for (var k=0; k<10; k+=1) {   //k is defined everywhere, not just loop
-      console.log(k);             //print numbers 0 through 9
+    //j is defined everywhere, not just block
+    var j = 0;                    
+    //k is defined everywhere, not just loop
+    for (var k=0; k<10; k+=1) {   
+      //print k: numbers 0 through 9
+      console.log(k);             
     }
-    console.log('k = ' + k);      //k is still defined: prints 10
+    //k is still defined: prints 10
+    console.log('k = ' + k);      
   }
-  console.log('j = ' + j);       //j is defined, but may not be initialized
+  //j is defined, but may not be initialized
+  console.log('j = ' + j);       
 }
 ```
 
