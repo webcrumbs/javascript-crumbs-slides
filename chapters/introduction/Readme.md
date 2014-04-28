@@ -235,23 +235,24 @@ server.listen(3000);
 If you have a web browser and any text editor,  
 you have everything you need to run JavaScript programs. 
 
-Make an HTML file (`index.html`)
+`.html` page
 
 ```html
 <html>
 <body>
-  <script src="index.js"></script>
+  <script src="path/to/your/script.js"></script>
 </body>
 </html>
 ```
 
-Make a JS file (`index.js`)
+`.js` script
 
 ```js
-document.writeln('Hello Web!');
+console.log('Hello Web!');
 ```
 
-Open your HTML file in your browser to see the result.
+Open the .html page in your browser,  
+open the JavaScript console to see the result.
 
 - - -
 
