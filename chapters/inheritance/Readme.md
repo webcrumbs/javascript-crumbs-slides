@@ -3,8 +3,6 @@
 
 - - -
 
-# Inheritance
-
 ## Define a "Class"
 
 Define a "class" using a constructor function
@@ -17,8 +15,6 @@ function Shape (x, y) {
 ```
 
 - - -
-
-# Inheritance
 
 ## Define a "Class"
 
@@ -44,8 +40,6 @@ Shape.prototype.info = function () {
 
 - - -
 
-# Inheritance
-
 ## Define a "Class"
 
 Instantiate the defined "class" using the operator `new`
@@ -60,8 +54,6 @@ shape.info(); //x: 3, y: 4
 ```
 
 - - - 
-
-# Inheritance
 
 ## Define a sub-"Class"
 
@@ -93,8 +85,6 @@ rect.info(); //x: 0, y: 0
 
 - - -
 
-# Inheritance
-
 ## Define a sub-"Class"
 
 Define the instance methods augmenting the constructor `prototype`  
@@ -112,8 +102,6 @@ Rectangle.prototype.info = function () {
 ```
 
 - - -
-
-# Inheritance
 
 ## Define a sub-"Class"
 
@@ -137,8 +125,6 @@ rect instanceof Rectangle; //false
 ```
 
 - - - 
-
-# Inheritance
 
 ## `Object.create`
 
