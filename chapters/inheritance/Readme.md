@@ -34,7 +34,7 @@ Shape.prototype.move = function (x, y) {
 };
 
 Shape.prototype.info = function () {
-  console.log('x: ', x, ', y: ', y);
+  console.log('x: ', this.x, ', y: ', this.y);
 };
 ```
 
