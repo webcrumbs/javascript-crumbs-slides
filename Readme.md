@@ -2,7 +2,7 @@
 
 ### [Recipe](chapters/Readme.md)
 
-1. [introduction](chapters/introduction/Readme.md)
+1. [introduction](chapters/introduction/Readme.md) ([slides](http://107.170.32.224:9100/slidify?md=https://raw.githubusercontent.com/cvdlab/javascript-crumbs-slides/master/chapters/introduction/Readme.md))
 2. [syntax](chapters/syntax/Readme.md)
 3. [types](chapters/types/Readme.md)
 4. [operators](chapters/operators/Readme.md)
