@@ -2,25 +2,25 @@
 
 ### [Recipe](chapters/Readme.md)
 
-1. [introduction](chapters/introduction/Readme.md) ([slides](http://107.170.32.224:9100/slidify?md=https://raw.githubusercontent.com/cvdlab/javascript-crumbs-slides/master/chapters/introduction/Readme.md))
-2. [syntax](chapters/syntax/Readme.md)
-3. [types](chapters/types/Readme.md)
-4. [operators](chapters/operators/Readme.md)
-5. [statements](chapters/statements/Readme.md)
-6. [objects](chapters/objects/Readme.md)
-7. [functions](chapters/functions/Readme.md)
-8. [built-in objects](chapters/built-ins/Readme.md)
-9. [object oriented javascript](chapters/prototype/Readme.md)
-10. [inheritance](chapters/inheritance/Readme.md)
+1. [introduction](chapters/introduction/Readme.md) ([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/introduction/Readme.md))
+2. [syntax](chapters/syntax/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/syntax/Readme.md))
+3. [types](chapters/types/Readme.md) [syntax](chapters/syntax/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/types/Readme.md))
+4. [operators](chapters/operators/Readme.md) [syntax](chapters/syntax/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/operators/Readme.md))
+5. [statements](chapters/statements/Readme.md) [syntax](chapters/syntax/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/syntax/Readme.md))
+6. [objects](chapters/objects/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/objects/Readme.md))
+7. [functions](chapters/functions/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/functions/Readme.md))
+8. [built-in objects](chapters/built-ins/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/built-ins/Readme.md))
+9. [object oriented javascript](chapters/prototype/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/prototype/Readme.md))
+10. [inheritance](chapters/inheritance/Readme.md)([slides](https://cvdlab.github.com/showdown?md=https://github.com/cvdlab/javascript-crumbs-slides/blob/master/chapters/inheritance/Readme.md))
 
 ### Bakers
 
-- [Enrico Marino](http://onirame.com)
+- [Enrico Marino](http://enricomarino.com)
 - [Federico Spini](http://federicospini.com)
 
 ### Bakery
 
-[Computational Visual Design Lab](http://dia.uniroma3.it/~cvdlab/)
+[Computational Visual Design Lab](http://cvdlab.org)
 
 ### Flour
 
@@ -34,7 +34,7 @@
 
 (The MIT License)
 
-Copyright (c) 2013 Enrico Marino and Federico Spini
+Copyright (c) 2013-2014 Enrico Marino and Federico Spini
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
