@@ -24,7 +24,7 @@
 
 #### Computational Visual Design Lab
 
-> [http://dia.uniroma3.it/~cvdlab/](http://dia.uniroma3.it/~cvdlab/)  
+> [http://dia.uniroma3.it/~cvdlab/](http://cvdlab.org)  
 > [https://github.com/cvdlab](https://github.com/cvdlab)
 
 - - -
