@@ -133,9 +133,9 @@ var exp3 = 123e-3; //123 * 10^-3 = 0.123
 
 ```js
 Number.MIN_VALUE;          // 5e-324 is the smallest representable number    
-Number.MAX_VALUE;          //1.7976931348623157e+308 is the largest representable number
-Number.POSITIVE_INIFINITY; //Infinity represent the positive inifinity
-Number.NEGATIVE_INFINITY;  //Infinity represent the negative infinity  
+Number.MAX_VALUE;          // 1.7976931348623157e+308 is the largest representable number
+Number.POSITIVE_INFINITY;  // the positive inifinity
+Number.NEGATIVE_INFINITY;  // negative infinity  
 ```
 
 ```js
@@ -151,11 +151,11 @@ To determine if a value is finite there is the `isFinite()` function.
 isFinite(0);                        //true
 isFinite(1.7e308);                  //true
 isFinite(1.8e308);                  //false
-isFinite(Infinite);                 //false
-isFinite(-Infinite);                //false
+isFinite(Infinity);                 //false
+isFinite(-Infinity);                //false
 isFinite(Number.MAX_VALUE + 1);     //false
-isFinite(Number.POSITIVE_INFINITE); //false
-isFinite(Number.NEGATIVE_INFINITE); //false
+isFinite(Number.POSITIVE_INFINITY); //false
+isFinite(Number.NEGATIVE_INFINITY); //false
 ```
 
 - - -
