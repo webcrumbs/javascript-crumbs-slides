@@ -212,7 +212,7 @@ values;   // 0,1,10,15,5
 
 ```js
 var compare = function (value1, value2) {
- return value2 - value1;
+ return value1 - value2;
 };
 
 var values = [0, 1, 5, 10, 15];
