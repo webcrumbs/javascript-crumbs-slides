@@ -113,35 +113,6 @@ f();                // Object window
 
 ## Object Oriented JavaScript
 
-### `constructor` property
-
-Every object has a special property called `constructor`  
-that refers to constructor function.
-
-```js
-function Cat (name) { 
-  this.name = name; 
-}
-
-var c1 = new Cat("Felix");
-c1.constructor; // function Cat(name) { ... }
-
-var c2 = new c1.constructor("Tom");
-c2.name;        // "Tom"
-```
-
-If an object is created via the object literal notation  
-its constructor is the built-in `Object` function.
-
-```js
-var o = {};
-o.constructor; // funciton Object () { [native code] };
-```
-
-- - -
-
-## Object Oriented JavaScript
-
 ### `instanceof` operator
 
 `instanceof` operator tests if an object is created by a constructor function.
@@ -239,6 +210,26 @@ c2.circumference();   //25.132741228718345
 
 ## Object Oriented JavaScript
 
+### `constructor` property
+
+Every object has a special property called `constructor`  
+that refers to constructor function.
+
+```js
+function Cat (name) { 
+  this.name = name; 
+}
+
+Cat.prototype.constructor; // function Cat(name) { ... }
+
+Cat.prototype.constructor === Cat; // true
+```
+
+- - -
+
+
+## Object Oriented JavaScript
+
 ### The prototype chain
 
 #### Accessing a property of an object
@@ -273,14 +264,11 @@ c.name;     // "circle" - found in the prototype of c
 
 ### The prototype chain
 
-Every object `o` has a `constructor` property:  
-the function which creates the object `o`
-
 Every function `f` has a `prototype` property:  
 the object shared by instances created by the function `f`
 
-A constructor is a function, so it has a `prototype`  
-A prototype is an object so it has a `constructor`
+Every prototype object `o` has a `constructor` property:  
+the function which creates objects with `o` as prototype
 
 ```js
 function Circle (r) {
@@ -293,7 +281,7 @@ Circle.prototype.name = "circle";
 ```js
 c = new Circle(4);
 
-c.constructor;            // function Circle(r) {...}
+c.constructor;            // Circle - found in the prototype of c
 typeof c.constructor;     // "function"
 c.constructor === Circle; // true
 
