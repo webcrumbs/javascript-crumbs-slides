@@ -121,7 +121,7 @@ var shape = new Shape();
 shape.area(); //TypeError: undefined is not a function
 
 shape instanceof Shape; //true
-rect instanceof Rectangle; //false
+shape instanceof Rectangle; //false
 ```
 
 - - - 
