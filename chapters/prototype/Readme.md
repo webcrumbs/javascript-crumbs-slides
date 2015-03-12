@@ -212,7 +212,7 @@ c2.circumference();   //25.132741228718345
 
 ### `constructor` property
 
-Every object has a special property called `constructor`  
+Every prototype object has a special property called `constructor`  
 that refers to constructor function.
 
 ```js
@@ -227,6 +227,33 @@ Cat.prototype.constructor === Cat; // true
 
 - - -
 
+## Object Oriented JavaScript
+
+### The prototype chain
+
+Every function `f` has a `prototype` property:  
+the object shared by instances created by the function `f`
+
+Every prototype object `o` has a `constructor` property:  
+the function which creates objects with `o` as prototype
+
+```js
+function Circle (radius) {
+  this.radius = radius;
+}
+
+Circle.prototype.name = "circle";
+```
+
+```js
+Circle.prototype;         // { name: "circle" }
+typeof Circle.ptototype;  // "object"
+
+Circle.prototype.constructor; // Circle
+Circle.prototype.constructor === Circle; // true
+```
+
+- - -
 
 ## Object Oriented JavaScript
 
@@ -244,8 +271,8 @@ When accessing a property `p` of an object `o` JavaScript:
 6. ...
 
 ```js
-function Circle (r) {
-  this.r = r;
+function Circle (radius) {
+  this.radius = radius;
 }
 
 Circle.prototype.name = "circle";
@@ -254,42 +281,12 @@ Circle.prototype.name = "circle";
 ```js
 c = new Circle(4);
 
-c.r;        // 4 - found in the properties of c
+c.radius;        // 4 - found in the properties of c
 c.name;     // "circle" - found in the prototype of c
+c.constructor; // Circle - found in the prototype of c
 ```
 
-- - -
-
-## Object Oriented JavaScript
-
-### The prototype chain
-
-Every function `f` has a `prototype` property:  
-the object shared by instances created by the function `f`
-
-Every prototype object `o` has a `constructor` property:  
-the function which creates objects with `o` as prototype
-
-```js
-function Circle (r) {
-  this.r = r;
-}
-
-Circle.prototype.name = "circle";
-```
-
-```js
-c = new Circle(4);
-
-c.constructor;            // Circle - found in the prototype of c
-typeof c.constructor;     // "function"
-c.constructor === Circle; // true
-
-Circle.prototype;         // { name: "circle" }
-typeof Circle.ptototype;  // "object"
-```
-
-- - -
+- - - 
 
 ## Object Oriented JavaScript
 
@@ -300,11 +297,12 @@ typeof Circle.ptototype;  // "object"
 The object property takes precedence over the prototype's
 
 ```js
-function Circle (r) {
-  this.r = r;
+function Circle (radius) {
+  this.radius = radius;
   this.color = "red";
 }
 
+Circle.prototype.name = "circle";
 Circle.prototype.color = "green";
 ```
 
@@ -333,8 +331,8 @@ c.constructor.prototype.color; // "green"
 A `for-in` loop iterates over all properties including those of the prototype.
 
 ```js
-function Circle (r) {
-  this.r = r;
+function Circle (radius) {
+  this.radius = radius;
 }
 
 Circle.prototype.color = 'green';
@@ -347,7 +345,7 @@ for (var p in c) {
   console.log(p);
 }
 
-// r
+// radius
 // color
 ```
 
@@ -384,8 +382,8 @@ for (var p in c) {
 This method tells whether that specific object is used as a prototype of another object.
 
 ```js
-function Circle (r) {
-  this.r = r;
+function Circle (radius) {
+  this.radius = radius;
 }
 
 Circle.prototype.color = 'green';
@@ -413,8 +411,8 @@ Array.prototype.isPrototypeOf(c);  //false
 `__proto__` is not in the JavaScript standard so don't use it!
 
 ```js
-function Circle (r) {
-  this.r = r;
+function Circle (radius) {
+  this.radius = radius;
 }
 
 Circle.prototype.color = 'green';
@@ -443,8 +441,8 @@ c.color;                //"green"
 `prototype` is a property of the constructor functions
 
 ```js
-function Circle (r) {
-  this.r = r;
+function Circle (radius) {
+  this.radius = radius;
 }
 
 Circle.prototype.color = 'green';
