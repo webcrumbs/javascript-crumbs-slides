@@ -149,11 +149,11 @@ slice(start, end)
 splice(start, deleteCount, item...)
 indexOf(item, startPos)
 lastIndexOf(item, startPos)
-every(function(item, index, array) {...}, scope)
-some(function(item, index, array) {...}, scope)
-filter(function(item, index, array) {...}, scope)
-forEach(function(item, index, array) {...}, scope)
-map(function(item, index, array) {...}, scope)
+every(function(item, index, array) {...}, thisArg)
+some(function(item, index, array) {...}, thisArg)
+filter(function(item, index, array) {...}, thisArg)
+forEach(function(item, index, array) {...}, thisArg)
+map(function(item, index, array) {...}, thisArg)
 reduce(function(prev, cur, index, array) {...}, initVal)
 reduceRight(function(prev, cur, index, array) {...}, initVal)
 ```
@@ -241,7 +241,7 @@ The function passed into one of these methods will receive three arguments:
 
 ## Array
 
-### `every(iterator, scope)`
+### `every(iterator, thisArg)`
 
 Runs the given function on every item in the array  
 and returns `true` if the function returns `true` for every item.
@@ -270,7 +270,7 @@ everyResult;   //true
 
 ## Array
 
-### `some(iterator, scope)`
+### `some(iterator, thisArg)`
 
 Runs the given function on every item in the array and returns `true` if the function returns `true` for at least one item.
 
@@ -297,7 +297,7 @@ someResult;   //false
 - - -
 ## Array
 
-### `filter(iterator, scope)`
+### `filter(iterator, thisArg)`
 
 Runs the given function on every item in the array  
 and returns an array of all items for which the function returns `true`.
@@ -315,7 +315,7 @@ filterResult;   //[3,4,5,4,3]
 - - -
 ## Array
 
-### `forEach(oterator, scope)`
+### `forEach(iterator, thisArg)`
 
 Runs the given function on every item in the array.  
 This method has no return value.
@@ -331,7 +331,7 @@ numbers.forEach(function(item, index, array){
 - - -
 ## Array
 
-### `map(iterator, scope)`
+### `map(iterator, thisArg)`
 
 Runs the given function on every item in the array  
 and returns the result of each function call in an array.
