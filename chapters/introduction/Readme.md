@@ -40,7 +40,7 @@
 ### What's JavaScript?
 
 JavaScript is a  
-dinamic  
+dynamic  
 weakly typed  
 interpreted  
 object oriented  
